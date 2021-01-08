@@ -1,0 +1,22 @@
+module.exports = {
+  projects: [
+    '<rootDir>/apps/websites/vrapalis/ui',
+    '<rootDir>/libs/shared/auth/feature/reset-password',
+    '<rootDir>/libs/shared/auth/feature/registration',
+    '<rootDir>/libs/shared/auth/feature/login',
+    '<rootDir>/libs/shared/auth/data-access',
+    '<rootDir>/libs/shared/util',
+    '<rootDir>/libs/shared/ui',
+    '<rootDir>/apps/entryou/ui',
+    '<rootDir>/libs/entryou/auth/feature/login',
+    '<rootDir>/libs/entryou/auth/feature/registration',
+    '<rootDir>/libs/entryou/auth/feature/reset-password',
+    '<rootDir>/libs/entryou/auth/ui',
+    '<rootDir>/apps/entryou/app',
+    '<rootDir>/apps/websites/vrapalis/app',
+    '<rootDir>/libs/entryou/ui',
+    '<rootDir>/libs/shared/model',
+    '<rootDir>/libs/shared/auth/store',
+    '<rootDir>/libs/shared/auth/model',
+  ],
+};

@@ -1,0 +1,129 @@
+import {
+  ArgsTable,
+  Canvas,
+  Meta,
+  Story,
+  Title,
+  Props,
+  Source,
+} from '@storybook/addon-docs/blocks';
+import { StButtonComponent } from './st-button.component';
+import { moduleMetadata } from '@storybook/angular';
+import dedent from 'ts-dedent';
+import { Default } from './st-button.component.stories'
+
+[click on this link](#many-buttons)
+
+<Meta title="Examples/Mdx/Button" component={StButtonComponent}
+      decorators={[
+        moduleMetadata({ declarations: [StButtonComponent] })
+      ]}
+      argTypes={{
+        title: {
+          name: 'Button title',
+          description: 'Available options available to the Badge',
+        }
+      }} />
+
+<Story story={Default} />
+
+<ArgsTable of={StButtonComponent}  argTypes={{
+  title: {
+    name: 'Button title',
+    description: 'Available options available to the Badge',
+  }
+}}/>
+
+export const Template = (args) => ({
+  moduleMetadata: {
+    declarations: [StButtonComponent]
+  },
+  props: args,
+  component: StButtonComponent
+});
+
+<Canvas>
+  <Story name='basic check' height='400px' parameters={{
+    docs: {
+      source: {
+        code: 'some code ...',
+      }
+    }
+  }}>
+    {{
+      component: StButtonComponent,
+      template: `
+        <div class='some-wrapper-with-padding'>
+          <sh-ui-st-button [title]='title'>Some Checkbox</sh-ui-st-button>
+        </div>
+      `,
+      props: {
+        title: 'Title Value'
+      }
+    }}
+  </Story>
+</Canvas>
+
+# Many Buttons
+<Canvas>
+  <Story name="Primary" args={{ title: 'title', type: 'primary' }} argTypes={{
+    type: {
+      defaultValue: 'default', control: {
+        type: 'select',
+        options: ['default', 'primary']
+      }
+    }
+  }}>
+    {Template.bind({})}
+  </Story>
+  <Story name='Default'>{{
+    component: StButtonComponent,
+    props: {
+      title: 'hallo'
+    },
+  }}</Story>
+</Canvas>
+
+<style>{`
+  #colors {
+    margin: 10px 0px;
+  }
+`}
+</style>
+
+
+# Link
+Links allow users to navigate to a different location.
+(... Lorem Ipsum ...)
+## Colors
+### Primary
+(... Lorem Ipsum ...)
+### Secondary
+(... Lorem Ipsum ...)
+
+
+# Badge
+
+Let's define a story for our `Badge` component:
+
+We can drop it in a `Canvas` to get a code snippet:
+
+
+
+We can even preview multiple Stories in a block. This
+gets rendered as a group, but defines individual stories
+with unique URLs which is great for review and testing.
+
+<Source
+  language='css'
+  code={dedent`
+     .container {
+       display: grid | inline-grid;
+     }
+  `}
+/>
+
+<Description markdown={dedent`
+  #Hallo
+  Insert fancy markdown here.
+`} />

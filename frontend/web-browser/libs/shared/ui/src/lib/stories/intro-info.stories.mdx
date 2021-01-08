@@ -1,0 +1,25 @@
+import {
+  ArgsTable,
+  Canvas,
+  Meta,
+  Story,
+  Title,
+  Source,
+} from '@storybook/addon-docs/blocks';
+import { moduleMetadata } from '@storybook/angular';
+import dedent from 'ts-dedent';
+import { StButtonComponent } from '../components/examples/st-button/st-button.component';
+
+<Meta title="Intro/Info"
+      decorators={[
+        moduleMetadata({ declarations: [StButtonComponent] })
+      ]}
+      parameters={{
+        previewTabs: {
+          'storybook/docs/panel': {
+            hidden: true,
+          },
+        },
+      }} />
+
+# Intro to the library

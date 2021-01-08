@@ -1,0 +1,30 @@
+version: '3.1'
+
+services:
+
+  postgres:
+    image: postgres
+    container_name: tmp-postgres
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: 246135
+      POSTGRES_USER: vitali
+      POSTGRES_DB: vitalis_db
+    networks:
+      - database
+    ports:
+      - 5432:5432
+    volumes: 
+      - $PWD/data:/var/lib/postgresql/data
+
+  adminer:
+    image: adminer
+    container_name: adminer
+    restart: always
+    networks:
+      - database
+    ports:
+      - 9090:8080
+
+networks: 
+  database:

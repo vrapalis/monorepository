@@ -1,0 +1,1637 @@
+{
+    "pipes": [],
+    "interfaces": [],
+    "injectables": [],
+    "classes": [],
+    "directives": [],
+    "components": [
+        {
+            "name": "ButtonComponent",
+            "id": "component-ButtonComponent-a8eadf51ad199937f6a0081a05a6d292",
+            "file": "libs/shared/ui/src/lib/components/button/button.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "sh-ui-button",
+            "styleUrls": [],
+            "styles": [],
+            "template": "<button type='button' mat-button [color]='buttonType' [disabled]='disabled'>\n  <ng-content></ng-content>\n</button>\n",
+            "templateUrl": [],
+            "viewProviders": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "<p>Standard button</p>\n",
+            "rawdescription": "Standard button",
+            "type": "component",
+            "sourceCode": "import { AbstractButtonComponent } from '@web-browser/shared/model';\nimport { Component } from '@angular/core';\n\n/**\n * Standard button\n */\n@Component({\n  selector: 'sh-ui-button',\n  template: `\n    <button type='button' mat-button [color]='buttonType' [disabled]='disabled'>\n      <ng-content></ng-content>\n    </button>\n  `,\n  styles: []\n})\nexport class ButtonComponent extends AbstractButtonComponent {\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "extends": "AbstractButtonComponent"
+        },
+        {
+            "name": "FlatButtonComponent",
+            "id": "component-FlatButtonComponent-f03bc8986f597b38ef33e7ff7e25d5e6",
+            "file": "libs/shared/ui/src/lib/components/flat-button/flat-button.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "sh-ui-flat-button",
+            "styleUrls": [],
+            "styles": [],
+            "template": "<button type='button' mat-flat-button [color]='buttonType' [disabled]='disabled'>\n  <ng-content></ng-content>\n</button>\n",
+            "templateUrl": [],
+            "viewProviders": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "",
+            "type": "component",
+            "sourceCode": "import { Component } from '@angular/core';\nimport { AbstractButtonComponent } from '@web-browser/shared/model';\n\n@Component({\n  selector: 'sh-ui-flat-button',\n  template: `\n    <button type='button' mat-flat-button [color]='buttonType' [disabled]='disabled'>\n      <ng-content></ng-content>\n    </button>\n  `,\n  styles: []\n})\nexport class FlatButtonComponent extends AbstractButtonComponent {\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "extends": "AbstractButtonComponent"
+        },
+        {
+            "name": "FormContainerComponent",
+            "id": "component-FormContainerComponent-2ae1a74297a8798b93742e79c66e32f2",
+            "file": "libs/shared/ui/src/lib/containers/form-container/form-container.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "sh-ui-form-container",
+            "styleUrls": [],
+            "styles": [
+                "\n    .shared-ui-form-container {\n      min-width: 250px;\n      max-width: 600px;\n      margin: auto;\n      width: 100%;\n      text-align: center;\n      padding: 50px 20px;\n    }\n  "
+            ],
+            "template": "<section class='shared-ui-form-container'>\n  <ng-content></ng-content>\n</section>\n",
+            "templateUrl": [],
+            "viewProviders": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "<p>Form container</p>\n",
+            "rawdescription": "Form container",
+            "type": "component",
+            "sourceCode": "import { Component } from '@angular/core';\n\n/**\n * Form container\n * @author vrapalis\n */\n@Component({\n  selector: 'sh-ui-form-container',\n  template: `\n    <section class='shared-ui-form-container'>\n      <ng-content></ng-content>\n    </section>\n  `,\n  styles: [`\n    .shared-ui-form-container {\n      min-width: 250px;\n      max-width: 600px;\n      margin: auto;\n      width: 100%;\n      text-align: center;\n      padding: 50px 20px;\n    }\n  `]\n})\nexport class FormContainerComponent {\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "\n    .shared-ui-form-container {\n      min-width: 250px;\n      max-width: 600px;\n      margin: auto;\n      width: 100%;\n      text-align: center;\n      padding: 50px 20px;\n    }\n  \n",
+            "jsdoctags": [
+                {
+                    "pos": 69,
+                    "end": 77,
+                    "flags": 0,
+                    "kind": 288,
+                    "atToken": {
+                        "pos": 69,
+                        "end": 70,
+                        "flags": 0,
+                        "kind": 57
+                    },
+                    "tagName": {
+                        "pos": 70,
+                        "end": 76,
+                        "flags": 0,
+                        "escapedText": "author"
+                    },
+                    "comment": "vrapalis"
+                }
+            ]
+        },
+        {
+            "name": "RaisedButtonComponent",
+            "id": "component-RaisedButtonComponent-479e7795c07e86a8f697fb537e51eac2",
+            "file": "libs/shared/ui/src/lib/components/raised-button/raised-button.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "sh-ui-raised-button",
+            "styleUrls": [],
+            "styles": [],
+            "template": "<button type='button' mat-raised-button [color]='buttonType' [disabled]='disabled'>\n  <ng-content></ng-content>\n</button>\n",
+            "templateUrl": [],
+            "viewProviders": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "",
+            "type": "component",
+            "sourceCode": "import { Component } from '@angular/core';\nimport { AbstractButtonComponent } from '@web-browser/shared/model';\n\n@Component({\n  selector: 'sh-ui-raised-button',\n  template: `\n    <button type='button' mat-raised-button [color]='buttonType' [disabled]='disabled'>\n      <ng-content></ng-content>\n    </button>\n  `,\n  styles: []\n})\nexport class RaisedButtonComponent extends AbstractButtonComponent {\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "extends": "AbstractButtonComponent"
+        },
+        {
+            "name": "StButtonComponent",
+            "id": "component-StButtonComponent-468ea8c24ebf4b5afd22711189e0cc97",
+            "file": "libs/shared/ui/src/lib/components/examples/st-button/st-button.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "sh-ui-st-button",
+            "styleUrls": [],
+            "styles": [
+                "\n    button {\n      padding: 5px 50px;\n      border-radius: 5px;\n    }\n  "
+            ],
+            "template": "<button [ngStyle]='{backgroundColor: determineType()}'>{{title}}</button>\n",
+            "templateUrl": [],
+            "viewProviders": [],
+            "inputsClass": [
+                {
+                    "name": "title",
+                    "defaultValue": "'click'",
+                    "line": 22
+                },
+                {
+                    "name": "type",
+                    "defaultValue": "'default'",
+                    "line": 23,
+                    "type": "ButtonType"
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [
+                {
+                    "name": "determineType",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "\"\" | \"red\"",
+                    "typeParameters": [],
+                    "line": 28,
+                    "description": "",
+                    "jsdoctags": [
+                        {
+                            "tagName": {
+                                "pos": 494,
+                                "end": 501,
+                                "flags": 0,
+                                "escapedText": "returns"
+                            },
+                            "comment": "<p>The processed target number</p>\n"
+                        }
+                    ]
+                }
+            ],
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "<p>Standard Button</p>\n",
+            "rawdescription": "Standard Button",
+            "type": "component",
+            "sourceCode": "import { Component, Input } from '@angular/core';\n\nexport type ButtonType = 'primary' | 'default';\n\n/**\n * Standard Button\n * @author vrapalis\n */\n@Component({\n  selector: 'sh-ui-st-button',\n  template: `\n    <button [ngStyle]='{backgroundColor: determineType()}'>{{title}}</button>\n  `,\n  styles: [`\n    button {\n      padding: 5px 50px;\n      border-radius: 5px;\n    }\n  `]\n})\nexport class StButtonComponent {\n  @Input() title = 'click';\n  @Input() type: ButtonType = 'default';\n\n  /**\n   * @returns The processed target number\n   */\n  determineType() {\n    switch (this.type) {\n      case 'default':\n        return '';\n      case 'primary':\n        return 'red';\n      default:\n        return '';\n    }\n  }\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "\n    button {\n      padding: 5px 50px;\n      border-radius: 5px;\n    }\n  \n",
+            "jsdoctags": [
+                {
+                    "pos": 126,
+                    "end": 134,
+                    "flags": 0,
+                    "kind": 288,
+                    "atToken": {
+                        "pos": 126,
+                        "end": 127,
+                        "flags": 0,
+                        "kind": 57
+                    },
+                    "tagName": {
+                        "pos": 127,
+                        "end": 133,
+                        "flags": 0,
+                        "escapedText": "author"
+                    },
+                    "comment": "vrapalis"
+                }
+            ]
+        }
+    ],
+    "modules": [
+        {
+            "name": "ButtonModule",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": [
+                        {
+                            "name": "ButtonComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "imports",
+                    "elements": []
+                },
+                {
+                    "type": "exports",
+                    "elements": [
+                        {
+                            "name": "ButtonComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
+            "name": "ButtonsModule",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": [
+                        {
+                            "name": "StButtonComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "imports",
+                    "elements": []
+                },
+                {
+                    "type": "exports",
+                    "elements": [
+                        {
+                            "name": "StButtonComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
+            "name": "ContainersModule",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": [
+                        {
+                            "name": "FormContainerComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "imports",
+                    "elements": []
+                },
+                {
+                    "type": "exports",
+                    "elements": [
+                        {
+                            "name": "FormContainerComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
+            "name": "FlatButtonModule",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": [
+                        {
+                            "name": "FlatButtonComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "imports",
+                    "elements": []
+                },
+                {
+                    "type": "exports",
+                    "elements": [
+                        {
+                            "name": "FlatButtonComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
+            "name": "RaisedButtonModule",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": [
+                        {
+                            "name": "RaisedButtonComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "imports",
+                    "elements": []
+                },
+                {
+                    "type": "exports",
+                    "elements": [
+                        {
+                            "name": "RaisedButtonComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        }
+    ],
+    "miscellaneous": {
+        "variables": [
+            {
+                "name": "componentTemplate",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/shared/ui/src/lib/containers/form-container/form-container.component.stories.ts",
+                "type": "",
+                "defaultValue": "`\n<sh-ui-form-container>\n  <p>Example form container</p>\n  <sh-ui-st-button title='title' type='default'></sh-ui-st-button>\n</sh-ui-form-container>\n`"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/shared/ui/src/lib/containers/form-container/form-container.component.stories.ts",
+                "type": "",
+                "defaultValue": "Template.bind({}) as Story"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/shared/ui/src/lib/components/examples/st-button/st-button.component.stories.ts",
+                "type": "",
+                "defaultValue": "Template.bind({}) as Story"
+            },
+            {
+                "name": "Primary",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/shared/ui/src/lib/components/examples/st-button/st-button.component.stories.ts",
+                "type": "",
+                "defaultValue": "Template.bind({}) as Story"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/shared/ui/src/lib/containers/form-container/form-container.component.stories.ts",
+                "type": "Story",
+                "defaultValue": "(args: FormContainerComponent) => ({\n  moduleMetadata: {\n    declarations: [StButtonComponent, FormContainerComponent]\n  },\n  component: FormContainerComponent,\n  props: args,\n  template: componentTemplate\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/shared/ui/src/lib/components/examples/st-button/st-button.component.stories.ts",
+                "type": "Story",
+                "defaultValue": "(args: StButtonComponent) => ({\n  component: StButtonComponent,\n  props: args\n})"
+            },
+            {
+                "name": "TemplateAccent",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/shared/ui/src/lib/components/raised-button/raised-button.component.stories.ts",
+                "type": "",
+                "defaultValue": "(args) => ({\n    template: templateButtonAccent,\n    props: args\n  })"
+            },
+            {
+                "name": "TemplateAccent",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/shared/ui/src/lib/components/button/button.component.stories.ts",
+                "type": "",
+                "defaultValue": "(args) => ({\n  template: templateButtonAccent,\n  props: args\n})"
+            },
+            {
+                "name": "TemplateBasic",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/shared/ui/src/lib/components/raised-button/raised-button.component.stories.ts",
+                "type": "",
+                "defaultValue": "(args) => ({\n  template: templateButtonBasic,\n  props: args\n})"
+            },
+            {
+                "name": "TemplateBasic",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/shared/ui/src/lib/components/button/button.component.stories.ts",
+                "type": "",
+                "defaultValue": "(args) => ({\n  template: templateButtonBasic,\n  props: args\n})"
+            },
+            {
+                "name": "templateButtonAccent",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/shared/ui/src/lib/components/raised-button/raised-button.component.stories.ts",
+                "type": "",
+                "defaultValue": "`<sh-ui-raised-button [type]='type' [disabled]='disabled'>Accent</sh-ui-raised-button>`"
+            },
+            {
+                "name": "templateButtonAccent",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/shared/ui/src/lib/components/button/button.component.stories.ts",
+                "type": "",
+                "defaultValue": "`<sh-ui-button [type]='type' [disabled]='disabled'>Accent</sh-ui-button>`"
+            },
+            {
+                "name": "templateButtonBasic",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/shared/ui/src/lib/components/raised-button/raised-button.component.stories.ts",
+                "type": "",
+                "defaultValue": "`<sh-ui-raised-button [type]='type' [disabled]='disabled'>Basic</sh-ui-raised-button>`"
+            },
+            {
+                "name": "templateButtonBasic",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/shared/ui/src/lib/components/button/button.component.stories.ts",
+                "type": "",
+                "defaultValue": "`<sh-ui-button [type]='type' [disabled]='disabled'>Basic</sh-ui-button>`"
+            },
+            {
+                "name": "templateButtonPrimary",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/shared/ui/src/lib/components/raised-button/raised-button.component.stories.ts",
+                "type": "",
+                "defaultValue": "`<sh-ui-raised-button [type]='type' [disabled]='disabled'>Primary</sh-ui-raised-button>`"
+            },
+            {
+                "name": "templateButtonPrimary",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/shared/ui/src/lib/components/button/button.component.stories.ts",
+                "type": "",
+                "defaultValue": "`<sh-ui-button [type]='type' [disabled]='disabled'>Primary</sh-ui-button>`"
+            },
+            {
+                "name": "templateButtonSourceBasic",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/shared/ui/src/lib/components/raised-button/raised-button.component.stories.ts",
+                "type": "",
+                "defaultValue": "`<sh-ui-raised-button type='basic'>Basic</sh-ui-raised-button>`"
+            },
+            {
+                "name": "templateButtonSourceBasic",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/shared/ui/src/lib/components/button/button.component.stories.ts",
+                "type": "",
+                "defaultValue": "`<sh-ui-button type='basic'>Basic</sh-ui-button>`"
+            },
+            {
+                "name": "templateButtonSourcePrimary",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/shared/ui/src/lib/components/raised-button/raised-button.component.stories.ts",
+                "type": "",
+                "defaultValue": "`<sh-ui-raised-button type='primary'>Primary</sh-ui-raised-button>`"
+            },
+            {
+                "name": "templateButtonSourcePrimary",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/shared/ui/src/lib/components/button/button.component.stories.ts",
+                "type": "",
+                "defaultValue": "`<sh-ui-button type='primary'>Primary</sh-ui-button>`"
+            },
+            {
+                "name": "templateButtonSourceSourceAccent",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/shared/ui/src/lib/components/raised-button/raised-button.component.stories.ts",
+                "type": "",
+                "defaultValue": "`<sh-ui-raised-button type='accent'>Accent</sh-ui-raised-button>`"
+            },
+            {
+                "name": "templateButtonSourceSourceAccent",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/shared/ui/src/lib/components/button/button.component.stories.ts",
+                "type": "",
+                "defaultValue": "`<sh-ui-button type='accent'>Accent</sh-ui-button>`"
+            },
+            {
+                "name": "templateButtonSourceSourceWarn",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/shared/ui/src/lib/components/raised-button/raised-button.component.stories.ts",
+                "type": "",
+                "defaultValue": "`<sh-ui-raised-button type='warn'>Warn</sh-ui-raised-button>`"
+            },
+            {
+                "name": "templateButtonSourceSourceWarn",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/shared/ui/src/lib/components/button/button.component.stories.ts",
+                "type": "",
+                "defaultValue": "`<sh-ui-button type='warn'>Warn</sh-ui-button>`"
+            },
+            {
+                "name": "templateButtonWarn",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/shared/ui/src/lib/components/raised-button/raised-button.component.stories.ts",
+                "type": "",
+                "defaultValue": "`<sh-ui-raised-button [type]='type' [disabled]='disabled'>Warn</sh-ui-raised-button>`"
+            },
+            {
+                "name": "templateButtonWarn",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/shared/ui/src/lib/components/button/button.component.stories.ts",
+                "type": "",
+                "defaultValue": "`<sh-ui-button [type]='type' [disabled]='disabled'>Warn</sh-ui-button>`"
+            },
+            {
+                "name": "TemplateFlatAccent",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/shared/ui/src/lib/components/flat-button/flat-button.component.stories.ts",
+                "type": "",
+                "defaultValue": "(args) => ({\n    template: templateFlatButtonAccent,\n    props: args\n  })"
+            },
+            {
+                "name": "TemplateFlatBasic",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/shared/ui/src/lib/components/flat-button/flat-button.component.stories.ts",
+                "type": "",
+                "defaultValue": "(args) => ({\n  template: templateFlatButtonBasic,\n  props: args\n})"
+            },
+            {
+                "name": "templateFlatButtonAccent",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/shared/ui/src/lib/components/flat-button/flat-button.component.stories.ts",
+                "type": "",
+                "defaultValue": "`<sh-ui-flat-button [type]='type' [disabled]='disabled'>Accent</sh-ui-flat-button>`"
+            },
+            {
+                "name": "templateFlatButtonBasic",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/shared/ui/src/lib/components/flat-button/flat-button.component.stories.ts",
+                "type": "",
+                "defaultValue": "`<sh-ui-flat-button [type]='type' [disabled]='disabled'>Basic</sh-ui-flat-button>`"
+            },
+            {
+                "name": "templateFlatButtonPrimary",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/shared/ui/src/lib/components/flat-button/flat-button.component.stories.ts",
+                "type": "",
+                "defaultValue": "`<sh-ui-flat-button [type]='type' [disabled]='disabled'>Primary</sh-ui-flat-button>`"
+            },
+            {
+                "name": "templateFlatButtonSourceBasic",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/shared/ui/src/lib/components/flat-button/flat-button.component.stories.ts",
+                "type": "",
+                "defaultValue": "`<sh-ui-flat-button type='basic'>Basic</sh-ui-flat-button>`"
+            },
+            {
+                "name": "templateFlatButtonSourcePrimary",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/shared/ui/src/lib/components/flat-button/flat-button.component.stories.ts",
+                "type": "",
+                "defaultValue": "`<sh-ui-flat-button type='primary'>Primary</sh-ui-flat-button>`"
+            },
+            {
+                "name": "templateFlatButtonSourceSourceAccent",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/shared/ui/src/lib/components/flat-button/flat-button.component.stories.ts",
+                "type": "",
+                "defaultValue": "`<sh-ui-flat-button type='accent'>Accent</sh-ui-flat-button>`"
+            },
+            {
+                "name": "templateFlatButtonSourceSourceWarn",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/shared/ui/src/lib/components/flat-button/flat-button.component.stories.ts",
+                "type": "",
+                "defaultValue": "`<sh-ui-flat-button type='warn'>Warn</sh-ui-flat-button>`"
+            },
+            {
+                "name": "templateFlatButtonWarn",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/shared/ui/src/lib/components/flat-button/flat-button.component.stories.ts",
+                "type": "",
+                "defaultValue": "`<sh-ui-flat-button [type]='type' [disabled]='disabled'>Warn</sh-ui-flat-button>`"
+            },
+            {
+                "name": "TemplateFlatPrimary",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/shared/ui/src/lib/components/flat-button/flat-button.component.stories.ts",
+                "type": "",
+                "defaultValue": "(args) => ({\n  template: templateFlatButtonPrimary,\n  props: args\n})"
+            },
+            {
+                "name": "TemplateFlatWarn",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/shared/ui/src/lib/components/flat-button/flat-button.component.stories.ts",
+                "type": "",
+                "defaultValue": "(args) => ({\n  template: templateFlatButtonWarn,\n  props: args\n})"
+            },
+            {
+                "name": "TemplatePrimary",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/shared/ui/src/lib/components/raised-button/raised-button.component.stories.ts",
+                "type": "",
+                "defaultValue": "(args) => ({\n  template: templateButtonPrimary,\n  props: args\n})"
+            },
+            {
+                "name": "TemplatePrimary",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/shared/ui/src/lib/components/button/button.component.stories.ts",
+                "type": "",
+                "defaultValue": "(args) => ({\n  template: templateButtonPrimary,\n  props: args\n})"
+            },
+            {
+                "name": "TemplateWarn",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/shared/ui/src/lib/components/raised-button/raised-button.component.stories.ts",
+                "type": "",
+                "defaultValue": "(args) => ({\n  template: templateButtonWarn,\n  props: args\n})"
+            },
+            {
+                "name": "TemplateWarn",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/shared/ui/src/lib/components/button/button.component.stories.ts",
+                "type": "",
+                "defaultValue": "(args) => ({\n  template: templateButtonWarn,\n  props: args\n})"
+            },
+            {
+                "name": "type",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/shared/ui/src/lib/components/examples/st-button/st-button.component.stories.ts",
+                "type": "ButtonType",
+                "defaultValue": "'default'"
+            }
+        ],
+        "functions": [],
+        "typealiases": [
+            {
+                "name": "ButtonType",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "\"primary\" | \"default\"",
+                "file": "libs/shared/ui/src/lib/components/examples/st-button/st-button.component.ts",
+                "description": "",
+                "kind": 168
+            }
+        ],
+        "enumerations": [],
+        "groupedVariables": {
+            "libs/shared/ui/src/lib/containers/form-container/form-container.component.stories.ts": [
+                {
+                    "name": "componentTemplate",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/shared/ui/src/lib/containers/form-container/form-container.component.stories.ts",
+                    "type": "",
+                    "defaultValue": "`\n<sh-ui-form-container>\n  <p>Example form container</p>\n  <sh-ui-st-button title='title' type='default'></sh-ui-st-button>\n</sh-ui-form-container>\n`"
+                },
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/shared/ui/src/lib/containers/form-container/form-container.component.stories.ts",
+                    "type": "",
+                    "defaultValue": "Template.bind({}) as Story"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/shared/ui/src/lib/containers/form-container/form-container.component.stories.ts",
+                    "type": "Story",
+                    "defaultValue": "(args: FormContainerComponent) => ({\n  moduleMetadata: {\n    declarations: [StButtonComponent, FormContainerComponent]\n  },\n  component: FormContainerComponent,\n  props: args,\n  template: componentTemplate\n})"
+                }
+            ],
+            "libs/shared/ui/src/lib/components/examples/st-button/st-button.component.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/shared/ui/src/lib/components/examples/st-button/st-button.component.stories.ts",
+                    "type": "",
+                    "defaultValue": "Template.bind({}) as Story"
+                },
+                {
+                    "name": "Primary",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/shared/ui/src/lib/components/examples/st-button/st-button.component.stories.ts",
+                    "type": "",
+                    "defaultValue": "Template.bind({}) as Story"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/shared/ui/src/lib/components/examples/st-button/st-button.component.stories.ts",
+                    "type": "Story",
+                    "defaultValue": "(args: StButtonComponent) => ({\n  component: StButtonComponent,\n  props: args\n})"
+                },
+                {
+                    "name": "type",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/shared/ui/src/lib/components/examples/st-button/st-button.component.stories.ts",
+                    "type": "ButtonType",
+                    "defaultValue": "'default'"
+                }
+            ],
+            "libs/shared/ui/src/lib/components/raised-button/raised-button.component.stories.ts": [
+                {
+                    "name": "TemplateAccent",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/shared/ui/src/lib/components/raised-button/raised-button.component.stories.ts",
+                    "type": "",
+                    "defaultValue": "(args) => ({\n    template: templateButtonAccent,\n    props: args\n  })"
+                },
+                {
+                    "name": "TemplateBasic",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/shared/ui/src/lib/components/raised-button/raised-button.component.stories.ts",
+                    "type": "",
+                    "defaultValue": "(args) => ({\n  template: templateButtonBasic,\n  props: args\n})"
+                },
+                {
+                    "name": "templateButtonAccent",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/shared/ui/src/lib/components/raised-button/raised-button.component.stories.ts",
+                    "type": "",
+                    "defaultValue": "`<sh-ui-raised-button [type]='type' [disabled]='disabled'>Accent</sh-ui-raised-button>`"
+                },
+                {
+                    "name": "templateButtonBasic",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/shared/ui/src/lib/components/raised-button/raised-button.component.stories.ts",
+                    "type": "",
+                    "defaultValue": "`<sh-ui-raised-button [type]='type' [disabled]='disabled'>Basic</sh-ui-raised-button>`"
+                },
+                {
+                    "name": "templateButtonPrimary",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/shared/ui/src/lib/components/raised-button/raised-button.component.stories.ts",
+                    "type": "",
+                    "defaultValue": "`<sh-ui-raised-button [type]='type' [disabled]='disabled'>Primary</sh-ui-raised-button>`"
+                },
+                {
+                    "name": "templateButtonSourceBasic",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/shared/ui/src/lib/components/raised-button/raised-button.component.stories.ts",
+                    "type": "",
+                    "defaultValue": "`<sh-ui-raised-button type='basic'>Basic</sh-ui-raised-button>`"
+                },
+                {
+                    "name": "templateButtonSourcePrimary",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/shared/ui/src/lib/components/raised-button/raised-button.component.stories.ts",
+                    "type": "",
+                    "defaultValue": "`<sh-ui-raised-button type='primary'>Primary</sh-ui-raised-button>`"
+                },
+                {
+                    "name": "templateButtonSourceSourceAccent",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/shared/ui/src/lib/components/raised-button/raised-button.component.stories.ts",
+                    "type": "",
+                    "defaultValue": "`<sh-ui-raised-button type='accent'>Accent</sh-ui-raised-button>`"
+                },
+                {
+                    "name": "templateButtonSourceSourceWarn",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/shared/ui/src/lib/components/raised-button/raised-button.component.stories.ts",
+                    "type": "",
+                    "defaultValue": "`<sh-ui-raised-button type='warn'>Warn</sh-ui-raised-button>`"
+                },
+                {
+                    "name": "templateButtonWarn",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/shared/ui/src/lib/components/raised-button/raised-button.component.stories.ts",
+                    "type": "",
+                    "defaultValue": "`<sh-ui-raised-button [type]='type' [disabled]='disabled'>Warn</sh-ui-raised-button>`"
+                },
+                {
+                    "name": "TemplatePrimary",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/shared/ui/src/lib/components/raised-button/raised-button.component.stories.ts",
+                    "type": "",
+                    "defaultValue": "(args) => ({\n  template: templateButtonPrimary,\n  props: args\n})"
+                },
+                {
+                    "name": "TemplateWarn",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/shared/ui/src/lib/components/raised-button/raised-button.component.stories.ts",
+                    "type": "",
+                    "defaultValue": "(args) => ({\n  template: templateButtonWarn,\n  props: args\n})"
+                }
+            ],
+            "libs/shared/ui/src/lib/components/button/button.component.stories.ts": [
+                {
+                    "name": "TemplateAccent",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/shared/ui/src/lib/components/button/button.component.stories.ts",
+                    "type": "",
+                    "defaultValue": "(args) => ({\n  template: templateButtonAccent,\n  props: args\n})"
+                },
+                {
+                    "name": "TemplateBasic",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/shared/ui/src/lib/components/button/button.component.stories.ts",
+                    "type": "",
+                    "defaultValue": "(args) => ({\n  template: templateButtonBasic,\n  props: args\n})"
+                },
+                {
+                    "name": "templateButtonAccent",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/shared/ui/src/lib/components/button/button.component.stories.ts",
+                    "type": "",
+                    "defaultValue": "`<sh-ui-button [type]='type' [disabled]='disabled'>Accent</sh-ui-button>`"
+                },
+                {
+                    "name": "templateButtonBasic",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/shared/ui/src/lib/components/button/button.component.stories.ts",
+                    "type": "",
+                    "defaultValue": "`<sh-ui-button [type]='type' [disabled]='disabled'>Basic</sh-ui-button>`"
+                },
+                {
+                    "name": "templateButtonPrimary",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/shared/ui/src/lib/components/button/button.component.stories.ts",
+                    "type": "",
+                    "defaultValue": "`<sh-ui-button [type]='type' [disabled]='disabled'>Primary</sh-ui-button>`"
+                },
+                {
+                    "name": "templateButtonSourceBasic",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/shared/ui/src/lib/components/button/button.component.stories.ts",
+                    "type": "",
+                    "defaultValue": "`<sh-ui-button type='basic'>Basic</sh-ui-button>`"
+                },
+                {
+                    "name": "templateButtonSourcePrimary",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/shared/ui/src/lib/components/button/button.component.stories.ts",
+                    "type": "",
+                    "defaultValue": "`<sh-ui-button type='primary'>Primary</sh-ui-button>`"
+                },
+                {
+                    "name": "templateButtonSourceSourceAccent",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/shared/ui/src/lib/components/button/button.component.stories.ts",
+                    "type": "",
+                    "defaultValue": "`<sh-ui-button type='accent'>Accent</sh-ui-button>`"
+                },
+                {
+                    "name": "templateButtonSourceSourceWarn",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/shared/ui/src/lib/components/button/button.component.stories.ts",
+                    "type": "",
+                    "defaultValue": "`<sh-ui-button type='warn'>Warn</sh-ui-button>`"
+                },
+                {
+                    "name": "templateButtonWarn",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/shared/ui/src/lib/components/button/button.component.stories.ts",
+                    "type": "",
+                    "defaultValue": "`<sh-ui-button [type]='type' [disabled]='disabled'>Warn</sh-ui-button>`"
+                },
+                {
+                    "name": "TemplatePrimary",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/shared/ui/src/lib/components/button/button.component.stories.ts",
+                    "type": "",
+                    "defaultValue": "(args) => ({\n  template: templateButtonPrimary,\n  props: args\n})"
+                },
+                {
+                    "name": "TemplateWarn",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/shared/ui/src/lib/components/button/button.component.stories.ts",
+                    "type": "",
+                    "defaultValue": "(args) => ({\n  template: templateButtonWarn,\n  props: args\n})"
+                }
+            ],
+            "libs/shared/ui/src/lib/components/flat-button/flat-button.component.stories.ts": [
+                {
+                    "name": "TemplateFlatAccent",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/shared/ui/src/lib/components/flat-button/flat-button.component.stories.ts",
+                    "type": "",
+                    "defaultValue": "(args) => ({\n    template: templateFlatButtonAccent,\n    props: args\n  })"
+                },
+                {
+                    "name": "TemplateFlatBasic",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/shared/ui/src/lib/components/flat-button/flat-button.component.stories.ts",
+                    "type": "",
+                    "defaultValue": "(args) => ({\n  template: templateFlatButtonBasic,\n  props: args\n})"
+                },
+                {
+                    "name": "templateFlatButtonAccent",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/shared/ui/src/lib/components/flat-button/flat-button.component.stories.ts",
+                    "type": "",
+                    "defaultValue": "`<sh-ui-flat-button [type]='type' [disabled]='disabled'>Accent</sh-ui-flat-button>`"
+                },
+                {
+                    "name": "templateFlatButtonBasic",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/shared/ui/src/lib/components/flat-button/flat-button.component.stories.ts",
+                    "type": "",
+                    "defaultValue": "`<sh-ui-flat-button [type]='type' [disabled]='disabled'>Basic</sh-ui-flat-button>`"
+                },
+                {
+                    "name": "templateFlatButtonPrimary",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/shared/ui/src/lib/components/flat-button/flat-button.component.stories.ts",
+                    "type": "",
+                    "defaultValue": "`<sh-ui-flat-button [type]='type' [disabled]='disabled'>Primary</sh-ui-flat-button>`"
+                },
+                {
+                    "name": "templateFlatButtonSourceBasic",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/shared/ui/src/lib/components/flat-button/flat-button.component.stories.ts",
+                    "type": "",
+                    "defaultValue": "`<sh-ui-flat-button type='basic'>Basic</sh-ui-flat-button>`"
+                },
+                {
+                    "name": "templateFlatButtonSourcePrimary",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/shared/ui/src/lib/components/flat-button/flat-button.component.stories.ts",
+                    "type": "",
+                    "defaultValue": "`<sh-ui-flat-button type='primary'>Primary</sh-ui-flat-button>`"
+                },
+                {
+                    "name": "templateFlatButtonSourceSourceAccent",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/shared/ui/src/lib/components/flat-button/flat-button.component.stories.ts",
+                    "type": "",
+                    "defaultValue": "`<sh-ui-flat-button type='accent'>Accent</sh-ui-flat-button>`"
+                },
+                {
+                    "name": "templateFlatButtonSourceSourceWarn",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/shared/ui/src/lib/components/flat-button/flat-button.component.stories.ts",
+                    "type": "",
+                    "defaultValue": "`<sh-ui-flat-button type='warn'>Warn</sh-ui-flat-button>`"
+                },
+                {
+                    "name": "templateFlatButtonWarn",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/shared/ui/src/lib/components/flat-button/flat-button.component.stories.ts",
+                    "type": "",
+                    "defaultValue": "`<sh-ui-flat-button [type]='type' [disabled]='disabled'>Warn</sh-ui-flat-button>`"
+                },
+                {
+                    "name": "TemplateFlatPrimary",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/shared/ui/src/lib/components/flat-button/flat-button.component.stories.ts",
+                    "type": "",
+                    "defaultValue": "(args) => ({\n  template: templateFlatButtonPrimary,\n  props: args\n})"
+                },
+                {
+                    "name": "TemplateFlatWarn",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/shared/ui/src/lib/components/flat-button/flat-button.component.stories.ts",
+                    "type": "",
+                    "defaultValue": "(args) => ({\n  template: templateFlatButtonWarn,\n  props: args\n})"
+                }
+            ]
+        },
+        "groupedFunctions": {},
+        "groupedEnumerations": {},
+        "groupedTypeAliases": {
+            "libs/shared/ui/src/lib/components/examples/st-button/st-button.component.ts": [
+                {
+                    "name": "ButtonType",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "\"primary\" | \"default\"",
+                    "file": "libs/shared/ui/src/lib/components/examples/st-button/st-button.component.ts",
+                    "description": "",
+                    "kind": 168
+                }
+            ]
+        }
+    },
+    "routes": [],
+    "coverage": {
+        "count": 4,
+        "status": "low",
+        "files": [
+            {
+                "filePath": "libs/shared/ui/src/lib/components/button/button.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "TemplateAccent",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/shared/ui/src/lib/components/button/button.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "TemplateBasic",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/shared/ui/src/lib/components/button/button.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "templateButtonAccent",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/shared/ui/src/lib/components/button/button.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "templateButtonBasic",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/shared/ui/src/lib/components/button/button.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "templateButtonPrimary",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/shared/ui/src/lib/components/button/button.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "templateButtonSourceBasic",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/shared/ui/src/lib/components/button/button.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "templateButtonSourcePrimary",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/shared/ui/src/lib/components/button/button.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "templateButtonSourceSourceAccent",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/shared/ui/src/lib/components/button/button.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "templateButtonSourceSourceWarn",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/shared/ui/src/lib/components/button/button.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "templateButtonWarn",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/shared/ui/src/lib/components/button/button.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "TemplatePrimary",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/shared/ui/src/lib/components/button/button.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "TemplateWarn",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/shared/ui/src/lib/components/button/button.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "ButtonComponent",
+                "coveragePercent": 100,
+                "coverageCount": "1/1",
+                "status": "very-good"
+            },
+            {
+                "filePath": "libs/shared/ui/src/lib/components/examples/st-button/st-button.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Default",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/shared/ui/src/lib/components/examples/st-button/st-button.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Primary",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/shared/ui/src/lib/components/examples/st-button/st-button.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/shared/ui/src/lib/components/examples/st-button/st-button.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "type",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/shared/ui/src/lib/components/examples/st-button/st-button.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "StButtonComponent",
+                "coveragePercent": 25,
+                "coverageCount": "1/4",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/shared/ui/src/lib/components/flat-button/flat-button.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "TemplateFlatAccent",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/shared/ui/src/lib/components/flat-button/flat-button.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "TemplateFlatBasic",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/shared/ui/src/lib/components/flat-button/flat-button.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "templateFlatButtonAccent",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/shared/ui/src/lib/components/flat-button/flat-button.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "templateFlatButtonBasic",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/shared/ui/src/lib/components/flat-button/flat-button.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "templateFlatButtonPrimary",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/shared/ui/src/lib/components/flat-button/flat-button.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "templateFlatButtonSourceBasic",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/shared/ui/src/lib/components/flat-button/flat-button.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "templateFlatButtonSourcePrimary",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/shared/ui/src/lib/components/flat-button/flat-button.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "templateFlatButtonSourceSourceAccent",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/shared/ui/src/lib/components/flat-button/flat-button.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "templateFlatButtonSourceSourceWarn",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/shared/ui/src/lib/components/flat-button/flat-button.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "templateFlatButtonWarn",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/shared/ui/src/lib/components/flat-button/flat-button.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "TemplateFlatPrimary",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/shared/ui/src/lib/components/flat-button/flat-button.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "TemplateFlatWarn",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/shared/ui/src/lib/components/flat-button/flat-button.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "FlatButtonComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/shared/ui/src/lib/components/raised-button/raised-button.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "TemplateAccent",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/shared/ui/src/lib/components/raised-button/raised-button.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "TemplateBasic",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/shared/ui/src/lib/components/raised-button/raised-button.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "templateButtonAccent",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/shared/ui/src/lib/components/raised-button/raised-button.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "templateButtonBasic",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/shared/ui/src/lib/components/raised-button/raised-button.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "templateButtonPrimary",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/shared/ui/src/lib/components/raised-button/raised-button.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "templateButtonSourceBasic",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/shared/ui/src/lib/components/raised-button/raised-button.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "templateButtonSourcePrimary",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/shared/ui/src/lib/components/raised-button/raised-button.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "templateButtonSourceSourceAccent",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/shared/ui/src/lib/components/raised-button/raised-button.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "templateButtonSourceSourceWarn",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/shared/ui/src/lib/components/raised-button/raised-button.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "templateButtonWarn",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/shared/ui/src/lib/components/raised-button/raised-button.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "TemplatePrimary",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/shared/ui/src/lib/components/raised-button/raised-button.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "TemplateWarn",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/shared/ui/src/lib/components/raised-button/raised-button.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "RaisedButtonComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/shared/ui/src/lib/containers/form-container/form-container.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "componentTemplate",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/shared/ui/src/lib/containers/form-container/form-container.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Default",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/shared/ui/src/lib/containers/form-container/form-container.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/shared/ui/src/lib/containers/form-container/form-container.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "FormContainerComponent",
+                "coveragePercent": 100,
+                "coverageCount": "1/1",
+                "status": "very-good"
+            }
+        ]
+    }
+}

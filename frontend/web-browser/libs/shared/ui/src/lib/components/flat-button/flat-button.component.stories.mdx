@@ -1,0 +1,129 @@
+import {
+  ArgsTable,
+  Canvas,
+  Meta,
+  Story
+} from '@storybook/addon-docs/blocks';
+import { MatButtonModule } from '@angular/material/button';
+import { moduleMetadata } from '@storybook/angular';
+import { FlatButtonComponent } from './flat-button.component';
+import {
+  TemplateFlatAccent,
+  TemplateFlatBasic,
+  templateFlatButtonSourceBasic,
+  templateFlatButtonSourcePrimary,
+  templateFlatButtonSourceSourceAccent,
+  templateFlatButtonSourceSourceWarn, TemplateFlatPrimary, TemplateFlatWarn
+} from './flat-button.component.stories';
+
+<Meta title="Components/Buttons/Flat Button" component={FlatButtonComponent}
+      decorators={[
+        moduleMetadata({ 'imports': [MatButtonModule], declarations: [FlatButtonComponent] })
+      ]}
+      argTypes={{
+        type: {
+          description: 'Change button type',
+          table: {
+            defaultValue: {
+              summary: 'basic'
+            },
+            type: {
+              //summary: 'Shows options to the Badge',
+              //detail: 'Listing of available options'
+            }
+          },
+          control: {
+            type: 'select',
+            options: ['basic', 'primary', 'accent', 'warn']
+          }
+        },
+        disabled: {
+          description: 'Disable button',
+          table: {
+            defaultValue: {
+              summary: false
+            },
+            type: {
+              //summary: 'Shows options to the Badge',
+              //detail: 'Listing of available options'
+            }
+          },
+          control: {
+            type: 'select',
+            options: [false, true]
+          }
+        },
+        buttonType: {
+          table: {
+            disable: true
+          }
+        },
+        ngOnChanges: {
+          table: {
+            disable: true
+          }
+        },
+        ngOnInit: {
+          table: {
+            disable: true
+          }
+        }
+      }} />
+
+# Standard Buttons
+To use standard button import it in the module/component like
+``` import: [FlatButtonModule] ```
+## Basic
+<Canvas>
+  <Story name="Basic" args={{ type: 'basic', disabled: false }} parameters={{
+    docs: {
+      source: {
+        code: templateFlatButtonSourceBasic,
+      }
+    }
+  }}>
+    {TemplateFlatBasic.bind({})}
+  </Story>
+</Canvas>
+
+## Primary
+<Canvas>
+  <Story name="Primary" args={{ type: 'primary', disabled: false }} parameters={{
+    docs: {
+      source: {
+        code: templateFlatButtonSourcePrimary,
+      }
+    }
+  }}>
+    {TemplateFlatPrimary.bind({})}
+  </Story>
+</Canvas>
+
+## Accent
+<Canvas>
+  <Story name="Accent" args={{ type: 'accent', disabled: false }} parameters={{
+    docs: {
+      source: {
+        code: templateFlatButtonSourceSourceAccent,
+      }
+    }
+  }}>
+    {TemplateFlatAccent.bind({})}
+  </Story>
+</Canvas>
+
+## Warn
+<Canvas>
+  <Story name="Warn" args={{ type: 'warn', disabled: false }} parameters={{
+    docs: {
+      source: {
+        code: templateFlatButtonSourceSourceWarn,
+      }
+    }
+  }}>
+    {TemplateFlatWarn.bind({})}
+  </Story>
+</Canvas>
+
+<ArgsTable story="Basic" />
+
