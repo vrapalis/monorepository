@@ -2,10 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { InputBusinessRules } from '@web-browser/shared/model';
 import { select, Store } from '@ngrx/store';
-import { selectAuth, State } from '@web-browser/shared/auth/store';
 import { Observable } from 'rxjs';
 import { AuthLoginModel } from '@web-browser/shared/auth/model';
-import { loginActions } from '../../../../../store/src/lib/actions';
+import { loginActions, selectAuth, State } from '@web-browser/shared/auth/state';
 
 @Component({
   selector: 'web-browser-login',
@@ -29,7 +28,6 @@ import { loginActions } from '../../../../../store/src/lib/actions';
         <sh-ui-flat-button type='primary' [disabled]='!form.valid' (click)='onLogin()'>Login</sh-ui-flat-button>
         <sh-ui-button type='primary' routerLink='../registration'>Registration</sh-ui-button>
       </div>
-      {{auth$ | async | json}}
     </form>
   `,
   styles: [`

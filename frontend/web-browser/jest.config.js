@@ -18,5 +18,6 @@ module.exports = {
     '<rootDir>/libs/shared/model',
     '<rootDir>/libs/shared/auth/store',
     '<rootDir>/libs/shared/auth/model',
+    '<rootDir>/libs/shared/auth/state',
   ],
 };

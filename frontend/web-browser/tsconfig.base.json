@@ -31,8 +31,8 @@
       "@web-browser/shared/ui": ["libs/shared/ui/src/index.ts"],
       "@web-browser/entryou/ui": ["libs/entryou/ui/src/index.ts"],
       "@web-browser/shared/model": ["libs/shared/model/src/index.ts"],
-      "@web-browser/shared/auth/store": ["libs/shared/auth/store/src/index.ts"],
-      "@web-browser/shared/auth/model": ["libs/shared/auth/model/src/index.ts"]
+      "@web-browser/shared/auth/model": ["libs/shared/auth/model/src/index.ts"],
+      "@web-browser/shared/auth/state": ["libs/shared/auth/state/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

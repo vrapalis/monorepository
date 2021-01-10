@@ -9,6 +9,7 @@ import { MatInputModule } from '@angular/material/input';
 import { RouterModule } from '@angular/router';
 import { ButtonModule, ContainersModule, FlatButtonModule } from '@web-browser/shared/ui';
 import { ReactiveFormsModule } from '@angular/forms';
+import { SharedAuthStateModule } from '@web-browser/shared/auth/state';
 
 @NgModule({
   declarations: [LoginContainerComponent, LoginComponent],
@@ -21,7 +22,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatInputModule,
     ContainersModule,
     FlatButtonModule,
-    ButtonModule
+    ButtonModule,
+    SharedAuthStateModule
   ]
 })
 export class SharedAuthFeatureLoginModule {

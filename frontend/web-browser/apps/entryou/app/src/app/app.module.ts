@@ -11,7 +11,6 @@ import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { EffectsModule } from '@ngrx/effects';
 import { reducers, metaReducers } from './store';
-import { SharedAuthStoreModule } from '@web-browser/shared/auth/store';
 
 @NgModule({
   declarations: [AppComponent],
@@ -25,7 +24,6 @@ import { SharedAuthStoreModule } from '@web-browser/shared/auth/store';
     StoreModule.forRoot(reducers, { metaReducers }),
     EffectsModule.forRoot([]),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
-    SharedAuthStoreModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -469,31 +469,6 @@
         }
       }
     },
-    "shared-auth-store": {
-      "projectType": "library",
-      "root": "libs/shared/auth/store",
-      "sourceRoot": "libs/shared/auth/store/src",
-      "prefix": "web-browser",
-      "architect": {
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": [
-              "libs/shared/auth/store/src/**/*.ts",
-              "libs/shared/auth/store/src/**/*.html"
-            ]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/shared/auth/store"],
-          "options": {
-            "jestConfig": "libs/shared/auth/store/jest.config.js",
-            "passWithNoTests": true
-          }
-        }
-      }
-    },
     "shared-auth-model": {
       "projectType": "library",
       "root": "libs/shared/auth/model",
@@ -514,6 +489,31 @@
           "outputs": ["coverage/libs/shared/auth/model"],
           "options": {
             "jestConfig": "libs/shared/auth/model/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "shared-auth-state": {
+      "projectType": "library",
+      "root": "libs/shared/auth/state",
+      "sourceRoot": "libs/shared/auth/state/src",
+      "prefix": "web-browser",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/shared/auth/state/src/**/*.ts",
+              "libs/shared/auth/state/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/shared/auth/state"],
+          "options": {
+            "jestConfig": "libs/shared/auth/state/jest.config.js",
             "passWithNoTests": true
           }
         }

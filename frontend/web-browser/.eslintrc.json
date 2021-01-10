@@ -33,7 +33,7 @@
                 "onlyDependOnLibsWithTags": [
                   "type:ui",
                   "type:util",
-                  "type:store",
+                  "type:state",
                   "type:model",
                   "type:data-access"
                 ]
@@ -46,7 +46,7 @@
                 ]
               },
               {
-                "sourceTag": "type:store",
+                "sourceTag": "type:state",
                 "onlyDependOnLibsWithTags": [
                   "type:util",
                   "type:model"

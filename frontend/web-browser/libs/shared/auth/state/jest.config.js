@@ -1,5 +1,5 @@
 module.exports = {
-  displayName: 'shared-auth-store',
+  displayName: 'shared-auth-state',
   preset: '../../../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
   globals: {
@@ -14,7 +14,7 @@ module.exports = {
       },
     },
   },
-  coverageDirectory: '../../../../coverage/libs/shared/auth/store',
+  coverageDirectory: '../../../../coverage/libs/shared/auth/state',
   snapshotSerializers: [
     'jest-preset-angular/build/AngularNoNgAttributesSnapshotSerializer.js',
     'jest-preset-angular/build/AngularSnapshotSerializer.js',

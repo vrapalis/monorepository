@@ -67,11 +67,11 @@
     "shared-model": {
       "tags": ["scope:shared", "type:model"]
     },
-    "shared-auth-store": {
-      "tags": ["scope:shared", "type:store"]
-    },
     "shared-auth-model": {
       "tags": ["scope:shared", "type:model"]
+    },
+    "shared-auth-state": {
+      "tags": ["scope:shared", "type:state"]
     }
   }
 }

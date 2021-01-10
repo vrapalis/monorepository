@@ -3,7 +3,7 @@ import { AuthLoginModel } from '@web-browser/shared/auth/model';
 import { loginActions } from './actions';
 
 
-export const authFeatureKey = 'auth';
+export const authFeatureKey = 'user';
 
 export interface AuthState extends AuthLoginModel {
 }

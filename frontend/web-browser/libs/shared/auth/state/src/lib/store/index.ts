@@ -4,7 +4,7 @@ import {
 } from '@ngrx/store';
 import * as fromAuth from './reducer';
 
-export const authStoreFeatureKey = 'store';
+export const authStoreFeatureKey = 'state';
 
 export interface State {
   [fromAuth.authFeatureKey]: fromAuth.AuthState;
