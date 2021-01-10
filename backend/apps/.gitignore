@@ -1,6 +1,3 @@
-tutorials/database/postgres/data/*
-
-
 # Ignore Gradle project-specific cache directory
 .gradle
 
