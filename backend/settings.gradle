@@ -1,5 +1,4 @@
 rootProject.name = 'backend'
 
-include(':apps')
+include(':apps', ':apps:entryou', ':apps:entryou:uaa')
 include(':libs', ':libs:shared', ':libs:shared:utils')
-

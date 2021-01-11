@@ -2,23 +2,41 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
       <profile name="Gradle Imported" enabled="true">
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="false">
           <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-configuration-processor/2.4.1/d42331b683340464cf7027bf55df6ec52d088eb5/spring-boot-configuration-processor-2.4.1.jar" />
           <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.projectlombok/lombok/1.18.16/6dc192c7f93ec1853f70d59d8a6dcf94eb42866/lombok-1.18.16.jar" />
+          <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.mapstruct/mapstruct-processor/1.4.0.CR1/d27686172737340cd04072323402720a7588d62c/mapstruct-processor-1.4.0.CR1.jar" />
         </processorPath>
+        <module name="backend.apps.entryou.uaa.main" />
         <module name="backend.libs.shared.utils.main" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel target="1.6">
+    <bytecodeTargetLevel target="11">
       <module name="app" target="11" />
       <module name="app.main" target="11" />
       <module name="app.test" target="11" />
-      <module name="entryou" target="11" />
+      <module name="backend.apps.main" target="13" />
+      <module name="backend.apps.test" target="13" />
+      <module name="backend.libs.main" target="11" />
+      <module name="backend.libs.shared.main" target="11" />
+      <module name="backend.libs.shared.test" target="11" />
+      <module name="backend.libs.test" target="11" />
+      <module name="backend.main" target="11" />
+      <module name="backend.test" target="11" />
+      <module name="entryou.main" target="11" />
+      <module name="entryou.test" target="11" />
       <module name="libs-shared-utils" target="11" />
       <module name="libs-shared-utils.main" target="11" />
       <module name="libs-shared-utils.test" target="11" />
+      <module name="uaa" target="11" />
+      <module name="uaa.main" target="11" />
+      <module name="uaa.test" target="11" />
+      <module name="utils" target="11" />
+      <module name="utils.main" target="11" />
+      <module name="utils.test" target="11" />
     </bytecodeTargetLevel>
   </component>
 </project>

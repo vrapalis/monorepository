@@ -1,0 +1,5 @@
+plugins {
+    id 'common.build'
+    id 'application'
+    id 'org.springframework.boot'
+}

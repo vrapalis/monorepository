@@ -1,0 +1,4 @@
+plugins {
+    id 'common.build'
+    id 'java-library'
+}

@@ -1,0 +1,11 @@
+def projectNamesToConfigure = ['utils']
+
+def projectsToConfigure = subprojects.findAll { subProject ->
+    projectNamesToConfigure.findAll { project ->
+        return (project == subProject.name)
+    }
+}
+
+configure(projectsToConfigure) {
+    apply plugin: 'library.build'
+}
