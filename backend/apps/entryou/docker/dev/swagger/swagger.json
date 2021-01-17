@@ -1,0 +1,101 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Entryou REST API",
+    "description": "Entryou rest api documentation",
+    "termsOfService": "www.entryou.com",
+    "contact": {
+      "email": "vitali.rapalis@gmail.com"
+    },
+    "version": "1.0.0"
+  },
+  "host": "entryou-api-gateway-dev:8080",
+
+  "tags": [
+    {
+      "name": "UAA Service",
+      "description": "Authentication And Authorization Service"
+    }
+  ],
+  "paths": {
+    "/sign-in": {
+      "post": {
+        "tags": [
+          "UAA Service"
+        ],
+        "summary": "Login with username and password",
+        "operationId": "sign-in",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "Access-Control-Allow-Headers",
+            "example": "*"
+          },
+          {
+            "in": "header",
+            "name": "Access-Control-Allow-Origin",
+            "example": "*"
+          }
+        ],
+        "requestBody": {
+          "description": "Pet object that needs to be added to the store",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/User"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "User": {
+        "required": [
+          "email",
+          "password"
+        ],
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "example": "admin@admin.com"
+          },
+          "password": {
+            "type": "string",
+            "example": "123456"
+          }
+        }
+      }
+    },
+    "securitySchemes": {
+      "petstore_auth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT",
+        "flows": {
+          "implicit": {
+            "authorizationUrl": "https://proleague-api.smawandi.com/login",
+            "scopes": {
+              "write:pets": "modify pets in your account",
+              "read:pets": "read your pets"
+            }
+          }
+        }
+      },
+      "api_key": {
+        "type": "apiKey",
+        "name": "api_key",
+        "in": "header"
+      }
+    }
+  }
+}

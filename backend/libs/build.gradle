@@ -1,11 +1,9 @@
-def projectNamesToConfigure = ['utils']
-
-def projectsToConfigure = subprojects.findAll { subProject ->
-    projectNamesToConfigure.findAll { project ->
-        return (project == subProject.name)
+subprojects {
+    if (project.subprojects.size() > 0) {
+        subprojects {
+            apply plugin: 'library.build'
+        }
+    } else {
+        apply plugin: 'library.build'
     }
-}
-
-configure(projectsToConfigure) {
-    apply plugin: 'library.build'
 }

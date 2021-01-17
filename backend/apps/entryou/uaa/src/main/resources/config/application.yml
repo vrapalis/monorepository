@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: entryou-uaa
+
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+    consul:
+      discovery:
+        register: true
+        instanceId: ${spring.application.name}:${random.value}

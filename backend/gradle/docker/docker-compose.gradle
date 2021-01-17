@@ -1,0 +1,34 @@
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath "com.avast.gradle:gradle-docker-compose-plugin:$DOCKER_COMPOSE_VERSION"
+    }
+}
+
+apply plugin: 'docker-compose'
+
+dockerCompose {
+    dev {
+        useComposeFiles = ['./docker/dev/docker-compose.yml']
+    }
+}
+
+task runDevDockerCompose() {
+    group "Docker"
+    description "Run docker-compose develop mode"
+    finalizedBy devComposeUp
+}
+
+task stopDevDockerCompose() {
+    group "Docker"
+    description "Stop docker-compose develop mode"
+    finalizedBy devComposeDown
+}
+
+subprojects {
+    afterEvaluate {
+        parent.tasks.runDevDockerCompose.dependsOn(project.tasks.buildDockerImage)
+    }
+}

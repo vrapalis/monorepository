@@ -5,9 +5,16 @@ plugins {
     id 'io.spring.dependency-management'
 }
 
+afterEvaluate {
+    ext {
+        JAR_FILE_BASE_NAME = "${archivesBaseName}-${version}.jar"
+    }
+}
+
 group = "com.vrapalis.www.backend.${parent.name}"
 archivesBaseName = "${parent.name}-${archivesBaseName}"
 version = "0.0.1-${Utils.tagVersion}"
+
 sourceCompatibility = '11'
 
 configurations {
@@ -43,6 +50,11 @@ dependencies {
 
     testImplementation('org.springframework.boot:spring-boot-starter-test') {
         exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+    }
+
+    // TODO MAY BE FIND BETTER PLACE
+    if (project.name != 'utils') {
+        implementation project(':libs:utils')
     }
 }
 

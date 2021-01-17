@@ -1,0 +1,75 @@
+version: '3.6'
+
+services:
+  entryou-consul-dev:
+    image: consul
+    container_name: entryou_consul_agent_dev
+    restart: on-failure
+    ports:
+      - 8500:8500
+    networks:
+      - entryou_backend_network
+
+  entryou-uaa-dev:
+    image: vrapalis/entryou/entryou-uaa:0.0.1-snapshot
+    container_name: entryou_uaa_dev
+    restart: on-failure
+    environment:
+      - SPRING.PROFILES.ACTIVE=dev
+      - SPRING.CLOUD.CONSUL.HOST=entryou-consul-dev
+      - SPRING.CLOUD.CONSUL.ENABLED=true
+      - SPRING.DATASOURCE.URL=jdbc:postgresql://entryou-uaa-db-dev:5432/entryou_uaa_db_dev
+      - SPRING.DATASOURCE.USERNAME=admin
+      - SPRING.DATASOURCE.PASSWORD=admin
+
+      ### Frontend related properties
+      - SMART-IT-DEVELOPMENT.ENTRYOU.UAA.EMAIL-HOST=https://frontent-host
+      - SMART-IT-DEVELOPMENT.ENTRYOU.UAA.EMAIL-SERVICE-PATH=/confirm?account
+      - SMART-IT-DEVELOPMENT.ENTRYOU.UAA.EMAIL-SUBJECT=Entryou confirm email
+      - SMART-IT-DEVELOPMENT.ENTRYOU.UAA.EMAIL-TEXT=Confirm your email,
+    ports:
+      - 8080:8080
+    networks:
+      - entryou_backend_network
+    depends_on:
+      - entryou-consul-dev
+      - entryou-uaa-db-dev
+
+  entryou-uaa-db-dev:
+    image: postgres
+    container_name: entryou_uaa_db_dev
+    restart: on-failure
+    environment:
+      - POSTGRES_PASSWORD=admin
+      - POSTGRES_USER=admin
+      - POSTGRES_DB=entryou_uaa_db_dev
+    networks:
+      - entryou_backend_network
+
+  entryou-db-adminer-dev:
+    image: adminer
+    container_name: entryou_db_adminer_dev
+    restart: on-failure
+    ports:
+      - 9090:8080
+    networks:
+      - entryou_backend_network
+    depends_on:
+      - entryou-uaa-db-dev
+
+  entryou-api-gateway-swagger-ui-dev:
+    image: swaggerapi/swagger-ui
+    container_name: entryou_api_gateway_swagger_ui_dev
+    restart: on-failure
+    environment:
+      - SWAGGER_JSON=/swagger/swagger.json
+    volumes:
+      - ./swagger:/swagger
+    ports:
+      - 9091:8080
+    networks:
+      - entryou_backend_network
+
+networks:
+  entryou_backend_network:
+    driver: bridge

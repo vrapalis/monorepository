@@ -12,11 +12,14 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/apps" />
             <option value="$PROJECT_DIR$/apps/entryou" />
+            <option value="$PROJECT_DIR$/apps/entryou/api-gateway" />
             <option value="$PROJECT_DIR$/apps/entryou/uaa" />
             <option value="$PROJECT_DIR$/buildSrc" />
             <option value="$PROJECT_DIR$/libs" />
-            <option value="$PROJECT_DIR$/libs/shared" />
-            <option value="$PROJECT_DIR$/libs/shared/utils" />
+            <option value="$PROJECT_DIR$/libs/security" />
+            <option value="$PROJECT_DIR$/libs/security/jpa" />
+            <option value="$PROJECT_DIR$/libs/security/uaa" />
+            <option value="$PROJECT_DIR$/libs/utils" />
           </set>
         </option>
       </GradleProjectSettings>

@@ -1,11 +1,8 @@
-def projectNamesToConfigure = ['uaa']
-
-def projectsToConfigure = subprojects.findAll { subProject ->
-    projectNamesToConfigure.findAll { project ->
-        return (project == subProject.name)
+subprojects {
+    subprojects {
+        apply plugin: 'application.build'
+        apply from: "${rootDir}/gradle/docker/docker.gradle"
     }
-}
 
-configure(projectsToConfigure) {
-    apply plugin: 'application.build'
+    apply from: "${rootDir}/gradle/docker/docker-compose.gradle"
 }

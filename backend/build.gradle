@@ -3,4 +3,6 @@ plugins {
     id 'library.build' apply false
     id 'org.springframework.boot' version "$SPRING_BOOT_VERSION" apply false
     id 'io.spring.dependency-management' version "$SPRING_BOOT_DEPENDENCY_MANAGER_VERSION" apply false
+    id 'com.bmuschko.docker-remote-api' version "$DOCKER_REMOTE_API_VERSION" apply false
+    id "com.avast.gradle.docker-compose" version "$DOCKER_COMPOSE_VERSION" apply false
 }
