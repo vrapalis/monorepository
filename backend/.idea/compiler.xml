@@ -10,10 +10,13 @@
           <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.projectlombok/lombok/1.18.16/6dc192c7f93ec1853f70d59d8a6dcf94eb42866/lombok-1.18.16.jar" />
           <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.mapstruct/mapstruct-processor/1.4.0.CR1/d27686172737340cd04072323402720a7588d62c/mapstruct-processor-1.4.0.CR1.jar" />
         </processorPath>
-        <module name="backend.apps.entryou.api-gateway.main" />
         <module name="backend.libs.security.uaa.main" />
-        <module name="backend.apps.entryou.uaa.main" />
+        <module name="backend.libs.security.web.main" />
         <module name="backend.libs.utils.main" />
+        <module name="backend.libs.security.dao.main" />
+        <module name="backend.apps.entryou.api-gateway.main" />
+        <module name="backend.apps.entryou.uaa.main" />
+        <module name="backend.libs.documentation.swagger.main" />
         <module name="backend.libs.security.jpa.main" />
       </profile>
     </annotationProcessing>

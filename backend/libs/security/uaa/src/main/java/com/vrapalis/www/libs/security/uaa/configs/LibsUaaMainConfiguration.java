@@ -12,6 +12,11 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @ConditionalOnClass({LibsSecurityJpaUserEntity.class, LibsSecurityJpaUserEntityRepository.class})
 @EntityScan(basePackages = "com.vrapalis.www.libs.security.jpa.*")
 @EnableJpaRepositories(basePackages = "com.vrapalis.www.libs.security.jpa.*")
-@ComponentScan(basePackages = "com.vrapalis.www.libs.security.jpa.*")
+@ComponentScan(
+        basePackages = {
+                "com.vrapalis.www.libs.security.*",
+                "com.vrapalis.www.libs.documentation.swagger"
+        }
+)
 public class LibsUaaMainConfiguration {
 }

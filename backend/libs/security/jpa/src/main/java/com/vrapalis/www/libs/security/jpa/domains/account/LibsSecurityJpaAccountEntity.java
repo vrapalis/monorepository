@@ -15,6 +15,16 @@ public class LibsSecurityJpaAccountEntity extends LibsSecurityJpaAbstractEntity 
     @Id
     private Integer id;
 
+    private String password;
+
+    private Boolean accountNonExpired;
+
+    private Boolean accountNonLocked;
+
+    private Boolean credentialsNonExpired;
+
+    private Boolean isEnabled;
+
     @MapsId
     @OneToOne
     @JoinColumn(name = "user_id")

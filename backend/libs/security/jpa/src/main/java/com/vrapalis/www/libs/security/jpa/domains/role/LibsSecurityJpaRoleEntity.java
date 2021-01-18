@@ -23,6 +23,8 @@ public class LibsSecurityJpaRoleEntity extends LibsSecurityJpaAbstractEntity {
     @Column(nullable = false, unique = true)
     private String name;
 
+    private String description;
+
     @ManyToMany(
             cascade = {
                     CascadeType.PERSIST,

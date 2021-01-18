@@ -23,6 +23,8 @@ public class LibsSecurityJpaAuthorityEntity extends LibsSecurityJpaAbstractEntit
     @Column(nullable = false, unique = true)
     private String name;
 
+    private String description;
+
     @Override
     public boolean equals(Object o) {
         if (this == o)

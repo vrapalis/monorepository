@@ -1,0 +1,56 @@
+package com.vrapalis.www.libs.documentation.swagger;
+
+import lombok.Data;
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.stereotype.Component;
+import org.springframework.validation.annotation.Validated;
+
+import javax.validation.constraints.NotNull;
+
+@Data
+@Component
+@Validated
+@ConfigurationProperties(prefix = "com.vrapalis.www.libs.documentation.swagger")
+public class LibsDocumentationSwaggerProperties {
+    /**
+     * Contact name
+     */
+    @NotNull
+    private String contactName;
+
+    /**
+     * Contact url
+     */
+    @NotNull
+    private String contactUrl;
+
+    /**
+     * Contact email
+     */
+    @NotNull
+    private String contactEmail;
+
+    /**
+     * Api title
+     */
+    @NotNull
+    private String apiTitle;
+
+    /**
+     * Api description
+     */
+    @NotNull
+    private String apiDescription;
+
+    /**
+     * Api version
+     */
+    @NotNull
+    private String apiVersion;
+
+    /**
+     * Apis base packages
+     */
+    @NotNull
+    private String apiBasePackages;
+}
