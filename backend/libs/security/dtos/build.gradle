@@ -1,0 +1,5 @@
+dependencies {
+    implementation project(':libs:documentation:swagger')
+    implementation project(':libs:security:errors')
+    implementation project(':libs:web:dto')
+}

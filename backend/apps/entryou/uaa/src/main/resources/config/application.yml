@@ -11,16 +11,3 @@ spring:
       discovery:
         register: true
         instanceId: ${spring.application.name}:${random.value}
-com:
-  vrapalis:
-    www:
-      libs:
-        documentation:
-          swagger:
-            contact-name: vrapalis
-            contact-url: vrapalis.com
-            contact-email: vitali.rapalis@mail.ru
-            api-base-packages: com.vrapalis.www
-            api-description: Entryou UAA
-            api-title: Rest api
-            api-version: 0.0.1

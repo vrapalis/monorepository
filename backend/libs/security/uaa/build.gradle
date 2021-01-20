@@ -1,4 +1,0 @@
-dependencies {
-    implementation project(':libs:security:jpa')
-    implementation project(':libs:security:web')
-}

@@ -1,5 +1,6 @@
 package com.vrapalis.www.libs.security.web.domains.user;
 
+
 import com.vrapalis.www.libs.security.web.domains.common.LibsSecurityWebApiUrls;
 
 public final class LibsSecurityWebUserApiUrls {

@@ -1,7 +1,7 @@
 package com.vrapalis.www.entryou.uaa.configs.dev;
 
-import com.vrapalis.www.libs.security.jpa.domains.user.LibsSecurityJpaUserEntity;
-import com.vrapalis.www.libs.security.jpa.domains.user.LibsSecurityJpaUserEntityRepository;
+import com.vrapalis.www.libs.security.entities.domains.user.LibsSecurityJpaUserEntity;
+import com.vrapalis.www.libs.security.repositories.domains.user.LibsSecurityJpaUserEntityRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
