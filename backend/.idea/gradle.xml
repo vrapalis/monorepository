@@ -25,8 +25,9 @@
             <option value="$PROJECT_DIR$/libs/security/entities" />
             <option value="$PROJECT_DIR$/libs/security/errors" />
             <option value="$PROJECT_DIR$/libs/security/repositories" />
+            <option value="$PROJECT_DIR$/libs/security/restcontrollers" />
             <option value="$PROJECT_DIR$/libs/security/services" />
-            <option value="$PROJECT_DIR$/libs/security/web" />
+            <option value="$PROJECT_DIR$/libs/security/uaa" />
             <option value="$PROJECT_DIR$/libs/utils" />
             <option value="$PROJECT_DIR$/libs/web" />
             <option value="$PROJECT_DIR$/libs/web/dto" />

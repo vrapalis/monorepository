@@ -1,2 +1,0 @@
-org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-  com.vrapalis.www.libs.security.web.configs.LibsUaaMainConfiguration

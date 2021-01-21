@@ -16,6 +16,4 @@ public abstract class LibsWebDtoServerAbstractResponse {
     private final String path = ServletUriComponentsBuilder.fromCurrentRequestUri().toUriString();
 
     public abstract String getMsg();
-
-//    public abstract String getPath();
 }

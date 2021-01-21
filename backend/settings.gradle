@@ -2,8 +2,9 @@ rootProject.name = 'backend'
 
 include(':apps', ':apps:entryou', ':apps:entryou:uaa', ':apps:entryou:api-gateway')
 
-include(':libs', ':libs:security', ':libs:security:services', ':libs:security:web',
-        ':libs:security:dtos', ':libs:security:errors', ':libs:security:entities', ':libs:security:repositories')
+include(':libs', ':libs:security', ':libs:security:services', ':libs:security:uaa',
+        ':libs:security:dtos', ':libs:security:errors', ':libs:security:entities',
+        ':libs:security:repositories', ':libs:security:restcontrollers')
 
 include(':libs:documentation', ':libs:documentation:swagger')
 

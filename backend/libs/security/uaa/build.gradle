@@ -1,0 +1,5 @@
+dependencies {
+    implementation project(':libs:security:restcontrollers')
+    implementation project(':libs:security:repositories')
+    implementation project(':libs:security:entities')
+}

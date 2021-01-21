@@ -3,7 +3,7 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     runtimeOnly 'org.postgresql:postgresql'
 
-    implementation project(':libs:security:web')
+    implementation project(':libs:security:uaa')
 
     // TODO FOR TEST
     implementation project(':libs:security:entities')
