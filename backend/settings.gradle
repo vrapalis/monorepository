@@ -4,7 +4,7 @@ include(':apps', ':apps:entryou', ':apps:entryou:uaa', ':apps:entryou:api-gatewa
 
 include(':libs', ':libs:security', ':libs:security:services', ':libs:security:uaa',
         ':libs:security:dtos', ':libs:security:errors', ':libs:security:entities',
-        ':libs:security:repositories', ':libs:security:restcontrollers')
+        ':libs:security:repositories', ':libs:security:restcontrollers', ':libs:security:models')
 
 include(':libs:documentation', ':libs:documentation:swagger')
 

@@ -5,6 +5,7 @@ import com.vrapalis.www.libs.security.entities.domains.common.LibsSecurityJpaAbs
 import com.vrapalis.www.libs.security.entities.domains.role.LibsSecurityJpaRoleEntity;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 import org.hibernate.annotations.NaturalId;
 
 import javax.persistence.*;

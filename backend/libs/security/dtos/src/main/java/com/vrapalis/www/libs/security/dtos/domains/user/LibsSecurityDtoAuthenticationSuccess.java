@@ -12,5 +12,5 @@ public class LibsSecurityDtoAuthenticationSuccess extends LibsWebDtoServerSucces
     private final String msg= "Authentication success";
 
     @ApiModelProperty(example = "Jwt token ...", position = 2)
-    private final String jwt = "";
+    private String jwt = "";
 }

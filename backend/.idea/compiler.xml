@@ -6,10 +6,32 @@
       <profile name="Gradle Imported" enabled="true">
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="false">
+          <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.projectlombok/lombok/1.18.16/6dc192c7f93ec1853f70d59d8a6dcf94eb42866/lombok-1.18.16.jar" />
+        </processorPath>
+        <module name="backend.libs.web.dto.test" />
+        <module name="backend.libs.security.repositories.test" />
+        <module name="backend.libs.security.services.test" />
+        <module name="backend.apps.entryou.uaa.test" />
+        <module name="backend.libs.security.entities.test" />
+        <module name="backend.libs.security.restcontrollers.test" />
+        <module name="backend.libs.errors.test" />
+        <module name="backend.libs.security.errors.test" />
+        <module name="backend.libs.security.dtos.test" />
+        <module name="backend.libs.security.models.test" />
+        <module name="backend.libs.utils.test" />
+        <module name="backend.libs.documentation.swagger.test" />
+        <module name="backend.apps.entryou.api-gateway.test" />
+        <module name="backend.libs.security.uaa.test" />
+        <module name="backend.libs.assertions.test" />
+      </profile>
+      <profile name="Gradle Imported" enabled="true">
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
           <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-configuration-processor/2.4.1/d42331b683340464cf7027bf55df6ec52d088eb5/spring-boot-configuration-processor-2.4.1.jar" />
           <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.projectlombok/lombok/1.18.16/6dc192c7f93ec1853f70d59d8a6dcf94eb42866/lombok-1.18.16.jar" />
           <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.mapstruct/mapstruct-processor/1.4.0.CR1/d27686172737340cd04072323402720a7588d62c/mapstruct-processor-1.4.0.CR1.jar" />
         </processorPath>
+        <module name="backend.libs.security.models.main" />
         <module name="backend.libs.assertions.main" />
         <module name="backend.libs.security.restcontrollers.main" />
         <module name="backend.libs.security.dtos.main" />
@@ -24,26 +46,6 @@
         <module name="backend.libs.security.repositories.main" />
         <module name="backend.libs.security.services.main" />
         <module name="backend.libs.documentation.swagger.main" />
-      </profile>
-      <profile name="Gradle Imported" enabled="true">
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="false">
-          <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.projectlombok/lombok/1.18.16/6dc192c7f93ec1853f70d59d8a6dcf94eb42866/lombok-1.18.16.jar" />
-        </processorPath>
-        <module name="backend.libs.web.dto.test" />
-        <module name="backend.libs.security.repositories.test" />
-        <module name="backend.libs.security.services.test" />
-        <module name="backend.apps.entryou.uaa.test" />
-        <module name="backend.libs.security.entities.test" />
-        <module name="backend.libs.security.restcontrollers.test" />
-        <module name="backend.libs.errors.test" />
-        <module name="backend.libs.security.errors.test" />
-        <module name="backend.libs.security.dtos.test" />
-        <module name="backend.libs.utils.test" />
-        <module name="backend.libs.documentation.swagger.test" />
-        <module name="backend.apps.entryou.api-gateway.test" />
-        <module name="backend.libs.security.uaa.test" />
-        <module name="backend.libs.assertions.test" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="11">
