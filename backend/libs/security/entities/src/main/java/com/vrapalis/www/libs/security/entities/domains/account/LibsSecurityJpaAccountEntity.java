@@ -2,12 +2,14 @@ package com.vrapalis.www.libs.security.entities.domains.account;
 
 import com.vrapalis.www.libs.security.entities.domains.common.LibsSecurityJpaAbstractEntity;
 import com.vrapalis.www.libs.security.entities.domains.user.LibsSecurityJpaUserEntity;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+import lombok.experimental.SuperBuilder;
 
 import javax.persistence.*;
 
-@Data
+@Getter
+@Setter
+@SuperBuilder
 @NoArgsConstructor
 @Entity
 @Table(name = "account")

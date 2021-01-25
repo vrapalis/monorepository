@@ -1,7 +1,7 @@
 package com.vrapalis.www.libs.security.restcontrollers;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.vrapalis.www.libs.security.services.domains.user.LibsSecurityUserDetailsService;
+import com.vrapalis.www.libs.security.services.domains.user.LibsSecurityUserDetailsServiceImp;
 import lombok.Getter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
@@ -19,5 +19,5 @@ public class AbstractControllerTest {
     private ObjectMapper objectMapper;
 
     @MockBean
-    private LibsSecurityUserDetailsService userDetailsService;
+    private LibsSecurityUserDetailsServiceImp userDetailsService;
 }

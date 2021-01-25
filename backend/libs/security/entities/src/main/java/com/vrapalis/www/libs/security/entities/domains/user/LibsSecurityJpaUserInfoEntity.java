@@ -2,13 +2,18 @@ package com.vrapalis.www.libs.security.entities.domains.user;
 
 import com.vrapalis.www.libs.security.entities.domains.common.LibsSecurityJpaAbstractEntity;
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.experimental.SuperBuilder;
 
 import javax.persistence.*;
 
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
 @Entity
+@SuperBuilder
 @Table(name = "user_info")
 public class LibsSecurityJpaUserInfoEntity extends LibsSecurityJpaAbstractEntity {
     @Id
@@ -18,7 +23,7 @@ public class LibsSecurityJpaUserInfoEntity extends LibsSecurityJpaAbstractEntity
 
     private String firstName;
 
-    private Byte age;
+    private Integer age;
 
     @MapsId
     @OneToOne

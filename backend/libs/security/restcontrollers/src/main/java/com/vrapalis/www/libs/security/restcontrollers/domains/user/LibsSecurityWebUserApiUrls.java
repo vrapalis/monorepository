@@ -8,5 +8,6 @@ public final class LibsSecurityWebUserApiUrls {
     }
 
     public static final String BASE_USER_API_URL_V1 = LibsSecurityWebApiUrls.BASE_API_URL_V1 + "/users";
-    public static final String USER_API_LOGIN_URL_V1 = "/sign-in";
+    public static final String USER_API_SIGN_IN_URL_V1 = "/sign-in";
+    public static final String USER_API_SIGN_UP_URL_V1 = "/sign-up";
 }

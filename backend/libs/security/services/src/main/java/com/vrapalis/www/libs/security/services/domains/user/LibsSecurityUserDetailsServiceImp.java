@@ -11,7 +11,7 @@ import javax.persistence.EntityNotFoundException;
 
 @Service
 @AllArgsConstructor
-public class LibsSecurityUserDetailsService implements UserDetailsService {
+public class LibsSecurityUserDetailsServiceImp implements UserDetailsService {
     private LibsSecurityJpaUserEntityRepository userRepository;
 
     @Override

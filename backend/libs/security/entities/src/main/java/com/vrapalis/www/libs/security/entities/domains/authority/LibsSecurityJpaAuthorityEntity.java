@@ -2,7 +2,10 @@ package com.vrapalis.www.libs.security.entities.domains.authority;
 
 import com.vrapalis.www.libs.security.entities.domains.common.LibsSecurityJpaAbstractEntity;
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.experimental.SuperBuilder;
 import org.hibernate.annotations.NaturalId;
 
 import javax.persistence.Column;
@@ -11,7 +14,9 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import java.util.Objects;
 
-@Data
+@Getter
+@Setter
+@SuperBuilder
 @NoArgsConstructor
 @Entity
 @Table(name = "authority")

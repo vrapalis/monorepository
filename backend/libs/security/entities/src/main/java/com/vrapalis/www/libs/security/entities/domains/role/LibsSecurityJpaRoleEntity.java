@@ -2,8 +2,11 @@ package com.vrapalis.www.libs.security.entities.domains.role;
 
 import com.vrapalis.www.libs.security.entities.domains.authority.LibsSecurityJpaAuthorityEntity;
 import com.vrapalis.www.libs.security.entities.domains.common.LibsSecurityJpaAbstractEntity;
+import lombok.Builder;
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.experimental.SuperBuilder;
 import org.hibernate.annotations.NaturalId;
 
 import javax.persistence.*;
@@ -13,6 +16,7 @@ import java.util.Set;
 
 @Data
 @NoArgsConstructor
+@SuperBuilder
 @Entity
 @Table(name = "role")
 public class LibsSecurityJpaRoleEntity extends LibsSecurityJpaAbstractEntity {
@@ -35,6 +39,7 @@ public class LibsSecurityJpaRoleEntity extends LibsSecurityJpaAbstractEntity {
             joinColumns = @JoinColumn(name = "role_id"),
             inverseJoinColumns = @JoinColumn(name = "authority_id")
     )
+    @Builder.Default
     private Set<LibsSecurityJpaAuthorityEntity> authorities = new HashSet<>();
 
     @Override

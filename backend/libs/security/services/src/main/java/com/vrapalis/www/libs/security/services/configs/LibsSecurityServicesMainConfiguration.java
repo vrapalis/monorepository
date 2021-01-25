@@ -6,7 +6,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-public class LibSecurityServicesMainConfiguration {
+public class LibsSecurityServicesMainConfiguration {
     @Bean
     public Algorithm algorithm(LibsSecurityJwtProperties jwtProperties) {
         return Algorithm.HMAC256(jwtProperties.getSecret());

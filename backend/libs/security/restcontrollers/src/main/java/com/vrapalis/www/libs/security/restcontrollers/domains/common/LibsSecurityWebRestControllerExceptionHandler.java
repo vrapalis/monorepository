@@ -1,8 +1,8 @@
 package com.vrapalis.www.libs.security.restcontrollers.domains.common;
 
 import com.vrapalis.www.libs.errors.LibsErrorBeanValidation;
-import com.vrapalis.www.libs.security.dtos.domains.user.LibsSecurityDtoAuthenticationError;
-import com.vrapalis.www.libs.security.errors.domains.authentication.LibsSecurityErrorAuthentication;
+import com.vrapalis.www.libs.security.dtos.domains.user.LibsSecurityDtoSignInError;
+import com.vrapalis.www.libs.security.errors.domains.authentication.LibsSecurityErrorSignIn;
 import com.vrapalis.www.libs.web.dto.LibsWebDtoServerBeanValidationErrorResponse;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -22,13 +22,9 @@ public class LibsSecurityWebRestControllerExceptionHandler extends ResponseEntit
      * @param request
      * @return
      */
-    @ExceptionHandler(value = LibsSecurityErrorAuthentication.class)
-    protected ResponseEntity<Object> authenticationExceptionHandler(LibsSecurityErrorAuthentication ex, WebRequest request) {
-        final var errorResponse = LibsSecurityDtoAuthenticationError
-                .builder()
-                .msg(ex.getErrorMsg())
-                .detailedErrorMsg(ex.getDetailedErrorMsg())
-                .build();
+    @ExceptionHandler(value = LibsSecurityErrorSignIn.class)
+    protected ResponseEntity<Object> authenticationExceptionHandler(LibsSecurityErrorSignIn ex, WebRequest request) {
+        final var errorResponse = new LibsSecurityDtoSignInError();
         return handleExceptionInternal(ex, errorResponse, new HttpHeaders(), HttpStatus.BAD_REQUEST, request);
     }
 

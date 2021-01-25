@@ -24,6 +24,7 @@
             <option value="$PROJECT_DIR$/libs/security/dtos" />
             <option value="$PROJECT_DIR$/libs/security/entities" />
             <option value="$PROJECT_DIR$/libs/security/errors" />
+            <option value="$PROJECT_DIR$/libs/security/mappers" />
             <option value="$PROJECT_DIR$/libs/security/models" />
             <option value="$PROJECT_DIR$/libs/security/repositories" />
             <option value="$PROJECT_DIR$/libs/security/restcontrollers" />

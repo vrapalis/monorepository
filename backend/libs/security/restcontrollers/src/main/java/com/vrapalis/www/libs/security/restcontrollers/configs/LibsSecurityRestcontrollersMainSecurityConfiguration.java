@@ -1,6 +1,6 @@
 package com.vrapalis.www.libs.security.restcontrollers.configs;
 
-import com.vrapalis.www.libs.security.services.domains.user.LibsSecurityUserDetailsService;
+import com.vrapalis.www.libs.security.services.domains.user.LibsSecurityUserDetailsServiceImp;
 import lombok.AllArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -20,7 +20,7 @@ import org.springframework.web.filter.CorsFilter;
 @EnableWebSecurity
 @AllArgsConstructor
 public class LibsSecurityRestcontrollersMainSecurityConfiguration extends WebSecurityConfigurerAdapter {
-    private LibsSecurityUserDetailsService userDetailsService;
+    private LibsSecurityUserDetailsServiceImp userDetailsService;
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {

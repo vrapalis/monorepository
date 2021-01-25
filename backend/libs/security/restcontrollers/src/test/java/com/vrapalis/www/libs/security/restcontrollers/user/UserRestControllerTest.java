@@ -1,12 +1,12 @@
 package com.vrapalis.www.libs.security.restcontrollers.user;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.vrapalis.www.libs.security.dtos.domains.user.LibsSecurityDtoAuthenticationSuccess;
-import com.vrapalis.www.libs.security.dtos.domains.user.LibsSecurityDtoUser;
-import com.vrapalis.www.libs.security.errors.domains.authentication.LibsSecurityErrorAuthentication;
+import com.vrapalis.www.libs.security.dtos.domains.user.LibsSecurityDtoSignInUser;
+import com.vrapalis.www.libs.security.dtos.domains.user.LibsSecurityDtoSignUpSuccess;
+import com.vrapalis.www.libs.security.dtos.domains.user.LibsSecurityDtoSignUpUser;
+import com.vrapalis.www.libs.security.dtos.domains.user.LibsSecurityDtoUserMsg;
+import com.vrapalis.www.libs.security.errors.domains.authentication.LibsSecurityErrorSignIn;
 import com.vrapalis.www.libs.security.restcontrollers.AbstractControllerTest;
 import com.vrapalis.www.libs.security.restcontrollers.domains.user.LibsSecurityWebUserApiUrls;
-import com.vrapalis.www.libs.security.services.domains.user.LibsSecurityUserDetailsService;
 import com.vrapalis.www.libs.security.services.domains.user.LibsSecurityUserService;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -31,11 +31,11 @@ public class UserRestControllerTest extends AbstractControllerTest {
     @DisplayName("Sign in tests group")
     class SignInTestGroup {
 
-        private LibsSecurityDtoUser givenSignInBeanDto;
+        private LibsSecurityDtoSignInUser givenSignInBeanDto;
 
         @BeforeEach
         void setUp() {
-            givenSignInBeanDto = LibsSecurityDtoUser.builder()
+            givenSignInBeanDto = LibsSecurityDtoSignInUser.builder()
                     .password("123456")
                     .email("email@email.com")
                     .build();
@@ -47,7 +47,7 @@ public class UserRestControllerTest extends AbstractControllerTest {
             givenSignInBeanDto.setEmail("not_valid_email");
 
             getMockMvc().perform(post(LibsSecurityWebUserApiUrls.BASE_USER_API_URL_V1
-                    + LibsSecurityWebUserApiUrls.USER_API_LOGIN_URL_V1)
+                    + LibsSecurityWebUserApiUrls.USER_API_SIGN_IN_URL_V1)
                     .content(getObjectMapper().writeValueAsString(givenSignInBeanDto))
                     .accept(MediaType.APPLICATION_JSON)
                     .contentType(MediaType.APPLICATION_JSON))
@@ -58,35 +58,62 @@ public class UserRestControllerTest extends AbstractControllerTest {
         @DisplayName("Not valid credentials, should throw bad request and properly error response")
         void notValidCredentialsShouldThrowException() throws Exception {
 
-            Mockito.when(userService.signIn(givenSignInBeanDto)).thenThrow(LibsSecurityErrorAuthentication.class);
+            Mockito.when(userService.signIn(givenSignInBeanDto)).thenThrow(LibsSecurityErrorSignIn.class);
 
             final var mvcResult = getMockMvc().perform(post(LibsSecurityWebUserApiUrls.BASE_USER_API_URL_V1
-                    + LibsSecurityWebUserApiUrls.USER_API_LOGIN_URL_V1)
+                    + LibsSecurityWebUserApiUrls.USER_API_SIGN_IN_URL_V1)
                     .content(getObjectMapper().writeValueAsString(givenSignInBeanDto))
                     .accept(MediaType.APPLICATION_JSON)
                     .contentType(MediaType.APPLICATION_JSON))
                     .andExpect(status().isBadRequest())
                     .andReturn();
             final var errorAuthentication = getObjectMapper()
-                    .readValue(mvcResult.getResponse().getContentAsByteArray(), LibsSecurityErrorAuthentication.class);
+                    .readValue(mvcResult.getResponse().getContentAsByteArray(), LibsSecurityErrorSignIn.class);
 
             Assertions.assertThat(errorAuthentication.getErrorMsg())
-                    .isEqualTo(new LibsSecurityErrorAuthentication().getErrorMsg());
+                    .isEqualTo(new LibsSecurityErrorSignIn().getErrorMsg());
         }
 
         @Test
-        @DisplayName("Response should contain jwt token")
+        @DisplayName("Response should be 200 ok")
         void responseShouldContainJwtToken() throws Exception {
             Mockito.when(userService.signIn(givenSignInBeanDto)).thenReturn(ResponseEntity
                     .ok(Mockito.any()));
 
             final var mvcResult = getMockMvc().perform(post(LibsSecurityWebUserApiUrls.BASE_USER_API_URL_V1
-                    + LibsSecurityWebUserApiUrls.USER_API_LOGIN_URL_V1)
+                    + LibsSecurityWebUserApiUrls.USER_API_SIGN_IN_URL_V1)
                     .content(getObjectMapper().writeValueAsString(givenSignInBeanDto))
                     .accept(MediaType.APPLICATION_JSON)
                     .contentType(MediaType.APPLICATION_JSON))
                     .andExpect(status().isOk())
                     .andReturn();
+        }
+    }
+
+    @Nested
+    @DisplayName("Sign up test group")
+    class SignUpTestGroup {
+        private LibsSecurityDtoSignUpUser signUpUser;
+
+        @BeforeEach
+        void setUp() {
+            signUpUser = LibsSecurityDtoSignUpUser.builder()
+                    .build();
+        }
+
+        @Test
+        @DisplayName("Try to sign up should get valid response")
+        void signUpTest() throws Exception {
+            final var mvcResult = getMockMvc().perform(post(LibsSecurityWebUserApiUrls.BASE_USER_API_URL_V1
+                    + LibsSecurityWebUserApiUrls.USER_API_SIGN_UP_URL_V1)
+                    .content(getObjectMapper().writeValueAsString(signUpUser))
+                    .accept(MediaType.APPLICATION_JSON)
+                    .contentType(MediaType.APPLICATION_JSON))
+                    .andExpect(status().isOk())
+                    .andReturn();
+            final var content = mvcResult.getResponse().getContentAsByteArray();
+            final var dtoSignUpSuccess = getObjectMapper().readValue(content, LibsSecurityDtoSignUpSuccess.class);
+            Assertions.assertThat(dtoSignUpSuccess.getMsg()).isEqualTo(LibsSecurityDtoUserMsg.SIGN_UP_SUCCESS_MSG);
         }
     }
 }

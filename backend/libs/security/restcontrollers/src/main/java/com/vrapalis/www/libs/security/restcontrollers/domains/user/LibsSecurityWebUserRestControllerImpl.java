@@ -2,9 +2,11 @@ package com.vrapalis.www.libs.security.restcontrollers.domains.user;
 
 import com.vrapalis.www.libs.assertions.LibsAssertions;
 import com.vrapalis.www.libs.errors.LibsErrorBeanValidation;
+import com.vrapalis.www.libs.security.dtos.domains.user.LibsSecurityDtoSignUpUser;
+import com.vrapalis.www.libs.security.errors.domains.authentication.LibsSecurityErrorSignUp;
 import com.vrapalis.www.libs.security.services.domains.user.LibsSecurityUserService;
-import com.vrapalis.www.libs.security.dtos.domains.user.LibsSecurityDtoUser;
-import com.vrapalis.www.libs.security.errors.domains.authentication.LibsSecurityErrorAuthentication;
+import com.vrapalis.www.libs.security.dtos.domains.user.LibsSecurityDtoSignInUser;
+import com.vrapalis.www.libs.security.errors.domains.authentication.LibsSecurityErrorSignIn;
 import com.vrapalis.www.libs.web.dto.LibsWebDtoServerAbstractResponse;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -17,9 +19,16 @@ public class LibsSecurityWebUserRestControllerImpl implements LibsSecurityWebUse
     private LibsSecurityUserService userService;
 
     @Override
-    public ResponseEntity<LibsWebDtoServerAbstractResponse> signIn(LibsSecurityDtoUser signInUser, BindingResult result)
-            throws LibsErrorBeanValidation, LibsSecurityErrorAuthentication {
+    public ResponseEntity<LibsWebDtoServerAbstractResponse> signIn(LibsSecurityDtoSignInUser signInUser, BindingResult result)
+            throws LibsErrorBeanValidation, LibsSecurityErrorSignIn {
         LibsAssertions.assertNoBeanValidationErrors(result);
         return userService.signIn(signInUser);
+    }
+
+    @Override
+    public ResponseEntity<LibsWebDtoServerAbstractResponse> signUp(LibsSecurityDtoSignUpUser signUpUser, BindingResult result)
+            throws LibsErrorBeanValidation, LibsSecurityErrorSignUp {
+        LibsAssertions.assertNoBeanValidationErrors(result);
+        return userService.signUp(signUpUser);
     }
 }

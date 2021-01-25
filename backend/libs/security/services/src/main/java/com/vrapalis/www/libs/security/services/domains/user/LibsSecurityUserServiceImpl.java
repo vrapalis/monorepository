@@ -1,8 +1,10 @@
 package com.vrapalis.www.libs.security.services.domains.user;
 
-import com.vrapalis.www.libs.security.dtos.domains.user.LibsSecurityDtoUser;
-import com.vrapalis.www.libs.security.entities.domains.user.LibsSecurityJpaUserEntity;
-import com.vrapalis.www.libs.security.errors.domains.authentication.LibsSecurityErrorAuthentication;
+import com.vrapalis.www.libs.security.dtos.domains.user.LibsSecurityDtoSignInSuccess;
+import com.vrapalis.www.libs.security.dtos.domains.user.LibsSecurityDtoSignInUser;
+import com.vrapalis.www.libs.security.dtos.domains.user.LibsSecurityDtoSignUpUser;
+import com.vrapalis.www.libs.security.errors.domains.authentication.LibsSecurityErrorSignIn;
+import com.vrapalis.www.libs.security.errors.domains.authentication.LibsSecurityErrorSignUp;
 import com.vrapalis.www.libs.security.repositories.domains.user.LibsSecurityJpaUserEntityRepository;
 import com.vrapalis.www.libs.security.services.domains.jwt.LibsSecurityJwtService;
 import com.vrapalis.www.libs.web.dto.LibsWebDtoServerAbstractResponse;
@@ -26,8 +28,9 @@ public class LibsSecurityUserServiceImpl implements LibsSecurityUserService {
     private LibsSecurityJwtService jwtService;
 
     @Override
-    public ResponseEntity<LibsWebDtoServerAbstractResponse> signIn(LibsSecurityDtoUser signInUser)
-            throws LibsSecurityErrorAuthentication {
+    public ResponseEntity<LibsWebDtoServerAbstractResponse> signIn(LibsSecurityDtoSignInUser signInUser)
+            throws LibsSecurityErrorSignIn {
+        LibsSecurityDtoSignInSuccess authenticationSuccess;
         try {
             final var authenticationToken = new UsernamePasswordAuthenticationToken(signInUser.getEmail(),
                     signInUser.getPassword(), new ArrayList<>());
@@ -35,10 +38,17 @@ public class LibsSecurityUserServiceImpl implements LibsSecurityUserService {
                     .authenticate(authenticationToken);
             final var authenticatedUser = (UserDetails) authenticate.getPrincipal();
             final var userEntity = userRepository.findFirstByEmail(authenticatedUser.getUsername()).orElseThrow(EntityNotFoundException::new);
-            System.out.println(jwtService.generateJwtToken(userEntity));
+            authenticationSuccess = LibsSecurityDtoSignInSuccess.builder()
+                    .jwt(jwtService.generateJwtToken(userEntity))
+                    .build();
         } catch (Exception ex) {
-            throw new LibsSecurityErrorAuthentication();
+            throw new LibsSecurityErrorSignIn();
         }
+        return ResponseEntity.ok(authenticationSuccess);
+    }
+
+    @Override
+    public ResponseEntity<LibsWebDtoServerAbstractResponse> signUp(LibsSecurityDtoSignUpUser signUpUser) throws LibsSecurityErrorSignUp {
         return null;
     }
 }

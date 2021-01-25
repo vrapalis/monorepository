@@ -17,6 +17,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
                 "com.vrapalis.www.libs.security.uaa.*",
                 "com.vrapalis.www.libs.security.services.*",
                 "com.vrapalis.www.libs.security.restcontrollers.*",
+                "com.vrapalis.www.libs.security.mappers.*",
         }
 )
 public class LibsUaaMainConfiguration {

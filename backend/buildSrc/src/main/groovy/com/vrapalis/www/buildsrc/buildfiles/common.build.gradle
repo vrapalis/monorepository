@@ -45,6 +45,7 @@ dependencies {
 
     implementation "org.mapstruct:mapstruct:${MAPSTRUCT_VERSION}"
     annotationProcessor "org.mapstruct:mapstruct-processor:${MAPSTRUCT_VERSION}"
+    testAnnotationProcessor "org.mapstruct:mapstruct-processor:${MAPSTRUCT_VERSION}"
 
     testImplementation "org.assertj:assertj-core:${ASSERTJ_VERSION}"
     testCompileOnly 'org.projectlombok:lombok'

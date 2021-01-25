@@ -11,7 +11,7 @@ import javax.validation.constraints.Size;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class LibsSecurityDtoUser {
+public class LibsSecurityDtoSignInUser {
     @Email
     @NotNull
     @ApiModelProperty(example = "admin@admin.com", required = true)

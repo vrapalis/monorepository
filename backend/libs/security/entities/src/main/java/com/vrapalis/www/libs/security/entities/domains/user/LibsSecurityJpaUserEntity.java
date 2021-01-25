@@ -3,17 +3,18 @@ package com.vrapalis.www.libs.security.entities.domains.user;
 import com.vrapalis.www.libs.security.entities.domains.account.LibsSecurityJpaAccountEntity;
 import com.vrapalis.www.libs.security.entities.domains.common.LibsSecurityJpaAbstractEntity;
 import com.vrapalis.www.libs.security.entities.domains.role.LibsSecurityJpaRoleEntity;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
+import lombok.experimental.SuperBuilder;
 import org.hibernate.annotations.NaturalId;
 
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
+@SuperBuilder
 @Entity
 @Table(name = "app_user")
 public class LibsSecurityJpaUserEntity extends LibsSecurityJpaAbstractEntity {
@@ -42,6 +43,7 @@ public class LibsSecurityJpaUserEntity extends LibsSecurityJpaAbstractEntity {
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id")
     )
+    @Builder.Default
     private Set<LibsSecurityJpaRoleEntity> roles = new HashSet<>();
 }
 
