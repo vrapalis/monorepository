@@ -21,7 +21,6 @@ services:
       - SPRING.DATASOURCE.URL=jdbc:postgresql://entryou-uaa-db-dev:5432/entryou_uaa_db_dev
       - SPRING.DATASOURCE.USERNAME=admin
       - SPRING.DATASOURCE.PASSWORD=admin
-
       ### Frontend related properties
       - SMART-IT-DEVELOPMENT.ENTRYOU.UAA.EMAIL-HOST=https://frontent-host
       - SMART-IT-DEVELOPMENT.ENTRYOU.UAA.EMAIL-SERVICE-PATH=/confirm?account

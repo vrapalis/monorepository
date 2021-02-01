@@ -1,13 +1,16 @@
 dependencies {
     implementation project(':libs:web:dto')
+    implementation project(':libs:cloud:discovery')
 
     implementation project(':libs:security:dtos')
     implementation project(':libs:security:models')
     implementation project(':libs:security:entities')
     implementation project(':libs:security:repositories')
     implementation project(':libs:security:errors')
-
     implementation project(':libs:security:mappers')
+
+    implementation project(':libs:push:apis')
+    implementation project(':libs:push:dtos')
 
     implementation 'com.auth0:java-jwt:3.10.3'
 }

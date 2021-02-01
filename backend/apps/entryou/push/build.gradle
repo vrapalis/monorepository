@@ -1,0 +1,5 @@
+dependencies {
+    implementation project(':libs:push:app')
+
+    runtimeOnly 'org.postgresql:postgresql'
+}

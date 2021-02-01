@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module external.system.module.type="sourceSet" type="JAVA_MODULE" version="4">
   <component name="NewModuleRootManager">
-    <output url="file://$MODULE_DIR$/../../libs/security/restcontrollers/build/classes/java/main" />
+    <output url="file://$MODULE_DIR$/../../libs/push/restcontrollers/build/classes/java/main" />
     <exclude-output />
-    <content url="file://$MODULE_DIR$/../../libs/security/restcontrollers/src/main">
-      <sourceFolder url="file://$MODULE_DIR$/../../libs/security/restcontrollers/src/main/java" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/../../libs/security/restcontrollers/src/main/resources" type="java-resource" />
+    <content url="file://$MODULE_DIR$/../../libs/push/restcontrollers/src/main">
+      <sourceFolder url="file://$MODULE_DIR$/../../libs/push/restcontrollers/src/main/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../../libs/push/restcontrollers/src/main/resources" type="java-resource" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

@@ -5,7 +5,7 @@ import com.auth0.jwt.algorithms.Algorithm;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.vrapalis.www.libs.security.entities.domains.user.LibsSecurityJpaUserEntity;
-import com.vrapalis.www.libs.security.mappers.domains.jwt.LibsSecurityMappersJwtMapper;
+import com.vrapalis.www.libs.security.mappers.domains.jwt.LibsSecurityMappersJwt;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -15,7 +15,7 @@ import java.util.Date;
 @AllArgsConstructor
 public class LibsSecurityJwtServiceImpl implements LibsSecurityJwtService {
     private LibsSecurityJwtProperties jwtProperties;
-    private LibsSecurityMappersJwtMapper jwtMapper;
+    private LibsSecurityMappersJwt jwtMapper;
     private ObjectMapper objectMapper;
     private Algorithm algorithm;
 

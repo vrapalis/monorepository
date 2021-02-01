@@ -1,10 +1,11 @@
 rootProject.name = 'backend'
 
-include(':apps', ':apps:entryou', ':apps:entryou:uaa', ':apps:entryou:api-gateway')
+include(':apps', ':apps:entryou', ':apps:entryou:uaa', ':apps:entryou:api-gateway', ':apps:entryou:push')
 
 include(':libs', ':libs:security', ':libs:security:services', ':libs:security:uaa',
         ':libs:security:dtos', ':libs:security:errors', ':libs:security:entities',
-        ':libs:security:repositories', ':libs:security:restcontrollers', ':libs:security:models', ':libs:security:mappers')
+        ':libs:security:repositories', ':libs:security:restcontrollers', ':libs:security:models',
+        ':libs:security:mappers')
 
 include(':libs:documentation', ':libs:documentation:swagger')
 
@@ -15,3 +16,9 @@ include(':libs:assertions')
 include(':libs:errors')
 
 include(':libs:web', ':libs:web:dto')
+
+include(':libs:push', ':libs:push:app', ':libs:push:restcontrollers', ':libs:push:services',
+        ':libs:push:dtos', ':libs:push:entities', ':libs:push:repositories', ':libs:push:apis',
+        ':libs:push:urls')
+
+include(':libs:cloud', ':libs:cloud:discovery')

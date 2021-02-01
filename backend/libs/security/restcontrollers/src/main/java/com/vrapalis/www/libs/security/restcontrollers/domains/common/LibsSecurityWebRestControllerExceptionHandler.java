@@ -1,8 +1,10 @@
 package com.vrapalis.www.libs.security.restcontrollers.domains.common;
 
 import com.vrapalis.www.libs.errors.LibsErrorBeanValidation;
-import com.vrapalis.www.libs.security.dtos.domains.user.LibsSecurityDtoSignInError;
+import com.vrapalis.www.libs.security.dtos.domains.user.LibsSecurityDtosSignInErrorResponse;
+import com.vrapalis.www.libs.security.dtos.domains.user.LibsSecurityDtosSignUpErrorResponse;
 import com.vrapalis.www.libs.security.errors.domains.authentication.LibsSecurityErrorSignIn;
+import com.vrapalis.www.libs.security.errors.domains.authentication.LibsSecurityErrorSignUp;
 import com.vrapalis.www.libs.web.dto.LibsWebDtoServerBeanValidationErrorResponse;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -24,7 +26,7 @@ public class LibsSecurityWebRestControllerExceptionHandler extends ResponseEntit
      */
     @ExceptionHandler(value = LibsSecurityErrorSignIn.class)
     protected ResponseEntity<Object> authenticationExceptionHandler(LibsSecurityErrorSignIn ex, WebRequest request) {
-        final var errorResponse = new LibsSecurityDtoSignInError();
+        final var errorResponse = new LibsSecurityDtosSignInErrorResponse();
         return handleExceptionInternal(ex, errorResponse, new HttpHeaders(), HttpStatus.BAD_REQUEST, request);
     }
 
@@ -41,6 +43,21 @@ public class LibsSecurityWebRestControllerExceptionHandler extends ResponseEntit
                 .builder()
                 .detailedErrorMsg(ex.getMessage())
                 .build();
+        return handleExceptionInternal(ex, errorResponse, new HttpHeaders(), HttpStatus.BAD_REQUEST, request);
+    }
+
+    /**
+     * Sign up exception handler.
+     *
+     * @param ex
+     * @param request
+     * @return
+     */
+    @ExceptionHandler(value = LibsSecurityErrorSignUp.class)
+    protected ResponseEntity<Object> signUpExceptionHandler(LibsSecurityErrorSignUp ex, WebRequest request) {
+        final var errorResponse = new LibsSecurityDtosSignUpErrorResponse();
+        errorResponse.setMsg(ex.getErrorMsg());
+        errorResponse.setDetailedErrorMsg(ex.getDetailedErrorMsg());
         return handleExceptionInternal(ex, errorResponse, new HttpHeaders(), HttpStatus.BAD_REQUEST, request);
     }
 }

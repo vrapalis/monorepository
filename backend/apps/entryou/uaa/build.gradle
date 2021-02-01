@@ -9,3 +9,9 @@ dependencies {
     implementation project(':libs:security:entities')
     implementation project(':libs:security:repositories')
 }
+
+
+afterEvaluate {
+    // Build push service each time, when dev composer is started
+    devComposeUp.dependsOn(project(':apps:entryou:push').build, project(':apps:entryou:push').createDockerFile)
+}

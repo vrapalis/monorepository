@@ -11,6 +11,7 @@ import javax.persistence.*;
 @Setter
 @SuperBuilder
 @NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "account")
 public class LibsSecurityJpaAccountEntity extends LibsSecurityJpaAbstractEntity {

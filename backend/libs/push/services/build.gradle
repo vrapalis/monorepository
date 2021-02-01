@@ -1,0 +1,9 @@
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-mail'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+
+    implementation project(':libs:web:dto')
+    implementation project(':libs:push:dtos')
+    implementation project(':libs:push:entities')
+    implementation project(':libs:push:repositories')
+}

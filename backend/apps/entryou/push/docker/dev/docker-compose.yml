@@ -1,0 +1,22 @@
+version: '3.6'
+
+services:
+  entryou-consul-dev:
+    image: consul
+    container_name: entryou_consul_agent_dev
+    restart: on-failure
+    network_mode: host
+    ports:
+      - 8500:8500
+
+  entryou-uaa-db-dev:
+    image: postgres
+    container_name: entryou_push_db_dev
+    restart: on-failure
+    environment:
+      - POSTGRES_PASSWORD=admin
+      - POSTGRES_USER=admin
+      - POSTGRES_DB=entryou_push_db_dev
+    network_mode: host
+    ports:
+      - 5432:5432

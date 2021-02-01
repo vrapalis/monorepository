@@ -1,9 +1,9 @@
 package com.vrapalis.www.libs.security.restcontrollers.user;
 
 import com.vrapalis.www.libs.security.dtos.domains.user.LibsSecurityDtoSignInUser;
-import com.vrapalis.www.libs.security.dtos.domains.user.LibsSecurityDtoSignUpSuccess;
-import com.vrapalis.www.libs.security.dtos.domains.user.LibsSecurityDtoSignUpUser;
-import com.vrapalis.www.libs.security.dtos.domains.user.LibsSecurityDtoUserMsg;
+import com.vrapalis.www.libs.security.dtos.domains.user.LibsSecurityDtosSignUpSuccessResponse;
+import com.vrapalis.www.libs.security.dtos.domains.user.LibsSecurityDtosSignUpUser;
+import com.vrapalis.www.libs.security.dtos.domains.user.LibsSecurityDtosUserMsg;
 import com.vrapalis.www.libs.security.errors.domains.authentication.LibsSecurityErrorSignIn;
 import com.vrapalis.www.libs.security.restcontrollers.AbstractControllerTest;
 import com.vrapalis.www.libs.security.restcontrollers.domains.user.LibsSecurityWebUserApiUrls;
@@ -93,17 +93,24 @@ public class UserRestControllerTest extends AbstractControllerTest {
     @Nested
     @DisplayName("Sign up test group")
     class SignUpTestGroup {
-        private LibsSecurityDtoSignUpUser signUpUser;
+        private LibsSecurityDtosSignUpUser signUpUser;
 
         @BeforeEach
         void setUp() {
-            signUpUser = LibsSecurityDtoSignUpUser.builder()
+            signUpUser = LibsSecurityDtosSignUpUser.builder()
+                    .firstName("Firstname")
+                    .surname("Surname")
+                    .password("password")
+                    .email("email@email.com")
                     .build();
         }
 
         @Test
-        @DisplayName("Try to sign up should get valid response")
-        void signUpTest() throws Exception {
+        @DisplayName("Should return success message for valid bean")
+        void signUpShouldReturnSuccessMsgForValidBeanTest() throws Exception {
+            Mockito.when(userService.signUp(signUpUser))
+                    .thenReturn(ResponseEntity.ok(new LibsSecurityDtosSignUpSuccessResponse()));
+
             final var mvcResult = getMockMvc().perform(post(LibsSecurityWebUserApiUrls.BASE_USER_API_URL_V1
                     + LibsSecurityWebUserApiUrls.USER_API_SIGN_UP_URL_V1)
                     .content(getObjectMapper().writeValueAsString(signUpUser))
@@ -111,9 +118,10 @@ public class UserRestControllerTest extends AbstractControllerTest {
                     .contentType(MediaType.APPLICATION_JSON))
                     .andExpect(status().isOk())
                     .andReturn();
+
             final var content = mvcResult.getResponse().getContentAsByteArray();
-            final var dtoSignUpSuccess = getObjectMapper().readValue(content, LibsSecurityDtoSignUpSuccess.class);
-            Assertions.assertThat(dtoSignUpSuccess.getMsg()).isEqualTo(LibsSecurityDtoUserMsg.SIGN_UP_SUCCESS_MSG);
+            final var dtoSignUpSuccess = getObjectMapper().readValue(content, LibsSecurityDtosSignUpSuccessResponse.class);
+            Assertions.assertThat(dtoSignUpSuccess.getMsg()).isEqualTo(LibsSecurityDtosUserMsg.SIGN_UP_SUCCESS_MSG);
         }
     }
 }

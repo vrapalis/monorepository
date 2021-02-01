@@ -15,6 +15,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @ComponentScan(
         basePackages = {
                 "com.vrapalis.www.libs.security.uaa.*",
+                "com.vrapalis.www.libs.security.repositories.configs",
                 "com.vrapalis.www.libs.security.services.*",
                 "com.vrapalis.www.libs.security.restcontrollers.*",
                 "com.vrapalis.www.libs.security.mappers.*",

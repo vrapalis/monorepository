@@ -1,5 +1,6 @@
 package com.vrapalis.www.libs.security.mappers.domains.common;
 
+import com.vrapalis.www.libs.security.dtos.domains.user.LibsSecurityDtosSignUpUser;
 import com.vrapalis.www.libs.security.entities.domains.account.LibsSecurityJpaAccountEntity;
 import com.vrapalis.www.libs.security.entities.domains.authority.LibsSecurityJpaAuthorityEntity;
 import com.vrapalis.www.libs.security.entities.domains.role.LibsSecurityJpaRoleEntity;
@@ -71,6 +72,15 @@ public final class GivenTestData {
                 .createdDate(new Date())
                 .modifiedBy("unknown")
                 .modifiedDate(new Date())
+                .build();
+    }
+
+    public static LibsSecurityDtosSignUpUser givenSignUpUser() {
+        return LibsSecurityDtosSignUpUser.builder()
+                .email("email@email.com")
+                .surname("surname")
+                .firstName("Firstname")
+                .password("password")
                 .build();
     }
 }

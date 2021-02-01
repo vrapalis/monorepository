@@ -25,7 +25,7 @@ public interface LibsSecurityWebUserRestController {
             @ApiResponse(code = 200, message = "Sign in success",
                     response = LibsSecurityDtoSignInSuccess.class),
             @ApiResponse(code = 400, message = "Sign in error, ex. provided wrong email or password",
-                    response = LibsSecurityDtoSignInError.class),
+                    response = LibsSecurityDtosSignInErrorResponse.class),
             @ApiResponse(code = 422, message = "Bean validation error",
                     response = LibsWebDtoServerBeanValidationErrorResponse.class)
     })
@@ -38,13 +38,13 @@ public interface LibsSecurityWebUserRestController {
     @ApiOperation(value = "Sign up endpoint", notes = "Endpoint registration of an user")
     @ApiResponses({
             @ApiResponse(code = 200, message = "Sign up success",
-                    response = LibsSecurityDtoSignUpSuccess.class),
-            @ApiResponse(code = 400, message = "Authentication error",
-                    response = LibsSecurityDtoSignInError.class),
+                    response = LibsSecurityDtosSignUpSuccessResponse.class),
+            @ApiResponse(code = 400, message = "Sign up error",
+                    response = LibsSecurityDtosSignUpErrorResponse.class),
             @ApiResponse(code = 422, message = "Bean validation exception",
                     response = LibsWebDtoServerBeanValidationErrorResponse.class)
     })
     ResponseEntity<LibsWebDtoServerAbstractResponse> signUp(@ApiParam(value = "user sign-up dto model") @Valid @RequestBody
-                                                                    LibsSecurityDtoSignUpUser signUpUser, BindingResult result)
+                                                                    LibsSecurityDtosSignUpUser signUpUser, BindingResult result)
             throws LibsErrorBeanValidation, LibsSecurityErrorSignUp;
 }

@@ -45,5 +45,8 @@ public class LibsSecurityJpaUserEntity extends LibsSecurityJpaAbstractEntity {
     )
     @Builder.Default
     private Set<LibsSecurityJpaRoleEntity> roles = new HashSet<>();
+
+    @OneToOne(mappedBy = "userEntity", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private LibsSecurityJpaUserConfirmEntity confirmEntity;
 }
 

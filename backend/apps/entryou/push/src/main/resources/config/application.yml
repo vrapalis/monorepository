@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: entryou-push
+
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+    consul:
+      discovery:
+        register: true
+        instanceId: ${spring.application.name}:${random.value}
+
