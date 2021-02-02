@@ -21,6 +21,7 @@
         <module name="backend.libs.push.services.test" />
         <module name="backend.apps.entryou.api-gateway.test" />
         <module name="backend.libs.security.mappers.test" />
+        <module name="backend.tutorials.data-structures-and-algorithms.test" />
         <module name="backend.apps.entryou.push.test" />
         <module name="backend.libs.push.app.test" />
         <module name="backend.libs.security.services.test" />
@@ -54,6 +55,7 @@
         <module name="backend.libs.security.uaa.main" />
         <module name="backend.libs.cloud.discovery.main" />
         <module name="backend.libs.push.app.main" />
+        <module name="backend.tutorials.data-structures-and-algorithms.main" />
         <module name="backend.libs.web.dto.main" />
         <module name="backend.libs.utils.main" />
         <module name="backend.libs.push.entities.main" />
