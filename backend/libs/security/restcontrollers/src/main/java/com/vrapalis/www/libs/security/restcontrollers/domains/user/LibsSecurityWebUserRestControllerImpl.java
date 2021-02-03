@@ -4,6 +4,7 @@ import com.vrapalis.www.libs.assertions.LibsAssertions;
 import com.vrapalis.www.libs.errors.LibsErrorBeanValidation;
 import com.vrapalis.www.libs.security.dtos.domains.user.LibsSecurityDtosSignUpUser;
 import com.vrapalis.www.libs.security.errors.domains.authentication.LibsSecurityErrorSignUp;
+import com.vrapalis.www.libs.security.errors.domains.authentication.LibsSecurityErrorSignUpConfirm;
 import com.vrapalis.www.libs.security.services.domains.user.LibsSecurityUserService;
 import com.vrapalis.www.libs.security.dtos.domains.user.LibsSecurityDtoSignInUser;
 import com.vrapalis.www.libs.security.errors.domains.authentication.LibsSecurityErrorSignIn;
@@ -12,6 +13,8 @@ import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.UUID;
 
 @RestController
 @AllArgsConstructor
@@ -30,5 +33,10 @@ public class LibsSecurityWebUserRestControllerImpl implements LibsSecurityWebUse
             throws LibsErrorBeanValidation, LibsSecurityErrorSignUp {
         LibsAssertions.assertNoBeanValidationErrors(result);
         return userService.signUp(signUpUser);
+    }
+
+    @Override
+    public ResponseEntity<LibsWebDtoServerAbstractResponse> signUpConfirm(UUID id) throws LibsSecurityErrorSignUpConfirm {
+        return userService.signUpConfirm(id);
     }
 }

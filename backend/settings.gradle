@@ -5,7 +5,7 @@ include(':apps', ':apps:entryou', ':apps:entryou:uaa', ':apps:entryou:api-gatewa
 include(':libs', ':libs:security', ':libs:security:services', ':libs:security:uaa',
         ':libs:security:dtos', ':libs:security:errors', ':libs:security:entities',
         ':libs:security:repositories', ':libs:security:restcontrollers', ':libs:security:models',
-        ':libs:security:mappers')
+        ':libs:security:mappers', ':libs:security:projections', ':libs:security:properties')
 
 include(':libs:documentation', ':libs:documentation:swagger')
 
@@ -24,4 +24,3 @@ include(':libs:push', ':libs:push:app', ':libs:push:restcontrollers', ':libs:pus
 include(':libs:cloud', ':libs:cloud:discovery')
 
 include(':tutorials', ':tutorials:data-structures-and-algorithms')
-

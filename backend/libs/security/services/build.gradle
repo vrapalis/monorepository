@@ -8,6 +8,8 @@ dependencies {
     implementation project(':libs:security:repositories')
     implementation project(':libs:security:errors')
     implementation project(':libs:security:mappers')
+    implementation project(':libs:security:projections')
+    implementation project(':libs:security:properties')
 
     implementation project(':libs:push:apis')
     implementation project(':libs:push:dtos')

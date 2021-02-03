@@ -31,25 +31,3 @@ spring:
   flyway:
     locations: classpath:db/migration/dev
     enabled: false
-
-smart-it-development:
-  swagger:
-    contact-name: vrapalis
-    contact-url: vrapalis.com
-    contact-email: vitali.rapalis@mail.ru
-    api-base-packages: com.smartitdevelopment.www
-    api-description: Entryou
-    api-title: Rest api
-    api-version: 0.0.1
-  entryou:
-    uaa:
-      email-host: "http://localhost:8080"
-      email-service-path: "/confirm?account"
-      email-subject: "Entryou confirm email!!!"
-      email-text: "Confirm your email, "
-
-#logging:
-#  level:
-#    org:
-#      springframework:
-#        web: DEBUG

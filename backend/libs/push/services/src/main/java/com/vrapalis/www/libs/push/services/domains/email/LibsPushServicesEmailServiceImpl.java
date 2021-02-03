@@ -25,7 +25,6 @@ public class LibsPushServicesEmailServiceImpl implements LibsPushServicesEmailSe
     private JavaMailSender emailSender;
     private LibsPushServicesEmailMapper emailMapper;
     private LibsPushRepositoriesEmailRepository emailRepository;
-    private LibsPushServicesEmailProperties emailProperties;
     private LibsPushServicesEmailServerProperties emailServerProperties;
 
     @Override

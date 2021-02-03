@@ -4,16 +4,16 @@ import com.vrapalis.www.libs.cloud.discovery.domains.app.ELibsCloudDiscoveryAppN
 import com.vrapalis.www.libs.cloud.discovery.domains.app.LibsCloudDiscoveryAppUriDeliverer;
 import com.vrapalis.www.libs.push.api.domains.email.LibsPushApisEmailCall;
 import com.vrapalis.www.libs.push.dtos.domains.email.LibsPushDtosEmailDto;
-import com.vrapalis.www.libs.security.dtos.domains.user.LibsSecurityDtoSignInSuccess;
-import com.vrapalis.www.libs.security.dtos.domains.user.LibsSecurityDtoSignInUser;
-import com.vrapalis.www.libs.security.dtos.domains.user.LibsSecurityDtosSignUpSuccessResponse;
-import com.vrapalis.www.libs.security.dtos.domains.user.LibsSecurityDtosSignUpUser;
+import com.vrapalis.www.libs.security.dtos.domains.user.*;
 import com.vrapalis.www.libs.security.entities.domains.role.LibsSecurityJpaRoleEntity;
 import com.vrapalis.www.libs.security.entities.domains.user.LibsSecurityJpaUserConfirmEntity;
 import com.vrapalis.www.libs.security.entities.domains.user.LibsSecurityJpaUserEntity;
 import com.vrapalis.www.libs.security.errors.domains.authentication.LibsSecurityErrorSignIn;
 import com.vrapalis.www.libs.security.errors.domains.authentication.LibsSecurityErrorSignUp;
+import com.vrapalis.www.libs.security.errors.domains.authentication.LibsSecurityErrorSignUpConfirm;
 import com.vrapalis.www.libs.security.mappers.domains.user.LibsSecurityMappersUser;
+import com.vrapalis.www.libs.security.properties.domains.user.LibsSecurityPropertiesUserSignUpEmailProperties;
+import com.vrapalis.www.libs.security.repositories.domains.user.LibsSecurityJpaUserConfirmEntityRepository;
 import com.vrapalis.www.libs.security.repositories.domains.user.LibsSecurityJpaUserEntityRepository;
 import com.vrapalis.www.libs.security.services.domains.jwt.LibsSecurityJwtService;
 import com.vrapalis.www.libs.web.dto.LibsWebDtoServerAbstractResponse;
@@ -28,9 +28,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityNotFoundException;
-import java.net.URI;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.UUID;
 
 @Service
 @Transactional
@@ -43,6 +43,8 @@ public class LibsSecurityUserServiceImpl implements LibsSecurityUserService {
     private PasswordEncoder passwordEncoder;
     private LibsCloudDiscoveryAppUriDeliverer appUriDeliverer;
     private LibsPushApisEmailCall emailCall;
+    private LibsSecurityJpaUserConfirmEntityRepository confirmUserRepository;
+    private LibsSecurityPropertiesUserSignUpEmailProperties signUpEmailProperties;
 
     @Override
     public ResponseEntity<LibsWebDtoServerAbstractResponse> signIn(LibsSecurityDtoSignInUser signInUser)
@@ -80,10 +82,15 @@ public class LibsSecurityUserServiceImpl implements LibsSecurityUserService {
                     .map(uri -> uri.toString())
                     .orElseThrow(RuntimeException::new);
 
+            String admitEmailLink = "<a href=" + signUpEmailProperties.getHost()
+                    + signUpEmailProperties.getPath()
+                    + userEntity.getConfirmEntity().getId()
+                    + ">" + signUpEmailProperties.getLinkText() + "</a>";
+
             final var emailDto = LibsPushDtosEmailDto.builder()
                     .mailTo(userEntity.getEmail())
-                    .subject("Registration")
-                    .text("<a href=''>Registration</a>")
+                    .subject(signUpEmailProperties.getSubject())
+                    .text(signUpEmailProperties.getText() + " " + admitEmailLink)
                     .build();
 
             emailCall.sendEmail(pushAppUrl, emailDto, Object.class);
@@ -96,6 +103,23 @@ public class LibsSecurityUserServiceImpl implements LibsSecurityUserService {
             throw signUpException;
         }
         return ResponseEntity.ok(new LibsSecurityDtosSignUpSuccessResponse());
+    }
+
+    //    TODO OPTIMIZE SQL QUERY, TO MANY THINGS ARE FETCHED
+    @Override
+    public ResponseEntity<LibsWebDtoServerAbstractResponse> signUpConfirm(UUID id) throws LibsSecurityErrorSignUpConfirm {
+        try {
+            final var userId = confirmUserRepository.findUserIdByConfirmId(id).orElseThrow(EntityNotFoundException::new);
+            final var userEntity = userRepository.findById(userId).orElseThrow(EntityNotFoundException::new);
+            final var account = userEntity.getAccount();
+            account.setIsEnabled(true);
+            account.setAccountNonExpired(true);
+            account.setCredentialsNonExpired(true);
+            account.setAccountNonLocked(true);
+        } catch (Exception ex) {
+            throw new LibsSecurityErrorSignUpConfirm();
+        }
+        return ResponseEntity.ok(new LibsSecurityDtosSignUpConfirmSuccessResponse());
     }
 
     private void prepareUserEntityConfirmForSignUp(LibsSecurityJpaUserEntity userEntity) {

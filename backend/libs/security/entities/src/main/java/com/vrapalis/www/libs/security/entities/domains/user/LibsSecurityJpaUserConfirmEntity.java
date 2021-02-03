@@ -1,28 +1,21 @@
 package com.vrapalis.www.libs.security.entities.domains.user;
 
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import com.vrapalis.www.libs.security.entities.domains.common.LibsSecurityJpaAbstractEntity;
+import lombok.*;
 import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
-import java.io.Serializable;
-import java.util.Date;
 import java.util.UUID;
 
 @Data
-@Entity
 @ToString
 @NoArgsConstructor
+@Entity
 @Table(name = "app_user_confirm")
-public class LibsSecurityJpaUserConfirmEntity implements Serializable {
+public class LibsSecurityJpaUserConfirmEntity extends LibsSecurityJpaAbstractEntity {
     @Id
     @Type(type = "pg-uuid")
     private UUID id;
-
-    @Column(nullable = false)
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date created;
 
     @ToString.Exclude
     @OneToOne(optional = false)
@@ -31,8 +24,7 @@ public class LibsSecurityJpaUserConfirmEntity implements Serializable {
 
     public LibsSecurityJpaUserConfirmEntity(LibsSecurityJpaUserEntity userEntity) {
         this.id = UUID.randomUUID();
-        this.created = new Date();
         this.userEntity = userEntity;
     }
-
 }
+

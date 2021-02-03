@@ -38,6 +38,8 @@
             <option value="$PROJECT_DIR$/libs/security/errors" />
             <option value="$PROJECT_DIR$/libs/security/mappers" />
             <option value="$PROJECT_DIR$/libs/security/models" />
+            <option value="$PROJECT_DIR$/libs/security/projections" />
+            <option value="$PROJECT_DIR$/libs/security/properties" />
             <option value="$PROJECT_DIR$/libs/security/repositories" />
             <option value="$PROJECT_DIR$/libs/security/restcontrollers" />
             <option value="$PROJECT_DIR$/libs/security/services" />
