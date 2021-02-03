@@ -25,8 +25,8 @@ import { loginActions, selectAuth, State } from '@web-browser/shared/auth/state'
       </mat-form-field>
 
       <div class='text-end mt-5'>
-        <sh-ui-flat-button type='primary' [disabled]='!form.valid' (click)='onLogin()'>Login</sh-ui-flat-button>
-        <sh-ui-button type='primary' routerLink='../registration'>Registration</sh-ui-button>
+        <sh-ui-flat-button type='primary' [disabled]='!form.valid' (click)='onLogin()'>Sign In</sh-ui-flat-button>
+        <sh-ui-button type='primary' routerLink='../sign-up'>Sign Up</sh-ui-button>
       </div>
     </form>
   `,

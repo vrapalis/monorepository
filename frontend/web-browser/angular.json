@@ -18,59 +18,11 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/shared/auth/feature/reset-password"],
+          "outputs": [
+            "coverage/libs/shared/auth/feature/reset-password"
+          ],
           "options": {
             "jestConfig": "libs/shared/auth/feature/reset-password/jest.config.js",
-            "passWithNoTests": true
-          }
-        }
-      }
-    },
-    "shared-auth-feature-registration": {
-      "projectType": "library",
-      "root": "libs/shared/auth/feature/registration",
-      "sourceRoot": "libs/shared/auth/feature/registration/src",
-      "prefix": "web-browser",
-      "architect": {
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": [
-              "libs/shared/auth/feature/registration/src/**/*.ts",
-              "libs/shared/auth/feature/registration/src/**/*.html"
-            ]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/shared/auth/feature/registration"],
-          "options": {
-            "jestConfig": "libs/shared/auth/feature/registration/jest.config.js",
-            "passWithNoTests": true
-          }
-        }
-      }
-    },
-    "shared-auth-feature-login": {
-      "projectType": "library",
-      "root": "libs/shared/auth/feature/login",
-      "sourceRoot": "libs/shared/auth/feature/login/src",
-      "prefix": "web-browser",
-      "architect": {
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": [
-              "libs/shared/auth/feature/login/src/**/*.ts",
-              "libs/shared/auth/feature/login/src/**/*.html"
-            ]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/shared/auth/feature/login"],
-          "options": {
-            "jestConfig": "libs/shared/auth/feature/login/jest.config.js",
             "passWithNoTests": true
           }
         }
@@ -93,7 +45,9 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/shared/auth/data-access"],
+          "outputs": [
+            "coverage/libs/shared/auth/data-access"
+          ],
           "options": {
             "jestConfig": "libs/shared/auth/data-access/jest.config.js",
             "passWithNoTests": true
@@ -118,7 +72,9 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/shared/util"],
+          "outputs": [
+            "coverage/libs/shared/util"
+          ],
           "options": {
             "jestConfig": "libs/shared/util/jest.config.js",
             "passWithNoTests": true
@@ -143,7 +99,9 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/shared/ui"],
+          "outputs": [
+            "coverage/libs/shared/ui"
+          ],
           "options": {
             "jestConfig": "libs/shared/ui/jest.config.js",
             "passWithNoTests": true
@@ -271,7 +229,9 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/apps/entryou/app"],
+          "outputs": [
+            "coverage/apps/entryou/app"
+          ],
           "options": {
             "jestConfig": "apps/entryou/app/jest.config.js",
             "passWithNoTests": true
@@ -300,7 +260,9 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["apps/entryou/app-e2e/**/*.{js,ts}"]
+            "lintFilePatterns": [
+              "apps/entryou/app-e2e/**/*.{js,ts}"
+            ]
           }
         }
       }
@@ -322,7 +284,9 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/entryou/ui"],
+          "outputs": [
+            "coverage/libs/entryou/ui"
+          ],
           "options": {
             "jestConfig": "libs/entryou/ui/jest.config.js",
             "passWithNoTests": true
@@ -349,7 +313,9 @@
               "apps/websites/vrapalis/app/src/favicon.ico",
               "apps/websites/vrapalis/app/src/assets"
             ],
-            "styles": ["apps/websites/vrapalis/app/src/styles.scss"],
+            "styles": [
+              "apps/websites/vrapalis/app/src/styles.scss"
+            ],
             "scripts": []
           },
           "configurations": {
@@ -410,7 +376,9 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/apps/websites/vrapalis/app"],
+          "outputs": [
+            "coverage/apps/websites/vrapalis/app"
+          ],
           "options": {
             "jestConfig": "apps/websites/vrapalis/app/jest.config.js",
             "passWithNoTests": true
@@ -439,7 +407,9 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["apps/websites/vrapalis/app-e2e/**/*.{js,ts}"]
+            "lintFilePatterns": [
+              "apps/websites/vrapalis/app-e2e/**/*.{js,ts}"
+            ]
           }
         }
       }
@@ -461,7 +431,9 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/shared/model"],
+          "outputs": [
+            "coverage/libs/shared/model"
+          ],
           "options": {
             "jestConfig": "libs/shared/model/jest.config.js",
             "passWithNoTests": true
@@ -486,7 +458,9 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/shared/auth/model"],
+          "outputs": [
+            "coverage/libs/shared/auth/model"
+          ],
           "options": {
             "jestConfig": "libs/shared/auth/model/jest.config.js",
             "passWithNoTests": true
@@ -511,9 +485,65 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/shared/auth/state"],
+          "outputs": [
+            "coverage/libs/shared/auth/state"
+          ],
           "options": {
             "jestConfig": "libs/shared/auth/state/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "shared-auth-feature-sing-in": {
+      "projectType": "library",
+      "root": "libs/shared/auth/feature/sing-in",
+      "sourceRoot": "libs/shared/auth/feature/sing-in/src",
+      "prefix": "web-browser",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/shared/auth/feature/sing-in/src/**/*.ts",
+              "libs/shared/auth/feature/sing-in/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/shared/auth/feature/sing-in"
+          ],
+          "options": {
+            "jestConfig": "libs/shared/auth/feature/sing-in/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "shared-auth-feature-sing-up": {
+      "projectType": "library",
+      "root": "libs/shared/auth/feature/sing-up",
+      "sourceRoot": "libs/shared/auth/feature/sing-up/src",
+      "prefix": "web-browser",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/shared/auth/feature/sing-up/src/**/*.ts",
+              "libs/shared/auth/feature/sing-up/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/shared/auth/feature/sing-up"
+          ],
+          "options": {
+            "jestConfig": "libs/shared/auth/feature/sing-up/jest.config.js",
             "passWithNoTests": true
           }
         }

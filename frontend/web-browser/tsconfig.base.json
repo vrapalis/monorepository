@@ -10,7 +10,10 @@
     "importHelpers": true,
     "target": "es2015",
     "module": "esnext",
-    "lib": ["es2017", "dom"],
+    "lib": [
+      "es2017",
+      "dom"
+    ],
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
@@ -18,22 +21,37 @@
       "@web-browser/shared/auth/feature/reset-password": [
         "libs/shared/auth/feature/reset-password/src/index.ts"
       ],
-      "@web-browser/shared/auth/feature/registration": [
-        "libs/shared/auth/feature/registration/src/index.ts"
-      ],
-      "@web-browser/shared/auth/feature/login": [
-        "libs/shared/auth/feature/login/src/index.ts"
-      ],
       "@web-browser/shared/auth/data-access": [
         "libs/shared/auth/data-access/src/index.ts"
       ],
-      "@web-browser/shared/util": ["libs/shared/util/src/index.ts"],
-      "@web-browser/shared/ui": ["libs/shared/ui/src/index.ts"],
-      "@web-browser/entryou/ui": ["libs/entryou/ui/src/index.ts"],
-      "@web-browser/shared/model": ["libs/shared/model/src/index.ts"],
-      "@web-browser/shared/auth/model": ["libs/shared/auth/model/src/index.ts"],
-      "@web-browser/shared/auth/state": ["libs/shared/auth/state/src/index.ts"]
+      "@web-browser/shared/util": [
+        "libs/shared/util/src/index.ts"
+      ],
+      "@web-browser/shared/ui": [
+        "libs/shared/ui/src/index.ts"
+      ],
+      "@web-browser/entryou/ui": [
+        "libs/entryou/ui/src/index.ts"
+      ],
+      "@web-browser/shared/model": [
+        "libs/shared/model/src/index.ts"
+      ],
+      "@web-browser/shared/auth/model": [
+        "libs/shared/auth/model/src/index.ts"
+      ],
+      "@web-browser/shared/auth/state": [
+        "libs/shared/auth/state/src/index.ts"
+      ],
+      "@web-browser/shared/auth/feature/sing-in": [
+        "libs/shared/auth/feature/sing-in/src/index.ts"
+      ],
+      "@web-browser/shared/auth/feature/sing-up": [
+        "libs/shared/auth/feature/sing-up/src/index.ts"
+      ]
     }
   },
-  "exclude": ["node_modules", "tmp"]
+  "exclude": [
+    "node_modules",
+    "tmp"
+  ]
 }

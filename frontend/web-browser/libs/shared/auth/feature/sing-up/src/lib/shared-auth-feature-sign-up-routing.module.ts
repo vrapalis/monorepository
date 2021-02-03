@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { RegistrationContainerComponent } from './containers/registration-container.component';
+import { SignUpContainerComponent } from './containers/sign-up-container.component';
 
 const routes: Routes = [
-  {path: '', component: RegistrationContainerComponent}
+  {path: '', component: SignUpContainerComponent}
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class SharedAuthFeatureRegistrationRoutingModule { }
+export class SharedAuthFeatureSignUpRoutingModule { }

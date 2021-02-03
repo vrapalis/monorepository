@@ -1,5 +1,5 @@
 module.exports = {
-  displayName: 'shared-auth-feature-login',
+  displayName: 'shared-auth-feature-sing-in',
   preset: '../../../../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
   globals: {
@@ -14,7 +14,7 @@ module.exports = {
       },
     },
   },
-  coverageDirectory: '../../../../../coverage/libs/shared/auth/feature/login',
+  coverageDirectory: '../../../../../coverage/libs/shared/auth/feature/sing-in',
   snapshotSerializers: [
     'jest-preset-angular/build/AngularNoNgAttributesSnapshotSerializer.js',
     'jest-preset-angular/build/AngularSnapshotSerializer.js',

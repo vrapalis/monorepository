@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { SharedAuthFeatureLoginModule } from '@web-browser/shared/auth/feature/login';
-import { SharedAuthFeatureRegistrationModule } from '@web-browser/shared/auth/feature/registration';
+import { SharedAuthFeatureLoginModule } from '@web-browser/shared/auth/feature/sing-in';
+import { SharedAuthFeatureSignUpModule } from '@web-browser/shared/auth/feature/sing-up';
 
 const routes: Routes = [
   {
-    path: 'login', pathMatch: 'full', loadChildren: () => SharedAuthFeatureLoginModule
+    path: 'sign-in', pathMatch: 'full', loadChildren: () => SharedAuthFeatureLoginModule
   },
   {
-    path: 'registration', pathMatch: 'full', loadChildren: () => SharedAuthFeatureRegistrationModule
+    path: 'sign-up', pathMatch: 'full', loadChildren: () => SharedAuthFeatureSignUpModule
   },
   {
     path: '**', pathMatch: 'full', redirectTo: 'home'

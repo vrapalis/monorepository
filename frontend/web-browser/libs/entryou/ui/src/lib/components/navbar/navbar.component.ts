@@ -11,9 +11,9 @@ import { Component } from '@angular/core';
           <mat-icon>menu</mat-icon>
         </button>
         <mat-menu #menu='matMenu'>
-          <button mat-menu-item routerLink='login' routerLinkActive='active-link'>
+          <button mat-menu-item routerLink='sign-in' routerLinkActive='active-link'>
             <mat-icon>login</mat-icon>
-            <span>Login</span>
+            <span>Sign In</span>
           </button>
         </mat-menu>
       </mat-toolbar-row>
