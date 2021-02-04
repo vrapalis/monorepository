@@ -3,8 +3,9 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { InputBusinessRules } from '@web-browser/shared/model';
 import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { AuthLoginModel } from '@web-browser/shared/auth/model';
+import { SignInModel } from '@web-browser/shared/auth/model';
 import { loginActions, selectAuth, State } from '@web-browser/shared/auth/state';
+import { AuthState } from '../../../../../state/src/lib/store/reducer';
 
 @Component({
   selector: 'web-browser-login',
@@ -45,9 +46,9 @@ import { loginActions, selectAuth, State } from '@web-browser/shared/auth/state'
 })
 export class LoginComponent implements OnInit {
   form: FormGroup;
-  auth$: Observable<AuthLoginModel>;
+  auth$: Observable<AuthState>;
 
-  constructor(private fb: FormBuilder, private store: Store<State>) {
+  constructor(private fb: FormBuilder, private store: Store<AuthState>) {
   }
 
   ngOnInit(): void {

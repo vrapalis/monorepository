@@ -2,8 +2,12 @@
 ## CLI
 - **Adds** support for an **external library** to your project.<br/>
 `ng add @angular/pwa --project=projectName`
+<br/><br/>
 - **Rename Project**<br/>
 `nx g @nrwl/workspace:move --project shared-auth-feature-registration shared/auth/feature/sing-up`
+<br/><br/>
+- **Delete Project**<br/>
+`nx generate remove entryou-auth-util`
 <br/><br/>
 - **Linting**<br/>
 `nx lint projectName` or `nx run projectName:lint`

@@ -10,6 +10,7 @@ import { RouterModule } from '@angular/router';
 import { ButtonModule, ContainersModule, FlatButtonModule } from '@web-browser/shared/ui';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SharedAuthStateModule } from '@web-browser/shared/auth/state';
+import { SharedAuthDataAccessModule } from '@web-browser/shared/auth/data-access';
 
 @NgModule({
   declarations: [LoginContainerComponent, LoginComponent],
@@ -23,7 +24,8 @@ import { SharedAuthStateModule } from '@web-browser/shared/auth/state';
     ContainersModule,
     FlatButtonModule,
     ButtonModule,
-    SharedAuthStateModule
+    SharedAuthStateModule,
+    SharedAuthDataAccessModule
   ]
 })
 export class SharedAuthFeatureLoginModule {

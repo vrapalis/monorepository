@@ -30,85 +30,51 @@
   },
   "projects": {
     "shared-auth-feature-reset-password": {
-      "tags": [
-        "scope:shared",
-        "type:feature"
-      ]
+      "tags": ["scope:shared", "type:feature"]
     },
     "shared-auth-data-access": {
-      "tags": [
-        "scope:shared",
-        "type:data-access"
-      ]
+      "tags": ["scope:shared", "type:data-access"]
     },
     "shared-util": {
-      "tags": [
-        "scope:shared",
-        "type:util"
-      ]
+      "tags": ["scope:shared", "type:util"]
     },
     "shared-ui": {
-      "tags": [
-        "scope:shared",
-        "type:ui"
-      ]
+      "tags": ["scope:shared", "type:ui"]
     },
     "entryou-app": {
-      "tags": [
-        "scope:entryou",
-        "type:app"
-      ]
+      "tags": ["scope:entryou", "type:app"]
     },
     "entryou/app-e2e": {
       "tags": [],
-      "implicitDependencies": [
-        "entryou-app"
-      ]
+      "implicitDependencies": ["entryou-app"]
     },
     "entryou-ui": {
-      "tags": [
-        "scope:entryou",
-        "type:ui"
-      ]
+      "tags": ["scope:entryou", "type:ui"]
     },
     "websites-vrapalis-app": {
       "tags": []
     },
     "websites/vrapalis/app-e2e": {
       "tags": [],
-      "implicitDependencies": [
-        "websites-vrapalis-app"
-      ]
+      "implicitDependencies": ["websites-vrapalis-app"]
     },
     "shared-model": {
-      "tags": [
-        "scope:shared",
-        "type:model"
-      ]
+      "tags": ["scope:shared", "type:model"]
     },
     "shared-auth-model": {
-      "tags": [
-        "scope:shared",
-        "type:model"
-      ]
+      "tags": ["scope:shared", "type:model"]
     },
     "shared-auth-state": {
-      "tags": [
-        "scope:shared",
-        "type:state"
-      ]
+      "tags": ["scope:shared", "type:state"]
     },
     "shared-auth-feature-sing-in": {
-      "tags": [
-        "scope:shared",
-        "type:feature"
-      ]
+      "tags": ["scope:shared", "type:feature"]
     },
     "shared-auth-feature-sing-up": {
-      "tags": [
-        "scope:shared",
-        "type:feature"
-      ]
+      "tags": ["scope:shared", "type:feature"]
+    },
+    "shared-auth-util": {
+      "tags": ["scope:shared", "type:util"]
     }
   }
 }

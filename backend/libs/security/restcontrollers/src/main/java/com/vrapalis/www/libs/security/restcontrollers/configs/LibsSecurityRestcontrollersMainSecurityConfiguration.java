@@ -17,6 +17,8 @@ import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
 
+import java.util.Arrays;
+
 @EnableWebSecurity
 @AllArgsConstructor
 public class LibsSecurityRestcontrollersMainSecurityConfiguration extends WebSecurityConfigurerAdapter {
@@ -46,12 +48,13 @@ public class LibsSecurityRestcontrollersMainSecurityConfiguration extends WebSec
         return super.authenticationManagerBean();
     }
 
+    // TODO EXTERNALIZE ALLOWED ORIGINS
     @Bean
     public CorsFilter corsFilter() {
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         CorsConfiguration config = new CorsConfiguration();
         config.setAllowCredentials(true);
-        config.addAllowedOrigin("*"); // enable cors for all hosts
+        config.addAllowedOrigin("http://localhost:4200"); // enable cors for all hosts
         config.addAllowedHeader("*");
         config.addAllowedMethod("OPTIONS");
         config.addAllowedMethod("GET");

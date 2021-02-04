@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { SignInService } from '@web-browser/shared/auth/data-access';
 
 @Component({
   selector: 'web-browser-login-container',
@@ -21,4 +22,10 @@ import { Component } from '@angular/core';
   `]
 })
 export class LoginContainerComponent {
+  constructor(private signInService: SignInService) {
+    signInService.signIn({
+      email: 'admin@admin.com',
+      password: '123456'
+    }).subscribe()
+  }
 }

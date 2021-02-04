@@ -39,6 +39,19 @@
                 ]
               },
               {
+                "sourceTag": "type:data-access",
+                "onlyDependOnLibsWithTags": [
+                  "type:util",
+                  "type:model"
+                ]
+              },
+              {
+                "sourceTag": "type:util",
+                "onlyDependOnLibsWithTags": [
+                  "type:model"
+                ]
+              },
+              {
                 "sourceTag": "type:ui",
                 "onlyDependOnLibsWithTags": [
                   "type:util",
