@@ -1,16 +1,29 @@
 import { createAction, props } from '@ngrx/store';
-import { SignInModel } from '@web-browser/shared/auth/model';
+import { SignInModel, UserModel } from '@web-browser/shared/auth/model';
 
-export const loginActions = createAction(
-  '[Login Component] Login Actions',
-  props<{ user: SignInModel }>()
+export const tryToSignInAction = createAction(
+  '[Home Component] Try To Sign In Action'
 );
 
-export const loginSuccessActions = createAction(
-  '[Login Component] Login Actions',
-  props<{ user: SignInModel }>()
+export const tryToSignInSuccessAction = createAction(
+  '[Home Component] Try To Sign In Success Action',
+  props<{ user: UserModel }>()
 );
 
-export const loginFailureActions = createAction(
-  '[Login Component] Login Actions Failure'
+export const tryToSignInFailureAction = createAction(
+  '[Home Component] Try To Sign In Failure Action'
+);
+
+export const signInAction = createAction(
+  '[Login Component] Login Action',
+  props<{ signInModel: SignInModel }>()
+);
+
+export const signInSuccessAction = createAction(
+  '[Login Component] Login Success Action',
+  props<{ user: UserModel }>()
+);
+
+export const signInFailureAction = createAction(
+  '[Login Component] Login Failure Action'
 );

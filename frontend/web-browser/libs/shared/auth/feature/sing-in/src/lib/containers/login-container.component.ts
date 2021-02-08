@@ -1,12 +1,14 @@
 import { Component } from '@angular/core';
-import { SignInService } from '@web-browser/shared/auth/data-access';
+import { Store } from '@ngrx/store';
+import { signInAction, State } from '@web-browser/shared/auth/state';
+import { SignInModel } from '@web-browser/shared/auth/model';
 
 @Component({
   selector: 'web-browser-login-container',
   template: `
     <sh-ui-form-container>
       <h3>Sign In</h3>
-      <web-browser-login></web-browser-login>
+      <web-browser-login (loginEvent)='onLoginEvent($event)'></web-browser-login>
       <aside class='info'>
         <p align='end'>Data privacy is important, we do our best to keep your data safe as much as possible</p>
       </aside>
@@ -22,10 +24,10 @@ import { SignInService } from '@web-browser/shared/auth/data-access';
   `]
 })
 export class LoginContainerComponent {
-  constructor(private signInService: SignInService) {
-    signInService.signIn({
-      email: 'admin@admin.com',
-      password: '123456'
-    }).subscribe()
+  constructor(private state: Store<State>) {
+  }
+
+  onLoginEvent(signInModel: SignInModel) {
+    this.state.dispatch(signInAction({ signInModel }));
   }
 }

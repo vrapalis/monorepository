@@ -75,6 +75,9 @@
     },
     "shared-auth-util": {
       "tags": ["scope:shared", "type:util"]
+    },
+    "entryou-feature-home": {
+      "tags": ["scope:entryou", "type:feature"]
     }
   }
 }

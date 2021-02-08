@@ -21,5 +21,6 @@ module.exports = {
     '<rootDir>/libs/shared/auth/state',
     '<rootDir>/libs/entryou/auth/util',
     '<rootDir>/libs/shared/auth/util',
+    '<rootDir>/libs/entryou/feature/home',
   ],
 };

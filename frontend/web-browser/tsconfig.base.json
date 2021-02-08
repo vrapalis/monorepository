@@ -33,7 +33,10 @@
       "@web-browser/shared/auth/feature/sing-up": [
         "libs/shared/auth/feature/sing-up/src/index.ts"
       ],
-      "@web-browser/shared/auth/util": ["libs/shared/auth/util/src/index.ts"]
+      "@web-browser/shared/auth/util": ["libs/shared/auth/util/src/index.ts"],
+      "@web-browser/entryou/feature/home": [
+        "libs/entryou/feature/home/src/index.ts"
+      ]
     }
   },
   "exclude": ["node_modules", "tmp"]

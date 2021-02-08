@@ -1,11 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { InputBusinessRules } from '@web-browser/shared/model';
-import { select, Store } from '@ngrx/store';
-import { Observable } from 'rxjs';
 import { SignInModel } from '@web-browser/shared/auth/model';
-import { loginActions, selectAuth, State } from '@web-browser/shared/auth/state';
-import { AuthState } from '../../../../../state/src/lib/store/reducer';
 
 @Component({
   selector: 'web-browser-login',
@@ -46,14 +42,13 @@ import { AuthState } from '../../../../../state/src/lib/store/reducer';
 })
 export class LoginComponent implements OnInit {
   form: FormGroup;
-  auth$: Observable<AuthState>;
+  @Output() loginEvent = new EventEmitter<SignInModel>();
 
-  constructor(private fb: FormBuilder, private store: Store<AuthState>) {
+  constructor(private fb: FormBuilder) {
   }
 
   ngOnInit(): void {
     this.initForm();
-    this.auth$ = this.store.pipe(select(selectAuth));
   }
 
   private initForm() {
@@ -73,12 +68,7 @@ export class LoginComponent implements OnInit {
   }
 
   onLogin() {
-    console.log(this.form.getRawValue());
-    this.store.dispatch(loginActions({
-      user: {
-        password: this.form.get('password').value,
-        email: this.form.get('email').value
-      }
-    }));
+    const signInModel = this.form.getRawValue() as SignInModel;
+    this.loginEvent.emit(signInModel);
   }
 }

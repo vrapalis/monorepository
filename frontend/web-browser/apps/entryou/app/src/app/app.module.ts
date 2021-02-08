@@ -11,6 +11,8 @@ import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { EffectsModule } from '@ngrx/effects';
 import { reducers, metaReducers } from './store';
+import { HomeGuardService } from '@web-browser/entryou/feature/home';
+import { SharedAuthStateModule } from '@web-browser/shared/auth/state';
 
 @NgModule({
   declarations: [AppComponent],
@@ -24,8 +26,9 @@ import { reducers, metaReducers } from './store';
     StoreModule.forRoot(reducers, { metaReducers }),
     EffectsModule.forRoot([]),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
+    SharedAuthStateModule
   ],
-  providers: [],
+  providers: [HomeGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

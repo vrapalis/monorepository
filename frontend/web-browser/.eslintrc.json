@@ -25,7 +25,8 @@
                 "sourceTag": "type:app",
                 "onlyDependOnLibsWithTags": [
                   "type:feature",
-                  "type:ui"
+                  "type:ui",
+                  "type:state"
                 ]
               },
               {
@@ -61,6 +62,7 @@
               {
                 "sourceTag": "type:state",
                 "onlyDependOnLibsWithTags": [
+                  "type:data-access",
                   "type:util",
                   "type:model"
                 ]
