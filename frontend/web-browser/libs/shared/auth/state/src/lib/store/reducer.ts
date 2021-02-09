@@ -8,7 +8,7 @@ import {
 } from './actions';
 
 
-export const authFeatureKey = 'auth';
+export const authFeatureKey = 'authenticated';
 
 export interface AuthState {
   user: UserModel;

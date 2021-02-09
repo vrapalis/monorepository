@@ -37,7 +37,6 @@ export class Effects {
   tryToSignInSuccessAction$ = createEffect(() => {
     return this.actions$.pipe(
       ofType(tryToSignInSuccessAction),
-      tap(action => console.log('Sign in success action with user: ' + JSON.stringify(action.user)))
     );
   }, { dispatch: false });
 
