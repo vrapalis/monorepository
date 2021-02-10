@@ -4,13 +4,15 @@ import { EntryouFeatureHomeModuleRouting } from './entryou-feature-home.module-r
 import { HomeComponent } from './components/home/home.component';
 import { HomeContainerComponent } from './containers/home/home-container.component';
 import { SharedAuthStateModule } from '@web-browser/shared/auth/state';
+import { SharedUiModule } from '@web-browser/shared/ui';
 
 @NgModule({
   declarations: [HomeContainerComponent, HomeComponent],
   imports: [
     CommonModule,
     EntryouFeatureHomeModuleRouting,
-    SharedAuthStateModule
+    SharedAuthStateModule,
+    SharedUiModule
   ]
 })
 export class EntryouFeatureHomeModule {

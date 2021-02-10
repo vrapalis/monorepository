@@ -5,50 +5,43 @@ import {
   signInSuccessAction,
   tryToSignInFailureAction,
   tryToSignInSuccessAction
-} from './actions';
+} from './user.actions';
 
 
-export const authFeatureKey = 'authenticated';
+export const authUserFeatureKey = 'user';
 
-export interface AuthState {
-  user: UserModel;
-}
-
-export const initialState: AuthState = {
-  user: null
+export const initialState: UserModel = {
+  email: null,
+  info: null,
+  account: null
 };
 
-export const reducer = createReducer(
+export const userReducer = createReducer(
   initialState,
 
   on(tryToSignInSuccessAction, (state, action) => {
     return {
       ...state,
-      user: {
-        ...action.user
-      }
+      email: action.user.email,
+      account: action.user.account,
+      info: action.user.info
     };
   }),
 
   on(tryToSignInFailureAction, state => {
-    return {
-      user: null
-    };
+    return initialState;
   }),
 
   on(signInSuccessAction, (state, action) => {
     return {
       ...state,
-      user: {
-        ...action.user
-      }
+      email: action.user.email,
+      account: action.user.account,
+      info: action.user.info
     };
   }),
 
   on(signInFailureAction, (state) => {
-    return {
-      ...state,
-      user: null
-    };
+    return initialState;
   })
 );

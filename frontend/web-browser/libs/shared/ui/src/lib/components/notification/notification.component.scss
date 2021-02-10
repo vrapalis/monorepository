@@ -1,0 +1,82 @@
+// Notification Common Variables
+$nt-border-radius: 5px;
+$nt-top: 130px;
+$nt-width: 30%;
+$nt-header-color: white;
+$nt-body-color: darkgrey;
+$nt-padding-left: 10px;
+$nt-box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.2);
+$nt-body-background-color: aliceblue;
+
+// Notification Info Type Variables
+$nt-info-header-background-color: aqua;
+
+// Notification Success Type Variables
+$nt-success-header-background-color: aquamarine;
+
+// Notification Error Type Variables
+$nt-error-header-background-color: red;
+
+.nt {
+  position: absolute;
+  top: $nt-top;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+  min-height: 80px;
+  border-radius: $nt-border-radius;
+  width: $nt-width;
+  box-shadow: $nt-box-shadow;
+  background-color: $nt-body-background-color;
+
+  .nt-header {
+    color: $nt-header-color;
+    width: 100%;
+    border-top-left-radius: $nt-border-radius;
+    border-top-right-radius: $nt-border-radius;
+    padding-left: $nt-padding-left;
+
+    .nt-header-title {
+      font-weight: 500;
+    }
+  }
+
+  .nt-body {
+    color: $nt-body-color;
+    padding-left: $nt-padding-left;
+  }
+
+  ::ng-deep {
+    .material-icons {
+      color: white;
+      position: absolute;
+      transform: translate(0%, 0%);
+      top: 2px;
+      right: 10px;
+      cursor: pointer;
+    }
+  }
+}
+
+// Notification Of Type Info
+.nt-info {
+
+  .nt-header {
+    background-color: $nt-info-header-background-color;
+  }
+}
+
+// Notification Of Type Success
+.nt-success {
+
+  .nt-header {
+    background-color: $nt-success-header-background-color;
+  }
+}
+
+// Notification Of Type Error
+.nt-error {
+  .nt-header {
+    background-color: $nt-error-header-background-color;
+  }
+}

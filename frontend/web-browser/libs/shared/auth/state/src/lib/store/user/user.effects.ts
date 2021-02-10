@@ -1,25 +1,32 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import {
-  signInAction, signInFailureAction,
+  signInAction,
+  signInFailureAction,
   signInSuccessAction,
   tryToSignInAction,
   tryToSignInFailureAction,
   tryToSignInSuccessAction
-} from './actions';
+} from './user.actions';
 import { catchError, flatMap, map, tap } from 'rxjs/operators';
 import { JwtService } from '@web-browser/shared/auth/util';
 import { of } from 'rxjs';
 import { SignInService } from '@web-browser/shared/auth/data-access';
+import { Router } from '@angular/router';
+import { Store } from '@ngrx/store';
+import { NotificationModel, NotificationTypeModel } from '@web-browser/shared/model';
+import { showNotification } from '@web-browser/shared/ui';
 
 
 @Injectable()
-export class Effects {
+export class UserEffects {
 
   constructor(
+    private router: Router,
     private actions$: Actions,
     private jwtService: JwtService,
-    private signInService: SignInService) {
+    private signInService: SignInService,
+    private uiState: Store<NotificationModel>) {
   }
 
   tryToSignInEffect$ = createEffect(() => {
@@ -36,7 +43,7 @@ export class Effects {
 
   tryToSignInSuccessAction$ = createEffect(() => {
     return this.actions$.pipe(
-      ofType(tryToSignInSuccessAction),
+      ofType(tryToSignInSuccessAction)
     );
   }, { dispatch: false });
 
@@ -64,13 +71,22 @@ export class Effects {
 
   signInSuccessEffect$ = createEffect(() => {
     return this.actions$.pipe(
-      ofType(signInSuccessAction)
+      ofType(signInSuccessAction),
+      tap(() => this.router.navigate(['/home']))
     );
   }, { dispatch: false });
 
   signInFailureEffect$ = createEffect(() => {
     return this.actions$.pipe(
-      ofType(signInFailureAction)
+      ofType(signInFailureAction),
+      tap(() => this.uiState.dispatch(showNotification({
+        notification: {
+          type: NotificationTypeModel.ERROR,
+          dismiss: 5000,
+          title: 'Error',
+          text: 'Sign in error.'
+        }
+      })))
     );
   }, { dispatch: false });
 

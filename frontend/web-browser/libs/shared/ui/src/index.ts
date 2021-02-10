@@ -10,3 +10,6 @@ export * from './lib/shared-ui.module'
 // export * from './lib/state/index'
 // export * from './lib/state/ui.actions'
 // export * from './lib/state/ui.selectors'
+
+export * from './lib/components/notification/notification.module'
+export * from './lib/state/notification/notification.actions'

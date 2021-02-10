@@ -7,9 +7,10 @@ export const stateNotificationFeatureKey = 'notification';
 
 export const initialState: NotificationModel = {
   isShown: false,
+  dismiss: null,
   type: NotificationTypeModel.INFO,
-  title: '',
-  text: ''
+  title: 'Example Title',
+  text: 'Example Text'
 };
 
 
@@ -20,6 +21,7 @@ export const reducer = createReducer(
     return {
       ...state,
       isShown: true,
+      dismiss: action.notification.dismiss,
       type: action.notification.type,
       title: action.notification.title,
       text: action.notification.text
@@ -30,4 +32,3 @@ export const reducer = createReducer(
     return initialState;
   })
 );
-

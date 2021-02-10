@@ -1,6 +1,25 @@
 {
     "pipes": [],
-    "interfaces": [],
+    "interfaces": [
+        {
+            "name": "State",
+            "id": "interface-State-45a4c811fdefb34273b5dd1a239b5d30",
+            "file": "libs/shared/ui/src/lib/state/index.ts",
+            "type": "interface",
+            "sourceCode": "import {\n  ActionReducerMap,\n  MetaReducer\n} from '@ngrx/store';\nimport * as fromState from './notification/notification.reducer';\nimport { NotificationModel } from '@web-browser/shared/model';\n\nexport const uiStateFeatureKey = 'ui';\n\nexport interface State {\n  [fromState.stateNotificationFeatureKey]: NotificationModel;\n}\n\nexport const reducers: ActionReducerMap<State> = {\n  [fromState.stateNotificationFeatureKey]: fromState.reducer\n};\n\nexport const metaReducers: MetaReducer<State>[] = [];\n",
+            "properties": [
+                {
+                    "type": "NotificationModel",
+                    "optional": false,
+                    "description": "",
+                    "line": 11
+                }
+            ],
+            "indexSignatures": [],
+            "kind": 150,
+            "methods": []
+        }
+    ],
     "injectables": [],
     "classes": [],
     "directives": [],
@@ -116,6 +135,109 @@
                     "comment": "vrapalis"
                 }
             ]
+        },
+        {
+            "name": "NotificationComponent",
+            "id": "component-NotificationComponent-c3e2ed5c9943e2411f7b6061a603a7d8",
+            "file": "libs/shared/ui/src/lib/components/notification/notification.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "sh-ui-notification",
+            "styleUrls": [
+                "./notification.component.scss"
+            ],
+            "styles": [],
+            "template": "<ng-container *ngIf='(notificationModel$ | async) as notification;'>\n  <aside class='nt' [ngClass]='getNotificationType(notification.type)'\n         *ngIf='notification.isShown'\n         @fadeEnter @fadeLeave @moveFromTopEnter @moveToLeftLeave>\n    <div class='nt-header'>\n      <h3 class='nt-header-title'>{{notification.title}}</h3>\n      <span class='material-icons' (click)='onClose()'>\n      close\n    </span>\n    </div>\n    <div class='nt-body'>\n      <p>{{notification.text}}</p>\n    </div>\n  </aside>\n</ng-container>\n",
+            "templateUrl": [],
+            "viewProviders": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "notificationModel$",
+                    "type": "Observable<NotificationModel>",
+                    "optional": false,
+                    "description": "",
+                    "line": 40
+                },
+                {
+                    "name": "onNotificationStateChange",
+                    "defaultValue": "() => {...}",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 64
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "getNotificationType",
+                    "args": [
+                        {
+                            "name": "type",
+                            "type": "NotificationTypeModel | NotificationTypeModel.INFO"
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "string",
+                    "typeParameters": [],
+                    "line": 51,
+                    "jsdoctags": [
+                        {
+                            "name": "type",
+                            "type": "NotificationTypeModel | NotificationTypeModel.INFO",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "onClose",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 47
+                }
+            ],
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "",
+            "type": "component",
+            "sourceCode": "import { Component } from '@angular/core';\nimport { animate, style, transition, trigger } from '@angular/animations';\nimport { fadeEnter, fadeLeave, moveFromTopEnter, moveToLeftLeave } from '../../animations/basic.animations';\nimport { Store } from '@ngrx/store';\nimport { State } from '../../state';\nimport { selectNotificationState } from '../../state/notification/notification.selectors';\nimport { Observable } from 'rxjs';\nimport { NotificationModel, NotificationTypeModel } from '@web-browser/shared/model';\nimport { hideNotification } from '../../state/notification/notification.actions';\nimport { tap } from 'rxjs/operators';\n\n@Component({\n  selector: 'sh-ui-notification',\n  template: `\n    <ng-container *ngIf='(notificationModel$ | async) as notification;'>\n      <aside class='nt' [ngClass]='getNotificationType(notification.type)'\n             *ngIf='notification.isShown'\n             @fadeEnter @fadeLeave @moveFromTopEnter @moveToLeftLeave>\n        <div class='nt-header'>\n          <h3 class='nt-header-title'>{{notification.title}}</h3>\n          <span class='material-icons' (click)='onClose()'>\n          close\n        </span>\n        </div>\n        <div class='nt-body'>\n          <p>{{notification.text}}</p>\n        </div>\n      </aside>\n    </ng-container>\n  `,\n  styleUrls: ['./notification.component.scss'],\n  animations: [\n    fadeEnter('100ms ease-in'),\n    fadeLeave('300ms ease-out'),\n    moveFromTopEnter('100ms ease-in', '-200px'),\n    moveToLeftLeave('300ms ease-out', '-200px')\n  ]\n})\nexport class NotificationComponent {\n  notificationModel$: Observable<NotificationModel>;\n\n  constructor(private state: Store<State>) {\n    this.notificationModel$ = this.state.select(selectNotificationState)\n      .pipe(tap(this.onNotificationStateChange));\n  }\n\n  onClose() {\n    this.state.dispatch(hideNotification());\n  }\n\n  getNotificationType(type: NotificationTypeModel | NotificationTypeModel.INFO): string {\n    switch (type) {\n      case NotificationTypeModel.INFO:\n        return 'nt-info';\n      case NotificationTypeModel.SUCCESS:\n        return 'nt-success';\n      case NotificationTypeModel.ERROR:\n        return 'nt-error';\n      default:\n        return 'nt-info';\n    }\n  }\n\n  onNotificationStateChange = (notification: NotificationModel) => {\n    if (notification.dismiss != null) {\n      setTimeout(() => {\n        this.state.dispatch(hideNotification());\n      }, notification.dismiss);\n    }\n  };\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "// Notification Common Variables\n$nt-border-radius: 5px;\n$nt-top: 130px;\n$nt-width: 20%;\n$nt-header-color: white;\n$nt-body-color: darkgrey;\n$nt-padding-left: 10px;\n$nt-box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.2);\n$nt-body-background-color: aliceblue;\n\n// Notification Info Type Variables\n$nt-info-header-background-color: aqua;\n\n// Notification Success Type Variables\n$nt-success-header-background-color: aquamarine;\n\n// Notification Error Type Variables\n$nt-error-header-background-color: red;\n\n.nt {\n  position: absolute;\n  top: $nt-top;\n  left: 50%;\n  margin-right: -50%;\n  transform: translate(-50%, -50%);\n  min-height: 80px;\n  border-radius: $nt-border-radius;\n  width: $nt-width;\n  box-shadow: $nt-box-shadow;\n  background-color: $nt-body-background-color;\n\n  .nt-header {\n    color: $nt-header-color;\n    width: 100%;\n    border-top-left-radius: $nt-border-radius;\n    border-top-right-radius: $nt-border-radius;\n    padding-left: $nt-padding-left;\n\n    .nt-header-title {\n      font-weight: 500;\n    }\n  }\n\n  .nt-body {\n    color: $nt-body-color;\n    padding-left: $nt-padding-left;\n  }\n\n  ::ng-deep {\n    .material-icons {\n      color: white;\n      position: absolute;\n      transform: translate(0%, 0%);\n      top: 2px;\n      right: 10px;\n      cursor: pointer;\n    }\n  }\n}\n\n// Notification Of Type Info\n.nt-info {\n\n  .nt-header {\n    background-color: $nt-info-header-background-color;\n  }\n}\n\n// Notification Of Type Success\n.nt-success {\n\n  .nt-header {\n    background-color: $nt-success-header-background-color;\n  }\n}\n\n// Notification Of Type Error\n.nt-error {\n  .nt-header {\n    background-color: $nt-error-header-background-color;\n  }\n}\n",
+                    "styleUrl": "./notification.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "args": [
+                    {
+                        "name": "state",
+                        "type": "Store<State>"
+                    }
+                ],
+                "line": 40,
+                "jsdoctags": [
+                    {
+                        "name": "state",
+                        "type": "Store<State>",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            }
         },
         {
             "name": "RaisedButtonComponent",
@@ -383,6 +505,43 @@
             ]
         },
         {
+            "name": "NotificationModule",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": [
+                        {
+                            "name": "NotificationComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "imports",
+                    "elements": []
+                },
+                {
+                    "type": "exports",
+                    "elements": [
+                        {
+                            "name": "NotificationComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
             "name": "RaisedButtonModule",
             "children": [
                 {
@@ -406,6 +565,43 @@
                     "elements": [
                         {
                             "name": "RaisedButtonComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
+            "name": "SharedUiModule",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": []
+                },
+                {
+                    "type": "imports",
+                    "elements": [
+                        {
+                            "name": "NotificationModule"
+                        }
+                    ]
+                },
+                {
+                    "type": "exports",
+                    "elements": [
+                        {
+                            "name": "NotificationModule"
                         }
                     ]
                 },
@@ -447,12 +643,84 @@
                 "defaultValue": "Template.bind({}) as Story"
             },
             {
+                "name": "hideNotification",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/shared/ui/src/lib/state/notification/notification.actions.ts",
+                "type": "",
+                "defaultValue": "createAction(\n  '[UI Action] Hide Notification'\n)"
+            },
+            {
+                "name": "initialState",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/shared/ui/src/lib/state/notification/notification.reducer.ts",
+                "type": "NotificationModel",
+                "defaultValue": "{\n  isShown: false,\n  dismiss: null,\n  type: NotificationTypeModel.INFO,\n  title: 'Example Title',\n  text: 'Example Text'\n}"
+            },
+            {
+                "name": "metaReducers",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/shared/ui/src/lib/state/index.ts",
+                "type": "MetaReducer[]",
+                "defaultValue": "[]"
+            },
+            {
                 "name": "Primary",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
                 "file": "libs/shared/ui/src/lib/components/examples/st-button/st-button.component.stories.ts",
                 "type": "",
                 "defaultValue": "Template.bind({}) as Story"
+            },
+            {
+                "name": "reducer",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/shared/ui/src/lib/state/notification/notification.reducer.ts",
+                "type": "",
+                "defaultValue": "createReducer(\n  initialState,\n\n  on(showNotification, (state, action) => {\n    return {\n      ...state,\n      isShown: true,\n      dismiss: action.notification.dismiss,\n      type: action.notification.type,\n      title: action.notification.title,\n      text: action.notification.text\n    };\n  }),\n\n  on(hideNotification, (state, action) => {\n    return initialState;\n  })\n)"
+            },
+            {
+                "name": "reducers",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/shared/ui/src/lib/state/index.ts",
+                "type": "ActionReducerMap<State>",
+                "defaultValue": "{\n  [fromState.stateNotificationFeatureKey]: fromState.reducer\n}"
+            },
+            {
+                "name": "selectNotificationState",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/shared/ui/src/lib/state/notification/notification.selectors.ts",
+                "type": "",
+                "defaultValue": "createSelector(\n  selectUiStateFeature,\n  state => state[stateNotificationFeatureKey]\n)"
+            },
+            {
+                "name": "selectUiStateFeature",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/shared/ui/src/lib/state/notification/notification.selectors.ts",
+                "type": "",
+                "defaultValue": "createFeatureSelector<State>(uiStateFeatureKey)"
+            },
+            {
+                "name": "showNotification",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/shared/ui/src/lib/state/notification/notification.actions.ts",
+                "type": "",
+                "defaultValue": "createAction(\n  '[UI Actions] Show Notification',\n  props<{ notification: NotificationModel }>()\n)"
+            },
+            {
+                "name": "stateNotificationFeatureKey",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/shared/ui/src/lib/state/notification/notification.reducer.ts",
+                "type": "string",
+                "defaultValue": "'notification'"
             },
             {
                 "name": "Template",
@@ -474,25 +742,17 @@
                 "name": "TemplateAccent",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "libs/shared/ui/src/lib/components/raised-button/raised-button.component.stories.ts",
-                "type": "",
-                "defaultValue": "(args) => ({\n    template: templateButtonAccent,\n    props: args\n  })"
-            },
-            {
-                "name": "TemplateAccent",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "libs/shared/ui/src/lib/components/button/button.component.stories.ts",
                 "type": "",
                 "defaultValue": "(args) => ({\n  template: templateButtonAccent,\n  props: args\n})"
             },
             {
-                "name": "TemplateBasic",
+                "name": "TemplateAccent",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
                 "file": "libs/shared/ui/src/lib/components/raised-button/raised-button.component.stories.ts",
                 "type": "",
-                "defaultValue": "(args) => ({\n  template: templateButtonBasic,\n  props: args\n})"
+                "defaultValue": "(args) => ({\n    template: templateButtonAccent,\n    props: args\n  })"
             },
             {
                 "name": "TemplateBasic",
@@ -503,12 +763,12 @@
                 "defaultValue": "(args) => ({\n  template: templateButtonBasic,\n  props: args\n})"
             },
             {
-                "name": "templateButtonAccent",
+                "name": "TemplateBasic",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
                 "file": "libs/shared/ui/src/lib/components/raised-button/raised-button.component.stories.ts",
                 "type": "",
-                "defaultValue": "`<sh-ui-raised-button [type]='type' [disabled]='disabled'>Accent</sh-ui-raised-button>`"
+                "defaultValue": "(args) => ({\n  template: templateButtonBasic,\n  props: args\n})"
             },
             {
                 "name": "templateButtonAccent",
@@ -519,12 +779,12 @@
                 "defaultValue": "`<sh-ui-button [type]='type' [disabled]='disabled'>Accent</sh-ui-button>`"
             },
             {
-                "name": "templateButtonBasic",
+                "name": "templateButtonAccent",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
                 "file": "libs/shared/ui/src/lib/components/raised-button/raised-button.component.stories.ts",
                 "type": "",
-                "defaultValue": "`<sh-ui-raised-button [type]='type' [disabled]='disabled'>Basic</sh-ui-raised-button>`"
+                "defaultValue": "`<sh-ui-raised-button [type]='type' [disabled]='disabled'>Accent</sh-ui-raised-button>`"
             },
             {
                 "name": "templateButtonBasic",
@@ -535,12 +795,12 @@
                 "defaultValue": "`<sh-ui-button [type]='type' [disabled]='disabled'>Basic</sh-ui-button>`"
             },
             {
-                "name": "templateButtonPrimary",
+                "name": "templateButtonBasic",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
                 "file": "libs/shared/ui/src/lib/components/raised-button/raised-button.component.stories.ts",
                 "type": "",
-                "defaultValue": "`<sh-ui-raised-button [type]='type' [disabled]='disabled'>Primary</sh-ui-raised-button>`"
+                "defaultValue": "`<sh-ui-raised-button [type]='type' [disabled]='disabled'>Basic</sh-ui-raised-button>`"
             },
             {
                 "name": "templateButtonPrimary",
@@ -551,12 +811,12 @@
                 "defaultValue": "`<sh-ui-button [type]='type' [disabled]='disabled'>Primary</sh-ui-button>`"
             },
             {
-                "name": "templateButtonSourceBasic",
+                "name": "templateButtonPrimary",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
                 "file": "libs/shared/ui/src/lib/components/raised-button/raised-button.component.stories.ts",
                 "type": "",
-                "defaultValue": "`<sh-ui-raised-button type='basic'>Basic</sh-ui-raised-button>`"
+                "defaultValue": "`<sh-ui-raised-button [type]='type' [disabled]='disabled'>Primary</sh-ui-raised-button>`"
             },
             {
                 "name": "templateButtonSourceBasic",
@@ -567,12 +827,12 @@
                 "defaultValue": "`<sh-ui-button type='basic'>Basic</sh-ui-button>`"
             },
             {
-                "name": "templateButtonSourcePrimary",
+                "name": "templateButtonSourceBasic",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
                 "file": "libs/shared/ui/src/lib/components/raised-button/raised-button.component.stories.ts",
                 "type": "",
-                "defaultValue": "`<sh-ui-raised-button type='primary'>Primary</sh-ui-raised-button>`"
+                "defaultValue": "`<sh-ui-raised-button type='basic'>Basic</sh-ui-raised-button>`"
             },
             {
                 "name": "templateButtonSourcePrimary",
@@ -583,12 +843,12 @@
                 "defaultValue": "`<sh-ui-button type='primary'>Primary</sh-ui-button>`"
             },
             {
-                "name": "templateButtonSourceSourceAccent",
+                "name": "templateButtonSourcePrimary",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
                 "file": "libs/shared/ui/src/lib/components/raised-button/raised-button.component.stories.ts",
                 "type": "",
-                "defaultValue": "`<sh-ui-raised-button type='accent'>Accent</sh-ui-raised-button>`"
+                "defaultValue": "`<sh-ui-raised-button type='primary'>Primary</sh-ui-raised-button>`"
             },
             {
                 "name": "templateButtonSourceSourceAccent",
@@ -599,12 +859,12 @@
                 "defaultValue": "`<sh-ui-button type='accent'>Accent</sh-ui-button>`"
             },
             {
-                "name": "templateButtonSourceSourceWarn",
+                "name": "templateButtonSourceSourceAccent",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
                 "file": "libs/shared/ui/src/lib/components/raised-button/raised-button.component.stories.ts",
                 "type": "",
-                "defaultValue": "`<sh-ui-raised-button type='warn'>Warn</sh-ui-raised-button>`"
+                "defaultValue": "`<sh-ui-raised-button type='accent'>Accent</sh-ui-raised-button>`"
             },
             {
                 "name": "templateButtonSourceSourceWarn",
@@ -615,12 +875,12 @@
                 "defaultValue": "`<sh-ui-button type='warn'>Warn</sh-ui-button>`"
             },
             {
-                "name": "templateButtonWarn",
+                "name": "templateButtonSourceSourceWarn",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
                 "file": "libs/shared/ui/src/lib/components/raised-button/raised-button.component.stories.ts",
                 "type": "",
-                "defaultValue": "`<sh-ui-raised-button [type]='type' [disabled]='disabled'>Warn</sh-ui-raised-button>`"
+                "defaultValue": "`<sh-ui-raised-button type='warn'>Warn</sh-ui-raised-button>`"
             },
             {
                 "name": "templateButtonWarn",
@@ -629,6 +889,14 @@
                 "file": "libs/shared/ui/src/lib/components/button/button.component.stories.ts",
                 "type": "",
                 "defaultValue": "`<sh-ui-button [type]='type' [disabled]='disabled'>Warn</sh-ui-button>`"
+            },
+            {
+                "name": "templateButtonWarn",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/shared/ui/src/lib/components/raised-button/raised-button.component.stories.ts",
+                "type": "",
+                "defaultValue": "`<sh-ui-raised-button [type]='type' [disabled]='disabled'>Warn</sh-ui-raised-button>`"
             },
             {
                 "name": "TemplateFlatAccent",
@@ -730,7 +998,7 @@
                 "name": "TemplatePrimary",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "libs/shared/ui/src/lib/components/raised-button/raised-button.component.stories.ts",
+                "file": "libs/shared/ui/src/lib/components/button/button.component.stories.ts",
                 "type": "",
                 "defaultValue": "(args) => ({\n  template: templateButtonPrimary,\n  props: args\n})"
             },
@@ -738,7 +1006,7 @@
                 "name": "TemplatePrimary",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "libs/shared/ui/src/lib/components/button/button.component.stories.ts",
+                "file": "libs/shared/ui/src/lib/components/raised-button/raised-button.component.stories.ts",
                 "type": "",
                 "defaultValue": "(args) => ({\n  template: templateButtonPrimary,\n  props: args\n})"
             },
@@ -746,7 +1014,7 @@
                 "name": "TemplateWarn",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "libs/shared/ui/src/lib/components/raised-button/raised-button.component.stories.ts",
+                "file": "libs/shared/ui/src/lib/components/button/button.component.stories.ts",
                 "type": "",
                 "defaultValue": "(args) => ({\n  template: templateButtonWarn,\n  props: args\n})"
             },
@@ -754,7 +1022,7 @@
                 "name": "TemplateWarn",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "libs/shared/ui/src/lib/components/button/button.component.stories.ts",
+                "file": "libs/shared/ui/src/lib/components/raised-button/raised-button.component.stories.ts",
                 "type": "",
                 "defaultValue": "(args) => ({\n  template: templateButtonWarn,\n  props: args\n})"
             },
@@ -765,9 +1033,120 @@
                 "file": "libs/shared/ui/src/lib/components/examples/st-button/st-button.component.stories.ts",
                 "type": "ButtonType",
                 "defaultValue": "'default'"
+            },
+            {
+                "name": "uiStateFeatureKey",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/shared/ui/src/lib/state/index.ts",
+                "type": "string",
+                "defaultValue": "'ui'"
             }
         ],
-        "functions": [],
+        "functions": [
+            {
+                "name": "fadeEnter",
+                "file": "libs/shared/ui/src/lib/animations/basic.animations.ts",
+                "ctype": "miscellaneous",
+                "subtype": "function",
+                "description": "",
+                "args": [
+                    {
+                        "name": "animateTime"
+                    }
+                ],
+                "returnType": "AnimationTriggerMetadata",
+                "jsdoctags": [
+                    {
+                        "name": "animateTime",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "fadeLeave",
+                "file": "libs/shared/ui/src/lib/animations/basic.animations.ts",
+                "ctype": "miscellaneous",
+                "subtype": "function",
+                "description": "",
+                "args": [
+                    {
+                        "name": "animateTime"
+                    }
+                ],
+                "returnType": "AnimationTriggerMetadata",
+                "jsdoctags": [
+                    {
+                        "name": "animateTime",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "moveFromTopEnter",
+                "file": "libs/shared/ui/src/lib/animations/basic.animations.ts",
+                "ctype": "miscellaneous",
+                "subtype": "function",
+                "description": "",
+                "args": [
+                    {
+                        "name": "animateTime"
+                    },
+                    {
+                        "name": "top"
+                    }
+                ],
+                "returnType": "AnimationTriggerMetadata",
+                "jsdoctags": [
+                    {
+                        "name": "animateTime",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    },
+                    {
+                        "name": "top",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "moveToLeftLeave",
+                "file": "libs/shared/ui/src/lib/animations/basic.animations.ts",
+                "ctype": "miscellaneous",
+                "subtype": "function",
+                "description": "",
+                "args": [
+                    {
+                        "name": "animateTime"
+                    },
+                    {
+                        "name": "left"
+                    }
+                ],
+                "returnType": "AnimationTriggerMetadata",
+                "jsdoctags": [
+                    {
+                        "name": "animateTime",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    },
+                    {
+                        "name": "left",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            }
+        ],
         "typealiases": [
             {
                 "name": "ButtonType",
@@ -841,102 +1220,92 @@
                     "defaultValue": "'default'"
                 }
             ],
-            "libs/shared/ui/src/lib/components/raised-button/raised-button.component.stories.ts": [
+            "libs/shared/ui/src/lib/state/notification/notification.actions.ts": [
                 {
-                    "name": "TemplateAccent",
+                    "name": "hideNotification",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "libs/shared/ui/src/lib/components/raised-button/raised-button.component.stories.ts",
+                    "file": "libs/shared/ui/src/lib/state/notification/notification.actions.ts",
                     "type": "",
-                    "defaultValue": "(args) => ({\n    template: templateButtonAccent,\n    props: args\n  })"
+                    "defaultValue": "createAction(\n  '[UI Action] Hide Notification'\n)"
                 },
                 {
-                    "name": "TemplateBasic",
+                    "name": "showNotification",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "libs/shared/ui/src/lib/components/raised-button/raised-button.component.stories.ts",
+                    "file": "libs/shared/ui/src/lib/state/notification/notification.actions.ts",
                     "type": "",
-                    "defaultValue": "(args) => ({\n  template: templateButtonBasic,\n  props: args\n})"
+                    "defaultValue": "createAction(\n  '[UI Actions] Show Notification',\n  props<{ notification: NotificationModel }>()\n)"
+                }
+            ],
+            "libs/shared/ui/src/lib/state/notification/notification.reducer.ts": [
+                {
+                    "name": "initialState",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/shared/ui/src/lib/state/notification/notification.reducer.ts",
+                    "type": "NotificationModel",
+                    "defaultValue": "{\n  isShown: false,\n  dismiss: null,\n  type: NotificationTypeModel.INFO,\n  title: 'Example Title',\n  text: 'Example Text'\n}"
                 },
                 {
-                    "name": "templateButtonAccent",
+                    "name": "reducer",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "libs/shared/ui/src/lib/components/raised-button/raised-button.component.stories.ts",
+                    "file": "libs/shared/ui/src/lib/state/notification/notification.reducer.ts",
                     "type": "",
-                    "defaultValue": "`<sh-ui-raised-button [type]='type' [disabled]='disabled'>Accent</sh-ui-raised-button>`"
+                    "defaultValue": "createReducer(\n  initialState,\n\n  on(showNotification, (state, action) => {\n    return {\n      ...state,\n      isShown: true,\n      dismiss: action.notification.dismiss,\n      type: action.notification.type,\n      title: action.notification.title,\n      text: action.notification.text\n    };\n  }),\n\n  on(hideNotification, (state, action) => {\n    return initialState;\n  })\n)"
                 },
                 {
-                    "name": "templateButtonBasic",
+                    "name": "stateNotificationFeatureKey",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "libs/shared/ui/src/lib/components/raised-button/raised-button.component.stories.ts",
-                    "type": "",
-                    "defaultValue": "`<sh-ui-raised-button [type]='type' [disabled]='disabled'>Basic</sh-ui-raised-button>`"
+                    "file": "libs/shared/ui/src/lib/state/notification/notification.reducer.ts",
+                    "type": "string",
+                    "defaultValue": "'notification'"
+                }
+            ],
+            "libs/shared/ui/src/lib/state/index.ts": [
+                {
+                    "name": "metaReducers",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/shared/ui/src/lib/state/index.ts",
+                    "type": "MetaReducer[]",
+                    "defaultValue": "[]"
                 },
                 {
-                    "name": "templateButtonPrimary",
+                    "name": "reducers",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "libs/shared/ui/src/lib/components/raised-button/raised-button.component.stories.ts",
-                    "type": "",
-                    "defaultValue": "`<sh-ui-raised-button [type]='type' [disabled]='disabled'>Primary</sh-ui-raised-button>`"
+                    "file": "libs/shared/ui/src/lib/state/index.ts",
+                    "type": "ActionReducerMap<State>",
+                    "defaultValue": "{\n  [fromState.stateNotificationFeatureKey]: fromState.reducer\n}"
                 },
                 {
-                    "name": "templateButtonSourceBasic",
+                    "name": "uiStateFeatureKey",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "libs/shared/ui/src/lib/components/raised-button/raised-button.component.stories.ts",
+                    "file": "libs/shared/ui/src/lib/state/index.ts",
+                    "type": "string",
+                    "defaultValue": "'ui'"
+                }
+            ],
+            "libs/shared/ui/src/lib/state/notification/notification.selectors.ts": [
+                {
+                    "name": "selectNotificationState",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/shared/ui/src/lib/state/notification/notification.selectors.ts",
                     "type": "",
-                    "defaultValue": "`<sh-ui-raised-button type='basic'>Basic</sh-ui-raised-button>`"
+                    "defaultValue": "createSelector(\n  selectUiStateFeature,\n  state => state[stateNotificationFeatureKey]\n)"
                 },
                 {
-                    "name": "templateButtonSourcePrimary",
+                    "name": "selectUiStateFeature",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "libs/shared/ui/src/lib/components/raised-button/raised-button.component.stories.ts",
+                    "file": "libs/shared/ui/src/lib/state/notification/notification.selectors.ts",
                     "type": "",
-                    "defaultValue": "`<sh-ui-raised-button type='primary'>Primary</sh-ui-raised-button>`"
-                },
-                {
-                    "name": "templateButtonSourceSourceAccent",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "libs/shared/ui/src/lib/components/raised-button/raised-button.component.stories.ts",
-                    "type": "",
-                    "defaultValue": "`<sh-ui-raised-button type='accent'>Accent</sh-ui-raised-button>`"
-                },
-                {
-                    "name": "templateButtonSourceSourceWarn",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "libs/shared/ui/src/lib/components/raised-button/raised-button.component.stories.ts",
-                    "type": "",
-                    "defaultValue": "`<sh-ui-raised-button type='warn'>Warn</sh-ui-raised-button>`"
-                },
-                {
-                    "name": "templateButtonWarn",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "libs/shared/ui/src/lib/components/raised-button/raised-button.component.stories.ts",
-                    "type": "",
-                    "defaultValue": "`<sh-ui-raised-button [type]='type' [disabled]='disabled'>Warn</sh-ui-raised-button>`"
-                },
-                {
-                    "name": "TemplatePrimary",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "libs/shared/ui/src/lib/components/raised-button/raised-button.component.stories.ts",
-                    "type": "",
-                    "defaultValue": "(args) => ({\n  template: templateButtonPrimary,\n  props: args\n})"
-                },
-                {
-                    "name": "TemplateWarn",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "libs/shared/ui/src/lib/components/raised-button/raised-button.component.stories.ts",
-                    "type": "",
-                    "defaultValue": "(args) => ({\n  template: templateButtonWarn,\n  props: args\n})"
+                    "defaultValue": "createFeatureSelector<State>(uiStateFeatureKey)"
                 }
             ],
             "libs/shared/ui/src/lib/components/button/button.component.stories.ts": [
@@ -1033,6 +1402,104 @@
                     "ctype": "miscellaneous",
                     "subtype": "variable",
                     "file": "libs/shared/ui/src/lib/components/button/button.component.stories.ts",
+                    "type": "",
+                    "defaultValue": "(args) => ({\n  template: templateButtonWarn,\n  props: args\n})"
+                }
+            ],
+            "libs/shared/ui/src/lib/components/raised-button/raised-button.component.stories.ts": [
+                {
+                    "name": "TemplateAccent",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/shared/ui/src/lib/components/raised-button/raised-button.component.stories.ts",
+                    "type": "",
+                    "defaultValue": "(args) => ({\n    template: templateButtonAccent,\n    props: args\n  })"
+                },
+                {
+                    "name": "TemplateBasic",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/shared/ui/src/lib/components/raised-button/raised-button.component.stories.ts",
+                    "type": "",
+                    "defaultValue": "(args) => ({\n  template: templateButtonBasic,\n  props: args\n})"
+                },
+                {
+                    "name": "templateButtonAccent",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/shared/ui/src/lib/components/raised-button/raised-button.component.stories.ts",
+                    "type": "",
+                    "defaultValue": "`<sh-ui-raised-button [type]='type' [disabled]='disabled'>Accent</sh-ui-raised-button>`"
+                },
+                {
+                    "name": "templateButtonBasic",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/shared/ui/src/lib/components/raised-button/raised-button.component.stories.ts",
+                    "type": "",
+                    "defaultValue": "`<sh-ui-raised-button [type]='type' [disabled]='disabled'>Basic</sh-ui-raised-button>`"
+                },
+                {
+                    "name": "templateButtonPrimary",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/shared/ui/src/lib/components/raised-button/raised-button.component.stories.ts",
+                    "type": "",
+                    "defaultValue": "`<sh-ui-raised-button [type]='type' [disabled]='disabled'>Primary</sh-ui-raised-button>`"
+                },
+                {
+                    "name": "templateButtonSourceBasic",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/shared/ui/src/lib/components/raised-button/raised-button.component.stories.ts",
+                    "type": "",
+                    "defaultValue": "`<sh-ui-raised-button type='basic'>Basic</sh-ui-raised-button>`"
+                },
+                {
+                    "name": "templateButtonSourcePrimary",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/shared/ui/src/lib/components/raised-button/raised-button.component.stories.ts",
+                    "type": "",
+                    "defaultValue": "`<sh-ui-raised-button type='primary'>Primary</sh-ui-raised-button>`"
+                },
+                {
+                    "name": "templateButtonSourceSourceAccent",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/shared/ui/src/lib/components/raised-button/raised-button.component.stories.ts",
+                    "type": "",
+                    "defaultValue": "`<sh-ui-raised-button type='accent'>Accent</sh-ui-raised-button>`"
+                },
+                {
+                    "name": "templateButtonSourceSourceWarn",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/shared/ui/src/lib/components/raised-button/raised-button.component.stories.ts",
+                    "type": "",
+                    "defaultValue": "`<sh-ui-raised-button type='warn'>Warn</sh-ui-raised-button>`"
+                },
+                {
+                    "name": "templateButtonWarn",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/shared/ui/src/lib/components/raised-button/raised-button.component.stories.ts",
+                    "type": "",
+                    "defaultValue": "`<sh-ui-raised-button [type]='type' [disabled]='disabled'>Warn</sh-ui-raised-button>`"
+                },
+                {
+                    "name": "TemplatePrimary",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/shared/ui/src/lib/components/raised-button/raised-button.component.stories.ts",
+                    "type": "",
+                    "defaultValue": "(args) => ({\n  template: templateButtonPrimary,\n  props: args\n})"
+                },
+                {
+                    "name": "TemplateWarn",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/shared/ui/src/lib/components/raised-button/raised-button.component.stories.ts",
                     "type": "",
                     "defaultValue": "(args) => ({\n  template: templateButtonWarn,\n  props: args\n})"
                 }
@@ -1136,7 +1603,112 @@
                 }
             ]
         },
-        "groupedFunctions": {},
+        "groupedFunctions": {
+            "libs/shared/ui/src/lib/animations/basic.animations.ts": [
+                {
+                    "name": "fadeEnter",
+                    "file": "libs/shared/ui/src/lib/animations/basic.animations.ts",
+                    "ctype": "miscellaneous",
+                    "subtype": "function",
+                    "description": "",
+                    "args": [
+                        {
+                            "name": "animateTime"
+                        }
+                    ],
+                    "returnType": "AnimationTriggerMetadata",
+                    "jsdoctags": [
+                        {
+                            "name": "animateTime",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "fadeLeave",
+                    "file": "libs/shared/ui/src/lib/animations/basic.animations.ts",
+                    "ctype": "miscellaneous",
+                    "subtype": "function",
+                    "description": "",
+                    "args": [
+                        {
+                            "name": "animateTime"
+                        }
+                    ],
+                    "returnType": "AnimationTriggerMetadata",
+                    "jsdoctags": [
+                        {
+                            "name": "animateTime",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "moveFromTopEnter",
+                    "file": "libs/shared/ui/src/lib/animations/basic.animations.ts",
+                    "ctype": "miscellaneous",
+                    "subtype": "function",
+                    "description": "",
+                    "args": [
+                        {
+                            "name": "animateTime"
+                        },
+                        {
+                            "name": "top"
+                        }
+                    ],
+                    "returnType": "AnimationTriggerMetadata",
+                    "jsdoctags": [
+                        {
+                            "name": "animateTime",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        },
+                        {
+                            "name": "top",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "moveToLeftLeave",
+                    "file": "libs/shared/ui/src/lib/animations/basic.animations.ts",
+                    "ctype": "miscellaneous",
+                    "subtype": "function",
+                    "description": "",
+                    "args": [
+                        {
+                            "name": "animateTime"
+                        },
+                        {
+                            "name": "left"
+                        }
+                    ],
+                    "returnType": "AnimationTriggerMetadata",
+                    "jsdoctags": [
+                        {
+                            "name": "animateTime",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        },
+                        {
+                            "name": "left",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
         "groupedEnumerations": {},
         "groupedTypeAliases": {
             "libs/shared/ui/src/lib/components/examples/st-button/st-button.component.ts": [
@@ -1154,9 +1726,45 @@
     },
     "routes": [],
     "coverage": {
-        "count": 4,
+        "count": 3,
         "status": "low",
         "files": [
+            {
+                "filePath": "libs/shared/ui/src/lib/animations/basic.animations.ts",
+                "type": "function",
+                "linksubtype": "function",
+                "name": "fadeEnter",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/shared/ui/src/lib/animations/basic.animations.ts",
+                "type": "function",
+                "linksubtype": "function",
+                "name": "fadeLeave",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/shared/ui/src/lib/animations/basic.animations.ts",
+                "type": "function",
+                "linksubtype": "function",
+                "name": "moveFromTopEnter",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/shared/ui/src/lib/animations/basic.animations.ts",
+                "type": "function",
+                "linksubtype": "function",
+                "name": "moveToLeftLeave",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
             {
                 "filePath": "libs/shared/ui/src/lib/components/button/button.component.stories.ts",
                 "type": "variable",
@@ -1465,6 +2073,15 @@
                 "status": "low"
             },
             {
+                "filePath": "libs/shared/ui/src/lib/components/notification/notification.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "NotificationComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/6",
+                "status": "low"
+            },
+            {
                 "filePath": "libs/shared/ui/src/lib/components/raised-button/raised-button.component.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
@@ -1631,6 +2248,115 @@
                 "coveragePercent": 100,
                 "coverageCount": "1/1",
                 "status": "very-good"
+            },
+            {
+                "filePath": "libs/shared/ui/src/lib/state/index.ts",
+                "type": "interface",
+                "linktype": "interface",
+                "name": "State",
+                "coveragePercent": 0,
+                "coverageCount": "0/2",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/shared/ui/src/lib/state/index.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "metaReducers",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/shared/ui/src/lib/state/index.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "reducers",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/shared/ui/src/lib/state/index.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "uiStateFeatureKey",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/shared/ui/src/lib/state/notification/notification.actions.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "hideNotification",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/shared/ui/src/lib/state/notification/notification.actions.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "showNotification",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/shared/ui/src/lib/state/notification/notification.reducer.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "initialState",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/shared/ui/src/lib/state/notification/notification.reducer.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "reducer",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/shared/ui/src/lib/state/notification/notification.reducer.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "stateNotificationFeatureKey",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/shared/ui/src/lib/state/notification/notification.selectors.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "selectNotificationState",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/shared/ui/src/lib/state/notification/notification.selectors.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "selectUiStateFeature",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
             }
         ]
     }

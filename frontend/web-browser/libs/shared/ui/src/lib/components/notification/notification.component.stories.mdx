@@ -1,0 +1,148 @@
+import {
+  Canvas,
+  Meta,
+  Story
+} from '@storybook/addon-docs/blocks';
+import { moduleMetadata } from '@storybook/angular';
+import { NotificationComponent } from './notification.component';
+import { SharedUiModule } from '../../shared-ui.module';
+import { provideMockStore } from '@ngrx/store/testing';
+import { StoreModule } from '@ngrx/store';
+import { initialState } from '../../state/notification/notification.reducer';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; import { NotificationExampleStoryComponent } from '../../stories/notification/notification-example-story.component'; import { NotificationTypeModel } from '../../../../../model/src'; import { FlatButtonModule } from '../flat-button/flat-button.module';
+
+<Meta title="Components/Notifications/Standard" component={NotificationComponent}
+      parameters={{
+        docs: {
+          source: {
+            code: ' ',
+          },
+        },
+        controls: {
+          disable: true
+        }
+      }}
+      decorators={[
+        moduleMetadata({
+          imports: [BrowserAnimationsModule, StoreModule.forRoot({}), SharedUiModule, FlatButtonModule],
+          declarations: [NotificationExampleStoryComponent]
+        })
+      ]}
+/>
+
+# Standard Notifications
+To use standard notification import it in the module/component
+``` import: [SharedUiModule] ```, which will be register ui store feature, then dispatch the action.
+
+## Type Info
+<Canvas>
+  <Story name="Info" height={250} parameters={{}}>
+    {{
+      component: NotificationComponent,
+      moduleMetadata: {
+        providers: [provideMockStore({
+          initialState: {
+            ui: {
+              notification: {
+                ...initialState,
+                isShown: true,
+              }
+            }
+          }
+        })]
+      },
+    }}
+  </Story>
+</Canvas>
+
+## Type Success
+<Canvas>
+  <Story name="Success" height={250}>
+    {{
+      parameters: {},
+      component: NotificationComponent,
+      moduleMetadata: {
+        providers: [provideMockStore({
+          initialState: {
+            ui: {
+              notification: {
+                ...initialState,
+                isShown: true,
+                type: NotificationTypeModel.SUCCESS
+              }
+            }
+          }
+        })]
+      },
+    }}
+  </Story>
+</Canvas>
+
+## Type Error
+<Canvas>
+  <Story name="Error" height={250}>
+    {{
+      component: NotificationComponent,
+      moduleMetadata: {
+        providers: [provideMockStore({
+          initialState: {
+            ui: {
+              notification: {
+                ...initialState,
+                isShown: true,
+                dismiss: null,
+                type: NotificationTypeModel.ERROR
+              }
+            }
+          }
+        })]
+      },
+    }}
+  </Story>
+</Canvas>
+
+## Examples
+<Story name="Examples" height={200}>
+  {{
+    component: NotificationExampleStoryComponent,
+    moduleMetadata: {},
+  }}
+</Story>
+
+### Example Component
+```javascript
+import { Component } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { State } from '../../state';
+import { showNotification } from '@web-browser/shared/ui';
+import { EButtonType, NotificationModel, NotificationTypeModel } from '@web-browser/shared/model';
+
+@Component({
+  selector: 'sh-ui-demo-button',
+  template: `
+    <sh-ui-flat-button [type]='infoType' (click)='onInfoClick()'>Info Notification</sh-ui-flat-button>
+  `
+})
+export class NotificationExampleStoryComponent {
+  infoType = EButtonType.ACCENT;
+  notification = {
+    isShown: true,
+    type: NotificationTypeModel.INFO,
+    dismiss: null,
+    text: 'Text',
+    title: 'Title'
+  } as NotificationModel;
+
+  constructor(private state: Store<State>) {
+  }
+
+  dispatchNotification(type: NotificationTypeModel) {
+    this.state.dispatch(showNotification({
+      notification: {
+        ...this.notification,
+        type
+      }
+    }));
+  }
+}
+```

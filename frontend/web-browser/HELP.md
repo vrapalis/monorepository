@@ -32,5 +32,5 @@
   <br/>
   ***Reducer***
   <br/>
-  `nx generate @ngrx/schematics:reducer store/store --api --skipTests --reducers=index.ts --project=entryou-app`
+  `nx generate @ngrx/schematics:userReducer store/store --api --skipTests --reducers=index.ts --project=entryou-app`
 ------

@@ -3,7 +3,8 @@ export enum NotificationTypeModel {
 }
 
 export interface NotificationModel {
-  isShown: boolean | false;
+  dismiss: number;
+  isShown?: boolean | false;
   type: NotificationTypeModel | NotificationTypeModel.INFO;
   title: string;
   text: string;
