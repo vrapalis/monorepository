@@ -568,6 +568,31 @@
           }
         }
       }
+    },
+    "shared-auth-guard": {
+      "projectType": "library",
+      "root": "libs/shared/auth/guard",
+      "sourceRoot": "libs/shared/auth/guard/src",
+      "prefix": "web-browser",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/shared/auth/guard/src/**/*.ts",
+              "libs/shared/auth/guard/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/shared/auth/guard"],
+          "options": {
+            "jestConfig": "libs/shared/auth/guard/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
     }
   },
   "defaultProject": "entryou-app",

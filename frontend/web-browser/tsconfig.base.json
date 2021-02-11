@@ -36,7 +36,8 @@
       "@web-browser/shared/auth/util": ["libs/shared/auth/util/src/index.ts"],
       "@web-browser/entryou/feature/home": [
         "libs/entryou/feature/home/src/index.ts"
-      ]
+      ],
+      "@web-browser/shared/auth/guard": ["libs/shared/auth/guard/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

@@ -2,7 +2,8 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { SharedAuthFeatureLoginModule } from '@web-browser/shared/auth/feature/sing-in';
 import { SharedAuthFeatureSignUpModule } from '@web-browser/shared/auth/feature/sing-up';
-import { EntryouFeatureHomeModule, HomeGuardService } from '@web-browser/entryou/feature/home';
+import { EntryouFeatureHomeModule } from '@web-browser/entryou/feature/home';
+import { AuthGuardsService, NotAuthGuardsService } from '@web-browser/shared/auth/guard';
 
 const routes: Routes = [
   {
@@ -10,10 +11,11 @@ const routes: Routes = [
   },
   {
     path: 'home', loadChildren: () => EntryouFeatureHomeModule,
-    canLoad: [HomeGuardService]
+    canLoad: [AuthGuardsService]
   },
   {
-    path: 'sign-in', pathMatch: 'full', loadChildren: () => SharedAuthFeatureLoginModule
+    path: 'sign-in', pathMatch: 'full', loadChildren: () => SharedAuthFeatureLoginModule,
+    canLoad: [NotAuthGuardsService]
   },
   {
     path: 'sign-up', pathMatch: 'full', loadChildren: () => SharedAuthFeatureSignUpModule

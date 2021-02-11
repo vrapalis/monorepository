@@ -23,7 +23,7 @@ import { SignInModel } from '@web-browser/shared/auth/model';
     }
   `]
 })
-export class LoginContainerComponent {
+export class SignInContainerComponent {
   constructor(private state: Store<State>) {
   }
 

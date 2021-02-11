@@ -27,3 +27,7 @@ export const signInSuccessAction = createAction(
 export const signInFailureAction = createAction(
   '[Login Component] Login Failure Action'
 );
+
+export const signOutAction = createAction(
+  '[Sign Out Action] Sign Out Action'
+);

@@ -25,6 +25,7 @@
                 "sourceTag": "type:app",
                 "onlyDependOnLibsWithTags": [
                   "type:feature",
+                  "type:guard",
                   "type:ui",
                   "type:state"
                 ]
@@ -35,6 +36,7 @@
                   "type:ui",
                   "type:util",
                   "type:state",
+                  "type:guard",
                   "type:model",
                   "type:data-access"
                 ]
@@ -56,7 +58,8 @@
                 "sourceTag": "type:ui",
                 "onlyDependOnLibsWithTags": [
                   "type:util",
-                  "type:model"
+                  "type:model",
+                  "type:state"
                 ]
               },
               {
@@ -66,6 +69,13 @@
                   "type:util",
                   "type:model",
                   "type:ui"
+                ]
+              },
+              {
+                "sourceTag": "type:guard",
+                "onlyDependOnLibsWithTags": [
+                  "type:state",
+                  "type:model"
                 ]
               },
               {

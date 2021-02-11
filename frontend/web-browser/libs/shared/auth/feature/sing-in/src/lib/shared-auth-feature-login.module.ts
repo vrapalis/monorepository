@@ -2,17 +2,18 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { SharedAuthFeatureLoginRoutingModule } from './shared-auth-feature-login-routing.module';
-import { LoginContainerComponent } from './containers/login-container.component';
-import { LoginComponent } from './components/login.component';
+import { SignInContainerComponent } from './containers/sign-in-container.component';
+import { SignInComponent } from './components/sign-in.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { RouterModule } from '@angular/router';
 import { ButtonModule, ContainersModule, FlatButtonModule } from '@web-browser/shared/ui';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SharedAuthStateModule } from '@web-browser/shared/auth/state';
+import { SharedAuthGuardModule } from '@web-browser/shared/auth/guard';
 
 @NgModule({
-  declarations: [LoginContainerComponent, LoginComponent],
+  declarations: [SignInContainerComponent, SignInComponent],
   imports: [
     CommonModule,
     RouterModule,
@@ -24,6 +25,7 @@ import { SharedAuthStateModule } from '@web-browser/shared/auth/state';
     FlatButtonModule,
     ButtonModule,
     SharedAuthStateModule,
+    SharedAuthGuardModule
   ]
 })
 export class SharedAuthFeatureLoginModule {

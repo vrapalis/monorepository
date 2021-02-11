@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'web-browser-registration',
+  selector: 'web-browser-sign-up',
   template: `
     <p>
       registration works!

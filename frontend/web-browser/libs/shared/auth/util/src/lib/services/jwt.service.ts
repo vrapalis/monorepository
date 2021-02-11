@@ -51,4 +51,11 @@ export class JwtService {
       })
     );
   }
+
+  /**
+   * Delete jwt token from storage.
+   */
+  deleteJwtToken = (): Observable<void> => {
+    return of(localStorage.removeItem(JwtService.JWT_TOKEN_KEY));
+  };
 }

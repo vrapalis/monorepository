@@ -1,9 +1,10 @@
 import { RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { HomeContainerComponent } from './containers/home/home-container.component';
+import { AuthGuardsService } from '@web-browser/shared/auth/guard';
 
 const routes: Routes = [
-  { path: '', component: HomeContainerComponent }
+  { path: '', component: HomeContainerComponent, canActivate: [AuthGuardsService] }
 ];
 
 @NgModule({

@@ -3,7 +3,7 @@ import { Actions, createEffect, ofType } from '@ngrx/effects';
 import {
   signInAction,
   signInFailureAction,
-  signInSuccessAction,
+  signInSuccessAction, signOutAction,
   tryToSignInAction,
   tryToSignInFailureAction,
   tryToSignInSuccessAction
@@ -90,4 +90,11 @@ export class UserEffects {
     );
   }, { dispatch: false });
 
+  signOutEffect$ = createEffect(() => {
+    return this.actions$.pipe(
+      ofType(signOutAction),
+      tap(this.jwtService.deleteJwtToken),
+      tap(() => this.router.navigate(['/sign-in']))
+    );
+  }, { dispatch: false });
 }

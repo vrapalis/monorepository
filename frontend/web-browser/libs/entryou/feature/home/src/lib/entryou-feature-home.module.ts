@@ -5,6 +5,7 @@ import { HomeComponent } from './components/home/home.component';
 import { HomeContainerComponent } from './containers/home/home-container.component';
 import { SharedAuthStateModule } from '@web-browser/shared/auth/state';
 import { SharedUiModule } from '@web-browser/shared/ui';
+import { SharedAuthGuardModule } from '@web-browser/shared/auth/guard';
 
 @NgModule({
   declarations: [HomeContainerComponent, HomeComponent],
@@ -12,7 +13,8 @@ import { SharedUiModule } from '@web-browser/shared/ui';
     CommonModule,
     EntryouFeatureHomeModuleRouting,
     SharedAuthStateModule,
-    SharedUiModule
+    SharedUiModule,
+    SharedAuthGuardModule
   ]
 })
 export class EntryouFeatureHomeModule {

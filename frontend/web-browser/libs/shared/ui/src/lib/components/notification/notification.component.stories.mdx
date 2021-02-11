@@ -102,12 +102,14 @@ To use standard notification import it in the module/component
 </Canvas>
 
 ## Examples
-<Story name="Examples" height={200}>
-  {{
-    component: NotificationExampleStoryComponent,
-    moduleMetadata: {},
-  }}
-</Story>
+<Canvas>
+  <Story name="Examples" height={200}>
+    {{
+      component: NotificationExampleStoryComponent,
+      moduleMetadata: {},
+    }}
+  </Story>
+</Canvas>
 
 ### Example Component
 ```javascript
@@ -121,6 +123,7 @@ import { EButtonType, NotificationModel, NotificationTypeModel } from '@web-brow
   selector: 'sh-ui-demo-button',
   template: `
     <sh-ui-flat-button [type]='infoType' (click)='onInfoClick()'>Info Notification</sh-ui-flat-button>
+    <sh-ui-notification></sh-ui-notification>
   `
 })
 export class NotificationExampleStoryComponent {

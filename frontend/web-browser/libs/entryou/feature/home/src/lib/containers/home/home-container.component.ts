@@ -4,7 +4,7 @@ import { UserModel } from '@web-browser/shared/auth/model';
 import { selectAuthUserState } from '@web-browser/shared/auth/state';
 import { Observable } from 'rxjs';
 import { NotificationModel, NotificationTypeModel } from '@web-browser/shared/model';
-import { tap } from 'rxjs/operators';
+import { filter, tap } from 'rxjs/operators';
 import { showNotification } from '@web-browser/shared/ui';
 
 @Component({
@@ -22,6 +22,7 @@ export class HomeContainerComponent {
   constructor(private authState: Store<UserModel>, private uiState: Store<NotificationModel>) {
     this.user$ = this.authState.select(selectAuthUserState)
       .pipe(
+        filter(user => user.email != null),
         tap(user => uiState.dispatch(showNotification({
           notification: {
             type: NotificationTypeModel.INFO,

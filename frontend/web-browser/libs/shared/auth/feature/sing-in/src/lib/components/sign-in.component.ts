@@ -40,7 +40,7 @@ import { SignInModel } from '@web-browser/shared/auth/model';
     }
   `]
 })
-export class LoginComponent implements OnInit {
+export class SignInComponent implements OnInit {
   form: FormGroup;
   @Output() loginEvent = new EventEmitter<SignInModel>();
 

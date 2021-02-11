@@ -2,7 +2,7 @@ import { createReducer, on } from '@ngrx/store';
 import { UserModel } from '@web-browser/shared/auth/model';
 import {
   signInFailureAction,
-  signInSuccessAction,
+  signInSuccessAction, signOutAction,
   tryToSignInFailureAction,
   tryToSignInSuccessAction
 } from './user.actions';
@@ -42,6 +42,10 @@ export const userReducer = createReducer(
   }),
 
   on(signInFailureAction, (state) => {
+    return initialState;
+  }),
+
+  on(signOutAction, state => {
     return initialState;
   })
 );

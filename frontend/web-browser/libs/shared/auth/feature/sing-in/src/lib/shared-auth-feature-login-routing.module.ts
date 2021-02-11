@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { LoginContainerComponent } from './containers/login-container.component';
+import { SignInContainerComponent } from './containers/sign-in-container.component';
+import { NotAuthGuardsService } from '@web-browser/shared/auth/guard';
 
 const routes: Routes = [
-  { path: '', component: LoginContainerComponent }
+  { path: '', component: SignInContainerComponent, canActivate: [NotAuthGuardsService] },
 ];
 
 @NgModule({
