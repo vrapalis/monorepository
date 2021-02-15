@@ -5,7 +5,7 @@ import com.vrapalis.www.tutorials.datastructuresandalgorithms.algorithms.sort.Bu
 public class RunDataStructuresAndAlgorithms {
     public static void main(String[] args) {
         // Bubble sort example
-        final var bubbleSort = new BubbleSort(new int[] {3,1,0,0,2,3});
+        final var bubbleSort = new BubbleSort(new int[]{9, 8, 9, 6, 7, 1, 3, 2, 9});
         bubbleSort.sort();
         bubbleSort.print();
     }

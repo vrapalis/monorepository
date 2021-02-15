@@ -18,19 +18,19 @@ public final class BubbleSort {
     }
 
     public void sort() {
-        for (int i = 0; i < array.length; i++) {
-            for (int y = i + 1; y < array.length; y++) {
-                if (array[i] > array[y]) {
-                    swap(array, i, y);
+        for (int outerLoop = 0; outerLoop < array.length; outerLoop++) {
+            for (int innerLoop = 0; innerLoop < array.length - outerLoop - 1; innerLoop++) {
+                if (array[innerLoop] > array[innerLoop + 1]) {
+                    swap(array, innerLoop, innerLoop + 1);
                 }
             }
         }
     }
 
-    private void swap(final int[] array, final int i, final int y) {
-        final int temp = array[i];
-        array[i] = array[y];
-        array[y] = temp;
+    private void swap(final int[] array, final int previousIndex, final int nextIndex) {
+        final int temp = array[previousIndex];
+        array[previousIndex] = array[nextIndex];
+        array[nextIndex] = temp;
     }
 
     public void print() {

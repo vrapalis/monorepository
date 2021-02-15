@@ -4,6 +4,9 @@ import { StoreModule } from '@ngrx/store';
 import * as fromUiState from './state';
 import { NotificationModule } from './components/notification/notification.module';
 import { ContainersModule } from './containers/containers.module';
+import { InputEmailModule } from './components/inputs/email/input-email.module';
+import { InputPasswordModule } from './components/inputs/password/input-password.module';
+import { InputSelectionModule } from './components/inputs/selection/input-selection.module';
 
 
 @NgModule({
@@ -14,7 +17,13 @@ import { ContainersModule } from './containers/containers.module';
     StoreModule.forFeature(fromUiState.uiStateFeatureKey, fromUiState.reducers, { metaReducers: fromUiState.metaReducers }),
     NotificationModule
   ],
-  exports: [NotificationModule, ContainersModule]
+  exports: [
+    NotificationModule,
+    ContainersModule,
+    InputEmailModule,
+    InputPasswordModule,
+    InputSelectionModule
+  ]
 })
 export class SharedUiModule {
 }

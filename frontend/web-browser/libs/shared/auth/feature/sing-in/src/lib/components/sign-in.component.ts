@@ -1,25 +1,15 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { InputBusinessRules } from '@web-browser/shared/model';
+import { ChangeDetectionStrategy, Component, EventEmitter, Output } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { SignInModel } from '@web-browser/shared/auth/model';
+import { SharedUtilForm } from '@web-browser/shared/util';
 
 @Component({
   selector: 'web-browser-login',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <form class='form pt-3 pb-5' [formGroup]='form'>
-      <mat-form-field class='full-width'>
-        <mat-label>Email</mat-label>
-        <input class='p-2' matInput #email maxlength='120' placeholder='Your email address' formControlName='email'>
-        <mat-hint align='start'><strong>Email address should be min 3 maximal 120 characters</strong></mat-hint>
-        <mat-hint align='end'>{{email.value.length}} / 256</mat-hint>
-      </mat-form-field>
-
-      <mat-form-field class='full-width pt-5 pb-0'>
-        <mat-label>Password</mat-label>
-        <input class='p-2' matInput #password maxlength='256' placeholder='Your password' formControlName='password'>
-        <mat-hint align='start'><strong>Password should be min 3 maximal 36 characters</strong></mat-hint>
-        <mat-hint align='end'>{{password.value.length}} / 36</mat-hint>
-      </mat-form-field>
+      <sh-ui-in-email [control]='email'></sh-ui-in-email>
+      <sh-ui-in-password [control]='password'></sh-ui-in-password>
 
       <div class='text-end mt-5'>
         <sh-ui-flat-button type='primary' [disabled]='!form.valid' (click)='onLogin()'>Sign In</sh-ui-flat-button>
@@ -28,42 +18,25 @@ import { SignInModel } from '@web-browser/shared/auth/model';
     </form>
   `,
   styles: [`
-    .form {
-      min-width: 150px;
-      max-width: 500px;
-      width: 100%;
-      margin: auto;
-    }
-
-    .full-width {
-      width: 100%;
-    }
   `]
 })
-export class SignInComponent implements OnInit {
+export class SignInComponent {
   form: FormGroup;
+  email: FormControl;
+  password: FormControl;
   @Output() loginEvent = new EventEmitter<SignInModel>();
 
-  constructor(private fb: FormBuilder) {
-  }
-
-  ngOnInit(): void {
+  constructor(private fb: FormBuilder, private fUtil: SharedUtilForm) {
     this.initForm();
   }
 
   private initForm() {
+    this.email = this.fUtil.createEmailControl();
+    this.password = this.fUtil.createPasswordControl();
+
     this.form = this.fb.group({
-      email: this.fb.control('', [
-        Validators.required,
-        Validators.email,
-        Validators.minLength(InputBusinessRules.email.min),
-        Validators.maxLength(InputBusinessRules.email.max)
-      ]),
-      password: this.fb.control('', [
-        Validators.required,
-        Validators.minLength(InputBusinessRules.email.min),
-        Validators.maxLength(InputBusinessRules.email.max)
-      ])
+      email: this.email,
+      password: this.password
     });
   }
 

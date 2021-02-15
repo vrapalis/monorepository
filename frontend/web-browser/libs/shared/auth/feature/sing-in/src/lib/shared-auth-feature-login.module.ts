@@ -7,10 +7,11 @@ import { SignInComponent } from './components/sign-in.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { RouterModule } from '@angular/router';
-import { ButtonModule, ContainersModule, FlatButtonModule } from '@web-browser/shared/ui';
+import { ButtonModule, ContainersModule, FlatButtonModule, SharedUiModule } from '@web-browser/shared/ui';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SharedAuthStateModule } from '@web-browser/shared/auth/state';
 import { SharedAuthGuardModule } from '@web-browser/shared/auth/guard';
+import { SharedUtilModule } from '@web-browser/shared/util';
 
 @NgModule({
   declarations: [SignInContainerComponent, SignInComponent],
@@ -25,7 +26,9 @@ import { SharedAuthGuardModule } from '@web-browser/shared/auth/guard';
     FlatButtonModule,
     ButtonModule,
     SharedAuthStateModule,
-    SharedAuthGuardModule
+    SharedAuthGuardModule,
+    SharedUtilModule,
+    SharedUiModule
   ]
 })
 export class SharedAuthFeatureLoginModule {

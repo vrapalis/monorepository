@@ -6,6 +6,8 @@ import { SignUpComponent } from './components/sign-up.component';
 import { SignUpContainerComponent } from './containers/sign-up-container.component';
 import { SharedAuthGuardModule } from '@web-browser/shared/auth/guard';
 import { SharedUiModule } from '@web-browser/shared/ui';
+import { ReactiveFormsModule } from '@angular/forms';
+import { SharedUtilModule } from '@web-browser/shared/util';
 
 
 @NgModule({
@@ -14,7 +16,9 @@ import { SharedUiModule } from '@web-browser/shared/ui';
     CommonModule,
     SharedAuthFeatureSignUpRoutingModule,
     SharedUiModule,
-    SharedAuthGuardModule
+    SharedAuthGuardModule,
+    ReactiveFormsModule,
+    SharedUtilModule
   ]
 })
 export class SharedAuthFeatureSignUpModule {

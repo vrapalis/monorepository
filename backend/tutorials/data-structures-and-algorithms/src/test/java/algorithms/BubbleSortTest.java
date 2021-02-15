@@ -16,7 +16,7 @@ public class BubbleSortTest {
 
     @BeforeEach
     void setUp() {
-        unSortArray = new int[]{9, 8, 7, 6, 5, 4, 3, 2, 1, 0};
+        unSortArray = new int[]{6, 9, 8, 7, 6, 0, 5, 4, 3, 2, 1, 0};
     }
 
     @Test
