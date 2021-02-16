@@ -1,17 +1,30 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { FormControl } from '@angular/forms';
+import { SelectionModel } from '@web-browser/shared/model';
 
 @Component({
   selector: 'sh-ui-in-selection',
   template: `
-    <mat-form-field class='w-100' appearance="outline">
-      <mat-label>Select</mat-label>
-      <mat-select>
-        <mat-option value="one">First option</mat-option>
-        <mat-option value="two">Second option</mat-option>
+    <mat-form-field class='w-100' appearance='standard'>
+      <mat-label>{{selection?.title}}</mat-label>
+      <mat-select [formControl]='control'>
+        <mat-option [value]='optionKey' *ngFor='let optionKey of selection?.options?.keys()'>
+          {{selection.options.get(optionKey)}}
+        </mat-option>
       </mat-select>
+      <mat-hint align='start'>
+        <strong>
+          {{matHintStart}}
+        </strong>
+      </mat-hint>
+      <mat-hint align='end'>{{matHintEnd}}</mat-hint>
     </mat-form-field>
   `,
   styles: []
 })
 export class InputSelectionComponent {
+  @Input() control: FormControl;
+  @Input() selection: SelectionModel;
+  @Input() matHintStart: string;
+  @Input() matHintEnd: string;
 }

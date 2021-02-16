@@ -23,4 +23,10 @@ export class SharedUtilForm {
       Validators.maxLength(InputBusinessRules.email.max)
     ]);
   }
+
+  createOrganizationTypeSelectionControl(option = '') {
+    return this.fb.control(option, [
+      Validators.required
+    ]);
+  }
 }

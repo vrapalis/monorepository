@@ -3,3 +3,5 @@ export interface UserModel {
   readonly account: any;
   readonly info: any;
 }
+
+export type OrganizationType = 'Company' | 'Privat';

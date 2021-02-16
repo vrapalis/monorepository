@@ -12,3 +12,8 @@ export abstract class InputBusinessRules {
     max: 36
   };
 }
+
+export interface SelectionModel {
+  readonly title?: string;
+  readonly options: Map<string, string>;
+}

@@ -5,9 +5,10 @@ import { FormControl } from '@angular/forms';
 @Component({
   selector: 'sh-ui-in-email',
   template: `
-    <mat-form-field class='w-100' appearance="outline">
+    <mat-form-field class='w-100' appearance='standard'>
       <mat-label>Email</mat-label>
-      <input type='email' class='p-2' matInput #email maxlength='120' placeholder='Your email address' [formControl]='control'>
+      <input autocomplete='username' type='email' class='p-2' matInput #email maxlength='120' placeholder='Your email address'
+             [formControl]='control'>
       <mat-hint align='start'>
         <strong>Email address should be min {{businessRules.email.min}} maximal {{businessRules.email.max}} characters
         </strong>
