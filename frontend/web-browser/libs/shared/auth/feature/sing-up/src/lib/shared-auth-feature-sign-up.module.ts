@@ -8,6 +8,7 @@ import { SharedAuthGuardModule } from '@web-browser/shared/auth/guard';
 import { SharedUiModule } from '@web-browser/shared/ui';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SharedUtilModule } from '@web-browser/shared/util';
+import { SharedAuthStateModule } from '@web-browser/shared/auth/state';
 
 
 @NgModule({
@@ -16,6 +17,7 @@ import { SharedUtilModule } from '@web-browser/shared/util';
     CommonModule,
     SharedAuthFeatureSignUpRoutingModule,
     SharedUiModule,
+    SharedAuthStateModule,
     SharedAuthGuardModule,
     ReactiveFormsModule,
     SharedUtilModule

@@ -137,6 +137,149 @@
             ]
         },
         {
+            "name": "InputEmailComponent",
+            "id": "component-InputEmailComponent-158cdbbf8fa30e67c519007180188c72",
+            "file": "libs/shared/ui/src/lib/components/inputs/email/input-email.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "sh-ui-in-email",
+            "styleUrls": [],
+            "styles": [],
+            "template": "<mat-form-field class='w-100' appearance='standard'>\n  <mat-label>Email</mat-label>\n  <input autocomplete='username' type='email' class='p-2' matInput #email maxlength='120' placeholder='Your email address'\n         [formControl]='control'>\n  <mat-hint align='start'>\n    <strong>Email address should be min {{businessRules.email.min}} maximal {{businessRules.email.max}} characters\n    </strong>\n  </mat-hint>\n  <mat-hint align='end'>{{email.value.length}} / {{businessRules.email.max}}</mat-hint>\n</mat-form-field>\n",
+            "templateUrl": [],
+            "viewProviders": [],
+            "inputsClass": [
+                {
+                    "name": "control",
+                    "line": 22,
+                    "type": "FormControl"
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "businessRules",
+                    "defaultValue": "InputBusinessRules",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 23
+                }
+            ],
+            "methodsClass": [],
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "",
+            "type": "component",
+            "sourceCode": "import { Component, Input } from '@angular/core';\nimport { InputBusinessRules } from '@web-browser/shared/model';\nimport { FormControl } from '@angular/forms';\n\n@Component({\n  selector: 'sh-ui-in-email',\n  template: `\n    <mat-form-field class='w-100' appearance='standard'>\n      <mat-label>Email</mat-label>\n      <input autocomplete='username' type='email' class='p-2' matInput #email maxlength='120' placeholder='Your email address'\n             [formControl]='control'>\n      <mat-hint align='start'>\n        <strong>Email address should be min {{businessRules.email.min}} maximal {{businessRules.email.max}} characters\n        </strong>\n      </mat-hint>\n      <mat-hint align='end'>{{email.value.length}} / {{businessRules.email.max}}</mat-hint>\n    </mat-form-field>\n  `,\n  styles: []\n})\nexport class InputEmailComponent {\n  @Input() control: FormControl;\n  businessRules = InputBusinessRules;\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": ""
+        },
+        {
+            "name": "InputPasswordComponent",
+            "id": "component-InputPasswordComponent-1c45720350ff8ecb85466d4d1b4ed996",
+            "file": "libs/shared/ui/src/lib/components/inputs/password/input-password.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "sh-ui-in-password",
+            "styleUrls": [],
+            "styles": [],
+            "template": "<mat-form-field class='w-100' appearance='standard'>\n  <mat-label>{{label}}</mat-label>\n  <input autocomplete='current-password' type='password' class='p-2' matInput #password maxlength='256'\n         placeholder='Your password' [formControl]='control'>\n  <mat-hint align='start'>\n    <strong>Password should be min {{businessRules.password.min}} maximal {{businessRules.password.max}} characters\n    </strong>\n  </mat-hint>\n  <mat-hint align='end'>{{password.value.length}} / {{businessRules.password.max}}</mat-hint>\n</mat-form-field>\n",
+            "templateUrl": [],
+            "viewProviders": [],
+            "inputsClass": [
+                {
+                    "name": "control",
+                    "line": 22,
+                    "type": "FormControl"
+                },
+                {
+                    "name": "label",
+                    "defaultValue": "'Password'",
+                    "line": 24
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "businessRules",
+                    "defaultValue": "InputBusinessRules",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 23
+                }
+            ],
+            "methodsClass": [],
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "",
+            "type": "component",
+            "sourceCode": "import { Component, Input } from '@angular/core';\nimport { InputBusinessRules } from '@web-browser/shared/model';\nimport { FormControl } from '@angular/forms';\n\n@Component({\n  selector: 'sh-ui-in-password',\n  template: `\n    <mat-form-field class='w-100' appearance='standard'>\n      <mat-label>{{label}}</mat-label>\n      <input autocomplete='current-password' type='password' class='p-2' matInput #password maxlength='256'\n             placeholder='Your password' [formControl]='control'>\n      <mat-hint align='start'>\n        <strong>Password should be min {{businessRules.password.min}} maximal {{businessRules.password.max}} characters\n        </strong>\n      </mat-hint>\n      <mat-hint align='end'>{{password.value.length}} / {{businessRules.password.max}}</mat-hint>\n    </mat-form-field>\n  `,\n  styles: []\n})\nexport class InputPasswordComponent {\n  @Input() control: FormControl;\n  businessRules = InputBusinessRules;\n  @Input() label = 'Password';\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": ""
+        },
+        {
+            "name": "InputSelectionComponent",
+            "id": "component-InputSelectionComponent-ba6ec7dd23287ef66e710d7ae2f54806",
+            "file": "libs/shared/ui/src/lib/components/inputs/selection/input-selection.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "sh-ui-in-selection",
+            "styleUrls": [],
+            "styles": [],
+            "template": "<mat-form-field class='w-100' appearance='standard'>\n  <mat-label>{{selection?.title}}</mat-label>\n  <mat-select [formControl]='control'>\n    <mat-option [value]='optionKey' *ngFor='let optionKey of selection?.options?.keys()'>\n      {{selection.options.get(optionKey)}}\n    </mat-option>\n  </mat-select>\n  <mat-hint align='start'>\n    <strong>\n      {{matHintStart}}\n    </strong>\n  </mat-hint>\n  <mat-hint align='end'>{{matHintEnd}}</mat-hint>\n</mat-form-field>\n",
+            "templateUrl": [],
+            "viewProviders": [],
+            "inputsClass": [
+                {
+                    "name": "control",
+                    "line": 26,
+                    "type": "FormControl"
+                },
+                {
+                    "name": "matHintEnd",
+                    "line": 29,
+                    "type": "string"
+                },
+                {
+                    "name": "matHintStart",
+                    "line": 28,
+                    "type": "string"
+                },
+                {
+                    "name": "selection",
+                    "line": 27,
+                    "type": "SelectionModel"
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "",
+            "type": "component",
+            "sourceCode": "import { Component, Input } from '@angular/core';\nimport { FormControl } from '@angular/forms';\nimport { SelectionModel } from '@web-browser/shared/model';\n\n@Component({\n  selector: 'sh-ui-in-selection',\n  template: `\n    <mat-form-field class='w-100' appearance='standard'>\n      <mat-label>{{selection?.title}}</mat-label>\n      <mat-select [formControl]='control'>\n        <mat-option [value]='optionKey' *ngFor='let optionKey of selection?.options?.keys()'>\n          {{selection.options.get(optionKey)}}\n        </mat-option>\n      </mat-select>\n      <mat-hint align='start'>\n        <strong>\n          {{matHintStart}}\n        </strong>\n      </mat-hint>\n      <mat-hint align='end'>{{matHintEnd}}</mat-hint>\n    </mat-form-field>\n  `,\n  styles: []\n})\nexport class InputSelectionComponent {\n  @Input() control: FormControl;\n  @Input() selection: SelectionModel;\n  @Input() matHintStart: string;\n  @Input() matHintEnd: string;\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": ""
+        },
+        {
             "name": "NotificationComponent",
             "id": "component-NotificationComponent-c3e2ed5c9943e2411f7b6061a603a7d8",
             "file": "libs/shared/ui/src/lib/components/notification/notification.component.ts",
@@ -213,7 +356,7 @@
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "// Notification Common Variables\n$nt-border-radius: 5px;\n$nt-top: 130px;\n$nt-width: 20%;\n$nt-header-color: white;\n$nt-body-color: darkgrey;\n$nt-padding-left: 10px;\n$nt-box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.2);\n$nt-body-background-color: aliceblue;\n\n// Notification Info Type Variables\n$nt-info-header-background-color: aqua;\n\n// Notification Success Type Variables\n$nt-success-header-background-color: aquamarine;\n\n// Notification Error Type Variables\n$nt-error-header-background-color: red;\n\n.nt {\n  position: absolute;\n  top: $nt-top;\n  left: 50%;\n  margin-right: -50%;\n  transform: translate(-50%, -50%);\n  min-height: 80px;\n  border-radius: $nt-border-radius;\n  width: $nt-width;\n  box-shadow: $nt-box-shadow;\n  background-color: $nt-body-background-color;\n\n  .nt-header {\n    color: $nt-header-color;\n    width: 100%;\n    border-top-left-radius: $nt-border-radius;\n    border-top-right-radius: $nt-border-radius;\n    padding-left: $nt-padding-left;\n\n    .nt-header-title {\n      font-weight: 500;\n    }\n  }\n\n  .nt-body {\n    color: $nt-body-color;\n    padding-left: $nt-padding-left;\n  }\n\n  ::ng-deep {\n    .material-icons {\n      color: white;\n      position: absolute;\n      transform: translate(0%, 0%);\n      top: 2px;\n      right: 10px;\n      cursor: pointer;\n    }\n  }\n}\n\n// Notification Of Type Info\n.nt-info {\n\n  .nt-header {\n    background-color: $nt-info-header-background-color;\n  }\n}\n\n// Notification Of Type Success\n.nt-success {\n\n  .nt-header {\n    background-color: $nt-success-header-background-color;\n  }\n}\n\n// Notification Of Type Error\n.nt-error {\n  .nt-header {\n    background-color: $nt-error-header-background-color;\n  }\n}\n",
+                    "data": "// Notification Common Variables\n$nt-border-radius: 5px;\n$nt-top: 130px;\n$nt-width: 30%;\n$nt-header-color: white;\n$nt-body-color: darkgrey;\n$nt-padding-left: 10px;\n$nt-box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.2);\n$nt-body-background-color: aliceblue;\n\n// Notification Info Type Variables\n$nt-info-header-background-color: aqua;\n\n// Notification Success Type Variables\n$nt-success-header-background-color: aquamarine;\n\n// Notification Error Type Variables\n$nt-error-header-background-color: red;\n\n.nt {\n  position: absolute;\n  top: $nt-top;\n  left: 50%;\n  margin-right: -50%;\n  transform: translate(-50%, -50%);\n  min-height: 80px;\n  border-radius: $nt-border-radius;\n  width: $nt-width;\n  box-shadow: $nt-box-shadow;\n  background-color: $nt-body-background-color;\n\n  .nt-header {\n    color: $nt-header-color;\n    width: 100%;\n    border-top-left-radius: $nt-border-radius;\n    border-top-right-radius: $nt-border-radius;\n    padding-left: $nt-padding-left;\n\n    .nt-header-title {\n      font-weight: 500;\n    }\n  }\n\n  .nt-body {\n    color: $nt-body-color;\n    padding-left: $nt-padding-left;\n  }\n\n  ::ng-deep {\n    .material-icons {\n      color: white;\n      position: absolute;\n      transform: translate(0%, 0%);\n      top: 2px;\n      right: 10px;\n      cursor: pointer;\n    }\n  }\n}\n\n// Notification Of Type Info\n.nt-info {\n\n  .nt-header {\n    background-color: $nt-info-header-background-color;\n  }\n}\n\n// Notification Of Type Success\n.nt-success {\n\n  .nt-header {\n    background-color: $nt-success-header-background-color;\n  }\n}\n\n// Notification Of Type Error\n.nt-error {\n  .nt-header {\n    background-color: $nt-error-header-background-color;\n  }\n}\n",
                     "styleUrl": "./notification.component.scss"
                 }
             ],
@@ -228,6 +371,137 @@
                     }
                 ],
                 "line": 40,
+                "jsdoctags": [
+                    {
+                        "name": "state",
+                        "type": "Store<State>",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "NotificationExampleStoryComponent",
+            "id": "component-NotificationExampleStoryComponent-695b6d2d71f4437f6c832bd7bb9c4b4b",
+            "file": "libs/shared/ui/src/lib/stories/notification/notification-example-story.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "sh-ui-demo-button",
+            "styleUrls": [],
+            "styles": [
+                "\n    .margin-left {\n      margin-left: 20px;\n    }\n  "
+            ],
+            "template": "<sh-ui-flat-button [type]='infoType' (click)='onInfoClick()'>Info Notification</sh-ui-flat-button>\n<sh-ui-flat-button [type]='primaryType' (click)='onSuccessClick()' class='margin-left'>Success Notification</sh-ui-flat-button>\n<sh-ui-flat-button [type]='errorType' (click)='onErrorClick()' class='margin-left'>Error Notification</sh-ui-flat-button>\n<sh-ui-notification></sh-ui-notification>\n",
+            "templateUrl": [],
+            "viewProviders": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "errorType",
+                    "defaultValue": "EButtonType.WARN",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 24
+                },
+                {
+                    "name": "infoType",
+                    "defaultValue": "EButtonType.ACCENT",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 22
+                },
+                {
+                    "name": "notification",
+                    "defaultValue": "{\n    isShown: true,\n    type: NotificationTypeModel.INFO,\n    dismiss: null,\n    text: 'Text',\n    title: 'Title'\n  } as NotificationModel",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 25
+                },
+                {
+                    "name": "primaryType",
+                    "defaultValue": "EButtonType.PRIMARY",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 23
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "dispatchNotification",
+                    "args": [
+                        {
+                            "name": "type",
+                            "type": "NotificationTypeModel"
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 48,
+                    "jsdoctags": [
+                        {
+                            "name": "type",
+                            "type": "NotificationTypeModel",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "onErrorClick",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 44
+                },
+                {
+                    "name": "onInfoClick",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 36
+                },
+                {
+                    "name": "onSuccessClick",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 40
+                }
+            ],
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "",
+            "type": "component",
+            "sourceCode": "import { Component } from '@angular/core';\nimport { Store } from '@ngrx/store';\nimport { State } from '../../state';\nimport { showNotification } from '@web-browser/shared/ui';\nimport { EButtonType, NotificationModel, NotificationTypeModel } from '@web-browser/shared/model';\n\n@Component({\n  selector: 'sh-ui-demo-button',\n  template: `\n    <sh-ui-flat-button [type]='infoType' (click)='onInfoClick()'>Info Notification</sh-ui-flat-button>\n    <sh-ui-flat-button [type]='primaryType' (click)='onSuccessClick()' class='margin-left'>Success Notification</sh-ui-flat-button>\n    <sh-ui-flat-button [type]='errorType' (click)='onErrorClick()' class='margin-left'>Error Notification</sh-ui-flat-button>\n    <sh-ui-notification></sh-ui-notification>\n  `,\n  styles: [`\n    .margin-left {\n      margin-left: 20px;\n    }\n  `]\n})\nexport class NotificationExampleStoryComponent {\n  infoType = EButtonType.ACCENT;\n  primaryType = EButtonType.PRIMARY;\n  errorType = EButtonType.WARN;\n  notification = {\n    isShown: true,\n    type: NotificationTypeModel.INFO,\n    dismiss: null,\n    text: 'Text',\n    title: 'Title'\n  } as NotificationModel;\n\n  constructor(private state: Store<State>) {\n  }\n\n  onInfoClick() {\n    this.dispatchNotification(NotificationTypeModel.INFO);\n  }\n\n  onSuccessClick() {\n    this.dispatchNotification(NotificationTypeModel.SUCCESS);\n  }\n\n  onErrorClick() {\n    this.dispatchNotification(NotificationTypeModel.ERROR);\n  }\n\n  dispatchNotification(type: NotificationTypeModel) {\n    this.state.dispatch(showNotification({\n      notification: {\n        ...this.notification,\n        type\n      }\n    }));\n  }\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "\n    .margin-left {\n      margin-left: 20px;\n    }\n  \n",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "args": [
+                    {
+                        "name": "state",
+                        "type": "Store<State>"
+                    }
+                ],
+                "line": 31,
                 "jsdoctags": [
                     {
                         "name": "state",
@@ -505,6 +779,117 @@
             ]
         },
         {
+            "name": "InputEmailModule",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": [
+                        {
+                            "name": "InputEmailComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "imports",
+                    "elements": []
+                },
+                {
+                    "type": "exports",
+                    "elements": [
+                        {
+                            "name": "InputEmailComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
+            "name": "InputPasswordModule",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": [
+                        {
+                            "name": "InputPasswordComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "imports",
+                    "elements": []
+                },
+                {
+                    "type": "exports",
+                    "elements": [
+                        {
+                            "name": "InputPasswordComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
+            "name": "InputSelectionModule",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": [
+                        {
+                            "name": "InputSelectionComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "imports",
+                    "elements": []
+                },
+                {
+                    "type": "exports",
+                    "elements": [
+                        {
+                            "name": "InputSelectionComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
             "name": "NotificationModule",
             "children": [
                 {
@@ -593,6 +978,9 @@
                     "type": "imports",
                     "elements": [
                         {
+                            "name": "ContainersModule"
+                        },
+                        {
                             "name": "NotificationModule"
                         }
                     ]
@@ -600,6 +988,21 @@
                 {
                     "type": "exports",
                     "elements": [
+                        {
+                            "name": "ContainersModule"
+                        },
+                        {
+                            "name": "FlatButtonModule"
+                        },
+                        {
+                            "name": "InputEmailModule"
+                        },
+                        {
+                            "name": "InputPasswordModule"
+                        },
+                        {
+                            "name": "InputSelectionModule"
+                        },
                         {
                             "name": "NotificationModule"
                         }
@@ -2073,6 +2476,33 @@
                 "status": "low"
             },
             {
+                "filePath": "libs/shared/ui/src/lib/components/inputs/email/input-email.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "InputEmailComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/shared/ui/src/lib/components/inputs/password/input-password.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "InputPasswordComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/4",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/shared/ui/src/lib/components/inputs/selection/input-selection.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "InputSelectionComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/5",
+                "status": "low"
+            },
+            {
                 "filePath": "libs/shared/ui/src/lib/components/notification/notification.component.ts",
                 "type": "component",
                 "linktype": "component",
@@ -2356,6 +2786,15 @@
                 "name": "selectUiStateFeature",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/shared/ui/src/lib/stories/notification/notification-example-story.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "NotificationExampleStoryComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/10",
                 "status": "low"
             }
         ]

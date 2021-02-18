@@ -24,7 +24,7 @@ import { SelectionModel } from '@web-browser/shared/model';
 })
 export class InputSelectionComponent {
   @Input() control: FormControl;
-  @Input() selection: SelectionModel;
+  @Input() selection = { title: null, options: null } as SelectionModel;
   @Input() matHintStart: string;
   @Input() matHintEnd: string;
 }

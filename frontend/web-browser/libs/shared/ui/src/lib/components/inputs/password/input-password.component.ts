@@ -6,7 +6,7 @@ import { FormControl } from '@angular/forms';
   selector: 'sh-ui-in-password',
   template: `
     <mat-form-field class='w-100' appearance='standard'>
-      <mat-label>Password</mat-label>
+      <mat-label>{{label}}</mat-label>
       <input autocomplete='current-password' type='password' class='p-2' matInput #password maxlength='256'
              placeholder='Your password' [formControl]='control'>
       <mat-hint align='start'>
@@ -21,4 +21,5 @@ import { FormControl } from '@angular/forms';
 export class InputPasswordComponent {
   @Input() control: FormControl;
   businessRules = InputBusinessRules;
+  @Input() label = 'Password';
 }

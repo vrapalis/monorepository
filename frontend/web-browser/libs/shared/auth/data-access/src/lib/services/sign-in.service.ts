@@ -10,6 +10,7 @@ export class SignInService {
   constructor(private http: HttpClient) {
   }
 
+  // TODO EXTERNALIZE ENVIRONMENT
   signIn(signInModel: SignInModel): Observable<SignInSuccessResponse> {
     return this.http.post<SignInSuccessResponse>(`http://localhost:8080/api/users/sign-in`, signInModel,
       { observe: 'body' });

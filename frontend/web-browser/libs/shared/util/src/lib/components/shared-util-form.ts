@@ -29,4 +29,12 @@ export class SharedUtilForm {
       Validators.required
     ]);
   }
+
+  createNameControl() {
+    return this.fb.control('', [
+      Validators.required,
+      Validators.minLength(InputBusinessRules.names.min),
+      Validators.maxLength(InputBusinessRules.names.max)
+    ]);
+  }
 }

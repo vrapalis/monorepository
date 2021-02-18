@@ -25,11 +25,13 @@ public class LibsSecurityDtosSignUpUser {
     @ApiModelProperty(example = "123456", required = true)
     private String password;
 
-    @Size(min=2, max = 30)
+    @Size(min = 2, max = 30)
     @ApiModelProperty(example = "Dike", required = true)
     private String surname;
 
-    @Size(min=2, max = 30)
+    @Size(min = 2, max = 30)
     @ApiModelProperty(example = "Mike", required = true)
     private String firstName;
+
+    private Object organizationType;
 }
