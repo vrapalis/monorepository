@@ -13,7 +13,8 @@ export const authUserFeatureKey = 'user';
 export const initialState: UserModel = {
   email: null,
   info: null,
-  account: null
+  account: null,
+  roles: null
 };
 
 export const userReducer = createReducer(
@@ -24,7 +25,8 @@ export const userReducer = createReducer(
       ...state,
       email: action.user.email,
       account: action.user.account,
-      info: action.user.info
+      info: action.user.info,
+      roles: action.user.roles
     };
   }),
 
@@ -37,7 +39,8 @@ export const userReducer = createReducer(
       ...state,
       email: action.user.email,
       account: action.user.account,
-      info: action.user.info
+      info: action.user.info,
+      roles: action.user.roles
     };
   }),
 

@@ -7,6 +7,7 @@ import { UserModel } from '@web-browser/shared/auth/model';
 export abstract class AbstractGuardService {
   isAuth$: Observable<boolean>;
 
+  // TODO DISPATCH ACTION ONLY ONCE AND NOT IF SERVICE IS CREATED (NOT IN THE CONSTRUCTOR)
   protected constructor(state: Store<State>) {
     state.dispatch(tryToSignInAction());
     this.isAuth$ = state.select(selectAuthUserState)

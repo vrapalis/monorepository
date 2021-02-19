@@ -9,10 +9,11 @@ import { SharedUiModule } from '@web-browser/shared/ui';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SharedUtilModule } from '@web-browser/shared/util';
 import { SharedAuthStateModule } from '@web-browser/shared/auth/state';
+import { SignUpConfirmComponent } from './components/sign-up-confirm.component';
 
 
 @NgModule({
-  declarations: [SignUpComponent, SignUpContainerComponent],
+  declarations: [SignUpComponent, SignUpContainerComponent, SignUpConfirmComponent],
   imports: [
     CommonModule,
     SharedAuthFeatureSignUpRoutingModule,

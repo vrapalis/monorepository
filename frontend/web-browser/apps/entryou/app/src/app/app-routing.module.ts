@@ -18,7 +18,7 @@ const routes: Routes = [
     canLoad: [NotAuthGuardsService]
   },
   {
-    path: 'sign-up', pathMatch: 'full', loadChildren: () => SharedAuthFeatureSignUpModule
+    path: 'sign-up', loadChildren: () => SharedAuthFeatureSignUpModule
   },
   {
     path: '**', pathMatch: 'full', redirectTo: 'home'

@@ -11,7 +11,7 @@ import { showNotification } from '@web-browser/shared/ui';
   selector: 'web-browser-home-container',
   template: `
     <ng-container *ngIf='(user$ | async) as user;'>
-      <web-browser-home-component></web-browser-home-component>
+      <web-browser-home-component [user]='user'></web-browser-home-component>
     </ng-container>
   `,
   styles: []

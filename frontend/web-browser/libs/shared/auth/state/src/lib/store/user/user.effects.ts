@@ -3,7 +3,13 @@ import { Actions, createEffect, ofType } from '@ngrx/effects';
 import {
   signInAction,
   signInFailureAction,
-  signInSuccessAction, signOutAction, signUpAction, signUpFailureAction, signUpSuccessAction,
+  signInSuccessAction,
+  signOutAction,
+  signUpAction,
+  signUpConfirmAction, signUpConfirmFailureAction,
+  signUpConfirmSuccessAction,
+  signUpFailureAction,
+  signUpSuccessAction,
   tryToSignInAction,
   tryToSignInFailureAction,
   tryToSignInSuccessAction
@@ -112,15 +118,15 @@ export class UserEffects {
     return this.actions$.pipe(
       ofType(signUpSuccessAction),
       tap(() => {
-        this.uiState.dispatch(showNotification({
-          notification: {
-            type: NotificationTypeModel.INFO,
-            dismiss: 5000,
-            title: 'Success',
-            text: 'Sign up success, after confirm the email, you will be able to sign in'
-          }
-        }));
-        this.router.navigate(['/sign-in']);
+        this.router.navigate(['/sign-in'])
+          .then(value => () => this.uiState.dispatch(showNotification({
+            notification: {
+              type: NotificationTypeModel.INFO,
+              dismiss: 5000,
+              title: 'Success',
+              text: 'Sign up success, after confirm the email, you will be able to sign in'
+            }
+          })));
       })
     );
   }, { dispatch: false });
@@ -138,4 +144,39 @@ export class UserEffects {
       })))
     );
   }, { dispatch: false });
+
+  signUpConfirmEffect$ = createEffect(() => this.actions$.pipe(
+    ofType(signUpConfirmAction),
+    switchMap(action => this.signUpService.signUpConfirm(action.id)),
+    map(serverResponse => signUpConfirmSuccessAction({ serverResponse })),
+    catchError(error => of(signUpConfirmFailureAction({ error })))
+  ));
+
+  signUpConfirmSuccessEffect$ = createEffect(() => this.actions$.pipe(
+    ofType(signUpConfirmSuccessAction),
+    tap((action) => {
+      this.router.navigate(['/sign-in'])
+        .then(() => this.uiState.dispatch(showNotification({
+          notification: {
+            type: NotificationTypeModel.INFO,
+            dismiss: 5000,
+            title: 'Info',
+            text: action.serverResponse.msg
+          }
+        })));
+    })
+  ), { dispatch: false });
+
+  signUpConfirmFailureEffect$ = createEffect(() => this.actions$.pipe(
+    ofType(signUpConfirmFailureAction),
+    tap((action) => this.router.navigate(['/sign-in'])
+      .then(() => this.uiState.dispatch(showNotification({
+        notification: {
+          type: NotificationTypeModel.ERROR,
+          dismiss: 5000,
+          title: action.error.msg,
+          text: action.error.detailedErrorMsg
+        }
+      }))))
+  ), { dispatch: false });
 }

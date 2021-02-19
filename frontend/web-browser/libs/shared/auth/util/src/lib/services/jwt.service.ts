@@ -45,7 +45,8 @@ export class JwtService {
         const user = {
           email: decodedUser['iss'],
           account: subject['account'],
-          info: subject['info']
+          info: subject['info'],
+          roles: subject['roles']
         } as UserModel;
         return user;
       })

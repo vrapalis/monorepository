@@ -1,5 +1,6 @@
 import { createAction, props } from '@ngrx/store';
 import { SignInModel, SignUpModel, UserModel } from '@web-browser/shared/auth/model';
+import { ServerResponseModel } from '@web-browser/shared/model';
 
 export const tryToSignInAction = createAction(
   '[Home Component] Try To Sign In Action'
@@ -43,3 +44,16 @@ export const signUpSuccessAction = createAction(
 export const signUpFailureAction = createAction(
   '[Sign Up Failure Action]'
 );
+
+export const signUpConfirmAction = createAction(
+  '[Sign Up Confirm Action]', props<{ id: string }>()
+);
+
+export const signUpConfirmSuccessAction = createAction(
+  '[Sign Up Confirm Success Action]', props<{serverResponse: ServerResponseModel}>()
+);
+
+export const signUpConfirmFailureAction = createAction(
+  '[Sign Up Confirm Failure Action]', props<{ error: ServerResponseModel }>()
+);
+

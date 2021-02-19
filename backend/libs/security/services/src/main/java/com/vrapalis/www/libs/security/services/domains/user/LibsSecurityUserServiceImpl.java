@@ -107,6 +107,7 @@ public class LibsSecurityUserServiceImpl implements LibsSecurityUserService {
 
     //    TODO OPTIMIZE SQL QUERY, TO MANY THINGS ARE FETCHED
     @Override
+    @Transactional(rollbackFor = LibsSecurityErrorSignUpConfirm.class)
     public ResponseEntity<LibsWebDtoServerAbstractResponse> signUpConfirm(UUID id) throws LibsSecurityErrorSignUpConfirm {
         try {
             final var userId = confirmUserRepository.findUserIdByConfirmId(id).orElseThrow(EntityNotFoundException::new);
@@ -116,6 +117,8 @@ public class LibsSecurityUserServiceImpl implements LibsSecurityUserService {
             account.setAccountNonExpired(true);
             account.setCredentialsNonExpired(true);
             account.setAccountNonLocked(true);
+            userEntity.setConfirmEntity(null);
+            confirmUserRepository.deleteById(id);
         } catch (Exception ex) {
             throw new LibsSecurityErrorSignUpConfirm();
         }
