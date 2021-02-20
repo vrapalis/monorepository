@@ -72,9 +72,12 @@ export class SignUpComponent {
     });
   }
 
+  // BUTTON DISABLE BUG AFTER FIX CHECK FORM CAN BE DELETED
   submitForm() {
-    const signUpModel = this.form.getRawValue() as SignUpModel;
-    this.state.dispatch(signUpAction({ signUpModel }));
+    if (this.form.valid) {
+      const signUpModel = this.form.getRawValue() as SignUpModel;
+      this.state.dispatch(signUpAction({ signUpModel }));
+    }
   }
 
   isFormValid() {

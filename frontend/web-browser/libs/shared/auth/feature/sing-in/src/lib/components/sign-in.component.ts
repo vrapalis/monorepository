@@ -12,12 +12,18 @@ import { SharedUtilForm } from '@web-browser/shared/util';
       <sh-ui-in-password [control]='password'></sh-ui-in-password>
 
       <div class='text-end mt-5'>
-        <sh-ui-flat-button type='primary' [disabled]='!form.valid' (click)='onLogin()'>Sign In</sh-ui-flat-button>
+        <sh-ui-flat-button class='margin-right' type='primary' [disabled]='!form.valid' (click)='onLogin()'>Sign In</sh-ui-flat-button>
         <sh-ui-button type='primary' routerLink='../sign-up'>Sign Up</sh-ui-button>
+      </div>
+      <div class='text-end mt-2'>
+        <sh-ui-button type='accent' routerLink='../reset-password'>Reset Password</sh-ui-button>
       </div>
     </form>
   `,
   styles: [`
+    .margin-right {
+      margin-right: 5px;
+    }
   `]
 })
 export class SignInComponent {
@@ -40,8 +46,11 @@ export class SignInComponent {
     });
   }
 
+  // TODO AFTER DISABLE BUTTON BUG FIX CHECK FORM CAN BE REMOVED
   onLogin() {
-    const signInModel = this.form.getRawValue() as SignInModel;
-    this.loginEvent.emit(signInModel);
+    if(this.form.valid) {
+      const signInModel = this.form.getRawValue() as SignInModel;
+      this.loginEvent.emit(signInModel);
+    }
   }
 }
