@@ -4,13 +4,14 @@ import { SharedAuthFeatureLoginModule } from '@web-browser/shared/auth/feature/s
 import { SharedAuthFeatureSignUpModule } from '@web-browser/shared/auth/feature/sing-up';
 import { EntryouFeatureHomeModule } from '@web-browser/entryou/feature/home';
 import { AuthGuardsService, NotAuthGuardsService } from '@web-browser/shared/auth/guard';
+import { SharedAuthFeatureResetPasswordModule } from '@web-browser/shared/auth/feature/reset-password';
 
 const routes: Routes = [
   {
     path: '', pathMatch: 'full', redirectTo: 'home'
   },
   {
-    path: 'home', loadChildren: () => EntryouFeatureHomeModule,
+    path: 'home', pathMatch: 'full', loadChildren: () => EntryouFeatureHomeModule,
     canLoad: [AuthGuardsService]
   },
   {
@@ -18,10 +19,14 @@ const routes: Routes = [
     canLoad: [NotAuthGuardsService]
   },
   {
+    path: 'reset-password', pathMatch: 'full', loadChildren: () => SharedAuthFeatureResetPasswordModule,
+    canLoad: [NotAuthGuardsService]
+  },
+  {
     path: 'sign-up', loadChildren: () => SharedAuthFeatureSignUpModule
   },
   {
-    path: '**', pathMatch: 'full', redirectTo: 'home'
+    path: '**', redirectTo: 'home'
   }
 ];
 

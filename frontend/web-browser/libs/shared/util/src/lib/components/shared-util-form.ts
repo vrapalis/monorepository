@@ -4,7 +4,7 @@ import { InputBusinessRules } from '@web-browser/shared/model';
 
 @Injectable()
 export class SharedUtilForm {
-  constructor(private fb: FormBuilder) {
+  constructor(public fb: FormBuilder) {
   }
 
   createEmailControl(): FormControl {

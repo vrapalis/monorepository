@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import {
+  resetPasswordAction, resetPasswordFailureAction, resetPasswordSuccessAction,
   signInAction,
   signInFailureAction,
   signInSuccessAction,
@@ -22,6 +23,7 @@ import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { NotificationModel, NotificationTypeModel } from '@web-browser/shared/model';
 import { showNotification } from '@web-browser/shared/ui';
+import { ResetPasswordService } from '../../../../../data-access/src/lib/services/reset-password.service';
 
 
 @Injectable()
@@ -33,7 +35,8 @@ export class UserEffects {
     private jwtService: JwtService,
     private signInService: SignInService,
     private uiState: Store<NotificationModel>,
-    private signUpService: SignUpService) {
+    private signUpService: SignUpService,
+    private resetPasswordService: ResetPasswordService) {
   }
 
   tryToSignInEffect$ = createEffect(() => {
@@ -178,5 +181,22 @@ export class UserEffects {
           text: action.error.detailedErrorMsg
         }
       }))))
+  ), { dispatch: false });
+
+  resetPasswordEffect$ = createEffect(() => this.actions$.pipe(
+    ofType(resetPasswordAction),
+    switchMap(action => this.resetPasswordService.reset(action.email)),
+    map(serverResponse => resetPasswordSuccessAction({ serverResponse })),
+    catchError(error => of(resetPasswordFailureAction({ serverResponse: error.error })))
+  ));
+
+  resetPasswordSuccessEffect$ = createEffect(() => this.actions$.pipe(
+    ofType(resetPasswordSuccessAction),
+    tap(console.log)
+  ), { dispatch: false });
+
+  resetPasswordFailureEffect$ = createEffect(() => this.actions$.pipe(
+    ofType(resetPasswordFailureAction),
+    tap(console.log)
   ), { dispatch: false });
 }

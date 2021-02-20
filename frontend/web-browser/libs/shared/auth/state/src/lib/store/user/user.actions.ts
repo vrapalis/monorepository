@@ -1,5 +1,5 @@
 import { createAction, props } from '@ngrx/store';
-import { SignInModel, SignUpModel, UserModel } from '@web-browser/shared/auth/model';
+import { ResetPasswordModel, SignInModel, SignUpModel, UserModel } from '@web-browser/shared/auth/model';
 import { ServerResponseModel } from '@web-browser/shared/model';
 
 export const tryToSignInAction = createAction(
@@ -50,10 +50,21 @@ export const signUpConfirmAction = createAction(
 );
 
 export const signUpConfirmSuccessAction = createAction(
-  '[Sign Up Confirm Success Action]', props<{serverResponse: ServerResponseModel}>()
+  '[Sign Up Confirm Success Action]', props<{ serverResponse: ServerResponseModel }>()
 );
 
 export const signUpConfirmFailureAction = createAction(
   '[Sign Up Confirm Failure Action]', props<{ error: ServerResponseModel }>()
 );
 
+export const resetPasswordAction = createAction(
+  '[Reset Password Action]', props<{ email: ResetPasswordModel }>()
+);
+
+export const resetPasswordSuccessAction = createAction(
+  '[Reset Password Success Action]', props<{ serverResponse: ServerResponseModel }>()
+);
+
+export const resetPasswordFailureAction = createAction(
+  '[Reset Password Failure Action]', props<{ serverResponse: ServerResponseModel }>()
+);
