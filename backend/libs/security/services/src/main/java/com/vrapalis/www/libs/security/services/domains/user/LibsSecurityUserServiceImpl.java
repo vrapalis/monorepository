@@ -5,6 +5,7 @@ import com.vrapalis.www.libs.cloud.discovery.domains.app.LibsCloudDiscoveryAppUr
 import com.vrapalis.www.libs.push.api.domains.email.LibsPushApisEmailCall;
 import com.vrapalis.www.libs.push.dtos.domains.email.LibsPushDtosEmailDto;
 import com.vrapalis.www.libs.security.dtos.domains.user.*;
+import com.vrapalis.www.libs.security.entities.domains.organization.LibsSecurityJpaUserOrganizationType;
 import com.vrapalis.www.libs.security.entities.domains.role.LibsSecurityJpaRoleEntity;
 import com.vrapalis.www.libs.security.entities.domains.user.LibsSecurityJpaUserConfirmEntity;
 import com.vrapalis.www.libs.security.entities.domains.user.LibsSecurityJpaUserEntity;
@@ -13,6 +14,7 @@ import com.vrapalis.www.libs.security.errors.domains.authentication.LibsSecurity
 import com.vrapalis.www.libs.security.errors.domains.authentication.LibsSecurityErrorSignUpConfirm;
 import com.vrapalis.www.libs.security.mappers.domains.user.LibsSecurityMappersUser;
 import com.vrapalis.www.libs.security.properties.domains.user.LibsSecurityPropertiesUserSignUpEmailProperties;
+import com.vrapalis.www.libs.security.repositories.domains.organization.LibsSecurityJpaOrganizationTypeRepository;
 import com.vrapalis.www.libs.security.repositories.domains.user.LibsSecurityJpaUserConfirmEntityRepository;
 import com.vrapalis.www.libs.security.repositories.domains.user.LibsSecurityJpaUserEntityRepository;
 import com.vrapalis.www.libs.security.services.domains.jwt.LibsSecurityJwtService;
@@ -45,6 +47,7 @@ public class LibsSecurityUserServiceImpl implements LibsSecurityUserService {
     private LibsPushApisEmailCall emailCall;
     private LibsSecurityJpaUserConfirmEntityRepository confirmUserRepository;
     private LibsSecurityPropertiesUserSignUpEmailProperties signUpEmailProperties;
+    private LibsSecurityJpaOrganizationTypeRepository organizationTypeRepository;
 
     @Override
     public ResponseEntity<LibsWebDtoServerAbstractResponse> signIn(LibsSecurityDtoSignInUser signInUser)
@@ -131,6 +134,9 @@ public class LibsSecurityUserServiceImpl implements LibsSecurityUserService {
 
     private void prepareUserEntityInfoForSignUp(LibsSecurityJpaUserEntity userEntity) {
         userEntity.getInfo().setUser(userEntity);
+        final var organizationType = organizationTypeRepository.findByName(userEntity.getInfo().getOrganizationType().getName())
+                .orElseThrow(EntityNotFoundException::new);
+        userEntity.getInfo().setOrganizationType(organizationType);
         userEntity.getInfo().setFirstName(userEntity.getInfo().getFirstName().trim());
         userEntity.getInfo().setSurname(userEntity.getInfo().getSurname().trim());
     }

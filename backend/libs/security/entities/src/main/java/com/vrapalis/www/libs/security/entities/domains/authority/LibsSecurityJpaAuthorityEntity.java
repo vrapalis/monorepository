@@ -8,10 +8,7 @@ import lombok.Setter;
 import lombok.experimental.SuperBuilder;
 import org.hibernate.annotations.NaturalId;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.Objects;
 
 @Getter
@@ -22,6 +19,8 @@ import java.util.Objects;
 @Table(name = "authority")
 public class LibsSecurityJpaAuthorityEntity extends LibsSecurityJpaAbstractEntity {
     @Id
+    @SequenceGenerator(name = "authority_id_seq", sequenceName = "authority_id_seq", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "authority_id_seq")
     private Integer id;
 
     @NaturalId

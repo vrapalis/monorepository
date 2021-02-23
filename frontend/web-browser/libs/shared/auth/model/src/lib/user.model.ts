@@ -5,4 +5,4 @@ export interface UserModel {
   readonly roles: any;
 }
 
-export type OrganizationType = 'Company' | 'Privat';
+export type OrganizationType = 'company' | 'private';

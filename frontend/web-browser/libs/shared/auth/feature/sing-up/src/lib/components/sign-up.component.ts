@@ -16,7 +16,7 @@ import { signUpAction } from '@web-browser/shared/auth/state';
       <sh-ui-in-password label='Repeated Password' [control]='passwordRepeated'></sh-ui-in-password>
       <sh-ui-in-name label='Firstname' placeHolder='Your firstname' [control]='firstName'></sh-ui-in-name>
       <sh-ui-in-name label='Surname' placeHolder='Your surname' [control]='surname'></sh-ui-in-name>
-      <sh-ui-in-selection style='display: block; margin-top: 20px;' [control]='organizationType'
+      <sh-ui-in-selection style='display: block; margin-top: 20px;' [control]='organizationTypeName'
                           [selection]='organizationTypeSelection'
                           matHintStart='Organization type is required'>
       </sh-ui-in-selection>
@@ -34,7 +34,7 @@ export class SignUpComponent {
   email: FormControl;
   password: FormControl;
   passwordRepeated: FormControl;
-  organizationType: FormControl;
+  organizationTypeName: FormControl;
   firstName: FormControl;
   surname: FormControl;
   organizationTypeSelection: SelectionModel;
@@ -47,8 +47,8 @@ export class SignUpComponent {
 
   private init() {
     const options = new Map<OrganizationType, string>();
-    options.set('Company', 'Company');
-    options.set('Privat', 'Privat');
+    options.set('company', 'Company');
+    options.set('private', 'Private');
 
     this.organizationTypeSelection = {
       title: 'Organization Type',
@@ -60,7 +60,7 @@ export class SignUpComponent {
     this.firstName = this.utilForm.createNameControl();
     this.surname = this.utilForm.createNameControl();
     this.passwordRepeated = this.utilForm.createPasswordControl();
-    this.organizationType = this.utilForm.createOrganizationTypeSelectionControl('Privat' as OrganizationType);
+    this.organizationTypeName = this.utilForm.createOrganizationTypeSelectionControl('private' as OrganizationType);
 
     this.form = this.fb.group({
       email: this.email,
@@ -68,7 +68,7 @@ export class SignUpComponent {
       passwordRepeated: this.passwordRepeated,
       firstName: this.firstName,
       surname: this.surname,
-      organizationType: this.organizationType
+      organizationTypeName: this.organizationTypeName
     });
   }
 

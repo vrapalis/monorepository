@@ -1,7 +1,7 @@
 package com.vrapalis.www.libs.security.entities.domains.user;
 
 import com.vrapalis.www.libs.security.entities.domains.common.LibsSecurityJpaAbstractEntity;
-import lombok.Data;
+import com.vrapalis.www.libs.security.entities.domains.organization.LibsSecurityJpaUserOrganizationType;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -24,6 +24,9 @@ public class LibsSecurityJpaUserInfoEntity extends LibsSecurityJpaAbstractEntity
     private String firstName;
 
     private Integer age;
+
+    @OneToOne
+    private LibsSecurityJpaUserOrganizationType organizationType;
 
     @MapsId
     @OneToOne

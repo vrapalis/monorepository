@@ -23,7 +23,8 @@ public interface LibsSecurityMappersUser {
             @Mapping(target = "modifiedDate", ignore = true),
             @Mapping(target = "modifiedBy", ignore = true),
             @Mapping(target = "roles", ignore = true),
-            @Mapping(target = "id", ignore = true)
+            @Mapping(target = "id", ignore = true),
+            @Mapping(target = "info.organizationType.name", source = "organizationTypeName")
     })
     LibsSecurityJpaUserEntity signUpDtoMapToUserEntity(LibsSecurityDtosSignUpUser userDto);
 }

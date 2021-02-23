@@ -4,10 +4,6 @@ dependencies {
     runtimeOnly 'org.postgresql:postgresql'
 
     implementation project(':libs:security:uaa')
-
-    // TODO FOR TEST
-    implementation project(':libs:security:entities')
-    implementation project(':libs:security:repositories')
 }
 
 

@@ -9,8 +9,9 @@ import org.mapstruct.Mappings;
 
 @Mapper(componentModel = "spring", injectionStrategy = InjectionStrategy.CONSTRUCTOR)
 public interface LibsSecurityMappersJwt {
-    @Mappings(
-            @Mapping(target = "account.accountNonExpired", source = "account.accountNonExpired")
-    )
+    @Mappings({
+            @Mapping(target = "account.accountNonExpired", source = "account.accountNonExpired"),
+            @Mapping(target = "info.organizationTypeName", source = "info.organizationType.name")
+    })
     LibsSecurityDtoJwtUser mapToJwtUser(LibsSecurityJpaUserEntity userEntity);
 }

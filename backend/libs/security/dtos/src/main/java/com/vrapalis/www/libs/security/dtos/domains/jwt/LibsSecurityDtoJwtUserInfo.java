@@ -13,4 +13,5 @@ public class LibsSecurityDtoJwtUserInfo {
     private String surname;
     private String firstName;
     private Byte age;
+    private String organizationTypeName;
 }
