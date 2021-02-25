@@ -89,7 +89,8 @@ public class LibsSecurityRestcontrollersMainSecurityConfiguration extends WebSec
                 .antMatchers("/actuator/**").permitAll()
                 .antMatchers("/docs/**").permitAll()
                 .antMatchers("/login").permitAll()
-                .antMatchers("/api/users/sign-in", "/api/users/sign-up", "/api/users/sign-up-confirm", "/api/users/greeting")
+                .antMatchers("/api/users/sign-in", "/api/users/sign-up", "/api/users/sign-up-confirm",
+                        "/api/users/reset-password", "/api/users/reset-password/confirm")
                 .permitAll()
                 .antMatchers("/api/users").permitAll()
                 .anyRequest().authenticated();

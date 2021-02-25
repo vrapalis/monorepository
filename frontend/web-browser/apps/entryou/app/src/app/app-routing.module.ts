@@ -19,7 +19,7 @@ const routes: Routes = [
     canLoad: [NotAuthGuardsService]
   },
   {
-    path: 'reset-password', pathMatch: 'full', loadChildren: () => SharedAuthFeatureResetPasswordModule,
+    path: 'reset-password', loadChildren: () => SharedAuthFeatureResetPasswordModule,
     canLoad: [NotAuthGuardsService]
   },
   {

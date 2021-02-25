@@ -8,4 +8,5 @@ export interface NotificationModel {
   type: NotificationTypeModel | NotificationTypeModel.INFO;
   title: string;
   text: string;
+  callbackAfterDismiss?: () => void;
 }

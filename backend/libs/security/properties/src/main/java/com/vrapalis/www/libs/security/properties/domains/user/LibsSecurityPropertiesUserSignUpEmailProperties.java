@@ -54,4 +54,32 @@ public class LibsSecurityPropertiesUserSignUpEmailProperties {
     @NotNull
     @NotBlank
     private String path;
+
+    /**
+     * Email reset path
+     */
+    @NotNull
+    @NotBlank
+    private String resetPasswordPath;
+
+    /**
+     * Title of reset email confirm email
+     */
+    @NotNull
+    @NotBlank
+    private String resetPasswordSubject;
+
+    /**
+     * Text of reset email confirm email
+     */
+    @NotNull
+    @NotBlank
+    private String resetPasswordText;
+
+    /**
+     * Link text reset email confirm email
+     */
+    @NotNull
+    @NotBlank
+    private String resetPasswordLinkText;
 }

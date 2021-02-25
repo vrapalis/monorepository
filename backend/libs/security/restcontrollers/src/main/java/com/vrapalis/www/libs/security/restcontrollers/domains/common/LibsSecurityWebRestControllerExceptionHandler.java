@@ -1,12 +1,8 @@
 package com.vrapalis.www.libs.security.restcontrollers.domains.common;
 
 import com.vrapalis.www.libs.errors.LibsErrorBeanValidation;
-import com.vrapalis.www.libs.security.dtos.domains.user.LibsSecurityDtosSignInErrorResponse;
-import com.vrapalis.www.libs.security.dtos.domains.user.LibsSecurityDtosSignUpConfirmErrorResponse;
-import com.vrapalis.www.libs.security.dtos.domains.user.LibsSecurityDtosSignUpErrorResponse;
-import com.vrapalis.www.libs.security.errors.domains.authentication.LibsSecurityErrorSignIn;
-import com.vrapalis.www.libs.security.errors.domains.authentication.LibsSecurityErrorSignUp;
-import com.vrapalis.www.libs.security.errors.domains.authentication.LibsSecurityErrorSignUpConfirm;
+import com.vrapalis.www.libs.security.dtos.domains.user.*;
+import com.vrapalis.www.libs.security.errors.domains.authentication.*;
 import com.vrapalis.www.libs.web.dto.LibsWebDtoServerBeanValidationErrorResponse;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -73,6 +69,32 @@ public class LibsSecurityWebRestControllerExceptionHandler extends ResponseEntit
     @ExceptionHandler(value = LibsSecurityErrorSignUpConfirm.class)
     protected ResponseEntity<Object> signUpConfirmExceptionHandler(LibsSecurityErrorSignUpConfirm ex, WebRequest request) {
         final var errorResponse = new LibsSecurityDtosSignUpConfirmErrorResponse();
+        return handleExceptionInternal(ex, errorResponse, new HttpHeaders(), HttpStatus.BAD_REQUEST, request);
+    }
+
+    /**
+     * Reset password exception handler.
+     *
+     * @param ex
+     * @param request
+     * @return
+     */
+    @ExceptionHandler(value = LibsSecurityErrorResetPassword.class)
+    protected ResponseEntity<Object> resetPasswordExceptionHandler(LibsSecurityErrorResetPassword ex, WebRequest request) {
+        final var errorResponse = new LibsSecurityDtosResetPasswordErrorResponse();
+        return handleExceptionInternal(ex, errorResponse, new HttpHeaders(), HttpStatus.BAD_REQUEST, request);
+    }
+
+    /**
+     * Confirm reset password exception handler.
+     *
+     * @param ex
+     * @param request
+     * @return
+     */
+    @ExceptionHandler(value = LibsSecurityErrorResetPasswordConfirm.class)
+    protected ResponseEntity<Object> resetPasswordConfirmExceptionHandler(LibsSecurityErrorResetPasswordConfirm ex, WebRequest request) {
+        final var errorResponse = new LibsSecurityDtosResetPasswordConfirmErrorResponse();
         return handleExceptionInternal(ex, errorResponse, new HttpHeaders(), HttpStatus.BAD_REQUEST, request);
     }
 }

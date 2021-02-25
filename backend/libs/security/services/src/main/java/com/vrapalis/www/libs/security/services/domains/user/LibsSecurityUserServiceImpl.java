@@ -9,9 +9,7 @@ import com.vrapalis.www.libs.security.entities.domains.organization.LibsSecurity
 import com.vrapalis.www.libs.security.entities.domains.role.LibsSecurityJpaRoleEntity;
 import com.vrapalis.www.libs.security.entities.domains.user.LibsSecurityJpaUserConfirmEntity;
 import com.vrapalis.www.libs.security.entities.domains.user.LibsSecurityJpaUserEntity;
-import com.vrapalis.www.libs.security.errors.domains.authentication.LibsSecurityErrorSignIn;
-import com.vrapalis.www.libs.security.errors.domains.authentication.LibsSecurityErrorSignUp;
-import com.vrapalis.www.libs.security.errors.domains.authentication.LibsSecurityErrorSignUpConfirm;
+import com.vrapalis.www.libs.security.errors.domains.authentication.*;
 import com.vrapalis.www.libs.security.mappers.domains.user.LibsSecurityMappersUser;
 import com.vrapalis.www.libs.security.properties.domains.user.LibsSecurityPropertiesUserSignUpEmailProperties;
 import com.vrapalis.www.libs.security.repositories.domains.organization.LibsSecurityJpaOrganizationTypeRepository;
@@ -126,6 +124,64 @@ public class LibsSecurityUserServiceImpl implements LibsSecurityUserService {
             throw new LibsSecurityErrorSignUpConfirm();
         }
         return ResponseEntity.ok(new LibsSecurityDtosSignUpConfirmSuccessResponse());
+    }
+
+    @Override
+    public ResponseEntity<LibsWebDtoServerAbstractResponse> resetPassword(LibsSecurityDtosResetPassword dto)
+            throws LibsSecurityErrorResetPassword {
+        try {
+            final var userEntity = userRepository.findFirstByEmail(dto.getEmail())
+                    .orElseThrow(EntityNotFoundException::new);
+
+            userEntity.getAccount().setAccountNonLocked(false);
+            userEntity.getAccount().setAccountNonExpired(false);
+            userEntity.getAccount().setIsEnabled(false);
+            userEntity.getAccount().setCredentialsNonExpired(false);
+
+            userEntity.setConfirmEntity(new LibsSecurityJpaUserConfirmEntity(userEntity));
+            userRepository.saveAndFlush(userEntity);
+
+            final var pushAppUrl = appUriDeliverer.getAppServiceUri(ELibsCloudDiscoveryAppNames.ENTRYOU_PUSH_APP)
+                    .map(uri -> uri.toString())
+                    .orElseThrow(RuntimeException::new);
+
+            String admitEmailLink = "<a href=" + signUpEmailProperties.getHost()
+                    + signUpEmailProperties.getResetPasswordPath()
+                    + userEntity.getConfirmEntity().getId()
+                    + ">" + signUpEmailProperties.getResetPasswordLinkText() + "</a>";
+
+            final var emailDto = LibsPushDtosEmailDto.builder()
+                    .mailTo(userEntity.getEmail())
+                    .subject(signUpEmailProperties.getResetPasswordSubject())
+                    .text(signUpEmailProperties.getResetPasswordText() + " " + admitEmailLink)
+                    .build();
+
+            emailCall.sendEmail(pushAppUrl, emailDto, Object.class);
+        } catch (Exception ex) {
+            throw new LibsSecurityErrorResetPassword();
+        }
+        return ResponseEntity.ok(new LibsSecurityDtosResetPasswordSuccessResponse());
+    }
+
+    @Override
+    public ResponseEntity<LibsWebDtoServerAbstractResponse> resetPasswordConfirm(LibsSecurityDtosResetPasswordConfirm dto)
+            throws LibsSecurityErrorResetPasswordConfirm {
+        try {
+            final var userId = confirmUserRepository.findUserIdByConfirmId(dto.getConfirmId())
+                    .orElseThrow(EntityNotFoundException::new);
+            final var userEntity = userRepository.findById(userId)
+                    .orElseThrow(EntityNotFoundException::new);
+            userEntity.getAccount().setPassword(passwordEncoder.encode(dto.getPassword().trim()));
+            userEntity.getAccount().setAccountNonExpired(true);
+            userEntity.getAccount().setAccountNonLocked(true);
+            userEntity.getAccount().setIsEnabled(true);
+            userEntity.getAccount().setCredentialsNonExpired(true);
+            userEntity.setConfirmEntity(null);
+            confirmUserRepository.deleteById(dto.getConfirmId());
+        } catch (Exception ex) {
+            throw new LibsSecurityErrorResetPasswordConfirm();
+        }
+        return ResponseEntity.ok(new LibsSecurityDtosResetPasswordConfirmSuccessResponse());
     }
 
     private void prepareUserEntityConfirmForSignUp(LibsSecurityJpaUserEntity userEntity) {

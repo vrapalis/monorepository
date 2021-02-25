@@ -65,6 +65,9 @@ export class NotificationComponent {
     if (notification.dismiss != null) {
       setTimeout(() => {
         this.state.dispatch(hideNotification());
+        if (notification.callbackAfterDismiss) {
+          notification.callbackAfterDismiss();
+        }
       }, notification.dismiss);
     }
   };

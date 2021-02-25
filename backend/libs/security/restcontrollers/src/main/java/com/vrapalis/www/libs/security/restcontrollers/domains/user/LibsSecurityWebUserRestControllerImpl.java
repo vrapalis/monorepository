@@ -2,18 +2,19 @@ package com.vrapalis.www.libs.security.restcontrollers.domains.user;
 
 import com.vrapalis.www.libs.assertions.LibsAssertions;
 import com.vrapalis.www.libs.errors.LibsErrorBeanValidation;
+import com.vrapalis.www.libs.security.dtos.domains.user.LibsSecurityDtosResetPassword;
+import com.vrapalis.www.libs.security.dtos.domains.user.LibsSecurityDtosResetPasswordConfirm;
 import com.vrapalis.www.libs.security.dtos.domains.user.LibsSecurityDtosSignUpUser;
-import com.vrapalis.www.libs.security.errors.domains.authentication.LibsSecurityErrorSignUp;
-import com.vrapalis.www.libs.security.errors.domains.authentication.LibsSecurityErrorSignUpConfirm;
+import com.vrapalis.www.libs.security.errors.domains.authentication.*;
 import com.vrapalis.www.libs.security.services.domains.user.LibsSecurityUserService;
 import com.vrapalis.www.libs.security.dtos.domains.user.LibsSecurityDtoSignInUser;
-import com.vrapalis.www.libs.security.errors.domains.authentication.LibsSecurityErrorSignIn;
 import com.vrapalis.www.libs.web.dto.LibsWebDtoServerAbstractResponse;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.validation.Valid;
 import java.util.UUID;
 
 @RestController
@@ -38,5 +39,21 @@ public class LibsSecurityWebUserRestControllerImpl implements LibsSecurityWebUse
     @Override
     public ResponseEntity<LibsWebDtoServerAbstractResponse> signUpConfirm(UUID id) throws LibsSecurityErrorSignUpConfirm {
         return userService.signUpConfirm(id);
+    }
+
+    @Override
+    public ResponseEntity<LibsWebDtoServerAbstractResponse> resetPassword
+            (LibsSecurityDtosResetPassword dto, BindingResult result) throws LibsSecurityErrorResetPassword,
+            LibsErrorBeanValidation {
+        LibsAssertions.assertNoBeanValidationErrors(result);
+        return userService.resetPassword(dto);
+    }
+
+    @Override
+    public ResponseEntity<LibsWebDtoServerAbstractResponse> resetPasswordConfirm(LibsSecurityDtosResetPasswordConfirm dto,
+                                                                                 BindingResult result)
+            throws LibsSecurityErrorResetPasswordConfirm, LibsErrorBeanValidation {
+        LibsAssertions.assertNoBeanValidationErrors(result);
+        return userService.resetPasswordConfirm(dto);
     }
 }

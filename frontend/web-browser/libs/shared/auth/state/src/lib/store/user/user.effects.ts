@@ -1,13 +1,18 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import {
-  resetPasswordAction, resetPasswordFailureAction, resetPasswordSuccessAction,
+  resetPasswordAction,
+  resetPasswordConfirmAction, resetPasswordConfirmFailureAction,
+  resetPasswordConfirmSuccessAction,
+  resetPasswordFailureAction,
+  resetPasswordSuccessAction,
   signInAction,
   signInFailureAction,
   signInSuccessAction,
   signOutAction,
   signUpAction,
-  signUpConfirmAction, signUpConfirmFailureAction,
+  signUpConfirmAction,
+  signUpConfirmFailureAction,
   signUpConfirmSuccessAction,
   signUpFailureAction,
   signUpSuccessAction,
@@ -18,12 +23,11 @@ import {
 import { catchError, flatMap, map, switchMap, tap } from 'rxjs/operators';
 import { JwtService } from '@web-browser/shared/auth/util';
 import { of } from 'rxjs';
-import { SignInService, SignUpService } from '@web-browser/shared/auth/data-access';
+import { ResetPasswordService, SignInService, SignUpService } from '@web-browser/shared/auth/data-access';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { NotificationModel, NotificationTypeModel } from '@web-browser/shared/model';
 import { showNotification } from '@web-browser/shared/ui';
-import { ResetPasswordService } from '../../../../../data-access/src/lib/services/reset-password.service';
 
 
 @Injectable()
@@ -121,15 +125,15 @@ export class UserEffects {
     return this.actions$.pipe(
       ofType(signUpSuccessAction),
       tap(() => {
-        this.router.navigate(['/sign-in'])
-          .then(value => () => this.uiState.dispatch(showNotification({
-            notification: {
-              type: NotificationTypeModel.INFO,
-              dismiss: 5000,
-              title: 'Success',
-              text: 'Sign up success, after confirm the email, you will be able to sign in'
-            }
-          })));
+        this.uiState.dispatch(showNotification({
+          notification: {
+            type: NotificationTypeModel.SUCCESS,
+            dismiss: 5000,
+            title: 'Success',
+            text: 'Sign up success, after confirm the email, you will be able to sign in'
+          }
+        }));
+        this.router.navigate(['/sign-in']);
       })
     );
   }, { dispatch: false });
@@ -158,29 +162,31 @@ export class UserEffects {
   signUpConfirmSuccessEffect$ = createEffect(() => this.actions$.pipe(
     ofType(signUpConfirmSuccessAction),
     tap((action) => {
-      this.router.navigate(['/sign-in'])
-        .then(() => this.uiState.dispatch(showNotification({
-          notification: {
-            type: NotificationTypeModel.INFO,
-            dismiss: 5000,
-            title: 'Info',
-            text: action.serverResponse.msg
-          }
-        })));
+      this.uiState.dispatch(showNotification({
+        notification: {
+          type: NotificationTypeModel.SUCCESS,
+          dismiss: 5000,
+          title: 'Success',
+          text: action.serverResponse.msg
+        }
+      }));
+      this.router.navigate(['/sign-in']);
     })
   ), { dispatch: false });
 
   signUpConfirmFailureEffect$ = createEffect(() => this.actions$.pipe(
     ofType(signUpConfirmFailureAction),
-    tap((action) => this.router.navigate(['/sign-in'])
-      .then(() => this.uiState.dispatch(showNotification({
+    tap((action) => {
+      this.uiState.dispatch(showNotification({
         notification: {
           type: NotificationTypeModel.ERROR,
           dismiss: 5000,
           title: action.error.msg,
           text: action.error.detailedErrorMsg
         }
-      }))))
+      }));
+      this.router.navigate(['/sign-in']);
+    })
   ), { dispatch: false });
 
   resetPasswordEffect$ = createEffect(() => this.actions$.pipe(
@@ -192,11 +198,62 @@ export class UserEffects {
 
   resetPasswordSuccessEffect$ = createEffect(() => this.actions$.pipe(
     ofType(resetPasswordSuccessAction),
-    tap(console.log)
-  ), { dispatch: false });
+    tap(action => {
+      this.uiState.dispatch(showNotification({
+        notification: {
+          type: NotificationTypeModel.SUCCESS,
+          dismiss: 5000,
+          title: 'Success',
+          text: action.serverResponse.msg
+        }
+      }));
+      this.router.navigate(['/sign-in']);
+    })), { dispatch: false });
 
   resetPasswordFailureEffect$ = createEffect(() => this.actions$.pipe(
     ofType(resetPasswordFailureAction),
-    tap(console.log)
+    tap(console.log),
+    tap(action => this.router.navigate(['/sign-in'])
+      .then(() => this.uiState.dispatch(showNotification({
+        notification: {
+          type: NotificationTypeModel.ERROR,
+          dismiss: 5000,
+          title: action.serverResponse.msg,
+          text: action.serverResponse.detailedErrorMsg
+        }
+      }))))
+  ), { dispatch: false });
+
+  resetPasswordConfirmEffect$ = createEffect(() => this.actions$.pipe(
+    ofType(resetPasswordConfirmAction),
+    switchMap(action => this.resetPasswordService.resetConfirm(action.model)),
+    map(serverResponse => resetPasswordConfirmSuccessAction({ serverResponse })),
+    catchError(error => of(resetPasswordConfirmFailureAction({ serverResponse: error.error })))
+  ));
+
+  resetPasswordConfirmSuccessEffect$ = createEffect(() => this.actions$.pipe(
+    ofType(resetPasswordConfirmSuccessAction),
+    tap(action => this.router.navigate(['/sign-in'])
+      .then(() => this.uiState.dispatch(showNotification({
+        notification: {
+          type: NotificationTypeModel.SUCCESS,
+          dismiss: 5000,
+          title: 'Success',
+          text: action.serverResponse.msg
+        }
+      }))))
+  ), { dispatch: false });
+
+  resetPasswordConfirmFailureEffect$ = createEffect(() => this.actions$.pipe(
+    ofType(resetPasswordConfirmFailureAction),
+    tap(action => this.router.navigate(['/sign-in'])
+      .then(() => this.uiState.dispatch(showNotification({
+        notification: {
+          type: NotificationTypeModel.ERROR,
+          dismiss: 5000,
+          title: action.serverResponse.msg,
+          text: action.serverResponse.detailedErrorMsg
+        }
+      }))))
   ), { dispatch: false });
 }

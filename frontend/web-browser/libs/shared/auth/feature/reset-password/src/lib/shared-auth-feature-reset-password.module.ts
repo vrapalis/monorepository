@@ -8,9 +8,11 @@ import { SharedUiModule } from '@web-browser/shared/ui';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SharedUtilModule } from '@web-browser/shared/util';
 import { SharedAuthStateModule } from '@web-browser/shared/auth/state';
+import { ResetPasswordConfirmContainerComponent } from './containers/reset-password-confirm-container.component';
+import { ResetPasswordConfirmComponent } from './components/reset-password-confirm.component';
 
 @NgModule({
-  declarations: [ResetPasswordContainerComponent, ResetPasswordComponent],
+  declarations: [ResetPasswordContainerComponent, ResetPasswordComponent, ResetPasswordConfirmContainerComponent, ResetPasswordConfirmComponent],
   imports: [
     CommonModule,
     RouterModule,

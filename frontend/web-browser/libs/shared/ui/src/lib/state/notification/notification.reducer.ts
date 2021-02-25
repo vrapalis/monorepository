@@ -10,7 +10,8 @@ export const initialState: NotificationModel = {
   dismiss: null,
   type: NotificationTypeModel.INFO,
   title: 'Example Title',
-  text: 'Example Text'
+  text: 'Example Text',
+  callbackAfterDismiss: null
 };
 
 
@@ -24,7 +25,8 @@ export const reducer = createReducer(
       dismiss: action.notification.dismiss,
       type: action.notification.type,
       title: action.notification.title,
-      text: action.notification.text
+      text: action.notification.text,
+      callbackAfterDismiss: action.notification.callbackAfterDismiss
     };
   }),
 
