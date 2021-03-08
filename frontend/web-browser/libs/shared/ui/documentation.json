@@ -25,6 +25,62 @@
     "directives": [],
     "components": [
         {
+            "name": "AbstractInputComponent",
+            "id": "component-AbstractInputComponent-7f609062ec96ed7ad6e1580212857233",
+            "file": "libs/shared/ui/src/lib/components/inputs/model/abstract-input-component-model.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "styleUrls": [],
+            "styles": [],
+            "template": "",
+            "templateUrl": [],
+            "viewProviders": [],
+            "inputsClass": [
+                {
+                    "name": "control",
+                    "line": 9,
+                    "type": "FormControl"
+                },
+                {
+                    "name": "label",
+                    "line": 10,
+                    "type": "string"
+                },
+                {
+                    "name": "placeHolder",
+                    "defaultValue": "''",
+                    "line": 11
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "businessRules",
+                    "defaultValue": "InputBusinessRules",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 12,
+                    "modifierKind": [
+                        132
+                    ]
+                }
+            ],
+            "methodsClass": [],
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "",
+            "type": "component",
+            "sourceCode": "import { Component, Input } from '@angular/core';\nimport { FormControl } from '@angular/forms';\nimport { InputBusinessRules } from '@web-browser/shared/model';\n\n@Component({\n  template: ''\n})\nexport class AbstractInputComponent {\n  @Input() public control: FormControl;\n  @Input() public label: string;\n  @Input() public placeHolder = '';\n  readonly businessRules = InputBusinessRules;\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": ""
+        },
+        {
             "name": "ButtonComponent",
             "id": "component-ButtonComponent-a8eadf51ad199937f6a0081a05a6d292",
             "file": "libs/shared/ui/src/lib/components/button/button.component.ts",
@@ -181,6 +237,76 @@
             "stylesData": ""
         },
         {
+            "name": "InputNameComponent",
+            "id": "component-InputNameComponent-9c28f27fe3de304cbe2117f650dfffc6",
+            "file": "libs/shared/ui/src/lib/components/inputs/input-name/input-name.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "sh-ui-in-name",
+            "styleUrls": [],
+            "styles": [],
+            "template": "<mat-form-field class='w-100' appearance='standard'>\n  <mat-label>{{label}}</mat-label>\n  <input autocomplete='username' type='text' class='p-2' matInput #name maxlength='120' [placeholder]='placeHolder'\n         [formControl]='control'>\n  <mat-hint align='start'>\n    <strong>{{label}} should be min {{businessRules.names.min}} maximal {{businessRules.names.max}} characters\n    </strong>\n  </mat-hint>\n  <mat-hint align='end'>{{name.value.length}} / {{businessRules.names.max}}</mat-hint>\n</mat-form-field>\n",
+            "templateUrl": [],
+            "viewProviders": [],
+            "inputsClass": [
+                {
+                    "name": "control",
+                    "line": 9,
+                    "type": "FormControl",
+                    "inheritance": {
+                        "file": "AbstractInputComponent"
+                    }
+                },
+                {
+                    "name": "label",
+                    "line": 10,
+                    "type": "string",
+                    "inheritance": {
+                        "file": "AbstractInputComponent"
+                    }
+                },
+                {
+                    "name": "placeHolder",
+                    "defaultValue": "''",
+                    "line": 11,
+                    "inheritance": {
+                        "file": "AbstractInputComponent"
+                    }
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "businessRules",
+                    "defaultValue": "InputBusinessRules",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 12,
+                    "modifierKind": [
+                        132
+                    ],
+                    "inheritance": {
+                        "file": "AbstractInputComponent"
+                    }
+                }
+            ],
+            "methodsClass": [],
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "",
+            "type": "component",
+            "sourceCode": "import { Component } from '@angular/core';\nimport { AbstractInputComponent } from '../model/abstract-input-component-model.component';\n\n@Component({\n  selector: 'sh-ui-in-name',\n  template: `\n    <mat-form-field class='w-100' appearance='standard'>\n      <mat-label>{{label}}</mat-label>\n      <input autocomplete='username' type='text' class='p-2' matInput #name maxlength='120' [placeholder]='placeHolder'\n             [formControl]='control'>\n      <mat-hint align='start'>\n        <strong>{{label}} should be min {{businessRules.names.min}} maximal {{businessRules.names.max}} characters\n        </strong>\n      </mat-hint>\n      <mat-hint align='end'>{{name.value.length}} / {{businessRules.names.max}}</mat-hint>\n    </mat-form-field>\n  `,\n  styles: []\n})\nexport class InputNameComponent extends AbstractInputComponent {\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "extends": "AbstractInputComponent"
+        },
+        {
             "name": "InputPasswordComponent",
             "id": "component-InputPasswordComponent-1c45720350ff8ecb85466d4d1b4ed996",
             "file": "libs/shared/ui/src/lib/components/inputs/password/input-password.component.ts",
@@ -231,7 +357,7 @@
         },
         {
             "name": "InputSelectionComponent",
-            "id": "component-InputSelectionComponent-ba6ec7dd23287ef66e710d7ae2f54806",
+            "id": "component-InputSelectionComponent-90f8fb88a0707e25eb02dad408a9473f",
             "file": "libs/shared/ui/src/lib/components/inputs/selection/input-selection.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -262,8 +388,8 @@
                 },
                 {
                     "name": "selection",
-                    "line": 27,
-                    "type": "SelectionModel"
+                    "defaultValue": "{ title: null, options: null } as SelectionModel",
+                    "line": 27
                 }
             ],
             "outputsClass": [],
@@ -274,14 +400,14 @@
             "description": "",
             "rawdescription": "",
             "type": "component",
-            "sourceCode": "import { Component, Input } from '@angular/core';\nimport { FormControl } from '@angular/forms';\nimport { SelectionModel } from '@web-browser/shared/model';\n\n@Component({\n  selector: 'sh-ui-in-selection',\n  template: `\n    <mat-form-field class='w-100' appearance='standard'>\n      <mat-label>{{selection?.title}}</mat-label>\n      <mat-select [formControl]='control'>\n        <mat-option [value]='optionKey' *ngFor='let optionKey of selection?.options?.keys()'>\n          {{selection.options.get(optionKey)}}\n        </mat-option>\n      </mat-select>\n      <mat-hint align='start'>\n        <strong>\n          {{matHintStart}}\n        </strong>\n      </mat-hint>\n      <mat-hint align='end'>{{matHintEnd}}</mat-hint>\n    </mat-form-field>\n  `,\n  styles: []\n})\nexport class InputSelectionComponent {\n  @Input() control: FormControl;\n  @Input() selection: SelectionModel;\n  @Input() matHintStart: string;\n  @Input() matHintEnd: string;\n}\n",
+            "sourceCode": "import { Component, Input } from '@angular/core';\nimport { FormControl } from '@angular/forms';\nimport { SelectionModel } from '@web-browser/shared/model';\n\n@Component({\n  selector: 'sh-ui-in-selection',\n  template: `\n    <mat-form-field class='w-100' appearance='standard'>\n      <mat-label>{{selection?.title}}</mat-label>\n      <mat-select [formControl]='control'>\n        <mat-option [value]='optionKey' *ngFor='let optionKey of selection?.options?.keys()'>\n          {{selection.options.get(optionKey)}}\n        </mat-option>\n      </mat-select>\n      <mat-hint align='start'>\n        <strong>\n          {{matHintStart}}\n        </strong>\n      </mat-hint>\n      <mat-hint align='end'>{{matHintEnd}}</mat-hint>\n    </mat-form-field>\n  `,\n  styles: []\n})\nexport class InputSelectionComponent {\n  @Input() control: FormControl;\n  @Input() selection = { title: null, options: null } as SelectionModel;\n  @Input() matHintStart: string;\n  @Input() matHintEnd: string;\n}\n",
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": ""
         },
         {
             "name": "NotificationComponent",
-            "id": "component-NotificationComponent-c3e2ed5c9943e2411f7b6061a603a7d8",
+            "id": "component-NotificationComponent-0e2f87bc42123ee199caa8131575d31c",
             "file": "libs/shared/ui/src/lib/components/notification/notification.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -352,7 +478,7 @@
             "description": "",
             "rawdescription": "",
             "type": "component",
-            "sourceCode": "import { Component } from '@angular/core';\nimport { animate, style, transition, trigger } from '@angular/animations';\nimport { fadeEnter, fadeLeave, moveFromTopEnter, moveToLeftLeave } from '../../animations/basic.animations';\nimport { Store } from '@ngrx/store';\nimport { State } from '../../state';\nimport { selectNotificationState } from '../../state/notification/notification.selectors';\nimport { Observable } from 'rxjs';\nimport { NotificationModel, NotificationTypeModel } from '@web-browser/shared/model';\nimport { hideNotification } from '../../state/notification/notification.actions';\nimport { tap } from 'rxjs/operators';\n\n@Component({\n  selector: 'sh-ui-notification',\n  template: `\n    <ng-container *ngIf='(notificationModel$ | async) as notification;'>\n      <aside class='nt' [ngClass]='getNotificationType(notification.type)'\n             *ngIf='notification.isShown'\n             @fadeEnter @fadeLeave @moveFromTopEnter @moveToLeftLeave>\n        <div class='nt-header'>\n          <h3 class='nt-header-title'>{{notification.title}}</h3>\n          <span class='material-icons' (click)='onClose()'>\n          close\n        </span>\n        </div>\n        <div class='nt-body'>\n          <p>{{notification.text}}</p>\n        </div>\n      </aside>\n    </ng-container>\n  `,\n  styleUrls: ['./notification.component.scss'],\n  animations: [\n    fadeEnter('100ms ease-in'),\n    fadeLeave('300ms ease-out'),\n    moveFromTopEnter('100ms ease-in', '-200px'),\n    moveToLeftLeave('300ms ease-out', '-200px')\n  ]\n})\nexport class NotificationComponent {\n  notificationModel$: Observable<NotificationModel>;\n\n  constructor(private state: Store<State>) {\n    this.notificationModel$ = this.state.select(selectNotificationState)\n      .pipe(tap(this.onNotificationStateChange));\n  }\n\n  onClose() {\n    this.state.dispatch(hideNotification());\n  }\n\n  getNotificationType(type: NotificationTypeModel | NotificationTypeModel.INFO): string {\n    switch (type) {\n      case NotificationTypeModel.INFO:\n        return 'nt-info';\n      case NotificationTypeModel.SUCCESS:\n        return 'nt-success';\n      case NotificationTypeModel.ERROR:\n        return 'nt-error';\n      default:\n        return 'nt-info';\n    }\n  }\n\n  onNotificationStateChange = (notification: NotificationModel) => {\n    if (notification.dismiss != null) {\n      setTimeout(() => {\n        this.state.dispatch(hideNotification());\n      }, notification.dismiss);\n    }\n  };\n}\n",
+            "sourceCode": "import { Component } from '@angular/core';\nimport { animate, style, transition, trigger } from '@angular/animations';\nimport { fadeEnter, fadeLeave, moveFromTopEnter, moveToLeftLeave } from '../../animations/basic.animations';\nimport { Store } from '@ngrx/store';\nimport { State } from '../../state';\nimport { selectNotificationState } from '../../state/notification/notification.selectors';\nimport { Observable } from 'rxjs';\nimport { NotificationModel, NotificationTypeModel } from '@web-browser/shared/model';\nimport { hideNotification } from '../../state/notification/notification.actions';\nimport { tap } from 'rxjs/operators';\n\n@Component({\n  selector: 'sh-ui-notification',\n  template: `\n    <ng-container *ngIf='(notificationModel$ | async) as notification;'>\n      <aside class='nt' [ngClass]='getNotificationType(notification.type)'\n             *ngIf='notification.isShown'\n             @fadeEnter @fadeLeave @moveFromTopEnter @moveToLeftLeave>\n        <div class='nt-header'>\n          <h3 class='nt-header-title'>{{notification.title}}</h3>\n          <span class='material-icons' (click)='onClose()'>\n          close\n        </span>\n        </div>\n        <div class='nt-body'>\n          <p>{{notification.text}}</p>\n        </div>\n      </aside>\n    </ng-container>\n  `,\n  styleUrls: ['./notification.component.scss'],\n  animations: [\n    fadeEnter('100ms ease-in'),\n    fadeLeave('300ms ease-out'),\n    moveFromTopEnter('100ms ease-in', '-200px'),\n    moveToLeftLeave('300ms ease-out', '-200px')\n  ]\n})\nexport class NotificationComponent {\n  notificationModel$: Observable<NotificationModel>;\n\n  constructor(private state: Store<State>) {\n    this.notificationModel$ = this.state.select(selectNotificationState)\n      .pipe(tap(this.onNotificationStateChange));\n  }\n\n  onClose() {\n    this.state.dispatch(hideNotification());\n  }\n\n  getNotificationType(type: NotificationTypeModel | NotificationTypeModel.INFO): string {\n    switch (type) {\n      case NotificationTypeModel.INFO:\n        return 'nt-info';\n      case NotificationTypeModel.SUCCESS:\n        return 'nt-success';\n      case NotificationTypeModel.ERROR:\n        return 'nt-error';\n      default:\n        return 'nt-info';\n    }\n  }\n\n  onNotificationStateChange = (notification: NotificationModel) => {\n    if (notification.dismiss != null) {\n      setTimeout(() => {\n        this.state.dispatch(hideNotification());\n        if (notification.callbackAfterDismiss) {\n          notification.callbackAfterDismiss();\n        }\n      }, notification.dismiss);\n    }\n  };\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -816,6 +942,43 @@
             ]
         },
         {
+            "name": "InputNameModule",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": [
+                        {
+                            "name": "InputNameComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "imports",
+                    "elements": []
+                },
+                {
+                    "type": "exports",
+                    "elements": [
+                        {
+                            "name": "InputNameComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
             "name": "InputPasswordModule",
             "children": [
                 {
@@ -998,6 +1161,9 @@
                             "name": "InputEmailModule"
                         },
                         {
+                            "name": "InputNameModule"
+                        },
+                        {
                             "name": "InputPasswordModule"
                         },
                         {
@@ -1059,7 +1225,7 @@
                 "subtype": "variable",
                 "file": "libs/shared/ui/src/lib/state/notification/notification.reducer.ts",
                 "type": "NotificationModel",
-                "defaultValue": "{\n  isShown: false,\n  dismiss: null,\n  type: NotificationTypeModel.INFO,\n  title: 'Example Title',\n  text: 'Example Text'\n}"
+                "defaultValue": "{\n  isShown: false,\n  dismiss: null,\n  type: NotificationTypeModel.INFO,\n  title: 'Example Title',\n  text: 'Example Text',\n  callbackAfterDismiss: null\n}"
             },
             {
                 "name": "metaReducers",
@@ -1083,7 +1249,7 @@
                 "subtype": "variable",
                 "file": "libs/shared/ui/src/lib/state/notification/notification.reducer.ts",
                 "type": "",
-                "defaultValue": "createReducer(\n  initialState,\n\n  on(showNotification, (state, action) => {\n    return {\n      ...state,\n      isShown: true,\n      dismiss: action.notification.dismiss,\n      type: action.notification.type,\n      title: action.notification.title,\n      text: action.notification.text\n    };\n  }),\n\n  on(hideNotification, (state, action) => {\n    return initialState;\n  })\n)"
+                "defaultValue": "createReducer(\n  initialState,\n\n  on(showNotification, (state, action) => {\n    return {\n      ...state,\n      isShown: true,\n      dismiss: action.notification.dismiss,\n      type: action.notification.type,\n      title: action.notification.title,\n      text: action.notification.text,\n      callbackAfterDismiss: action.notification.callbackAfterDismiss\n    };\n  }),\n\n  on(hideNotification, (state, action) => {\n    return initialState;\n  })\n)"
             },
             {
                 "name": "reducers",
@@ -1648,7 +1814,7 @@
                     "subtype": "variable",
                     "file": "libs/shared/ui/src/lib/state/notification/notification.reducer.ts",
                     "type": "NotificationModel",
-                    "defaultValue": "{\n  isShown: false,\n  dismiss: null,\n  type: NotificationTypeModel.INFO,\n  title: 'Example Title',\n  text: 'Example Text'\n}"
+                    "defaultValue": "{\n  isShown: false,\n  dismiss: null,\n  type: NotificationTypeModel.INFO,\n  title: 'Example Title',\n  text: 'Example Text',\n  callbackAfterDismiss: null\n}"
                 },
                 {
                     "name": "reducer",
@@ -1656,7 +1822,7 @@
                     "subtype": "variable",
                     "file": "libs/shared/ui/src/lib/state/notification/notification.reducer.ts",
                     "type": "",
-                    "defaultValue": "createReducer(\n  initialState,\n\n  on(showNotification, (state, action) => {\n    return {\n      ...state,\n      isShown: true,\n      dismiss: action.notification.dismiss,\n      type: action.notification.type,\n      title: action.notification.title,\n      text: action.notification.text\n    };\n  }),\n\n  on(hideNotification, (state, action) => {\n    return initialState;\n  })\n)"
+                    "defaultValue": "createReducer(\n  initialState,\n\n  on(showNotification, (state, action) => {\n    return {\n      ...state,\n      isShown: true,\n      dismiss: action.notification.dismiss,\n      type: action.notification.type,\n      title: action.notification.title,\n      text: action.notification.text,\n      callbackAfterDismiss: action.notification.callbackAfterDismiss\n    };\n  }),\n\n  on(hideNotification, (state, action) => {\n    return initialState;\n  })\n)"
                 },
                 {
                     "name": "stateNotificationFeatureKey",
@@ -2482,6 +2648,24 @@
                 "name": "InputEmailComponent",
                 "coveragePercent": 0,
                 "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/shared/ui/src/lib/components/inputs/input-name/input-name.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "InputNameComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/5",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/shared/ui/src/lib/components/inputs/model/abstract-input-component-model.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "AbstractInputComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/5",
                 "status": "low"
             },
             {

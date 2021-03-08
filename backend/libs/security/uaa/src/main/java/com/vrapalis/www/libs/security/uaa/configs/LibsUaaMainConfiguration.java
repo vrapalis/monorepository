@@ -55,8 +55,8 @@ public class LibsUaaMainConfiguration {
                 .description("Private")
                 .build();
         var organization = LibsSecurityJpaUserOrganizationType.builder()
-                .name("organization")
-                .description("Organization")
+                .name("company")
+                .description("Company")
                 .build();
         organizationTypeRepository.saveAll(Arrays.asList(privateOrganization, organization));
     }

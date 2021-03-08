@@ -4,16 +4,19 @@ import { UserModel } from '@web-browser/shared/auth/model';
 @Component({
   selector: 'web-browser-home-component',
   template: `
-    <p *ngIf='user'>
-      Hello User: {{user | json}}
-    </p>
+    <ng-container *ngIf='user'>
+      <div>
+        <h1>Ihr Profile</h1>
+        <h3>{{userName(user)}}</h3>
+      </div>
+    </ng-container>
   `,
   styles: []
 })
 export class HomeComponent {
   @Input() user: UserModel;
 
-  constructor() {
+  userName(user: UserModel) {
+    return `${user.info.firstName} ${user.info.surname}`;
   }
-
 }

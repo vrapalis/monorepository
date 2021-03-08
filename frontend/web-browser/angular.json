@@ -593,6 +593,81 @@
           }
         }
       }
+    },
+    "shared-auth-feature-profile": {
+      "projectType": "library",
+      "root": "libs/shared/auth/feature/profile",
+      "sourceRoot": "libs/shared/auth/feature/profile/src",
+      "prefix": "web-browser",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/shared/auth/feature/profile/src/**/*.ts",
+              "libs/shared/auth/feature/profile/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/shared/auth/feature/profile"],
+          "options": {
+            "jestConfig": "libs/shared/auth/feature/profile/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "entryou-feature-company": {
+      "projectType": "library",
+      "root": "libs/entryou/feature/company",
+      "sourceRoot": "libs/entryou/feature/company/src",
+      "prefix": "web-browser",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/entryou/feature/company/src/**/*.ts",
+              "libs/entryou/feature/company/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/entryou/feature/company"],
+          "options": {
+            "jestConfig": "libs/entryou/feature/company/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "entryou-feature-private": {
+      "projectType": "library",
+      "root": "libs/entryou/feature/private",
+      "sourceRoot": "libs/entryou/feature/private/src",
+      "prefix": "web-browser",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/entryou/feature/private/src/**/*.ts",
+              "libs/entryou/feature/private/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/entryou/feature/private"],
+          "options": {
+            "jestConfig": "libs/entryou/feature/private/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
     }
   },
   "defaultProject": "entryou-app",

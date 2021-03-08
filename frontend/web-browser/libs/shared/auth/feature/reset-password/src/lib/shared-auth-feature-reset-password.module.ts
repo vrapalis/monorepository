@@ -12,7 +12,12 @@ import { ResetPasswordConfirmContainerComponent } from './containers/reset-passw
 import { ResetPasswordConfirmComponent } from './components/reset-password-confirm.component';
 
 @NgModule({
-  declarations: [ResetPasswordContainerComponent, ResetPasswordComponent, ResetPasswordConfirmContainerComponent, ResetPasswordConfirmComponent],
+  declarations: [
+    ResetPasswordContainerComponent,
+    ResetPasswordComponent,
+    ResetPasswordConfirmContainerComponent,
+    ResetPasswordConfirmComponent
+  ],
   imports: [
     CommonModule,
     RouterModule,

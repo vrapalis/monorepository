@@ -11,7 +11,10 @@ import { showNotification } from '@web-browser/shared/ui';
   selector: 'web-browser-home-container',
   template: `
     <ng-container *ngIf='(user$ | async) as user;'>
-      <web-browser-home-component [user]='user'></web-browser-home-component>
+      <section class='container-fluid m-3'>
+        <web-browser-home-component [user]='user'></web-browser-home-component>
+        <router-outlet></router-outlet>
+      </section>
     </ng-container>
   `,
   styles: []
@@ -34,5 +37,4 @@ export class HomeContainerComponent {
         })))
       );
   }
-
 }

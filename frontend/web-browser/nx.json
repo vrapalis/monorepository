@@ -81,6 +81,15 @@
     },
     "shared-auth-guard": {
       "tags": ["scope:shared", "type:guard"]
+    },
+    "shared-auth-feature-profile": {
+      "tags": ["scope:shared", "type:feature"]
+    },
+    "entryou-feature-company": {
+      "tags": ["scope:entryou", "type:feature"]
+    },
+    "entryou-feature-private": {
+      "tags": ["scope:entryou", "type:feature"]
     }
   }
 }

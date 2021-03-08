@@ -24,5 +24,9 @@ module.exports = {
     '<rootDir>/libs/entryou/feature/home',
     '<rootDir>/libs/auth/guard',
     '<rootDir>/libs/shared/auth/guard',
+    '<rootDir>/libs/shared/auth/feature/profile',
+    '<rootDir>/libs/entryou/feature/feature/company',
+    '<rootDir>/libs/entryou/feature/company',
+    '<rootDir>/libs/entryou/feature/private',
   ],
 };
