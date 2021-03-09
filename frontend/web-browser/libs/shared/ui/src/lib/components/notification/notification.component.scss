@@ -19,6 +19,7 @@ $nt-error-header-background-color: red;
 
 .nt {
   position: absolute;
+  z-index: 1000;
   top: $nt-top;
   left: 50%;
   margin-right: -50%;

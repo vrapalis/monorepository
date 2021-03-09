@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { animate, style, transition, trigger } from '@angular/animations';
 import { fadeEnter, fadeLeave, moveFromTopEnter, moveToLeftLeave } from '../../animations/basic.animations';
 import { Store } from '@ngrx/store';
 import { State } from '../../state';

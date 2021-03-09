@@ -1,0 +1,41 @@
+.pdfQrCodeContainer {
+  padding: 30px;
+
+  .pdfLogo {
+    text-align: left;
+    position: relative;
+    padding-left: 20px;
+
+    img {
+      float: left;
+    }
+
+    h3 {
+      position: relative;
+      bottom: 3px;
+      left: 5px;
+    }
+  }
+
+  .pdfTextBox {
+    width: 60%;
+    margin-top: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 50px;
+    background: #ECECF3;
+    border-radius: 8px;
+  }
+
+  .pdfQrCode {
+    margin-top: 30px;
+  }
+
+  .pdfContainer {
+    width: 100%;
+    background: #fff;
+    border-radius: 8px;
+    padding: 50px;
+  }
+}
+

@@ -11,13 +11,16 @@ import { showNotification } from '@web-browser/shared/ui';
   selector: 'web-browser-home-container',
   template: `
     <ng-container *ngIf='(user$ | async) as user;'>
-      <section class='container-fluid m-3'>
+      <section class='container-fluid text-center homeContainer pt-5'>
         <web-browser-home-component [user]='user'></web-browser-home-component>
         <router-outlet></router-outlet>
       </section>
     </ng-container>
   `,
-  styles: []
+  styles: [`
+    .homeContainer {
+    }
+  `]
 })
 export class HomeContainerComponent {
   user$: Observable<UserModel>;

@@ -7,8 +7,10 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SharedAuthStateModule } from '@web-browser/shared/auth/state';
 import { CompanyGuardService } from './guards/company-guard.service';
-import { QrCodeComponent } from './components/qr-code.component';
+import { QrCodeComponent } from './components/qr-code/qr-code.component';
 import { QuestsComponent } from './components/quests.component';
+import { QRCodeModule } from 'angularx-qrcode';
+import { RaisedButtonModule } from '@web-browser/shared/ui';
 
 @NgModule({
   imports: [
@@ -16,7 +18,9 @@ import { QuestsComponent } from './components/quests.component';
     EntryouFeatureCompanyRoutingModule,
     MatButtonToggleModule,
     ReactiveFormsModule,
-    SharedAuthStateModule
+    SharedAuthStateModule,
+    QRCodeModule,
+    RaisedButtonModule
   ],
   declarations: [CompanyComponent, CompanyContainerComponent, QrCodeComponent, QuestsComponent],
   providers: [CompanyGuardService]
