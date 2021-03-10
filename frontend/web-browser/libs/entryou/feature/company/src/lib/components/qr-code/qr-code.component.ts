@@ -5,18 +5,15 @@ import { ChangeDetectionStrategy, Component, ElementRef, Output, ViewChild, Even
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <div class='pdfQrCodeContainer'>
-      <h3 class='fw-bold'>Ihr PDF</h3>
+      <h3 class='fw-bold pdfQrCodeTitle'>Ihr PDF</h3>
       <div #pdfContainer class='pdfContainer'>
-        <div class='pdfLogo'>
-          <img src='assets/images/logo.svg'>
-          <h3>Entryou</h3>
-        </div>
+        <sh-ui-logo title='Entryou' imgSrc='assets/images/logo.svg'></sh-ui-logo>
         <qrcode class='pdfQrCode' [qrdata]="'Your data string'" [width]='256'
                 [errorCorrectionLevel]="'M'"></qrcode>
         <div class='pdfInfoBlock'>
-          <h4>{{companyName}}</h4>
-          <h5 class='fw-bold'>Herzlich Willkommen</h5>
-          <p class='pdfTextBox'>
+          <h4 class='subHeaderFn'>{{companyName}}</h4>
+          <h5 class='headerFn'>Herzlich Willkommen</h5>
+          <p class='pdfTextBox lightTextFn'>
             Alle Ihre Daten sind verschlüsselt. Echte Daten werden nur mit Anfrage von Gesundheitsamt entschlüsselt.
           </p>
         </div>

@@ -1,5 +1,21 @@
 .pdfQrCodeContainer {
-  padding: 30px;
+  margin-top: 20px;
+
+  ::ng-deep .logoContainer {
+    img {
+      width: 20px !important;
+      height: 20px !important;
+    }
+
+    h4 {
+      bottom: 2px;
+      font-size: 16px !important;
+    }
+  }
+
+  .pdfQrCodeTitle {
+    text-align: left;
+  }
 
   .pdfLogo {
     text-align: left;
@@ -18,11 +34,11 @@
   }
 
   .pdfTextBox {
-    width: 60%;
     margin-top: 30px;
     margin-left: auto;
     margin-right: auto;
-    padding: 50px;
+    padding: 20px;
+    width: 80%;
     background: #ECECF3;
     border-radius: 8px;
   }
@@ -35,7 +51,7 @@
     width: 100%;
     background: #fff;
     border-radius: 8px;
-    padding: 50px;
+    padding: 10px;
   }
 }
 

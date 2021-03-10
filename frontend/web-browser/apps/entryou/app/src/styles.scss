@@ -1,11 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
 
+@import "assets/fonts/font";
+@import "assets/utils/unset";
+
 html, body {
   height: 100%;
 }
 
 body {
-  background-color: #e6ebf1;
+  background-color: aliceblue;
   line-height: 1;
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }

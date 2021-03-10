@@ -7,6 +7,12 @@ $nt-body-color: darkgrey;
 $nt-padding-left: 10px;
 $nt-box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.2);
 $nt-body-background-color: aliceblue;
+// Grid
+$min-width-mobile-media-query: 768px;
+$max-width-md-media-query: 1200px;
+$min-width-xl-media-query: 1200px;
+$min-width-4k-media-query : 2500px;
+$max-width-4k-media-query : 10000px;
 
 // Notification Info Type Variables
 $nt-info-header-background-color: aqua;
@@ -38,6 +44,7 @@ $nt-error-header-background-color: red;
     padding-left: $nt-padding-left;
 
     .nt-header-title {
+      font-family: "Ubuntu Regular";
       font-weight: 500;
     }
   }
@@ -45,6 +52,10 @@ $nt-error-header-background-color: red;
   .nt-body {
     color: $nt-body-color;
     padding-left: $nt-padding-left;
+
+    p {
+      font-family: "Ubuntu Regular";
+    }
   }
 
   ::ng-deep {
@@ -79,5 +90,17 @@ $nt-error-header-background-color: red;
 .nt-error {
   .nt-header {
     background-color: $nt-error-header-background-color;
+  }
+}
+
+@media only screen and (min-width: $min-width-mobile-media-query) and (max-width: $max-width-md-media-query) {
+  .nt {
+    width: 50%;
+  }
+}
+
+@media only screen and (max-width: $min-width-mobile-media-query) {
+  .nt {
+    width: 90%;
   }
 }

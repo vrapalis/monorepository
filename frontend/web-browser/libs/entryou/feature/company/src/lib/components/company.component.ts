@@ -17,7 +17,25 @@ import { ECompanyButtonTypeModel } from '../models/button.model';
       </mat-button-toggle>
     </mat-button-toggle-group>
   `,
-  styles: []
+  styles: [`
+    mat-button-toggle-group {
+      width: 80%;
+      border-radius: 50px;
+    }
+
+    mat-button-toggle {
+      width: 50%;
+    }
+
+    .mat-button-toggle-checked {
+      background-color: rgba(31, 80, 201, 1);
+      color: white;
+    }
+
+    ::ng-deep .mat-button-toggle-label-content {
+      font-family: 'Ubuntu Regular' !important;
+    }
+  `]
 })
 export class CompanyComponent implements OnDestroy {
   fontStyleControl = new FormControl(ECompanyButtonTypeModel.QR_CODE);

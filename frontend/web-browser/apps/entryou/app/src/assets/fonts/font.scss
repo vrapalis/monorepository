@@ -1,0 +1,79 @@
+@import "../utils/vars";
+
+@font-face {
+  font-family: 'Ubuntu Regular';
+  src: url('Ubuntu-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'Ubuntu Bold';
+  src: url('Ubuntu-Bold.ttf');
+}
+
+@font-face {
+  font-family: 'Ubuntu Italic';
+  src: url('Ubuntu-Italic.ttf');
+}
+
+@font-face {
+  font-family: 'Ubuntu Light';
+  src: url('Ubuntu-Light.ttf');
+}
+
+.logoFn {
+  font-family: "Ubuntu Bold" !important;
+  font-size: 24px !important;
+}
+
+.headerFn {
+  font-family: "Ubuntu Bold" !important;
+  font-size: 26px !important;
+}
+
+.subHeaderFn {
+  font-family: "Ubuntu Regular" !important;
+  font-size: 21px !important;
+}
+
+.lightTextFn {
+  font-family: "Ubuntu Light" !important;
+  font-size: 18px !important;
+}
+
+@media only screen and (min-width: $min-width-mobile-media-query) and (max-width: $max-width-md-media-query) {
+  .logoFn {
+    font-size: 21px !important;
+  }
+
+  .headerFn {
+    font-size: 23px !important;
+  }
+
+  .subHeaderFn {
+    font-size: 18px !important;
+  }
+
+  .lightTextFn {
+    font-size: 16px !important;
+  }
+}
+
+@media only screen and (max-width: $min-width-mobile-media-query) {
+  .logoFn {
+    font-size: 18px !important;
+  }
+  .headerFn {
+    font-size: 20px !important;
+  }
+
+  .subHeaderFn {
+    font-size: 15px !important;
+  }
+
+  .lightTextFn {
+    font-size: 14px !important;
+  }
+}
+
+
+

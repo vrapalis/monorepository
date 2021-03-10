@@ -5,13 +5,22 @@ import { UserModel } from '@web-browser/shared/auth/model';
   selector: 'web-browser-home-component',
   template: `
     <ng-container *ngIf='user'>
-      <div>
-        <h1>Ihr Profile</h1>
-        <h3>{{userName(user)}}</h3>
+      <div class='homeContainer'>
+        <h1 class='headerFn'>Ihr Profile</h1>
+        <h3 class='subHeaderFn'>{{userName(user)}}</h3>
       </div>
     </ng-container>
   `,
-  styles: []
+  styles: [`
+    .homeContainer {
+      /*padding: 0px 5px;*/
+      margin-top: -30px;
+    }
+
+    .subHeaderFn {
+      margin-top: -15px;
+    }
+  `]
 })
 export class HomeComponent {
   @Input() user: UserModel;

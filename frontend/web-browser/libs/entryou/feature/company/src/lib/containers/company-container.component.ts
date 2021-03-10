@@ -12,7 +12,7 @@ import { selectAuthUserState } from '@web-browser/shared/auth/state';
   template: `
     <ng-container *ngIf='user$ | async as user;'>
       <web-browser-company (toggleEvent)='view = $event'></web-browser-company>
-      <div *ngIf='view' class='companyContainer w-50'>
+      <div *ngIf='view' class='companyContainer'>
         <ng-container *ngIf='(view == typeBtn.QR_CODE); else questsView;'>
           <web-browser-qr-code [companyName]='user.info.firstName + " " + user.info.surname'
                                (downloadPdfEvent)='downloadPdf($event)'></web-browser-qr-code>
@@ -25,7 +25,6 @@ import { selectAuthUserState } from '@web-browser/shared/auth/state';
   `,
   styles: [`
     .companyContainer {
-      padding-top: 50px;
       margin: auto;
     }
   `]

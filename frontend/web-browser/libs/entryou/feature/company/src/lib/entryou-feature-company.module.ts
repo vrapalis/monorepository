@@ -10,7 +10,7 @@ import { CompanyGuardService } from './guards/company-guard.service';
 import { QrCodeComponent } from './components/qr-code/qr-code.component';
 import { QuestsComponent } from './components/quests.component';
 import { QRCodeModule } from 'angularx-qrcode';
-import { RaisedButtonModule } from '@web-browser/shared/ui';
+import { LogoModule, RaisedButtonModule } from '@web-browser/shared/ui';
 
 @NgModule({
   imports: [
@@ -20,7 +20,8 @@ import { RaisedButtonModule } from '@web-browser/shared/ui';
     ReactiveFormsModule,
     SharedAuthStateModule,
     QRCodeModule,
-    RaisedButtonModule
+    RaisedButtonModule,
+    LogoModule
   ],
   declarations: [CompanyComponent, CompanyContainerComponent, QrCodeComponent, QuestsComponent],
   providers: [CompanyGuardService]

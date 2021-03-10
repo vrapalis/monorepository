@@ -9,15 +9,15 @@ import { InputPasswordModule } from './components/inputs/password/input-password
 import { InputSelectionModule } from './components/inputs/selection/input-selection.module';
 import { FlatButtonModule } from './components/flat-button/flat-button.module';
 import { InputNameModule } from './components/inputs/input-name/input-name.module';
+import { LogoModule } from './components/logo/logo.module';
 
 
 @NgModule({
-  declarations: [],
   imports: [
     CommonModule,
     ContainersModule,
     StoreModule.forFeature(fromUiState.uiStateFeatureKey, fromUiState.reducers, { metaReducers: fromUiState.metaReducers }),
-    NotificationModule,
+    NotificationModule
   ],
   exports: [
     FlatButtonModule,
@@ -26,7 +26,8 @@ import { InputNameModule } from './components/inputs/input-name/input-name.modul
     InputEmailModule,
     InputPasswordModule,
     InputSelectionModule,
-    InputNameModule
+    InputNameModule,
+    LogoModule
   ]
 })
 export class SharedUiModule {
