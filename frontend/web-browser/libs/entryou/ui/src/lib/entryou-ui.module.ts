@@ -9,6 +9,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatMenuModule } from '@angular/material/menu';
 import { SharedUtilModule } from '@web-browser/shared/util';
 import { LogoModule } from '@web-browser/shared/ui';
+import { HeadAndSubTitleComponent } from './components/head-and-sub-title/head-and-sub-title.component';
 
 @NgModule({
   imports: [
@@ -21,8 +22,8 @@ import { LogoModule } from '@web-browser/shared/ui';
     SharedUtilModule,
     LogoModule
   ],
-  declarations: [NavbarComponent, NavbarContainerComponent],
-  exports: [NavbarContainerComponent]
+  declarations: [NavbarComponent, NavbarContainerComponent, HeadAndSubTitleComponent],
+  exports: [NavbarContainerComponent, HeadAndSubTitleComponent]
 })
 export class EntryouUiModule {
 }

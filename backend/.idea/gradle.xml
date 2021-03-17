@@ -13,6 +13,7 @@
             <option value="$PROJECT_DIR$/apps" />
             <option value="$PROJECT_DIR$/apps/entryou" />
             <option value="$PROJECT_DIR$/apps/entryou/api-gateway" />
+            <option value="$PROJECT_DIR$/apps/entryou/entry" />
             <option value="$PROJECT_DIR$/apps/entryou/push" />
             <option value="$PROJECT_DIR$/apps/entryou/uaa" />
             <option value="$PROJECT_DIR$/buildSrc" />
@@ -20,6 +21,7 @@
             <option value="$PROJECT_DIR$/libs/assertions" />
             <option value="$PROJECT_DIR$/libs/cloud" />
             <option value="$PROJECT_DIR$/libs/cloud/discovery" />
+            <option value="$PROJECT_DIR$/libs/commons" />
             <option value="$PROJECT_DIR$/libs/documentation" />
             <option value="$PROJECT_DIR$/libs/documentation/swagger" />
             <option value="$PROJECT_DIR$/libs/errors" />

@@ -15,9 +15,11 @@
         <module name="backend.libs.push.apis.test" />
         <module name="backend.apps.entryou.uaa.test" />
         <module name="backend.libs.security.projections.test" />
+        <module name="backend.apps.entryou.entry.test" />
         <module name="backend.libs.security.entities.test" />
         <module name="backend.libs.security.restcontrollers.test" />
         <module name="backend.libs.push.dtos.test" />
+        <module name="backend.libs.commons.test" />
         <module name="backend.libs.push.repositories.test" />
         <module name="backend.libs.push.services.test" />
         <module name="backend.apps.entryou.api-gateway.test" />
@@ -49,6 +51,7 @@
         <module name="backend.libs.push.dtos.main" />
         <module name="backend.libs.security.models.main" />
         <module name="backend.libs.assertions.main" />
+        <module name="backend.libs.commons.main" />
         <module name="backend.libs.security.dtos.main" />
         <module name="backend.libs.errors.main" />
         <module name="backend.libs.push.apis.main" />
@@ -66,6 +69,7 @@
         <module name="backend.libs.documentation.swagger.main" />
         <module name="backend.libs.push.repositories.main" />
         <module name="backend.libs.security.restcontrollers.main" />
+        <module name="backend.apps.entryou.entry.main" />
         <module name="backend.libs.security.entities.main" />
         <module name="backend.apps.entryou.uaa.main" />
         <module name="backend.libs.security.projections.main" />

@@ -1,0 +1,22 @@
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'org.springframework.boot:spring-boot-starter-security'
+    runtimeOnly 'org.postgresql:postgresql'
+
+    implementation project(':libs:documentation:swagger')
+    implementation project(':libs:commons')
+    implementation project(':libs:web:dto')
+    implementation project(':libs:assertions')
+    implementation project(':libs:errors')
+}
+
+afterEvaluate {
+    // Build push service each time, when dev composer is started
+    devComposeUp.dependsOn(
+            project(':apps:entryou:push').tasks.build,
+            project(':apps:entryou:push').task('craeteDockerFile'),
+            project(':apps:entryou:uaa').tasks.build,
+            project(':apps:entryou:uaa').task('craeteDockerFile')
+    )
+}

@@ -6,8 +6,8 @@ import { UserModel } from '@web-browser/shared/auth/model';
   template: `
     <ng-container *ngIf='user'>
       <div class='homeContainer'>
-        <h1 class='headerFn'>Ihr Profile</h1>
-        <h3 class='subHeaderFn'>{{userName(user)}}</h3>
+<!--        <h1 class='headerFn'>Ihr Profile</h1>-->
+<!--        <h3 class='subHeaderFn'>{{userName(user)}}</h3>-->
       </div>
     </ng-container>
   `,

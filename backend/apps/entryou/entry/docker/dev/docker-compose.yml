@@ -1,0 +1,96 @@
+version: '3.6'
+
+services:
+  entryou-consul-dev:
+    image: consul
+    network_mode: host
+    container_name: entryou_consul_agent_dev
+    restart: on-failure
+    ports:
+      - 8500:8500
+
+  entryou-push-dev:
+    build:
+      context: ../../../push
+    image: vrapalis/entryou/entryou-push:0.0.1-snapshot
+    container_name: entryou_push_dev
+    network_mode: host
+    expose:
+      - 8081
+    restart: on-failure
+    environment:
+      - SPRING.PROFILES.ACTIVE=dev-local
+      - SPRING.CLOUD.CONSUL.HOST=localhost
+      - SPRING.CLOUD.CONSUL.ENABLED=true
+      - SPRING.DATASOURCE.URL=jdbc:postgresql://localhost:5433/entryou_push_db_dev
+      - SPRING.DATASOURCE.USERNAME=admin
+      - SPRING.DATASOURCE.PASSWORD=admin
+      - SERVER.PORT=8081
+      ### Frontend related properties
+      - SMART-IT-DEVELOPMENT.ENTRYOU.UAA.EMAIL-HOST=https://frontent-host
+      - SMART-IT-DEVELOPMENT.ENTRYOU.UAA.EMAIL-SERVICE-PATH=/confirm?account
+      - SMART-IT-DEVELOPMENT.ENTRYOU.UAA.EMAIL-SUBJECT=Entryou confirm email
+      - SMART-IT-DEVELOPMENT.ENTRYOU.UAA.EMAIL-TEXT=Confirm your email,
+    depends_on:
+      - entryou-push-db-dev
+    ports:
+      - 8081:8081
+
+  entryou-push-db-dev:
+    image: postgres
+    container_name: entryou_push_db_dev
+    network_mode: host
+    command: -p 5433
+    expose:
+      - 5433
+    restart: on-failure
+    environment:
+      - POSTGRES_PASSWORD=admin
+      - POSTGRES_USER=admin
+      - POSTGRES_DB=entryou_push_db_dev
+    ports:
+      - 5433:5433
+
+  entryou-uaa-dev:
+    build:
+      context: ../../../uaa
+    image: vrapalis/entryou/entryou-uaa:0.0.1-snapshot
+    container_name: entryou_uaa_dev
+    network_mode: host
+    expose:
+      - 8080
+    restart: on-failure
+    environment:
+      - SPRING.PROFILES.ACTIVE=dev-local
+      - SPRING.CLOUD.CONSUL.HOST=localhost
+      - SPRING.CLOUD.CONSUL.ENABLED=true
+      - SPRING.DATASOURCE.URL=jdbc:postgresql://localhost:5432/entryou_uaa_db_dev
+      - SPRING.DATASOURCE.USERNAME=admin
+      - SPRING.DATASOURCE.PASSWORD=admin
+      - SERVER.PORT=8080
+    depends_on:
+      - entryou-uaa-db-dev
+    ports:
+      - 8080:8080
+
+  entryou-uaa-db-dev:
+    image: postgres
+    container_name: entryou_uaa_db_dev
+    restart: on-failure
+    environment:
+      - POSTGRES_PASSWORD=admin
+      - POSTGRES_USER=admin
+      - POSTGRES_DB=entryou_uaa_db_dev
+    ports:
+      - 5432:5432
+
+  entryou-entry-db-dev:
+    image: postgres
+    container_name: entryou_entry_db_dev
+    restart: on-failure
+    environment:
+      - POSTGRES_PASSWORD=admin
+      - POSTGRES_USER=admin
+      - POSTGRES_DB=entryou_entry_db_dev
+    ports:
+      - 5434:5432

@@ -1,0 +1,54 @@
+package com.vrapalis.www.entryou.entry.config;
+
+import lombok.AllArgsConstructor;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.builders.WebSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.config.http.SessionCreationPolicy;
+
+@EnableWebSecurity
+@AllArgsConstructor
+public class MainSecurityConfiguration extends WebSecurityConfigurerAdapter {
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
+        http
+                .csrf().disable()
+                .cors()
+                .and()
+                .headers().frameOptions().disable()// h2 specific
+                .and()
+                .httpBasic().disable()
+                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+                .and()
+//                .exceptionHandling().accessDeniedHandler(accessDeniedHandler).authenticationEntryPoint(authenticationEntryPoint)
+//                .and()
+//                .addFilter(new LibUaaSecurityJwtAuthenticationFilter())
+//                .addFilterBefore(new UaaAuthorizationFilter(authenticationManager(), jwtProperties, userRepository, uaaJwtTokenService),
+//                        UsernamePasswordAuthenticationFilter.class)
+                .authorizeRequests()
+
+                .antMatchers("/v2/api-docs", "/configuration/**", "/swagger*/**", "/webjars/**").permitAll()
+                .antMatchers("/swagger-ui.html").permitAll()
+
+                .antMatchers("/actuator/**").permitAll()
+                .antMatchers("/docs/**").permitAll()
+                .antMatchers("/api/**").permitAll()
+                .anyRequest().authenticated();
+    }
+
+    @Override
+    public void configure(WebSecurity web) {
+        web.ignoring().antMatchers(
+                "/",
+                "/resources/**",
+                "/static/**",
+                "/index.html",
+                "/*js",
+                "/*.css",
+                "/*.ico",
+                "/**/favicon.ico",
+                "/manifest.webmanifest",
+                "/assets/**");
+    }
+}

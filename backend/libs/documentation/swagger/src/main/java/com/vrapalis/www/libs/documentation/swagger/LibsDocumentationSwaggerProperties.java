@@ -8,7 +8,7 @@ import org.springframework.validation.annotation.Validated;
 import javax.validation.constraints.NotNull;
 
 @Data
-@Component
+//@Component //CHECK
 @Validated
 @ConfigurationProperties(prefix = "com.vrapalis.www.libs.documentation.swagger")
 public class LibsDocumentationSwaggerProperties {

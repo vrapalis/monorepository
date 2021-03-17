@@ -5,12 +5,18 @@ import { PrivateContainerComponent } from './containers/private-container.compon
 import { PrivateComponent } from './components/private.component';
 import { PrivateGuardService } from './guards/private-guard.service';
 import { SharedAuthStateModule } from '@web-browser/shared/auth/state';
+import { SharedUtilModule } from '@web-browser/shared/util';
+import { EntryouUiModule } from '@web-browser/entryou/ui';
+import { InfoBoxModule, QrCodeScannerModule } from '@web-browser/shared/ui';
 
 @NgModule({
   imports: [
     CommonModule,
     EntryouFeaturePrivateRoutingModule,
-    SharedAuthStateModule
+    SharedAuthStateModule,
+    SharedUtilModule,
+    EntryouUiModule,
+    QrCodeScannerModule
   ],
   declarations: [PrivateContainerComponent, PrivateComponent],
   providers: [PrivateGuardService]

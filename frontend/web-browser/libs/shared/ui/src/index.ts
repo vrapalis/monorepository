@@ -16,3 +16,7 @@ export * from './lib/components/inputs/selection/input-selection.module';
 export * from './lib/components/inputs/input-name/input-name.module';
 
 export * from './lib/components/logo/logo.module'
+
+export * from './lib/components/info-box/info-box.module'
+
+export * from './lib/components/qr-code-scanner/qr-code-scanner.module'
