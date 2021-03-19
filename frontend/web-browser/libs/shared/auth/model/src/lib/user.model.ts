@@ -6,6 +6,7 @@ export interface UserModel {
     surname: string,
     firstName: string,
     age: number,
+    id: number
   };
   readonly roles: any;
 }

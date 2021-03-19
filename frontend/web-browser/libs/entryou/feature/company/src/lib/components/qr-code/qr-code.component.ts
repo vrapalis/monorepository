@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, ElementRef, Output, ViewChild, EventEmitter, Input } from '@angular/core';
+import { QrCodeModel } from '@web-browser/entryou/model';
 
 @Component({
   selector: 'web-browser-qr-code',
@@ -8,7 +9,7 @@ import { ChangeDetectionStrategy, Component, ElementRef, Output, ViewChild, Even
       <h3 class='fw-bold pdfQrCodeTitle'>Ihr PDF</h3>
       <div #pdfContainer class='pdfContainer'>
         <sh-ui-logo title='Entryou' imgSrc='assets/images/logo.svg'></sh-ui-logo>
-        <qrcode class='pdfQrCode' [qrdata]="'Your data string'" [width]='256'
+        <qrcode class='pdfQrCode' [qrdata]="generateQrCodeData()" [width]='256'
                 [errorCorrectionLevel]="'M'"></qrcode>
         <div class='pdfInfoBlock'>
           <h4 class='subHeaderFn'>{{companyName}}</h4>
@@ -30,8 +31,13 @@ export class QrCodeComponent {
   @ViewChild('pdfContainer') private pdfContainer: ElementRef<HTMLDivElement>;
   @Output() downloadPdfEvent = new EventEmitter<HTMLDivElement>();
   @Input() companyName: string;
+  @Input() companyId: string;
 
   downloadPdf() {
     this.downloadPdfEvent.emit(this.pdfContainer.nativeElement);
+  }
+
+  generateQrCodeData() {
+    return JSON.stringify({id: this.companyId} as QrCodeModel);
   }
 }

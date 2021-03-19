@@ -14,7 +14,7 @@ import { selectAuthUserState } from '@web-browser/shared/auth/state';
       <web-browser-company (toggleEvent)='view = $event'></web-browser-company>
       <div *ngIf='view' class='companyContainer'>
         <ng-container *ngIf='(view == typeBtn.QR_CODE); else questsView;'>
-          <web-browser-qr-code [companyName]='user.info.firstName + " " + user.info.surname'
+          <web-browser-qr-code [companyId]='user.info.id' [companyName]='user.info.firstName + " " + user.info.surname'
                                (downloadPdfEvent)='downloadPdf($event)'></web-browser-qr-code>
         </ng-container>
         <ng-template #questsView>

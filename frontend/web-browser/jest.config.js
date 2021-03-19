@@ -28,5 +28,7 @@ module.exports = {
     '<rootDir>/libs/entryou/feature/feature/company',
     '<rootDir>/libs/entryou/feature/company',
     '<rootDir>/libs/entryou/feature/private',
+    '<rootDir>/libs/entryou/model',
+    '<rootDir>/libs/entryou/data-access',
   ],
 };

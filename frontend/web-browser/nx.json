@@ -1,14 +1,9 @@
 {
   "npmScope": "web-browser",
-  "affected": {
-    "defaultBase": "master"
-  },
+  "affected": { "defaultBase": "master" },
   "implicitDependencies": {
     "angular.json": "*",
-    "package.json": {
-      "dependencies": "*",
-      "devDependencies": "*"
-    },
+    "package.json": { "dependencies": "*", "devDependencies": "*" },
     "tsconfig.base.json": "*",
     "tslint.json": "*",
     ".eslintrc.json": "*",
@@ -32,64 +27,29 @@
     "shared-auth-feature-reset-password": {
       "tags": ["scope:shared", "type:feature"]
     },
-    "shared-auth-data-access": {
-      "tags": ["scope:shared", "type:data-access"]
-    },
-    "shared-util": {
-      "tags": ["scope:shared", "type:util"]
-    },
-    "shared-ui": {
-      "tags": ["scope:shared", "type:ui"]
-    },
-    "entryou-app": {
-      "tags": ["scope:entryou", "type:app"]
-    },
-    "entryou/app-e2e": {
-      "tags": [],
-      "implicitDependencies": ["entryou-app"]
-    },
-    "entryou-ui": {
-      "tags": ["scope:entryou", "type:ui"]
-    },
-    "websites-vrapalis-app": {
-      "tags": []
-    },
+    "shared-auth-data-access": { "tags": ["scope:shared", "type:data-access"] },
+    "shared-util": { "tags": ["scope:shared", "type:util"] },
+    "shared-ui": { "tags": ["scope:shared", "type:ui"] },
+    "entryou-app": { "tags": ["scope:entryou", "type:app"] },
+    "entryou/app-e2e": { "tags": [], "implicitDependencies": ["entryou-app"] },
+    "entryou-ui": { "tags": ["scope:entryou", "type:ui"] },
+    "websites-vrapalis-app": { "tags": [] },
     "websites/vrapalis/app-e2e": {
       "tags": [],
       "implicitDependencies": ["websites-vrapalis-app"]
     },
-    "shared-model": {
-      "tags": ["scope:shared", "type:model"]
-    },
-    "shared-auth-model": {
-      "tags": ["scope:shared", "type:model"]
-    },
-    "shared-auth-state": {
-      "tags": ["scope:shared", "type:state"]
-    },
-    "shared-auth-feature-sing-in": {
-      "tags": ["scope:shared", "type:feature"]
-    },
-    "shared-auth-feature-sing-up": {
-      "tags": ["scope:shared", "type:feature"]
-    },
-    "shared-auth-util": {
-      "tags": ["scope:shared", "type:util"]
-    },
-    "entryou-feature-home": {
-      "tags": ["scope:entryou", "type:feature"]
-    },
-    "shared-auth-guard": {
-      "tags": ["scope:shared", "type:guard"]
-    },
-    "shared-auth-feature-profile": {
-      "tags": ["scope:shared", "type:feature"]
-    },
-    "entryou-feature-company": {
-      "tags": ["scope:entryou", "type:feature"]
-    },
-    "entryou-feature-private": {
-      "tags": ["scope:entryou", "type:feature"]
-    }
+    "shared-model": { "tags": ["scope:shared", "type:model"] },
+    "shared-auth-model": { "tags": ["scope:shared", "type:model"] },
+    "shared-auth-state": { "tags": ["scope:shared", "type:state"] },
+    "shared-auth-feature-sing-in": { "tags": ["scope:shared", "type:feature"] },
+    "shared-auth-feature-sing-up": { "tags": ["scope:shared", "type:feature"] },
+    "shared-auth-util": { "tags": ["scope:shared", "type:util"] },
+    "entryou-feature-home": { "tags": ["scope:entryou", "type:feature"] },
+    "shared-auth-guard": { "tags": ["scope:shared", "type:guard"] },
+    "shared-auth-feature-profile": { "tags": ["scope:shared", "type:feature"] },
+    "entryou-feature-company": { "tags": ["scope:entryou", "type:feature"] },
+    "entryou-feature-private": { "tags": ["scope:entryou", "type:feature"] },
+    "entryou-model": { "tags": ["scope:entryou", "type:model"] },
+    "entryou-data-access": { "tags": ["scope:entryou", "type:data-access"] }
   }
 }

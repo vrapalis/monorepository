@@ -23,7 +23,9 @@ public class LibsSecurityJwtServiceImpl implements LibsSecurityJwtService {
     public String generateJwtToken(LibsSecurityJpaUserEntity user) throws JsonProcessingException {
         return JWT.create()
                 .withIssuer(user.getEmail())
-                .withSubject(objectMapper.writeValueAsString(jwtMapper.mapToJwtUser(user)))
+//                TODO SHOW AFTER MAPPING ERROR, MEY BE BUG FROM MAPSTRUCT
+//                .withSubject(objectMapper.writeValueAsString(jwtMapper.mapToJwtUser(user)))
+                .withSubject(objectMapper.writeValueAsString(jwtMapper.mapToJwtUserWitchCheck(user)))
                 .withExpiresAt(new Date(System.currentTimeMillis() + jwtProperties.getExpireDate()))
                 .sign(algorithm);
     }
