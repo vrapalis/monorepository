@@ -725,6 +725,145 @@
           }
         }
       }
+    },
+    "entryou-state": {
+      "projectType": "library",
+      "root": "libs/entryou/state",
+      "sourceRoot": "libs/entryou/state/src",
+      "prefix": "web-browser",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/entryou/state/src/**/*.ts",
+              "libs/entryou/state/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/entryou/state"],
+          "options": {
+            "jestConfig": "libs/entryou/state/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "tutorials-rabbitmq-cl": {
+      "projectType": "application",
+      "root": "apps/tutorials/rabbitmq-cl",
+      "sourceRoot": "apps/tutorials/rabbitmq-cl/src",
+      "prefix": "web-browser",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/tutorials/rabbitmq-cl",
+            "index": "apps/tutorials/rabbitmq-cl/src/index.html",
+            "main": "apps/tutorials/rabbitmq-cl/src/main.ts",
+            "polyfills": "apps/tutorials/rabbitmq-cl/src/polyfills.ts",
+            "tsConfig": "apps/tutorials/rabbitmq-cl/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "apps/tutorials/rabbitmq-cl/src/favicon.ico",
+              "apps/tutorials/rabbitmq-cl/src/assets"
+            ],
+            "styles": ["apps/tutorials/rabbitmq-cl/src/styles.scss"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/tutorials/rabbitmq-cl/src/environments/environment.ts",
+                  "with": "apps/tutorials/rabbitmq-cl/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "tutorials-rabbitmq-cl:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "tutorials-rabbitmq-cl:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "tutorials-rabbitmq-cl:build"
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "apps/tutorials/rabbitmq-cl/src/**/*.ts",
+              "apps/tutorials/rabbitmq-cl/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/tutorials/rabbitmq-cl"],
+          "options": {
+            "jestConfig": "apps/tutorials/rabbitmq-cl/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "tutorials/rabbitmq-cl-e2e": {
+      "root": "apps/tutorials/rabbitmq-cl-e2e",
+      "sourceRoot": "apps/tutorials/rabbitmq-cl-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/tutorials/rabbitmq-cl-e2e/cypress.json",
+            "tsConfig": "apps/tutorials/rabbitmq-cl-e2e/tsconfig.e2e.json",
+            "devServerTarget": "tutorials-rabbitmq-cl:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "tutorials-rabbitmq-cl:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/tutorials/rabbitmq-cl-e2e/**/*.{js,ts}"]
+          }
+        }
+      }
     }
   },
   "defaultProject": "entryou-app",

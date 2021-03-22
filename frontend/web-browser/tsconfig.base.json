@@ -50,7 +50,8 @@
       "@web-browser/entryou/model": ["libs/entryou/model/src/index.ts"],
       "@web-browser/entryou/data-access": [
         "libs/entryou/data-access/src/index.ts"
-      ]
+      ],
+      "@web-browser/entryou/state": ["libs/entryou/state/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

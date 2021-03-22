@@ -50,6 +50,12 @@
     "entryou-feature-company": { "tags": ["scope:entryou", "type:feature"] },
     "entryou-feature-private": { "tags": ["scope:entryou", "type:feature"] },
     "entryou-model": { "tags": ["scope:entryou", "type:model"] },
-    "entryou-data-access": { "tags": ["scope:entryou", "type:data-access"] }
+    "entryou-data-access": { "tags": ["scope:entryou", "type:data-access"] },
+    "entryou-state": { "tags": [] },
+    "tutorials-rabbitmq-cl": { "tags": [] },
+    "tutorials/rabbitmq-cl-e2e": {
+      "tags": [],
+      "implicitDependencies": ["tutorials-rabbitmq-cl"]
+    }
   }
 }
