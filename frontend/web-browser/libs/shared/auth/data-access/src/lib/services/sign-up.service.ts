@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { SignUpModel } from '@web-browser/shared/auth/model';
-import { Observable, of, throwError } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
 import { ServerResponseModel } from '@web-browser/shared/model';
 import { catchError } from 'rxjs/operators';
 

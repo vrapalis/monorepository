@@ -16,4 +16,5 @@ public class LibsSecurityDtosUserMsg {
     public static final String RESET_PASSWORD_CONFIRM_SUCCESS_MSG = "Reset password successful";
     public static final String RESET_PASSWORD_CONFIRM_ERROR_MSG = "Reset password failed.";
     public static final String RESET_PASSWORD_ERROR_CONFIRM_DETAILED_MSG = "Reset password failed, try it later.";
+    public static final String USER_INFO_ERROR_MSG = "User info not found.";
 }

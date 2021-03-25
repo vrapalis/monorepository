@@ -5,16 +5,17 @@ import com.vrapalis.www.libs.cloud.discovery.domains.app.LibsCloudDiscoveryAppUr
 import com.vrapalis.www.libs.push.api.domains.email.LibsPushApisEmailCall;
 import com.vrapalis.www.libs.push.dtos.domains.email.LibsPushDtosEmailDto;
 import com.vrapalis.www.libs.security.dtos.domains.user.*;
-import com.vrapalis.www.libs.security.entities.domains.organization.LibsSecurityJpaUserOrganizationType;
 import com.vrapalis.www.libs.security.entities.domains.role.LibsSecurityJpaRoleEntity;
 import com.vrapalis.www.libs.security.entities.domains.user.LibsSecurityJpaUserConfirmEntity;
 import com.vrapalis.www.libs.security.entities.domains.user.LibsSecurityJpaUserEntity;
-import com.vrapalis.www.libs.security.errors.domains.authentication.*;
+import com.vrapalis.www.libs.security.entities.domains.user.LibsSecurityJpaUserInfoEntity;
+import com.vrapalis.www.libs.security.errors.domains.user.*;
 import com.vrapalis.www.libs.security.mappers.domains.user.LibsSecurityMappersUser;
 import com.vrapalis.www.libs.security.properties.domains.user.LibsSecurityPropertiesUserSignUpEmailProperties;
 import com.vrapalis.www.libs.security.repositories.domains.organization.LibsSecurityJpaOrganizationTypeRepository;
 import com.vrapalis.www.libs.security.repositories.domains.user.LibsSecurityJpaUserConfirmEntityRepository;
 import com.vrapalis.www.libs.security.repositories.domains.user.LibsSecurityJpaUserEntityRepository;
+import com.vrapalis.www.libs.security.repositories.domains.user.LibsSecurityJpaUserInfoEntityRepository;
 import com.vrapalis.www.libs.security.services.domains.jwt.LibsSecurityJwtService;
 import com.vrapalis.www.libs.web.dto.LibsWebDtoServerAbstractResponse;
 import lombok.AllArgsConstructor;
@@ -46,6 +47,7 @@ public class LibsSecurityUserServiceImpl implements LibsSecurityUserService {
     private LibsSecurityJpaUserConfirmEntityRepository confirmUserRepository;
     private LibsSecurityPropertiesUserSignUpEmailProperties signUpEmailProperties;
     private LibsSecurityJpaOrganizationTypeRepository organizationTypeRepository;
+    private LibsSecurityJpaUserInfoEntityRepository infoEntityRepository;
 
     @Override
     public ResponseEntity<LibsWebDtoServerAbstractResponse> signIn(LibsSecurityDtoSignInUser signInUser)
@@ -182,6 +184,18 @@ public class LibsSecurityUserServiceImpl implements LibsSecurityUserService {
             throw new LibsSecurityErrorResetPasswordConfirm();
         }
         return ResponseEntity.ok(new LibsSecurityDtosResetPasswordConfirmSuccessResponse());
+    }
+
+    @Override
+    public ResponseEntity<LibsSecurityDtoUserInfo> getUserInfoById(Integer id) throws LibsSecurityErrorEntityNotFound {
+        LibsSecurityDtoUserInfo infoDto;
+        try {
+            final var infoEntity = infoEntityRepository.findById(id).orElseThrow(EntityNotFoundException::new);
+             infoDto = mappersUser.mapUserInfoEntityToDto(infoEntity);
+        } catch (Exception ex) {
+            throw new LibsSecurityErrorEntityNotFound(id);
+        }
+        return ResponseEntity.ok(infoDto);
     }
 
     private void prepareUserEntityConfirmForSignUp(LibsSecurityJpaUserEntity userEntity) {

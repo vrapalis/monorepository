@@ -23,6 +23,8 @@ public class LibsSecurityJpaUserInfoEntity extends LibsSecurityJpaAbstractEntity
 
     private String firstName;
 
+    private String companyName;
+
     private Integer age;
 
     @OneToOne

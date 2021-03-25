@@ -10,6 +10,7 @@ import { SharedUtilModule } from '@web-browser/shared/util';
 import { EntryouUiModule } from '@web-browser/entryou/ui';
 import { QrCodeScannerModule } from '@web-browser/shared/ui';
 import { CheckInModule } from '@web-browser/entryou/data-access';
+import { EntryouStateModule } from '@web-browser/entryou/state';
 
 @NgModule({
   imports: [
@@ -19,7 +20,9 @@ import { CheckInModule } from '@web-browser/entryou/data-access';
     SharedUtilModule,
     EntryouUiModule,
     QrCodeScannerModule,
-    CheckInModule
+    CheckInModule,
+    EntryouStateModule,
+    SharedAuthStateModule
   ],
   declarations: [PrivateContainerComponent, PrivateComponent],
   providers: [PrivateGuardService]

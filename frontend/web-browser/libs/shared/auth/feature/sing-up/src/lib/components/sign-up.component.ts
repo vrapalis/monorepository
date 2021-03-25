@@ -5,6 +5,7 @@ import { SelectionModel } from '@web-browser/shared/model';
 import { OrganizationType, SignUpModel } from '@web-browser/shared/auth/model';
 import { Store } from '@ngrx/store';
 import { signUpAction } from '@web-browser/shared/auth/state';
+import { filter, tap } from 'rxjs/operators';
 
 @Component({
   selector: 'web-browser-sign-up',
@@ -20,6 +21,9 @@ import { signUpAction } from '@web-browser/shared/auth/state';
                           [selection]='organizationTypeSelection'
                           matHintStart='Organization type is required'>
       </sh-ui-in-selection>
+      <sh-ui-in-name label='Company Name' placeHolder='Your company name' [control]='companyName'
+                     *ngIf="organizationTypeName.value === 'company'">
+      </sh-ui-in-name>
       <div class='text-end mt-3'>
         <sh-ui-flat-button type='primary' [disabled]='!isFormValid()' (click)='submitForm()'>
           Sign up
@@ -37,6 +41,7 @@ export class SignUpComponent {
   organizationTypeName: FormControl;
   firstName: FormControl;
   surname: FormControl;
+  companyName: FormControl;
   organizationTypeSelection: SelectionModel;
 
   constructor(private fb: FormBuilder,
@@ -59,6 +64,7 @@ export class SignUpComponent {
     this.password = this.utilForm.createPasswordControl();
     this.firstName = this.utilForm.createNameControl();
     this.surname = this.utilForm.createNameControl();
+    this.companyName = this.utilForm.createNameControl();
     this.passwordRepeated = this.utilForm.createPasswordControl();
     this.organizationTypeName = this.utilForm.createOrganizationTypeSelectionControl('private' as OrganizationType);
 
@@ -68,8 +74,19 @@ export class SignUpComponent {
       passwordRepeated: this.passwordRepeated,
       firstName: this.firstName,
       surname: this.surname,
+      // companyName: this.companyName,
       organizationTypeName: this.organizationTypeName
     });
+
+    this.organizationTypeName.valueChanges
+      .pipe()
+      .subscribe(value => {
+        if (value === 'company') {
+          this.form.addControl('companyName', this.companyName);
+        } else {
+          this.form.removeControl('companyName');
+        }
+      });
   }
 
   // BUTTON DISABLE BUG AFTER FIX CHECK FORM CAN BE DELETED

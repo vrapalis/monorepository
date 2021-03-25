@@ -92,7 +92,8 @@ public class LibsSecurityRestcontrollersMainSecurityConfiguration extends WebSec
                 .antMatchers("/api/users/sign-in", "/api/users/sign-up", "/api/users/sign-up-confirm",
                         "/api/users/reset-password", "/api/users/reset-password/confirm")
                 .permitAll()
-                .antMatchers("/api/users").permitAll()
+                //  TODO DECIDE WHICH APIS ARE OPEN
+                .antMatchers("/api/users/info/*").permitAll()
                 .anyRequest().authenticated();
     }
 

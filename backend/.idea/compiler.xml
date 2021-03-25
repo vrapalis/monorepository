@@ -12,6 +12,7 @@
         <module name="backend.libs.web.dto.test" />
         <module name="backend.libs.security.repositories.test" />
         <module name="backend.libs.push.restcontrollers.test" />
+        <module name="backend.libs.security.apis.test" />
         <module name="backend.libs.push.apis.test" />
         <module name="backend.apps.entryou.uaa.test" />
         <module name="backend.libs.security.projections.test" />
@@ -57,6 +58,7 @@
         <module name="backend.libs.push.apis.main" />
         <module name="backend.libs.push.urls.main" />
         <module name="backend.libs.security.errors.main" />
+        <module name="backend.libs.security.apis.main" />
         <module name="backend.libs.security.uaa.main" />
         <module name="backend.libs.cloud.discovery.main" />
         <module name="backend.libs.push.app.main" />

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpResponse } from '@angular/common/http';
 import { SignInModel } from '@web-browser/shared/auth/model';
-import { Observable, of } from 'rxjs';
+import { Observable } from 'rxjs';
 import { SignInSuccessResponse } from '@web-browser/shared/model';
 
 @Injectable()

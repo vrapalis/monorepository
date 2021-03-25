@@ -1,10 +1,7 @@
 package com.vrapalis.www.libs.security.services.domains.user;
 
-import com.vrapalis.www.libs.security.dtos.domains.user.LibsSecurityDtoSignInUser;
-import com.vrapalis.www.libs.security.dtos.domains.user.LibsSecurityDtosResetPassword;
-import com.vrapalis.www.libs.security.dtos.domains.user.LibsSecurityDtosResetPasswordConfirm;
-import com.vrapalis.www.libs.security.dtos.domains.user.LibsSecurityDtosSignUpUser;
-import com.vrapalis.www.libs.security.errors.domains.authentication.*;
+import com.vrapalis.www.libs.security.dtos.domains.user.*;
+import com.vrapalis.www.libs.security.errors.domains.user.*;
 import com.vrapalis.www.libs.web.dto.LibsWebDtoServerAbstractResponse;
 import org.springframework.http.ResponseEntity;
 
@@ -22,4 +19,6 @@ public interface LibsSecurityUserService {
 
     ResponseEntity<LibsWebDtoServerAbstractResponse> resetPasswordConfirm(LibsSecurityDtosResetPasswordConfirm dto)
             throws LibsSecurityErrorResetPasswordConfirm;
+
+    ResponseEntity<LibsSecurityDtoUserInfo> getUserInfoById(Integer id) throws LibsSecurityErrorEntityNotFound;
 }

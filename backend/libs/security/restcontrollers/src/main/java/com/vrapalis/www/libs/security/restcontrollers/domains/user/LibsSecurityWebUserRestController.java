@@ -2,7 +2,7 @@ package com.vrapalis.www.libs.security.restcontrollers.domains.user;
 
 import com.vrapalis.www.libs.errors.LibsErrorBeanValidation;
 import com.vrapalis.www.libs.security.dtos.domains.user.*;
-import com.vrapalis.www.libs.security.errors.domains.authentication.*;
+import com.vrapalis.www.libs.security.errors.domains.user.*;
 import com.vrapalis.www.libs.web.dto.LibsWebDtoServerAbstractResponse;
 import com.vrapalis.www.libs.web.dto.LibsWebDtoServerBeanValidationErrorResponse;
 import io.swagger.annotations.*;
@@ -83,4 +83,14 @@ public interface LibsSecurityWebUserRestController {
             (@ApiParam(value = "confirm reset password dto model") @Valid @RequestBody
                      LibsSecurityDtosResetPasswordConfirm dto, BindingResult result)
             throws LibsSecurityErrorResetPasswordConfirm, LibsErrorBeanValidation;
+
+    @GetMapping(path = LibsSecurityWebUserApiUrls.USER_API_INFO_URL_V1 + "/{id}", produces = "application/json")
+    @ApiOperation(value = "Get user info endpoint", notes = "Endpoint to get user info")
+    @ApiResponses({
+            @ApiResponse(code = 200, message = "Get user success",
+                    response = LibsSecurityDtoUserInfo.class),
+            @ApiResponse(code = 400, message = "Reset password error",
+                    response = LibsSecurityDtosUserInfoErrorResponse.class)
+    })
+    ResponseEntity<LibsSecurityDtoUserInfo> getUserInfoById(@PathVariable Integer id) throws LibsSecurityErrorEntityNotFound;
 }

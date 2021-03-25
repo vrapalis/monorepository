@@ -35,6 +35,7 @@
             <option value="$PROJECT_DIR$/libs/push/services" />
             <option value="$PROJECT_DIR$/libs/push/urls" />
             <option value="$PROJECT_DIR$/libs/security" />
+            <option value="$PROJECT_DIR$/libs/security/apis" />
             <option value="$PROJECT_DIR$/libs/security/dtos" />
             <option value="$PROJECT_DIR$/libs/security/entities" />
             <option value="$PROJECT_DIR$/libs/security/errors" />

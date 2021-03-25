@@ -1,7 +1,9 @@
 package com.vrapalis.www.libs.security.mappers.domains.user;
 
+import com.vrapalis.www.libs.security.dtos.domains.user.LibsSecurityDtoUserInfo;
 import com.vrapalis.www.libs.security.dtos.domains.user.LibsSecurityDtosSignUpUser;
 import com.vrapalis.www.libs.security.entities.domains.user.LibsSecurityJpaUserEntity;
+import com.vrapalis.www.libs.security.entities.domains.user.LibsSecurityJpaUserInfoEntity;
 import com.vrapalis.www.libs.security.mappers.domains.common.LibsSecurityMapperDefaultFactory;
 import org.mapstruct.*;
 
@@ -24,7 +26,10 @@ public interface LibsSecurityMappersUser {
             @Mapping(target = "modifiedBy", ignore = true),
             @Mapping(target = "roles", ignore = true),
             @Mapping(target = "id", ignore = true),
-            @Mapping(target = "info.organizationType.name", source = "organizationTypeName")
+            @Mapping(target = "info.organizationType.name", source = "organizationTypeName"),
+            @Mapping(target = "info.companyName", source = "companyName")
     })
     LibsSecurityJpaUserEntity signUpDtoMapToUserEntity(LibsSecurityDtosSignUpUser userDto);
+
+    LibsSecurityDtoUserInfo mapUserInfoEntityToDto(LibsSecurityJpaUserInfoEntity infoEntity);
 }

@@ -1,6 +1,6 @@
 package com.vrapalis.www.libs.security.dtos.domains.user;
 
-import com.vrapalis.www.libs.security.errors.domains.authentication.LibsSecurityErrorAuthenticationMsg;
+import com.vrapalis.www.libs.security.errors.domains.user.LibsSecurityErrorAuthenticationMsg;
 import com.vrapalis.www.libs.web.dto.LibsWebDtoServerErrorResponse;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Builder;

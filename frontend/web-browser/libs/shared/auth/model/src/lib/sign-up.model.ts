@@ -5,4 +5,5 @@ export interface SignUpModel extends SignInModel {
   readonly organizationTypeName: OrganizationType;
   readonly firstName: string;
   readonly surname: string;
+  readonly companyName?: string;
 }

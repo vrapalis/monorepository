@@ -1,14 +1,9 @@
 import { createAction, props } from '@ngrx/store';
-import { EntryouEntity } from './entryou.models';
+import { CheckInModel } from '@web-browser/entryou/model';
 
+// TODO COULD BE DELETED
 export const init = createAction('[Entryou Page] Init');
 
-export const loadEntryouSuccess = createAction(
-  '[Entryou/API] Load Entryou Success',
-  props<{ entryou: EntryouEntity[] }>()
-);
-
-export const loadEntryouFailure = createAction(
-  '[Entryou/API] Load Entryou Failure',
-  props<{ error: any }>()
-);
+export const CHECK_IN_ACTION = createAction('[Check In Action]', props<{ checkInModel: CheckInModel }>());
+export const CHECK_IN_ACTION_SUCCESS = createAction('[Check In Success Action]');
+export const CHECK_IN_ACTION_FAILURE = createAction('[Check In Failure Action]', props<{ error }>());

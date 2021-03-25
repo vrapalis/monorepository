@@ -4,7 +4,7 @@ import com.vrapalis.www.libs.security.dtos.domains.user.LibsSecurityDtoSignInUse
 import com.vrapalis.www.libs.security.dtos.domains.user.LibsSecurityDtosSignUpSuccessResponse;
 import com.vrapalis.www.libs.security.dtos.domains.user.LibsSecurityDtosSignUpUser;
 import com.vrapalis.www.libs.security.dtos.domains.user.LibsSecurityDtosUserMsg;
-import com.vrapalis.www.libs.security.errors.domains.authentication.LibsSecurityErrorSignIn;
+import com.vrapalis.www.libs.security.errors.domains.user.LibsSecurityErrorSignIn;
 import com.vrapalis.www.libs.security.restcontrollers.AbstractControllerTest;
 import com.vrapalis.www.libs.security.restcontrollers.domains.user.LibsSecurityWebUserApiUrls;
 import com.vrapalis.www.libs.security.services.domains.user.LibsSecurityUserService;

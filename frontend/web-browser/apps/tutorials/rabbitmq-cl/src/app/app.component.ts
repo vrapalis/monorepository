@@ -26,16 +26,13 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.rxStompService.watch('/exchange/my_queue').subscribe((message: Message) => {
-      this.message = message.body;
-    });
+    const random = Math.floor(Math.random() * 100)
 
-    this.rxStompService.watch('queue-1').subscribe((message: Message) => {
-      this.message = message.body;
-    });
+    this.rxStompService.watch('/topic/my-topic').subscribe(value => this.message = value.body);
+
   }
 
   publish(value: string) {
-    this.rxStompService.publish({destination: 'queue-1', body: value});
+    this.rxStompService.publish({ destination: '/topic/my-topic', body: value });
   }
 }

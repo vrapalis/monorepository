@@ -1,4 +1,4 @@
-package com.vrapalis.www.libs.security.errors.domains.authentication;
+package com.vrapalis.www.libs.security.errors.domains.user;
 
 public final class LibsSecurityErrorAuthenticationMsg {
     public static final String SIGN_IN_ERROR_MSG = "Sign in error";

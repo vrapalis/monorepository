@@ -1,4 +1,4 @@
-package com.vrapalis.www.libs.security.errors.domains.authentication;
+package com.vrapalis.www.libs.security.errors.domains.user;
 
 import com.vrapalis.www.libs.security.errors.domains.common.LibsSecurityErrorAbstract;
 import lombok.*;

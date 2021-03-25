@@ -1,6 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { QrCodeModel } from '@web-browser/entryou/model';
-import { CheckInService } from '@web-browser/entryou/data-access';
+import { Store } from '@ngrx/store';
+import { CHECK_IN_ACTION, EntryouState } from '@web-browser/entryou/state';
+import { UserModel } from '@web-browser/shared/auth/model';
+import { Subject } from 'rxjs';
+import { selectAuthUserState } from '@web-browser/shared/auth/state';
+import { takeUntil } from 'rxjs/operators';
 
 
 @Component({
@@ -12,12 +17,26 @@ import { CheckInService } from '@web-browser/entryou/data-access';
   `,
   styles: []
 })
-export class PrivateContainerComponent {
+export class PrivateContainerComponent implements OnDestroy {
+  private userId: string;
+  private unsubscription$ = new Subject<void>();
 
-  constructor(private checkInService: CheckInService) {
+  constructor(private state: Store<EntryouState>, private authState: Store<UserModel>) {
+    this.authState.select(selectAuthUserState)
+      .pipe(takeUntil(this.unsubscription$))
+      .subscribe(user => {
+        if (user.info) {
+          this.userId = user.info.id.toString();
+        }
+      });
   }
 
   onQrCodeScan(qrCode: QrCodeModel) {
-    this.checkInService.checkIn().subscribe((msg) => console.log(qrCode));
+    this.state.dispatch(CHECK_IN_ACTION({ checkInModel: { entryId: qrCode.id, guestId: this.userId } }));
+  }
+
+  ngOnDestroy(): void {
+    this.unsubscription$.next();
+    this.unsubscription$.complete();
   }
 }

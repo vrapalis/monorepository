@@ -12,6 +12,7 @@ import lombok.NoArgsConstructor;
 public class LibsSecurityDtoJwtUserInfo {
     private String surname;
     private String firstName;
+    private String companyName;
     private Byte age;
     private String organizationTypeName;
     private Integer id;

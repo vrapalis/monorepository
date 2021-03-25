@@ -6,7 +6,8 @@ export interface UserModel {
     surname: string,
     firstName: string,
     age: number,
-    id: number
+    id: number,
+    companyName?: string,
   };
   readonly roles: any;
 }
