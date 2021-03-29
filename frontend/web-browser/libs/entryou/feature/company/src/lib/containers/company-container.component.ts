@@ -6,6 +6,8 @@ import { Store } from '@ngrx/store';
 import { UserModel } from '@web-browser/shared/auth/model';
 import { Observable } from 'rxjs';
 import { selectAuthUserState } from '@web-browser/shared/auth/state';
+import { RxStompService } from '@stomp/ng2-stompjs';
+import { tap } from 'rxjs/operators';
 
 @Component({
   selector: 'web-browser-company-container',
@@ -34,12 +36,21 @@ export class CompanyContainerComponent {
   view: ECompanyButtonTypeModel;
   user$: Observable<UserModel>;
 
-  constructor(private authState: Store<UserModel>) {
-    this.user$ = authState.select(selectAuthUserState);
+  constructor(private authState: Store<UserModel>, private rxStompService: RxStompService) {
+    this.user$ = authState.select(selectAuthUserState)
+      .pipe(
+        tap(user => {
+          if (user.info) {
+            this.rxStompService.watch(`/exchange/check-in-exchange/${user.info.id}`).subscribe(value => {
+              console.log(value);
+            });
+          }
+        })
+      );
   }
 
   downloadPdf(pdfContainer: HTMLDivElement) {
-    html2canvas(pdfContainer,  {
+    html2canvas(pdfContainer, {
       scrollX: -window.scrollX,
       scrollY: -window.scrollY,
       windowWidth: document.documentElement.offsetWidth,
@@ -55,7 +66,7 @@ export class CompanyContainerComponent {
         const imageWidth = 208;
         const imageHeight = canvas.height * imageWidth / canvas.width;
 
-        pdf.addImage(image, 'JPEG',0, 0, imageWidth, imageHeight);
+        pdf.addImage(image, 'JPEG', 0, 0, imageWidth, imageHeight);
         pdf.save('qr-code.pdf');
       }).catch(err => console.error(err));
   }

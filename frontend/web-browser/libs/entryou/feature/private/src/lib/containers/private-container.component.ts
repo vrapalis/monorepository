@@ -32,7 +32,13 @@ export class PrivateContainerComponent implements OnDestroy {
   }
 
   onQrCodeScan(qrCode: QrCodeModel) {
-    this.state.dispatch(CHECK_IN_ACTION({ checkInModel: { entryId: qrCode.id, guestId: this.userId } }));
+    this.state.dispatch(CHECK_IN_ACTION({
+      checkInModel: {
+        entryId: qrCode.id,
+        guestId: this.userId,
+        arriveOn: new Date()
+      }
+    }));
   }
 
   ngOnDestroy(): void {

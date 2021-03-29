@@ -19,4 +19,6 @@ public class GuestEntity implements Serializable {
     @SequenceGenerator(name = "guest_id_seq", sequenceName = "guest_id_seq", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "guest_id_seq")
     private Integer id;
+
+    private Boolean isCheckedIn;
 }

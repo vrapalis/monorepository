@@ -11,6 +11,8 @@ import { QrCodeComponent } from './components/qr-code/qr-code.component';
 import { QuestsComponent } from './components/quests.component';
 import { QRCodeModule } from 'angularx-qrcode';
 import { LogoModule, RaisedButtonModule } from '@web-browser/shared/ui';
+import { InjectableRxStompConfig, RxStompService, rxStompServiceFactory } from '@stomp/ng2-stompjs';
+import { rxStompConfig } from './configs/rx-stomp.config';
 
 @NgModule({
   imports: [
@@ -24,6 +26,18 @@ import { LogoModule, RaisedButtonModule } from '@web-browser/shared/ui';
     LogoModule
   ],
   declarations: [CompanyComponent, CompanyContainerComponent, QrCodeComponent, QuestsComponent],
-  providers: [CompanyGuardService]
+  providers: [
+    CompanyGuardService,
+    {
+      provide: InjectableRxStompConfig,
+      useValue: rxStompConfig
+    },
+    {
+      provide: RxStompService,
+      useFactory: rxStompServiceFactory,
+      deps: [InjectableRxStompConfig]
+    }
+  ]
 })
-export class EntryouFeatureCompanyModule {}
+export class EntryouFeatureCompanyModule {
+}

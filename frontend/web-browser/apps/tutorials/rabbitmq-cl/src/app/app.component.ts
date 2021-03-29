@@ -28,7 +28,8 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     const random = Math.floor(Math.random() * 100)
 
-    this.rxStompService.watch('/topic/my-topic').subscribe(value => this.message = value.body);
+    // this.rxStompService.watch('/topic/my-topic').subscribe(value => this.message = value.body);
+    this.rxStompService.watch('/exchange/check-in-exchange/1').subscribe(value => this.message = value.body);
 
   }
 

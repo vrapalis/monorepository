@@ -14,15 +14,15 @@ public interface CheckInMapper {
     @Mappings({
             @Mapping(source = "entryId", target = "id.entryId"),
             @Mapping(source = "guestId", target = "id.guestId"),
+            @Mapping(source = "arriveOn", target = "id.arriveOn")
     })
     CheckInEntity mapToEntity(CheckinDtoModel dto);
 
     default CheckInEntity mapAndCheck(CheckinDtoModel dto) {
         assertThatIdsNotTheSame(dto);
         final var checkInEntity = this.mapToEntity(dto);
-        checkInEntity.getId().setArriveOn(new Date());
         checkInEntity.setEntry(EntryEntity.builder().id(dto.getEntryId()).build());
-        checkInEntity.setGuest(GuestEntity.builder().id(dto.getGuestId()).build());
+        checkInEntity.setGuest(GuestEntity.builder().id(dto.getGuestId()).isCheckedIn(true).build());
         return checkInEntity;
     }
 

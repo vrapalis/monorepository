@@ -4,6 +4,9 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-security'
     runtimeOnly 'org.postgresql:postgresql'
 
+    implementation 'org.springframework.boot:spring-boot-starter-amqp'
+    testImplementation 'org.springframework.amqp:spring-rabbit-test'
+
     implementation project(':libs:documentation:swagger')
     implementation project(':libs:commons')
     implementation project(':libs:web:dto')
