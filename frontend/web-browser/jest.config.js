@@ -32,5 +32,6 @@ module.exports = {
     '<rootDir>/libs/entryou/data-access',
     '<rootDir>/libs/entryou/state',
     '<rootDir>/apps/tutorials/rabbitmq-cl',
+    '<rootDir>/libs/entryou/utils',
   ],
 };

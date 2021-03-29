@@ -56,6 +56,7 @@
     "tutorials/rabbitmq-cl-e2e": {
       "tags": [],
       "implicitDependencies": ["tutorials-rabbitmq-cl"]
-    }
+    },
+    "entryou-utils": { "tags": ["scope:entryou", "type:util"] }
   }
 }

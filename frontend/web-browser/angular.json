@@ -864,6 +864,31 @@
           }
         }
       }
+    },
+    "entryou-utils": {
+      "projectType": "library",
+      "root": "libs/entryou/utils",
+      "sourceRoot": "libs/entryou/utils/src",
+      "prefix": "web-browser",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/entryou/utils/src/**/*.ts",
+              "libs/entryou/utils/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/entryou/utils"],
+          "options": {
+            "jestConfig": "libs/entryou/utils/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
     }
   },
   "defaultProject": "entryou-app",

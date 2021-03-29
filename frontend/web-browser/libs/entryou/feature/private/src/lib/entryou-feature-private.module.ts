@@ -11,6 +11,7 @@ import { EntryouUiModule } from '@web-browser/entryou/ui';
 import { QrCodeScannerModule } from '@web-browser/shared/ui';
 import { CheckInModule } from '@web-browser/entryou/data-access';
 import { EntryouStateModule } from '@web-browser/entryou/state';
+import { CheckOutComponent } from './components/check-out.component';
 
 @NgModule({
   imports: [
@@ -24,7 +25,7 @@ import { EntryouStateModule } from '@web-browser/entryou/state';
     EntryouStateModule,
     SharedAuthStateModule
   ],
-  declarations: [PrivateContainerComponent, PrivateComponent],
+  declarations: [PrivateContainerComponent, PrivateComponent, CheckOutComponent],
   providers: [PrivateGuardService]
 })
 export class EntryouFeaturePrivateModule {

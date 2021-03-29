@@ -16,7 +16,5 @@ import java.io.Serializable;
 @Table(name = "entry")
 public class EntryEntity implements Serializable {
     @Id
-    @SequenceGenerator(name = "entry_id_seq", sequenceName = "entry_id_seq", allocationSize = 1)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "entry_id_seq")
     private Integer id;
 }

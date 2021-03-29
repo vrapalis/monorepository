@@ -1,5 +1,7 @@
 package com.vrapalis.www.entryou.entry.domain.checkin.entities;
 
+import com.vrapalis.www.entryou.entry.domain.entry.EntryEntity;
+import com.vrapalis.www.entryou.entry.domain.guest.GuestEntity;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -18,8 +20,10 @@ public class CheckInIdEntity implements Serializable {
     @Temporal(TemporalType.TIMESTAMP)
     private Date arriveOn;
 
-    private Integer entryId;
+    @OneToOne(cascade = {CascadeType.ALL})
+    private EntryEntity entry;
 
-    private Integer guestId;
+    @OneToOne(cascade = {CascadeType.ALL})
+    private GuestEntity guest;
 
 }

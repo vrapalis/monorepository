@@ -12,17 +12,18 @@ import java.util.Date;
 public interface CheckInMapper {
 
     @Mappings({
-            @Mapping(source = "entryId", target = "id.entryId"),
-            @Mapping(source = "guestId", target = "id.guestId"),
+            @Mapping(source = "entryId", target = "id.entry.id"),
+            @Mapping(source = "guestId", target = "id.guest.id"),
             @Mapping(source = "arriveOn", target = "id.arriveOn")
     })
     CheckInEntity mapToEntity(CheckinDtoModel dto);
 
-    default CheckInEntity mapAndCheck(CheckinDtoModel dto) {
+    @InheritInverseConfiguration
+    CheckinDtoModel toDto(CheckInEntity entity);
+
+    default CheckInEntity mapAndCheckIn(CheckinDtoModel dto) {
         assertThatIdsNotTheSame(dto);
         final var checkInEntity = this.mapToEntity(dto);
-        checkInEntity.setEntry(EntryEntity.builder().id(dto.getEntryId()).build());
-        checkInEntity.setGuest(GuestEntity.builder().id(dto.getGuestId()).isCheckedIn(true).build());
         return checkInEntity;
     }
 

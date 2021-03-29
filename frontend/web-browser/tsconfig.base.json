@@ -51,7 +51,8 @@
       "@web-browser/entryou/data-access": [
         "libs/entryou/data-access/src/index.ts"
       ],
-      "@web-browser/entryou/state": ["libs/entryou/state/src/index.ts"]
+      "@web-browser/entryou/state": ["libs/entryou/state/src/index.ts"],
+      "@web-browser/entryou/utils": ["libs/entryou/utils/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

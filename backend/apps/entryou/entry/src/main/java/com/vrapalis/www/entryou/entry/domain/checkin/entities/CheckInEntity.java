@@ -21,14 +21,6 @@ public class CheckInEntity implements Serializable {
     @EmbeddedId
     private CheckInIdEntity id;
 
-    @OneToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
-    @MapsId("entryId")
-    private EntryEntity entry;
-
-    @OneToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
-    @MapsId("guestId")
-    private GuestEntity guest;
-
     @OneToOne(mappedBy = "checkIn")
     private CheckOutEntity checkOut;
 }
