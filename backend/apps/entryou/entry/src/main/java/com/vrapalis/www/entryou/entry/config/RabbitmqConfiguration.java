@@ -10,9 +10,7 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class RabbitmqConfiguration {
-    static final String directExchangeName = "check-in-exchange";
-
-    static final String queueName = "spring-boot";
+    public static final String directExchangeName = "check-in-exchange";
 
     //    @Bean
     //    Queue queue() {

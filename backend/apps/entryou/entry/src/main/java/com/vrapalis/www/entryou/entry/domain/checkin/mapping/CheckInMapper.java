@@ -6,6 +6,10 @@ import com.vrapalis.www.entryou.entry.domain.entry.EntryEntity;
 import com.vrapalis.www.entryou.entry.domain.guest.GuestEntity;
 import org.mapstruct.*;
 
+import java.time.Instant;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.ZoneOffset;
 import java.util.Date;
 
 @Mapper(componentModel = "spring", injectionStrategy = InjectionStrategy.CONSTRUCTOR)

@@ -1,3 +1,13 @@
 .unBg {
   background: none;
 }
+
+button:active {
+  outline: none !important;
+  border: none !important;
+}
+
+button:focus {
+  outline: none !important;
+  border: none !important;
+}

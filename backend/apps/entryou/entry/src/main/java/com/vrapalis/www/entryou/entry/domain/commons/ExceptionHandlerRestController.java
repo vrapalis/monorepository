@@ -2,6 +2,8 @@ package com.vrapalis.www.entryou.entry.domain.commons;
 
 import com.vrapalis.www.entryou.entry.domain.checkin.dto.CheckinErrorDto;
 import com.vrapalis.www.entryou.entry.domain.checkin.exceptions.CheckInException;
+import com.vrapalis.www.entryou.entry.domain.checkout.dtos.CheckOutErrorResponseDto;
+import com.vrapalis.www.entryou.entry.domain.checkout.exceptions.CheckOutException;
 import com.vrapalis.www.libs.errors.LibsErrorBeanValidation;
 import com.vrapalis.www.libs.web.dto.LibsWebDtoServerBeanValidationErrorResponse;
 import org.springframework.http.HttpHeaders;
@@ -41,6 +43,19 @@ public class ExceptionHandlerRestController extends ResponseEntityExceptionHandl
     @ExceptionHandler(value = CheckInException.class)
     protected ResponseEntity<Object> checkinExceptionHandler(CheckInException ex, WebRequest request) {
         final var errorResponse = CheckinErrorDto.builder().build();
+        return handleExceptionInternal(ex, errorResponse, new HttpHeaders(), HttpStatus.UNPROCESSABLE_ENTITY, request);
+    }
+
+    /**
+     * Checkout exception handler.
+     *
+     * @param ex
+     * @param request
+     * @return
+     */
+    @ExceptionHandler(value = CheckOutException.class)
+    protected ResponseEntity<Object> checkOutExceptionHandler(CheckOutException ex, WebRequest request) {
+        final var errorResponse = new CheckOutErrorResponseDto();
         return handleExceptionInternal(ex, errorResponse, new HttpHeaders(), HttpStatus.UNPROCESSABLE_ENTITY, request);
     }
 }

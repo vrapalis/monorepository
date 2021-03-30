@@ -1,5 +1,6 @@
 package com.vrapalis.www.entryou.entry.domain.checkin.services;
 
+import com.vrapalis.www.entryou.entry.config.RabbitmqConfiguration;
 import com.vrapalis.www.entryou.entry.domain.checkin.dto.CheckinDtoModel;
 import com.vrapalis.www.entryou.entry.domain.checkin.dto.CheckinSuccessDto;
 import com.vrapalis.www.entryou.entry.domain.checkin.entities.CheckInEntity;
@@ -15,6 +16,7 @@ import com.vrapalis.www.libs.security.apis.domains.user.UserApisCall;
 import com.vrapalis.www.libs.security.dtos.domains.user.LibsSecurityDtoUserInfo;
 import com.vrapalis.www.libs.web.dto.LibsWebDtoServerAbstractResponse;
 import lombok.AllArgsConstructor;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
@@ -27,6 +29,7 @@ public class CheckInServiceImpl implements CheckInService {
     private LibsCloudDiscoveryAppUriDeliverer appUriDeliverer;
     private EntryRepository entryRepository;
     private GuestRepository guestRepository;
+    private RabbitTemplate rabbitTemplate;
 
     @Override
     public ResponseEntity<LibsWebDtoServerAbstractResponse> addCheckIn(CheckinDtoModel checkinDto) throws CheckInException {
@@ -46,9 +49,11 @@ public class CheckInServiceImpl implements CheckInService {
                     .map(uri -> uri.toString())
                     .orElseThrow(RuntimeException::new);
             userInfo = userApisCall.getUserInfoById(uaaAppHostUrl, checkinDto.getEntryId()).getBody();
+            rabbitTemplate.convertAndSend(RabbitmqConfiguration.directExchangeName, checkinDto.getEntryId().toString(), checkinDto.getGuestId());
         } catch (Exception ex) {
             throw new CheckInException();
         }
-        return ResponseEntity.ok(new CheckinSuccessDto(userInfo, checkInMapper.toDto(checkInEntity)));
+        final var lastCheckIn = checkInMapper.toDto(checkInEntity);
+        return ResponseEntity.ok(new CheckinSuccessDto(userInfo, lastCheckIn));
     }
 }

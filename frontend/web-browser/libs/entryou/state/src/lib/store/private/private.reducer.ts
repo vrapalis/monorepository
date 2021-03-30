@@ -1,5 +1,5 @@
 import { createReducer, Action, on } from '@ngrx/store';
-import { CHECK_IN_ACTION_FAILURE, CHECK_IN_ACTION_SUCCESS } from './private.actions';
+import { CHECK_IN_ACTION_FAILURE, CHECK_IN_ACTION_SUCCESS, CHECK_OUT_SUCCESS_ACTION } from './private.actions';
 import { PrivateState } from '@web-browser/entryou/model';
 
 export const ENTRYOU_PRIVATE_FEATURE_KEY = 'private';
@@ -28,13 +28,9 @@ export const privateReducer = createReducer(
     };
   }),
 
-  on(CHECK_IN_ACTION_FAILURE, (state, action) => {
-    return {
-      ...state,
-      checkedIn: false,
-      lastCheckIn: null,
-      info: null
-    };
-  })
+  on(CHECK_IN_ACTION_FAILURE, (state, action) => initialState),
+
+  on(CHECK_OUT_SUCCESS_ACTION, (state, action) => initialState),
+
 );
 

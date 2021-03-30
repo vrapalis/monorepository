@@ -1,13 +1,15 @@
 package com.vrapalis.www.entryou.entry.domain.checkin.dto;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Value;
+import lombok.Data;
 
 import javax.validation.constraints.NotNull;
 import java.util.Date;
 
-@Value
+@Data
 @Builder
+@AllArgsConstructor
 public class CheckinDtoModel {
     @NotNull
     private Integer entryId;

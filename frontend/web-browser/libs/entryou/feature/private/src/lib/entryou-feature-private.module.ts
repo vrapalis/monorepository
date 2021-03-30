@@ -7,7 +7,7 @@ import { PrivateComponent } from './components/private.component';
 import { PrivateGuardService } from './guards/private-guard.service';
 import { SharedAuthStateModule } from '@web-browser/shared/auth/state';
 import { SharedUtilModule } from '@web-browser/shared/util';
-import { EntryouUiModule } from '@web-browser/entryou/ui';
+import { EnButtonModule, EntryouUiModule } from '@web-browser/entryou/ui';
 import { QrCodeScannerModule } from '@web-browser/shared/ui';
 import { CheckInModule } from '@web-browser/entryou/data-access';
 import { EntryouStateModule } from '@web-browser/entryou/state';
@@ -23,7 +23,8 @@ import { CheckOutComponent } from './components/check-out.component';
     QrCodeScannerModule,
     CheckInModule,
     EntryouStateModule,
-    SharedAuthStateModule
+    SharedAuthStateModule,
+    EnButtonModule
   ],
   declarations: [PrivateContainerComponent, PrivateComponent, CheckOutComponent],
   providers: [PrivateGuardService]

@@ -5,6 +5,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { PrivateEffects } from './store/private/private.effects';
 import * as fromEntryou from './store/index';
 import { EntryouUtilsModule } from '@web-browser/entryou/utils';
+import { CheckOutModule } from '@web-browser/entryou/data-access';
 
 @NgModule({
   imports: [
@@ -17,7 +18,8 @@ import { EntryouUtilsModule } from '@web-browser/entryou/utils';
         metaReducers: fromEntryou.metaReducers
       }
     ),
-    EffectsModule.forFeature([PrivateEffects])
+    EffectsModule.forFeature([PrivateEffects]),
+    CheckOutModule
   ]
 })
 export class EntryouStateModule {

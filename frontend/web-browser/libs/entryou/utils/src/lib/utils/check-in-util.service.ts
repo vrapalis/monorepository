@@ -12,6 +12,10 @@ export class CheckInUtilService {
 
   readPrivateStateFromLocalStorage(): Observable<PrivateState> {
     const privateState = localStorage.getItem(CheckInUtilService.ENTRYOU_PRIVATE_LOCALSTORAGE_KEY);
-    return privateState !== null ? of(JSON.parse(privateState)) : of(null);
+    if (privateState !== null) {
+      const state = JSON.parse(privateState) as PrivateState;
+      return of(state);
+    }
+    return of(null);
   }
 }

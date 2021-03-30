@@ -14,7 +14,7 @@ import { Observable } from 'rxjs';
                              (qrCodeText)='qrCodeText($event)' *ngIf='!state.lastCheckIn; else checkOut'>
       </sh-ui-qr-code-scanner>
       <ng-template #checkOut>
-        <web-browser-check-out [privateState]='state'></web-browser-check-out>
+        <web-browser-check-out [privateState]='state' (checkOutEvent)='checkout()'></web-browser-check-out>
       </ng-template>
     </ng-container>
   `,
@@ -24,6 +24,7 @@ export class PrivateComponent {
   @Input() user: UserModel;
   @Input() privateState: Observable<PrivateState>;
   @Output() getScannedQrCode = new EventEmitter<QrCodeModel>();
+  @Output() checkOutEvent = new EventEmitter<void>();
 
   onCameraReady(cameraReady: boolean) {
   }
@@ -34,5 +35,9 @@ export class PrivateComponent {
   qrCodeText(qrText: string) {
     const qrCode = JSON.parse(qrText) as QrCodeModel;
     this.getScannedQrCode.emit(qrCode);
+  }
+
+  checkout() {
+    this.checkOutEvent.emit();
   }
 }
