@@ -6,6 +6,7 @@ import { PrivateEffects } from './store/private/private.effects';
 import * as fromEntryou from './store/index';
 import { EntryouUtilsModule } from '@web-browser/entryou/utils';
 import { CheckOutModule } from '@web-browser/entryou/data-access';
+import { SharedUiModule } from '@web-browser/shared/ui';
 
 @NgModule({
   imports: [
@@ -19,7 +20,8 @@ import { CheckOutModule } from '@web-browser/entryou/data-access';
       }
     ),
     EffectsModule.forFeature([PrivateEffects]),
-    CheckOutModule
+    CheckOutModule,
+    SharedUiModule
   ]
 })
 export class EntryouStateModule {

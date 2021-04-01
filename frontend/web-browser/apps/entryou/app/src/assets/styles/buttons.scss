@@ -1,0 +1,9 @@
+@import "apps/entryou/app/src/assets/styles/vars";
+
+.page-item.active .page-link {
+  background-color: $entryouBlue;
+}
+
+.entryouButtonBlue {
+  background-color: $entryouBlue;
+}

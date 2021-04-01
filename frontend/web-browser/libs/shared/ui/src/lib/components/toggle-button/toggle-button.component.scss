@@ -1,0 +1,64 @@
+// Grid
+$min-width-mobile-media-query: 768px;
+$max-width-md-media-query: 1200px;
+$min-width-xl-media-query: 1200px;
+$min-width-4k-media-query: 2500px;
+$max-width-4k-media-query: 10000px;
+
+
+.toggleBtnWrapper {
+  padding: 5px;
+  width: 90%;
+  margin: auto;
+  background-color: white;
+  border-radius: 50px;
+  outline: none;
+
+  .toggleBtn {
+    border-radius: 50px;
+    width: 90%;
+    line-height: 30px;
+    border: none;
+
+    .mat-button-toggle {
+      width: 50%;
+      border: none;
+      outline: none;
+
+      ::ng-deep.mat-button-toggle-button {
+        span {
+          width: 100%;
+        }
+      }
+    }
+
+    ::ng-deep.mat-button-toggle-button {
+      width: 75%;
+      border-radius: 50px;
+      line-height: 40px;
+    }
+
+    .mat-button-toggle-checked {
+      background-color: rgba(31, 80, 201, 1);
+      color: white;
+      border-radius: 50px;
+    }
+
+    ::ng-deep .mat-button-toggle-label-content {
+      font-family: 'Ubuntu Regular' !important;
+      border-radius: 50px;
+      width: 80%;
+      line-height: 40px !important;
+    }
+
+  }
+
+  @media only screen and (min-width: $min-width-mobile-media-query) and (max-width: $max-width-md-media-query) {
+
+  }
+
+  @media only screen and (max-width: $min-width-mobile-media-query) {
+
+  }
+}
+

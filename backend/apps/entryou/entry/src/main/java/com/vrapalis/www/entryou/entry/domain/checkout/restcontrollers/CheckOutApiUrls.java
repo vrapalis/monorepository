@@ -5,5 +5,5 @@ import lombok.experimental.UtilityClass;
 @UtilityClass
 public class CheckOutApiUrls {
 
-    public static final String BASE_API_URL = "/check-out";
+    public static final String BASE_API_URL = "/check-outs";
 }

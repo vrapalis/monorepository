@@ -5,7 +5,7 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <div class='container' *ngIf='imgSrc && text'>
-      <div class='row'>
+      <div class='row align-items-center'>
         <div class='col'>
           <img [src]='imgSrc'>
         </div>

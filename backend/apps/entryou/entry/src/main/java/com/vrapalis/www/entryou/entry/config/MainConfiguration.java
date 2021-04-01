@@ -6,6 +6,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.domain.AuditorAware;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
+import org.springframework.data.web.config.EnableSpringDataWebSupport;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -14,6 +15,7 @@ import org.springframework.web.client.RestTemplate;
 import java.util.Optional;
 
 @Configuration
+@EnableSpringDataWebSupport
 @EnableJpaAuditing(auditorAwareRef = "auditorProvider")
 @ComponentScan(basePackages = "com.vrapalis.www.libs.documentation.swagger")
 public class MainConfiguration {

@@ -8,7 +8,6 @@ import com.vrapalis.www.entryou.entry.domain.checkin.exceptions.CheckInException
 import com.vrapalis.www.entryou.entry.domain.checkin.mapping.CheckInMapper;
 import com.vrapalis.www.entryou.entry.domain.checkin.repositories.CheckInRepository;
 import com.vrapalis.www.entryou.entry.domain.entry.EntryRepository;
-import com.vrapalis.www.entryou.entry.domain.guest.GuestEntity;
 import com.vrapalis.www.entryou.entry.domain.guest.GuestRepository;
 import com.vrapalis.www.libs.cloud.discovery.domains.app.ELibsCloudDiscoveryAppNames;
 import com.vrapalis.www.libs.cloud.discovery.domains.app.LibsCloudDiscoveryAppUriDeliverer;
@@ -17,6 +16,8 @@ import com.vrapalis.www.libs.security.dtos.domains.user.LibsSecurityDtoUserInfo;
 import com.vrapalis.www.libs.web.dto.LibsWebDtoServerAbstractResponse;
 import lombok.AllArgsConstructor;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
@@ -55,5 +56,17 @@ public class CheckInServiceImpl implements CheckInService {
         }
         final var lastCheckIn = checkInMapper.toDto(checkInEntity);
         return ResponseEntity.ok(new CheckinSuccessDto(userInfo, lastCheckIn));
+    }
+
+    @Override
+    public ResponseEntity<Page> findAllCheckInsByGuestId(Integer guestId, Pageable pageable) throws CheckInException {
+        Page<CheckinDtoModel> checkins;
+        try {
+            checkins = checkInRepository.findByIdGuestId(guestId, pageable)
+                    .map(entity -> checkInMapper.toDto(entity));
+        } catch (Exception ex) {
+            throw new CheckInException();
+        }
+        return ResponseEntity.ok(checkins);
     }
 }

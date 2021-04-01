@@ -4,7 +4,7 @@ import { UserModel } from '@web-browser/shared/auth/model';
 import { Observable } from 'rxjs';
 
 @Component({
-  selector: 'web-browser-private',
+  selector: 'web-browser-private-qr-scanner',
   template: `
     <web-browser-head-and-sub-title header='Kontaktlose Check in.'
                                     subHeader='Scannen Sie bitte die Eintrits-QR Code'>
@@ -20,7 +20,7 @@ import { Observable } from 'rxjs';
   `,
   styles: []
 })
-export class PrivateComponent {
+export class QrScannerComponent {
   @Input() user: UserModel;
   @Input() privateState: Observable<PrivateState>;
   @Output() getScannedQrCode = new EventEmitter<QrCodeModel>();

@@ -15,27 +15,44 @@ import {
 @Component({
   selector: 'web-browser-private-container',
   template: `
-    <div>
-      <web-browser-private [user]='user' [privateState]='privateState$'
-                           (getScannedQrCode)='onQrCodeScan($event)'
-                           (checkOutEvent)='onCheckOutEvent()'>
-      </web-browser-private>
+    <div class='wrapper'>
+      <div class='btnGroup'>
+        <sh-ui-toggle-button buttonFirstText='QR-Scanner' buttonFirstValue='qr-scanner'
+                             buttonSecondText='Checkins' buttonSecondValue='checkins'
+                             (valueChangedEvent)='toggleButton($event)'>
+        </sh-ui-toggle-button>
+      </div>
+
+      <div class='compWrapper'>
+        <web-browser-private-qr-scanner [user]='user' [privateState]='privateState$'
+                                        (getScannedQrCode)='onQrCodeScan($event)'
+                                        (checkOutEvent)='onCheckOutEvent()' *ngIf='qrScanner; else checkins'>
+        </web-browser-private-qr-scanner>
+        <ng-template #checkins>
+          <web-browser-checkins></web-browser-checkins>
+        </ng-template>
+      </div>
+
     </div>
   `,
-  styles: []
+  styleUrls: ['private.container.component.scss']
 })
 export class PrivateContainerComponent implements OnDestroy {
   user: UserModel;
   lastCheckIn: CheckInModel;
   privateState$: Observable<PrivateState>;
   private unsubscription$ = new Subject<void>();
+  qrScanner: boolean;
 
   constructor(private state: Store<PrivateState>, private authState: Store<UserModel>) {
     this.authState.select(selectAuthUserState)
       .pipe(takeUntil(this.unsubscription$))
       .subscribe(user => this.user = user);
 
-    this.privateState$ = this.state.select(getPrivateState).pipe(tap(privateState => this.lastCheckIn = privateState.lastCheckIn));
+    this.privateState$ = this.state.select(getPrivateState)
+      .pipe(
+        tap(privateState => this.lastCheckIn = privateState.lastCheckIn)
+      );
     this.state.dispatch(CHECK_IN_FROM_LOCAL_STORAGE());
   }
 
@@ -64,5 +81,9 @@ export class PrivateContainerComponent implements OnDestroy {
         entryId: this.lastCheckIn.entryId
       }
     }));
+  }
+
+  toggleButton(value: string) {
+    this.qrScanner = value === 'qr-scanner' ? true : false;
   }
 }

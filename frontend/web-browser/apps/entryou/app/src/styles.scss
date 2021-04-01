@@ -1,7 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
 
-@import "assets/fonts/font";
-@import "assets/utils/unset";
+@import "assets/styles/fonts/font";
+@import "assets/styles/unset";
+@import "assets/styles/colors";
+@import "assets/styles/vars";
+@import "assets/styles/buttons";
 
 html, body {
   height: 100%;
@@ -50,7 +53,9 @@ q:before, q:after {
   content: '';
   content: none;
 }
+
 table {
   border-collapse: collapse;
   border-spacing: 0;
 }
+

@@ -7,6 +7,8 @@ import com.vrapalis.www.libs.assertions.LibsAssertions;
 import com.vrapalis.www.libs.errors.LibsErrorBeanValidation;
 import com.vrapalis.www.libs.web.dto.LibsWebDtoServerAbstractResponse;
 import lombok.AllArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RestController;
@@ -21,5 +23,10 @@ public class CheckInRestControllerImpl implements CheckInRestController {
             throws CheckInException, LibsErrorBeanValidation {
         LibsAssertions.assertNoBeanValidationErrors(result);
         return checkInService.addCheckIn(checkinDto);
+    }
+
+    @Override
+    public ResponseEntity<Page> getAllCheckinsByGuestId(Integer guestId, Pageable pageable) throws CheckInException {
+        return checkInService.findAllCheckInsByGuestId(guestId, pageable);
     }
 }

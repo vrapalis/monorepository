@@ -10,5 +10,5 @@ export class CheckInService {
   }
 
   checkIn = (checkIn: CheckInModel): Observable<CheckInResponseModel> =>
-    this.http.post<CheckInResponseModel>('http://localhost:8083/api/check-in', checkIn, { observe: 'body' });
+    this.http.post<CheckInResponseModel>('http://localhost:8083/api/check-ins', checkIn, { observe: 'body' });
 }

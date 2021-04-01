@@ -18,4 +18,6 @@ export class CheckInUtilService {
     }
     return of(null);
   }
+
+  clear = (): Observable<void> => of(localStorage.removeItem(CheckInUtilService.ENTRYOU_PRIVATE_LOCALSTORAGE_KEY));
 }
