@@ -15,6 +15,7 @@
             <option value="$PROJECT_DIR$/apps/entryou/api-gateway" />
             <option value="$PROJECT_DIR$/apps/entryou/entry" />
             <option value="$PROJECT_DIR$/apps/entryou/push" />
+            <option value="$PROJECT_DIR$/apps/entryou/store" />
             <option value="$PROJECT_DIR$/apps/entryou/uaa" />
             <option value="$PROJECT_DIR$/buildSrc" />
             <option value="$PROJECT_DIR$/libs" />

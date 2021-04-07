@@ -1,5 +1,7 @@
 import { createAction, props } from '@ngrx/store';
 import { CheckInModel, CheckInResponseModel } from '@web-browser/entryou/model';
+import { IPagedCheckIn } from './private.models';
+import { IPaginationModel } from '@web-browser/shared/model';
 
 // TODO COULD BE DELETED
 export const init = createAction('[Entryou Page] Init');
@@ -13,3 +15,8 @@ export const CHECK_OUT_ACTION = createAction('[Check Out Action]', props<{ check
 export const CHECK_OUT_SUCCESS_ACTION = createAction('[Check Out SUCCESS Action]');
 export const CHECK_OUT_FAILURE_ACTION = createAction('[Check Out FAILURE Action]', props<{ error }>());
 
+export const GET_PAGED_CHECK_INS_ACTION = createAction('[Get Paged Check In Action]',
+  props<{ page: IPagedCheckIn }>());
+export const GET_PAGED_CHECK_INS_SUCCESS_ACTION = createAction('[Get Paged Check In Success Action]',
+  props<{pagedResponse: IPaginationModel<CheckInModel>}>());
+export const GET_PAGED_CHECK_INS_FAILURE_ACTION = createAction('[Get Paged Check In Failure Action]', props<{ error }>());

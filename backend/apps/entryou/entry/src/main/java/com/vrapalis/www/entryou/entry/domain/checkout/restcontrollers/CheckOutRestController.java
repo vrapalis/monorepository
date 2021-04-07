@@ -1,6 +1,6 @@
 package com.vrapalis.www.entryou.entry.domain.checkout.restcontrollers;
 
-import com.vrapalis.www.entryou.entry.domain.checkin.dto.CheckinDtoModel;
+import com.vrapalis.www.entryou.entry.domain.checkin.dto.CheckinDto;
 import com.vrapalis.www.entryou.entry.domain.checkout.dtos.CheckOutErrorResponseDto;
 import com.vrapalis.www.entryou.entry.domain.checkout.dtos.CheckOutSuccessResponseDto;
 import com.vrapalis.www.entryou.entry.domain.checkout.exceptions.CheckOutException;
@@ -32,6 +32,6 @@ public interface CheckOutRestController {
                     response = LibsWebDtoServerBeanValidationErrorResponse.class)
     })
     ResponseEntity<LibsWebDtoServerAbstractResponse> checkOut(@ApiParam(value = "checkout dto model") @Valid @RequestBody
-                                                                      CheckinDtoModel checkInDto, BindingResult result)
+                                                                      CheckinDto checkInDto, BindingResult result)
             throws LibsErrorBeanValidation, CheckOutException;
 }

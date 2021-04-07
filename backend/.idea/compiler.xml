@@ -9,38 +9,6 @@
           <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.mapstruct/mapstruct-processor/1.4.2.Final/e55bd90d51cddd638c07d5bd89fc7535d4e3d069/mapstruct-processor-1.4.2.Final.jar" />
           <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.projectlombok/lombok/1.18.16/6dc192c7f93ec1853f70d59d8a6dcf94eb42866/lombok-1.18.16.jar" />
         </processorPath>
-        <module name="backend.libs.web.dto.test" />
-        <module name="backend.libs.security.repositories.test" />
-        <module name="backend.libs.push.restcontrollers.test" />
-        <module name="backend.libs.security.apis.test" />
-        <module name="backend.libs.push.apis.test" />
-        <module name="backend.apps.entryou.uaa.test" />
-        <module name="backend.libs.security.projections.test" />
-        <module name="backend.apps.entryou.entry.test" />
-        <module name="backend.libs.security.entities.test" />
-        <module name="backend.libs.security.restcontrollers.test" />
-        <module name="backend.libs.push.dtos.test" />
-        <module name="backend.libs.commons.test" />
-        <module name="backend.libs.push.repositories.test" />
-        <module name="backend.libs.push.services.test" />
-        <module name="backend.apps.entryou.api-gateway.test" />
-        <module name="backend.libs.security.mappers.test" />
-        <module name="backend.tutorials.data-structures-and-algorithms.test" />
-        <module name="backend.apps.entryou.push.test" />
-        <module name="backend.libs.push.app.test" />
-        <module name="backend.libs.security.services.test" />
-        <module name="backend.libs.cloud.discovery.test" />
-        <module name="backend.libs.errors.test" />
-        <module name="backend.libs.push.urls.test" />
-        <module name="backend.libs.security.errors.test" />
-        <module name="backend.libs.push.entities.test" />
-        <module name="backend.libs.security.dtos.test" />
-        <module name="backend.libs.security.models.test" />
-        <module name="backend.libs.utils.test" />
-        <module name="backend.libs.documentation.swagger.test" />
-        <module name="backend.libs.security.properties.test" />
-        <module name="backend.libs.security.uaa.test" />
-        <module name="backend.libs.assertions.test" />
       </profile>
       <profile name="Gradle Imported" enabled="true">
         <outputRelativeToContentRoot value="true" />
@@ -53,6 +21,7 @@
         <module name="backend.libs.security.models.main" />
         <module name="backend.libs.assertions.main" />
         <module name="backend.libs.commons.main" />
+        <module name="backend.apps.entryou.store.main" />
         <module name="backend.libs.security.dtos.main" />
         <module name="backend.libs.errors.main" />
         <module name="backend.libs.push.apis.main" />
@@ -81,6 +50,14 @@
         <module name="backend.libs.security.repositories.main" />
         <module name="backend.libs.security.services.main" />
         <module name="backend.libs.push.services.main" />
+      </profile>
+      <profile name="Gradle Imported" enabled="true">
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-configuration-processor/2.4.1/d42331b683340464cf7027bf55df6ec52d088eb5/spring-boot-configuration-processor-2.4.1.jar" />
+          <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.projectlombok/lombok/1.18.16/6dc192c7f93ec1853f70d59d8a6dcf94eb42866/lombok-1.18.16.jar" />
+          <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.mapstruct/mapstruct-processor/1.4.2.Final/e55bd90d51cddd638c07d5bd89fc7535d4e3d069/mapstruct-processor-1.4.2.Final.jar" />
+        </processorPath>
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="11">

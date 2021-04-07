@@ -48,8 +48,7 @@ export class ToggleButtonComponent implements OnChanges, OnDestroy {
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['buttonFirstValue'].currentValue) {
-      // this.fControl.setValue(this.buttonFirstValue);
-      this.fControl.setValue(this.buttonSecondValue);
+      this.fControl.setValue(this.buttonFirstValue);
     }
   }
 

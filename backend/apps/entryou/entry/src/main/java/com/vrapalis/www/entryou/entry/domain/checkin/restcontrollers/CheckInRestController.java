@@ -1,6 +1,6 @@
 package com.vrapalis.www.entryou.entry.domain.checkin.restcontrollers;
 
-import com.vrapalis.www.entryou.entry.domain.checkin.dto.CheckinDtoModel;
+import com.vrapalis.www.entryou.entry.domain.checkin.dto.CheckinDto;
 import com.vrapalis.www.entryou.entry.domain.checkin.dto.CheckinErrorDto;
 import com.vrapalis.www.entryou.entry.domain.checkin.dto.CheckinSuccessDto;
 import com.vrapalis.www.entryou.entry.domain.checkin.exceptions.CheckInException;
@@ -34,7 +34,7 @@ public interface CheckInRestController {
     })
     ResponseEntity<LibsWebDtoServerAbstractResponse> checkIn(
             @ApiParam(value = "checkin dto model") @Valid @RequestBody
-                    CheckinDtoModel checkin, BindingResult result) throws CheckInException, LibsErrorBeanValidation;
+                    CheckinDto checkin, BindingResult result) throws CheckInException, LibsErrorBeanValidation;
 
     @LibsDocumentationSwaggerApiPageable
     @GetMapping(value = CheckInUrls.BASE_API_URL + "/guests/{guestId}", produces = "application/json")

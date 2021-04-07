@@ -1,7 +1,8 @@
 package com.vrapalis.www.entryou.entry.domain.checkin.services;
 
 import com.vrapalis.www.entryou.entry.config.RabbitmqConfiguration;
-import com.vrapalis.www.entryou.entry.domain.checkin.dto.CheckinDtoModel;
+import com.vrapalis.www.entryou.entry.domain.checkin.dto.CheckinDto;
+import com.vrapalis.www.entryou.entry.domain.checkin.dto.CheckinFullDto;
 import com.vrapalis.www.entryou.entry.domain.checkin.dto.CheckinSuccessDto;
 import com.vrapalis.www.entryou.entry.domain.checkin.entities.CheckInEntity;
 import com.vrapalis.www.entryou.entry.domain.checkin.exceptions.CheckInException;
@@ -33,7 +34,7 @@ public class CheckInServiceImpl implements CheckInService {
     private RabbitTemplate rabbitTemplate;
 
     @Override
-    public ResponseEntity<LibsWebDtoServerAbstractResponse> addCheckIn(CheckinDtoModel checkinDto) throws CheckInException {
+    public ResponseEntity<LibsWebDtoServerAbstractResponse> addCheckIn(CheckinDto checkinDto) throws CheckInException {
         final LibsSecurityDtoUserInfo userInfo;
         final CheckInEntity checkInEntity;
         try {
@@ -46,10 +47,7 @@ public class CheckInServiceImpl implements CheckInService {
             guest.setLastCheckIn(checkInEntity);
             guest.setCheckedIn(true);
             guestRepository.saveAndFlush(guest);
-            final var uaaAppHostUrl = appUriDeliverer.getAppServiceUri(ELibsCloudDiscoveryAppNames.ENTRYOU_UAA_APP)
-                    .map(uri -> uri.toString())
-                    .orElseThrow(RuntimeException::new);
-            userInfo = userApisCall.getUserInfoById(uaaAppHostUrl, checkinDto.getEntryId()).getBody();
+            userInfo = uaaCallGetUserInfo(checkinDto);
             rabbitTemplate.convertAndSend(RabbitmqConfiguration.directExchangeName, checkinDto.getEntryId().toString(), checkinDto.getGuestId());
         } catch (Exception ex) {
             throw new CheckInException();
@@ -60,13 +58,34 @@ public class CheckInServiceImpl implements CheckInService {
 
     @Override
     public ResponseEntity<Page> findAllCheckInsByGuestId(Integer guestId, Pageable pageable) throws CheckInException {
-        Page<CheckinDtoModel> checkins;
+        Page<CheckinDto> checkins;
         try {
             checkins = checkInRepository.findByIdGuestId(guestId, pageable)
-                    .map(entity -> checkInMapper.toDto(entity));
+                    .map(this::mapToCheckinFullDto);
         } catch (Exception ex) {
             throw new CheckInException();
         }
         return ResponseEntity.ok(checkins);
+    }
+
+    private LibsSecurityDtoUserInfo uaaCallGetUserInfo(CheckinDto checkinDto) {
+        final LibsSecurityDtoUserInfo userInfo;
+        final var uaaAppHostUrl = appUriDeliverer.getAppServiceUri(ELibsCloudDiscoveryAppNames.ENTRYOU_UAA_APP)
+                .map(uri -> uri.toString())
+                .orElseThrow(RuntimeException::new);
+        userInfo = userApisCall.getUserInfoById(uaaAppHostUrl, checkinDto.getEntryId()).getBody();
+        return userInfo;
+    }
+
+    // TODO REQUEST USER INFO ONLY FOR UNIQ USER
+    private CheckinFullDto mapToCheckinFullDto(CheckInEntity entity) {
+        final var checkinDto = checkInMapper.toDto(entity);
+        final var userInfo = uaaCallGetUserInfo(checkinDto);
+        return CheckinFullDto.builder()
+                .organizationName(userInfo.getCompanyName())
+                .arriveOn(checkinDto.getArriveOn())
+                .entryId(checkinDto.getEntryId())
+                .guestId(checkinDto.getGuestId())
+                .build();
     }
 }

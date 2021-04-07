@@ -1,0 +1,1 @@
+CREATE TABLE app_user(id SERIAL PRIMARY KEY);

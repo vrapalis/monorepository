@@ -1,6 +1,6 @@
 package com.vrapalis.www.entryou.entry.domain.checkin.restcontrollers;
 
-import com.vrapalis.www.entryou.entry.domain.checkin.dto.CheckinDtoModel;
+import com.vrapalis.www.entryou.entry.domain.checkin.dto.CheckinDto;
 import com.vrapalis.www.entryou.entry.domain.checkin.exceptions.CheckInException;
 import com.vrapalis.www.entryou.entry.domain.checkin.services.CheckInService;
 import com.vrapalis.www.libs.assertions.LibsAssertions;
@@ -19,7 +19,7 @@ public class CheckInRestControllerImpl implements CheckInRestController {
     private CheckInService checkInService;
 
     @Override
-    public ResponseEntity<LibsWebDtoServerAbstractResponse> checkIn(CheckinDtoModel checkinDto, BindingResult result)
+    public ResponseEntity<LibsWebDtoServerAbstractResponse> checkIn(CheckinDto checkinDto, BindingResult result)
             throws CheckInException, LibsErrorBeanValidation {
         LibsAssertions.assertNoBeanValidationErrors(result);
         return checkInService.addCheckIn(checkinDto);

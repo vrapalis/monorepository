@@ -1,5 +1,5 @@
 export interface IPaginationModel<T> {
-  content: Array<T> | [],
+  content: Array<T>,
   pageable: {
     sort: {
       sorted: boolean,

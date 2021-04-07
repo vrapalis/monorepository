@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { ECompanyButtonTypeModel } from '../models/button.model';
 import html2canvas from 'html2canvas';
 import * as jsPDF from 'jspdf';
 import { Store } from '@ngrx/store';
@@ -13,12 +12,14 @@ import { tap } from 'rxjs/operators';
   selector: 'web-browser-company-container',
   template: `
     <ng-container *ngIf='user$ | async as user;'>
-      <web-browser-company (toggleEvent)='view = $event'></web-browser-company>
-      <div *ngIf='view' class='companyContainer'>
-        <ng-container *ngIf='(view == typeBtn.QR_CODE); else questsView;'>
-          <web-browser-qr-code [companyId]='user.info.id' [companyName]='user.info.companyName'
-                               (downloadPdfEvent)='downloadPdf($event)'></web-browser-qr-code>
-        </ng-container>
+      <sh-ui-toggle-button buttonFirstText='QR Code' buttonFirstValue='qr-code'
+                           buttonSecondText='Besucher' buttonSecondValue='besucher'
+                           (valueChangedEvent)='onToggle($event)'>
+      </sh-ui-toggle-button>
+      <div class='companyContainer'>
+        <web-browser-qr-code *ngIf='isQrCode; else questsView;' [companyId]='user.info.id'
+                             [companyName]='user.info.companyName'
+                             (downloadPdfEvent)='downloadPdf($event)'></web-browser-qr-code>
         <ng-template #questsView>
           <web-browser-quests></web-browser-quests>
         </ng-template>
@@ -32,9 +33,8 @@ import { tap } from 'rxjs/operators';
   `]
 })
 export class CompanyContainerComponent {
-  typeBtn = ECompanyButtonTypeModel;
-  view: ECompanyButtonTypeModel;
   user$: Observable<UserModel>;
+  isQrCode = true;
 
   constructor(private authState: Store<UserModel>, private rxStompService: RxStompService) {
     this.user$ = authState.select(selectAuthUserState)
@@ -69,5 +69,9 @@ export class CompanyContainerComponent {
         pdf.addImage(image, 'JPEG', 0, 0, imageWidth, imageHeight);
         pdf.save('qr-code.pdf');
       }).catch(err => console.error(err));
+  }
+
+  onToggle($event: string) {
+    this.isQrCode = $event === 'qr-code' ? true : false;
   }
 }

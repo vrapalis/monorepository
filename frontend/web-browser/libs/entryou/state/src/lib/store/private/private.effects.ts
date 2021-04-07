@@ -8,7 +8,10 @@ import {
   CHECK_IN_FROM_LOCAL_STORAGE,
   CHECK_OUT_ACTION,
   CHECK_OUT_FAILURE_ACTION,
-  CHECK_OUT_SUCCESS_ACTION
+  CHECK_OUT_SUCCESS_ACTION,
+  GET_PAGED_CHECK_INS_ACTION,
+  GET_PAGED_CHECK_INS_FAILURE_ACTION,
+  GET_PAGED_CHECK_INS_SUCCESS_ACTION
 } from './private.actions';
 import { CheckInService, CheckOutService } from '@web-browser/entryou/data-access';
 import { catchError, filter, map, switchMap, tap } from 'rxjs/operators';
@@ -102,5 +105,20 @@ export class PrivateEffects {
         type: NotificationTypeModel.SUCCESS
       }
     })))
+  ), { dispatch: false });
+
+  getPagedCheckInsActionEffect$ = createEffect(() => this.actions$.pipe(
+    ofType(EntryouActions.GET_PAGED_CHECK_INS_ACTION),
+    switchMap(action => this.checkInService.getPagedCheckIn({ guestId: action.page.guestId, page: action.page.page })),
+    map(paged => GET_PAGED_CHECK_INS_SUCCESS_ACTION({ pagedResponse: paged })),
+    catchError(error => of(GET_PAGED_CHECK_INS_FAILURE_ACTION({ error })))
+  ));
+
+  getPagedCheckInsSuccessActionEffect$ = createEffect(() => this.actions$.pipe(
+    ofType(EntryouActions.GET_PAGED_CHECK_INS_SUCCESS_ACTION)
+  ), { dispatch: false });
+
+  getPagedCheckInsFailureActionEffect$ = createEffect(() => this.actions$.pipe(
+    ofType(EntryouActions.GET_PAGED_CHECK_INS_FAILURE_ACTION),
   ), { dispatch: false });
 }

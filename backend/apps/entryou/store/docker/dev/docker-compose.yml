@@ -1,0 +1,13 @@
+version: '3.6'
+
+services:
+  entryou-store-db-dev:
+    image: postgres
+    container_name: entryou_store_db_dev
+    restart: on-failure
+    environment:
+      - POSTGRES_PASSWORD=admin
+      - POSTGRES_USER=admin
+      - POSTGRES_DB=entryou_store_db_dev
+    ports:
+      - 5435:5432

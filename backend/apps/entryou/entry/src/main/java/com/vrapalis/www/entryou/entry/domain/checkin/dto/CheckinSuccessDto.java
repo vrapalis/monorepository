@@ -15,9 +15,9 @@ public class CheckinSuccessDto extends LibsWebDtoServerSuccessResponse {
     @ApiModelProperty(example = "{}")
     private LibsSecurityDtoUserInfo info;
 
-    private CheckinDtoModel lastCheckIn;
+    private CheckinDto lastCheckIn;
 
-    public CheckinSuccessDto(LibsSecurityDtoUserInfo info, CheckinDtoModel lastCheckIn) {
+    public CheckinSuccessDto(LibsSecurityDtoUserInfo info, CheckinDto lastCheckIn) {
         super("Created checkin success");
         this.msg = "Created checkin success";
         this.info = info;

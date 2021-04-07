@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 @Component({
   selector: 'sh-ui-basic-paginator',
   template: `
-    <nav aria-label='Page navigation' *ngIf='pageable'>
+    <nav aria-label='Page navigation' *ngIf='pageable?.totalPages > 0'>
       <ul class='pagination justify-content-center' [class.pagination-lg]='isLargeView'>
         <li class='page-item' [class.disabled]='pageable.first'>
           <a class='page-link' aria-label='Previous' (click)='previous()'>

@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { EntryouFeatureCompanyRoutingModule } from './entryou-feature-company-routing.module';
-import { CompanyComponent } from './components/company.component';
 import { CompanyContainerComponent } from './containers/company-container.component';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -10,7 +9,7 @@ import { CompanyGuardService } from './guards/company-guard.service';
 import { QrCodeComponent } from './components/qr-code/qr-code.component';
 import { QuestsComponent } from './components/quests.component';
 import { QRCodeModule } from 'angularx-qrcode';
-import { LogoModule, RaisedButtonModule } from '@web-browser/shared/ui';
+import { LogoModule, RaisedButtonModule, ToggleButtonModule } from '@web-browser/shared/ui';
 import { InjectableRxStompConfig, RxStompService, rxStompServiceFactory } from '@stomp/ng2-stompjs';
 import { rxStompConfig } from './configs/rx-stomp.config';
 
@@ -23,9 +22,10 @@ import { rxStompConfig } from './configs/rx-stomp.config';
     SharedAuthStateModule,
     QRCodeModule,
     RaisedButtonModule,
-    LogoModule
+    LogoModule,
+    ToggleButtonModule
   ],
-  declarations: [CompanyComponent, CompanyContainerComponent, QrCodeComponent, QuestsComponent],
+  declarations: [CompanyContainerComponent, QrCodeComponent, QuestsComponent],
   providers: [
     CompanyGuardService,
     {

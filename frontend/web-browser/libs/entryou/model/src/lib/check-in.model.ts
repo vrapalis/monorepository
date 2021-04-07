@@ -5,6 +5,7 @@ export interface CheckInModel {
   entryId: string;
   guestId: string;
   arriveOn: Date;
+  organizationName?: string;
 }
 
 export interface CheckInResponseModel extends ServerResponseModel {

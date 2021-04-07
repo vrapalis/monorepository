@@ -1,6 +1,6 @@
 package com.vrapalis.www.entryou.entry.domain.checkout.restcontrollers;
 
-import com.vrapalis.www.entryou.entry.domain.checkin.dto.CheckinDtoModel;
+import com.vrapalis.www.entryou.entry.domain.checkin.dto.CheckinDto;
 import com.vrapalis.www.entryou.entry.domain.checkout.exceptions.CheckOutException;
 import com.vrapalis.www.entryou.entry.domain.checkout.services.CheckOutService;
 import com.vrapalis.www.libs.assertions.LibsAssertions;
@@ -17,7 +17,7 @@ public class CheckOutRestControllerImpl implements CheckOutRestController {
     private CheckOutService checkOutService;
 
     @Override
-    public ResponseEntity<LibsWebDtoServerAbstractResponse> checkOut(CheckinDtoModel checkInDto, BindingResult result)
+    public ResponseEntity<LibsWebDtoServerAbstractResponse> checkOut(CheckinDto checkInDto, BindingResult result)
             throws LibsErrorBeanValidation, CheckOutException {
         LibsAssertions.assertNoBeanValidationErrors(result);
         return checkOutService.checkOut(checkInDto);
