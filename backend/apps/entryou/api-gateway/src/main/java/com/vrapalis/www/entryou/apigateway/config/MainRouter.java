@@ -27,7 +27,6 @@ public class MainRouter {
                 .and()
                 .path("/sign-in")
                 .filters(f -> f.rewritePath("/sign-in", "/api/users/sign-in"))
-//                .uri("http://localhost:8081");
                 .uri("lb://entryou-uaa");
     }
 }

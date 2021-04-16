@@ -4,7 +4,6 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/libs/security/apis/apis.iml" filepath="$PROJECT_DIR$/libs/security/apis/apis.iml" />
       <module fileurl="file://$PROJECT_DIR$/libs/commons/commons.iml" filepath="$PROJECT_DIR$/libs/commons/commons.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/socket.iml" filepath="$PROJECT_DIR$/.idea/modules/socket.iml" />
     </modules>
   </component>
 </project>
