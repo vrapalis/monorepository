@@ -18,7 +18,8 @@
                   "type:feature",
                   "type:guard",
                   "type:ui",
-                  "type:state"
+                  "type:state",
+                  "type:model"
                 ]
               },
               {

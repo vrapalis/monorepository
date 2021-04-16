@@ -56,6 +56,8 @@ public class LibsSecurityRestcontrollersMainSecurityConfiguration extends WebSec
         config.setAllowCredentials(true);
         config.addAllowedOrigin("http://localhost:4200"); // enable cors for all hosts
         config.addAllowedOrigin("http://localhost:4201"); // enable cors for all hosts
+        config.addAllowedOrigin("http://localhost:8080"); // enable cors for all hosts
+        config.addAllowedOrigin("http://localhost:80"); // enable cors for all hosts
         config.addAllowedHeader("*");
         config.addAllowedMethod("OPTIONS");
         config.addAllowedMethod("GET");

@@ -1,5 +1,18 @@
 # Help
 
+## How to run entryou project
+
+- First set system environment variables (because of docker configuration) <br/>
+``source ./apps/entryou/app/src/.env-dev.sh``
+  <br/>
+  <br/>
+- Second replace environment variables of env.js file <br/>
+``envsubst < ./apps/entryou/app/src/assets/scripts/env.template.js > ./apps/entryou/app/src/assets/scripts/env.js``
+  <br/>
+  <br/>
+- Last run project <br/>
+``nx serve --project=entryou-app``
+
 ## CLI
 
 - **Adds** support for an **external library** to your project.<br/>

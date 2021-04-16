@@ -31,6 +31,9 @@ import { SharedAuthGuardModule } from '@web-browser/shared/auth/guard';
     SharedAuthGuardModule,
     SharedUiModule
   ],
+  providers: [
+    { provide: 'environment', useValue: environment }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

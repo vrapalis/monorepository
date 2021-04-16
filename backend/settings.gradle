@@ -27,5 +27,5 @@ include(':libs:push', ':libs:push:app', ':libs:push:restcontrollers', ':libs:pus
 
 include(':libs:cloud', ':libs:cloud:discovery')
 
-include(':tutorials', ':tutorials:data-structures-and-algorithms')
+include(':tutorials', ':tutorials:data-structures-and-algorithms', ':tutorials:socket')
 

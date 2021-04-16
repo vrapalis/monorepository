@@ -1,18 +1,17 @@
-import { Injectable } from '@angular/core';
-import { HttpClient, HttpResponse } from '@angular/common/http';
-import { SignInModel } from '@web-browser/shared/auth/model';
+import { Inject, Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { IAuthEnvironment, SignInModel } from '@web-browser/shared/auth/model';
 import { Observable } from 'rxjs';
 import { SignInSuccessResponse } from '@web-browser/shared/model';
 
 @Injectable()
 export class SignInService {
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, @Inject('environment') private env: IAuthEnvironment) {
   }
 
-  // TODO EXTERNALIZE ENVIRONMENT
   signIn(signInModel: SignInModel): Observable<SignInSuccessResponse> {
-    return this.http.post<SignInSuccessResponse>(`http://localhost:8080/api/users/sign-in`, signInModel,
+    return this.http.post<SignInSuccessResponse>(`${this.env.uaaHostUrl}/api/users/sign-in`, signInModel,
       { observe: 'body' });
   }
 }

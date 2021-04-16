@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: entryou-api-gateway
+
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+
+    consul:
+      discovery:
+        register: false
+        registerHealthCheck: false
