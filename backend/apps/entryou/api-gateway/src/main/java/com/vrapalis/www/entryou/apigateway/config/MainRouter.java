@@ -1,32 +1,45 @@
 package com.vrapalis.www.entryou.apigateway.config;
 
-import org.springframework.cloud.gateway.route.Route;
+import com.vrapalis.www.entryou.apigateway.config.routers.UaaServiceRouter;
 import org.springframework.cloud.gateway.route.RouteLocator;
-import org.springframework.cloud.gateway.route.builder.Buildable;
-import org.springframework.cloud.gateway.route.builder.PredicateSpec;
 import org.springframework.cloud.gateway.route.builder.RouteLocatorBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.reactive.CorsConfigurationSource;
+import org.springframework.web.cors.reactive.CorsWebFilter;
+import org.springframework.web.cors.reactive.UrlBasedCorsConfigurationSource;
 
-import java.util.function.Function;
 
 @Configuration
 public class MainRouter {
+    UaaServiceRouter uaaServiceRouter = new UaaServiceRouter();
 
     @Bean
-    public RouteLocator myRoutes(RouteLocatorBuilder builder) {
+    public RouteLocator mainRoutes(RouteLocatorBuilder builder) {
         return builder.routes()
-                .route(createMainRoutes())
+                .route(uaaServiceRouter.signInRoute())
+                .route(uaaServiceRouter.signUpRoute())
+                .route(uaaServiceRouter.signUpConfirmRoute())
+                .route(uaaServiceRouter.resetPasswordRoute())
+                .route(uaaServiceRouter.resetPasswordConfirmRoute())
+                .route(uaaServiceRouter.userInfoRoute())
                 .build();
     }
 
-    private Function<PredicateSpec, Buildable<Route>> createMainRoutes() {
-        return signInRoute -> signInRoute
-                .method(HttpMethod.POST)
-                .and()
-                .path("/sign-in")
-                .filters(f -> f.rewritePath("/sign-in", "/api/users/sign-in"))
-                .uri("lb://entryou-uaa");
+    @Bean
+    public CorsWebFilter corsFilter() {
+        return new CorsWebFilter(corsConfigurationSource());
+    }
+
+    @Bean
+    CorsConfigurationSource corsConfigurationSource() {
+        final UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+        CorsConfiguration config = new CorsConfiguration().applyPermitDefaultValues();
+        config.addAllowedMethod(HttpMethod.PUT);
+        config.addAllowedMethod(HttpMethod.DELETE);
+        source.registerCorsConfiguration("/**", config);
+        return source;
     }
 }

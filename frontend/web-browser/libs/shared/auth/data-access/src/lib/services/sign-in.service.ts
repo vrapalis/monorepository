@@ -11,7 +11,7 @@ export class SignInService {
   }
 
   signIn(signInModel: SignInModel): Observable<SignInSuccessResponse> {
-    return this.http.post<SignInSuccessResponse>(`${this.env.uaaHostUrl}/api/users/sign-in`, signInModel,
+    return this.http.post<SignInSuccessResponse>(`${this.env.apiGatewayHostUrl}/sign-in`, signInModel,
       { observe: 'body' });
   }
 }

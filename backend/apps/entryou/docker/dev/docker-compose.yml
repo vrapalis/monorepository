@@ -109,3 +109,25 @@ services:
       - POSTGRES_DB=entryou_entry_db_dev
     ports:
       - 5434:5432
+
+  entryou-db-adminer-dev:
+    image: adminer
+    container_name: entryou_db_adminer_dev
+    restart: on-failure
+    ports:
+      - 9090:8080
+    depends_on:
+      - entryou-uaa-db-dev
+      - entryou-push-db-dev
+      - entryou-entry-db-dev
+
+  entryou-api-gateway-swagger-ui-dev:
+    image: swaggerapi/swagger-ui
+    container_name: entryou_api_gateway_swagger_ui_dev
+    network_mode: host
+    restart: on-failure
+    environment:
+      - SWAGGER_JSON=/swagger/swagger.json
+      - PORT=9091
+    volumes:
+      - ./swagger:/swagger

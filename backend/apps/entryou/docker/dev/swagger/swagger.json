@@ -1,16 +1,28 @@
 {
   "openapi": "3.0.1",
   "info": {
-    "title": "Entryou REST API",
-    "description": "Entryou rest api documentation",
-    "termsOfService": "www.entryou.com",
+    "description": "Entryou API Gateway",
+    "version": "0.0.1",
+    "title": "Entryou API Gateway",
+    "termsOfService": "http://swagger.io/terms/",
     "contact": {
-      "email": "vitali.rapalis@gmail.com"
+      "email": "vitali.rapalis@googlemail.com"
     },
-    "version": "1.0.0"
+    "license": {
+      "name": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+    }
   },
-  "host": "entryou-api-gateway-dev:8080",
-
+  "host": "127.0.0.1:8080",
+  "servers": [
+    {
+      "url": "http://127.0.0.1:8080"
+    }
+  ],
+  "schemes": [
+    "https",
+    "http"
+  ],
   "tags": [
     {
       "name": "UAA Service",
@@ -23,22 +35,17 @@
         "tags": [
           "UAA Service"
         ],
-        "summary": "Login with username and password",
+        "summary": "Sign in with username and password",
         "operationId": "sign-in",
         "parameters": [
           {
             "in": "header",
-            "name": "Access-Control-Allow-Headers",
-            "example": "*"
-          },
-          {
-            "in": "header",
-            "name": "Access-Control-Allow-Origin",
-            "example": "*"
+            "name": "Access-Control-Allow-Origin"
+
           }
         ],
         "requestBody": {
-          "description": "Pet object that needs to be added to the store",
+          "description": "Sign in domain model",
           "content": {
             "application/json": {
               "schema": {
@@ -49,9 +56,7 @@
           "required": true
         },
         "responses": {
-          "200": {
-            "description": "successful operation"
-          }
+
         }
       }
     }
@@ -83,7 +88,7 @@
         "bearerFormat": "JWT",
         "flows": {
           "implicit": {
-            "authorizationUrl": "https://proleague-api.smawandi.com/login",
+            "authorizationUrl": "https://localhost:8080/sign-in",
             "scopes": {
               "write:pets": "modify pets in your account",
               "read:pets": "read your pets"

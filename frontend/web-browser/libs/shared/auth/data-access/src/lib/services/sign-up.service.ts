@@ -12,12 +12,12 @@ export class SignUpService {
   }
 
   signUp = (signUpModel: SignUpModel): Observable<ServerResponseModel> =>
-    this.http.post<ServerResponseModel>(`${this.env.uaaHostUrl}/api/users/sign-up`,
+    this.http.post<ServerResponseModel>(`${this.env.apiGatewayHostUrl}/sign-up`,
       signUpModel, { observe: 'body' });
 
   signUpConfirm = (id: string): Observable<ServerResponseModel> => {
     const params = new HttpParams().set('id', id);
-    return this.http.get<ServerResponseModel>(`${this.env.uaaHostUrl}/api/users/sign-up`, {
+    return this.http.get<ServerResponseModel>(`${this.env.apiGatewayHostUrl}/sign-up`, {
       observe: 'body',
       params
     }).pipe(
