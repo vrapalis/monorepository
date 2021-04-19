@@ -2,6 +2,8 @@ version: '3.6'
 
 services:
   entryou-rabbitmq-dev:
+    build:
+      context: ./rabbitmq      
     image: entryou_rabbitmq_dev
     container_name: entryou_rabbitmq_dev
     network_mode: host
