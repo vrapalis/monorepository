@@ -12,4 +12,4 @@ RUN npm run build --configuration=$profile
 FROM nginx:alpine AS prod-stage
 COPY --from=build-stage ./app/dist/apps/entryou/app /usr/share/nginx/html
 EXPOSE 80
-CMD ["/bin/sh",  "-c",  "envsubst < /usr/share/nginx/html/assets/scripts/env.template.js > /usr/share/nginx/html/assets/scripts/env.js && exec nginx -g 'daemon off;'"]
+#CMD ["/bin/sh",  "-c",  "envsubst < /usr/share/nginx/html/assets/scripts/env.template.js > /usr/share/nginx/html/assets/scripts/env.js && exec nginx -g 'daemon off;'"]
