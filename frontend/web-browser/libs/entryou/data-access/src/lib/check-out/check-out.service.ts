@@ -11,5 +11,5 @@ export class CheckOutService {
   }
 
   checkOut = (checkOut: CheckInModel): Observable<ServerResponseModel> =>
-    this.http.put<ServerResponseModel>(`${this.env.entryHostUrl}/api/check-outs`, checkOut, { observe: 'body' });
+    this.http.put<ServerResponseModel>(`${this.env.apiGatewayHostUrl}/check-outs`, checkOut, { observe: 'body' });
 }

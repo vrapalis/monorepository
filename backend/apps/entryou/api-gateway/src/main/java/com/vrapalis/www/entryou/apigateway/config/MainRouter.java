@@ -1,6 +1,8 @@
 package com.vrapalis.www.entryou.apigateway.config;
 
+import com.vrapalis.www.entryou.apigateway.config.routers.EntryServiceRouter;
 import com.vrapalis.www.entryou.apigateway.config.routers.UaaServiceRouter;
+import lombok.AllArgsConstructor;
 import org.springframework.cloud.gateway.route.RouteLocator;
 import org.springframework.cloud.gateway.route.builder.RouteLocatorBuilder;
 import org.springframework.context.annotation.Bean;
@@ -13,8 +15,10 @@ import org.springframework.web.cors.reactive.UrlBasedCorsConfigurationSource;
 
 
 @Configuration
+@AllArgsConstructor
 public class MainRouter {
-    UaaServiceRouter uaaServiceRouter = new UaaServiceRouter();
+    UaaServiceRouter uaaServiceRouter;
+    EntryServiceRouter entryServiceRouter;
 
     @Bean
     public RouteLocator mainRoutes(RouteLocatorBuilder builder) {
@@ -25,6 +29,9 @@ public class MainRouter {
                 .route(uaaServiceRouter.resetPasswordRoute())
                 .route(uaaServiceRouter.resetPasswordConfirmRoute())
                 .route(uaaServiceRouter.userInfoRoute())
+                .route(entryServiceRouter.checkInRoute())
+                .route(entryServiceRouter.checkinsByGuestIdRoute())
+                .route(entryServiceRouter.checkOutRoute())
                 .build();
     }
 

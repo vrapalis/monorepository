@@ -2,12 +2,13 @@ package com.vrapalis.www.entryou.apigateway.config.routers;
 
 import org.springframework.cloud.gateway.route.Route;
 import org.springframework.cloud.gateway.route.builder.Buildable;
-import org.springframework.cloud.gateway.route.builder.GatewayFilterSpec;
 import org.springframework.cloud.gateway.route.builder.PredicateSpec;
 import org.springframework.http.HttpMethod;
+import org.springframework.stereotype.Component;
 
 import java.util.function.Function;
 
+@Component
 public class UaaServiceRouter {
     final String UAA_SERVICE_NAME = "lb://entryou-uaa";
 
@@ -17,7 +18,7 @@ public class UaaServiceRouter {
                 .and()
                 .path("/sign-in")
                 .filters(f -> {
-                    dedupeResponseHeaders(f);
+                    RouterUtility.dedupeResponseHeaders(f);
                     return f.rewritePath("/sign-in", "/api/users/sign-in");
                 })
                 .uri(UAA_SERVICE_NAME);
@@ -29,7 +30,7 @@ public class UaaServiceRouter {
                 .and()
                 .path("/sign-up")
                 .filters(f -> {
-                    dedupeResponseHeaders(f);
+                    RouterUtility.dedupeResponseHeaders(f);
                     return f.rewritePath("/sign-up", "/api/users/sign-up");
                 })
                 .uri(UAA_SERVICE_NAME);
@@ -41,8 +42,8 @@ public class UaaServiceRouter {
                 .and()
                 .path("/sign-up-confirm")
                 .filters(f -> {
-                    dedupeResponseHeaders(f);
-                    return f.rewritePath("/sign-up-confirm", "/api/users/sign-up-confirm");
+                    RouterUtility.dedupeResponseHeaders(f);
+                    return f.rewritePath("/sign-up-confirm", "/api/users/sign-up");
                 })
                 .uri(UAA_SERVICE_NAME);
     }
@@ -53,7 +54,7 @@ public class UaaServiceRouter {
                 .and()
                 .path("/reset-password")
                 .filters(f -> {
-                    dedupeResponseHeaders(f);
+                    RouterUtility.dedupeResponseHeaders(f);
                     return f.rewritePath("/reset-password", "/api/users/reset-password");
                 })
                 .uri(UAA_SERVICE_NAME);
@@ -65,7 +66,7 @@ public class UaaServiceRouter {
                 .and()
                 .path("/reset-password/confirm")
                 .filters(f -> {
-                    dedupeResponseHeaders(f);
+                    RouterUtility.dedupeResponseHeaders(f);
                     return f.rewritePath("/reset-password/confirm", "/api/users/reset-password/confirm");
                 })
                 .uri(UAA_SERVICE_NAME);
@@ -77,14 +78,9 @@ public class UaaServiceRouter {
                 .and()
                 .path("/users/info")
                 .filters(f -> {
-                    dedupeResponseHeaders(f);
+                    RouterUtility.dedupeResponseHeaders(f);
                     return f.rewritePath("/users/info/(?<segment>.*)", "/api/users/info/${segment}");
                 })
                 .uri(UAA_SERVICE_NAME);
-    }
-
-    private void dedupeResponseHeaders(GatewayFilterSpec f) {
-        f.dedupeResponseHeader("Access-Control-Allow-Origin", "RETAIN_FIRST");
-        f.dedupeResponseHeader("Access-Control-Allow-Credentials", "RETAIN_FIRST");
     }
 }

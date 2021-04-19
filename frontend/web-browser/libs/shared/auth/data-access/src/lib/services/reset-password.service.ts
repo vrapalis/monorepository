@@ -11,9 +11,9 @@ export class ResetPasswordService {
   }
 
   reset = (email: ResetPasswordModel): Observable<ServerResponseModel> =>
-    this.http.post<ServerResponseModel>(`${this.env.uaaHostUrl}/api/users/reset-password`, email);
+    this.http.post<ServerResponseModel>(`${this.env.apiGatewayHostUrl}/reset-password`, email);
 
   resetConfirm = (model: ResetPasswordConfirmModel): Observable<ServerResponseModel> => {
-    return this.http.put<ServerResponseModel>(`${this.env.uaaHostUrl}/api/users/reset-password/confirm`, model);
+    return this.http.put<ServerResponseModel>(`${this.env.apiGatewayHostUrl}/reset-password/confirm`, model);
   };
 }

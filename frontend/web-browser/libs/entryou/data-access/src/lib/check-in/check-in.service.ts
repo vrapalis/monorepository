@@ -11,9 +11,9 @@ export class CheckInService {
   }
 
   checkIn = (checkIn: CheckInModel): Observable<CheckInResponseModel> =>
-    this.http.post<CheckInResponseModel>(`${this.env.entryHostUrl}/api/check-ins`, checkIn, { observe: 'body' });
+    this.http.post<CheckInResponseModel>(`${this.env.apiGatewayHostUrl}/check-ins`, checkIn, { observe: 'body' });
 
   getPagedCheckIn = ({ guestId, page = 0, size = 4 }): Observable<IPaginationModel<any>> =>
-    this.http.get<IPaginationModel<any>>(`${this.env.entryHostUrl}/api/check-ins/guests/${guestId}?page=${page}&size=${size}`,
+    this.http.get<IPaginationModel<any>>(`${this.env.apiGatewayHostUrl}/check-ins/guests/${guestId}?page=${page}&size=${size}`,
       { observe: 'body' });
 }

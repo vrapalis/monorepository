@@ -17,7 +17,7 @@ export class SignUpService {
 
   signUpConfirm = (id: string): Observable<ServerResponseModel> => {
     const params = new HttpParams().set('id', id);
-    return this.http.get<ServerResponseModel>(`${this.env.apiGatewayHostUrl}/sign-up`, {
+    return this.http.get<ServerResponseModel>(`${this.env.apiGatewayHostUrl}/sign-up-confirm`, {
       observe: 'body',
       params
     }).pipe(
