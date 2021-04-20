@@ -21,7 +21,7 @@ import { SharedAuthGuardModule } from '@web-browser/shared/auth/guard';
     BrowserModule,
     EntryouUiModule,
     AppRoutingModule,
-    BrowserAnimationsModule,
+      BrowserAnimationsModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
     StoreModule.forRoot(reducers, { metaReducers }),
