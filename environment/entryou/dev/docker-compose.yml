@@ -5,7 +5,9 @@ services:
     image: vrapalis/entryou/frontend
     container_name: entryou-frontend-nginx-dev
     restart: always
-    network_mode: host       
+    network_mode: host
+    environment:
+      - API_GATEWAY_HOST_URL=https://api-entryou.ddns.net          
     volumes:
       - ./nginx/nginx.conf:/etc/nginx/nginx.conf
       - /etc/letsencrypt:/etc/letsencrypt
