@@ -20,6 +20,7 @@
         <module name="backend.apps.entryou.entry.test" />
         <module name="backend.libs.security.entities.test" />
         <module name="backend.libs.security.restcontrollers.test" />
+        <module name="backend.libs.web.properties.test" />
         <module name="backend.libs.push.dtos.test" />
         <module name="backend.libs.commons.test" />
         <module name="backend.apps.entryou.store.test" />
@@ -74,6 +75,7 @@
         <module name="backend.apps.entryou.push.main" />
         <module name="backend.libs.documentation.swagger.main" />
         <module name="backend.libs.push.repositories.main" />
+        <module name="backend.libs.web.properties.main" />
         <module name="backend.libs.security.restcontrollers.main" />
         <module name="backend.apps.entryou.entry.main" />
         <module name="backend.libs.security.entities.main" />
@@ -101,6 +103,9 @@
       <module name="libs-shared-utils" target="11" />
       <module name="libs-shared-utils.main" target="11" />
       <module name="libs-shared-utils.test" target="11" />
+      <module name="socket" target="13" />
+      <module name="socket.main" target="13" />
+      <module name="socket.test" target="13" />
     </bytecodeTargetLevel>
   </component>
 </project>

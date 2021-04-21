@@ -1,5 +1,6 @@
 package com.vrapalis.www.entryou.entry.config;
 
+import com.vrapalis.www.libs.web.properties.domain.cors.LibsWebCorsProperties;
 import lombok.AllArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -14,6 +15,8 @@ import org.springframework.web.filter.CorsFilter;
 @EnableWebSecurity
 @AllArgsConstructor
 public class MainSecurityConfiguration extends WebSecurityConfigurerAdapter {
+
+    private LibsWebCorsProperties webCorsProperties;
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
@@ -65,6 +68,9 @@ public class MainSecurityConfiguration extends WebSecurityConfigurerAdapter {
         config.setAllowCredentials(true);
         config.addAllowedOrigin("http://localhost:4200"); // enable cors for all hosts
         config.addAllowedOrigin("http://localhost:4201"); // enable cors for all hosts
+
+        webCorsProperties.getAllowedOrigins().forEach(config::addAllowedOrigin);
+
         config.addAllowedHeader("*");
         config.addAllowedMethod("OPTIONS");
         config.addAllowedMethod("GET");

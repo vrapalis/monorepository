@@ -51,18 +51,9 @@
             <option value="$PROJECT_DIR$/libs/utils" />
             <option value="$PROJECT_DIR$/libs/web" />
             <option value="$PROJECT_DIR$/libs/web/dto" />
+            <option value="$PROJECT_DIR$/libs/web/properties" />
             <option value="$PROJECT_DIR$/tutorials" />
             <option value="$PROJECT_DIR$/tutorials/data-structures-and-algorithms" />
-            <option value="$PROJECT_DIR$/tutorials/socket" />
-          </set>
-        </option>
-      </GradleProjectSettings>
-      <GradleProjectSettings>
-        <option name="distributionType" value="DEFAULT_WRAPPED" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$/tutorials/socket" />
-        <option name="gradleJvm" value="#JAVA_HOME" />
-        <option name="modules">
-          <set>
             <option value="$PROJECT_DIR$/tutorials/socket" />
           </set>
         </option>

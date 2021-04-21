@@ -1,4 +1,8 @@
 spring:
+  rabbitmq:
+    listener:
+      direct:
+        auto-startup: false
   datasource:
     url: jdbc:postgresql://localhost:5434/entryou_entry_db_dev
     username: admin

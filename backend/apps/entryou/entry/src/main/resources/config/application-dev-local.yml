@@ -23,6 +23,13 @@ com:
   vrapalis:
     www:
       libs:
+        web:
+          properties:
+            cors:
+              allowed-origins:
+                - https://host1.com
+                - https://host2.com
+                - https://host3.com
         documentation:
           swagger:
             contact-name: Vitali Rapalis

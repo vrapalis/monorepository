@@ -19,7 +19,7 @@ include(':libs:commons')
 
 include(':libs:errors')
 
-include(':libs:web', ':libs:web:dto')
+include(':libs:web', ':libs:web:dto', ':libs:web:properties')
 
 include(':libs:push', ':libs:push:app', ':libs:push:restcontrollers', ':libs:push:services',
         ':libs:push:dtos', ':libs:push:entities', ':libs:push:repositories', ':libs:push:apis',

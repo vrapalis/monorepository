@@ -10,6 +10,7 @@ dependencies {
     implementation project(':libs:documentation:swagger')
     implementation project(':libs:commons')
     implementation project(':libs:web:dto')
+    implementation project(':libs:web:properties')
     implementation project(':libs:assertions')
     implementation project(':libs:errors')
     implementation project(':libs:security:apis')
