@@ -1,0 +1,49 @@
+<nav class='navbar navbar-expand-lg navbar-dark bg-dark'>
+  <div class='container-fluid'>
+    <a class='navbar-brand' href='#'>Keycloak Example</a>
+    <button class='navbar-toggler' type='button' data-bs-toggle='collapse' data-bs-target='#navbarSupportedContent'
+            aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation'>
+      <span class='navbar-toggler-icon'></span>
+    </button>
+    <div class='collapse navbar-collapse d-flex' id='navbarSupportedContent'>
+      <ul class='navbar-nav me-auto mb-2 mb-lg-0 position-absolute end-0'>
+        <li class='nav-item'>
+          <a class='nav-link' aria-current='page' (click)='login()'
+             *ngIf='!oauthService.getAccessToken() && !oauthService.getIdToken()' style='cursor: pointer;'>Login</a>
+        </li>
+        <li class='nav-item'>
+          <a class='nav-link' aria-current='page' (click)='logoff()'
+             *ngIf='oauthService.getAccessToken() && oauthService.getIdToken()' style='cursor: pointer;'>Logout</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class='container' *ngIf='oauthService.getAccessToken() && oauthService.getIdToken(); else notAuth;'>
+  <ng-container *ngIf='userProfile | async as user;'>
+    <div class='card text-center m-auto mt-3' style='width: 18rem;'>
+      <div class='card-body'>
+        <h5 class='card-title'>{{user.given_name}}</h5>
+        <h6 class='card-subtitle mb-2'>{{user.family_name}}</h6>
+        <h6 class='card-subtitle mb-2 text-muted'>{{user.email}}</h6>
+      </div>
+    </div>
+    <div class='mt-3 row justify-content-center'>
+      <button type='button' class='col-2 btn btn-success m-2' (click)="callApi('allowed')">Call Allowed Api</button>
+      <button type='button' class='col-2 btn btn-danger m-2' [disabled]="!user.roles?.includes('keycloak-example-admin-role')" (click)="callApi('not-allowed')">Call Not Allowed Api
+      </button>
+      <ng-container *ngIf='apiInfo | async as response;'>
+        <p class='m-5 text-center'>{{response.info}}</p>
+      </ng-container>
+    </div>
+
+  </ng-container>
+</div>
+<ng-template #notAuth>
+  <div class='container text-center mt-3'>
+    <h3><span class='badge bg-danger m-2'>Not</span> Authorized</h3>
+  </div>
+</ng-template>
+
+<router-outlet></router-outlet>
