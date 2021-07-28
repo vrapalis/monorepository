@@ -1,0 +1,23 @@
+plugins {
+    id 'version-catalog'
+    id 'maven-publish'
+}
+
+group='com.vrapalis.www.enterprise'
+version='0.0.1'
+
+catalog {
+    // declare the aliases, bundles and versions in this block
+    versionCatalog {
+        alias('my-lib').to('com.mycompany:mylib:1.2')
+        from files('libs.versions.toml')
+    }
+}
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            from components.versionCatalog
+        }
+    }
+}

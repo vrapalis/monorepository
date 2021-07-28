@@ -1,0 +1,40 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext
+   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd
+   http://www.liquibase.org/xml/ns/dbchangelog
+   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <changeSet id="1" author="Vitali Rapalis">
+        <createTable tableName="drivers">
+            <column autoIncrement="true" name="id" type="integer">
+                <constraints primaryKey="true" primaryKeyName="drivers_id_pk"/>
+            </column>
+            <column name="email" type="varchar(50)">
+                <constraints unique="true"/>
+            </column>
+        </createTable>
+
+        <createTable tableName="cars">
+            <column autoIncrement="true" name="id" type="integer">
+                <constraints primaryKey="true" primaryKeyName="cars_id_pk"/>
+            </column>
+            <column name="name" type="varchar(20)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+        </createTable>
+
+        <createTable tableName="drivers_cars">
+            <column name="driver_id" type="integer">
+                <constraints primaryKey="true" referencedTableName="drivers" referencedColumnNames="id"
+                             foreignKeyName="drivers_cars_driver_id_fk" deleteCascade="true"/>
+            </column>
+            <column name="car_id" type="integer">
+                <constraints primaryKey="true" referencedTableName="cars" referencedColumnNames="id"
+                             foreignKeyName="drivers_cars_car_id_fk" deleteCascade="true"/>
+            </column>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>

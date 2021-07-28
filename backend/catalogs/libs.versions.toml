@@ -1,0 +1,17 @@
+[versions]
+spring-plugin-version = "2.5.2"
+docker-bamushko-plugin-version = "7.0.1"
+groovy = "3.0.5"
+
+[libraries]
+spring-plugin = { module = "org.springframework.boot:org.springframework.boot.gradle.plugin", version.ref = "spring-plugin-version" }
+spring-dependencies = { module = "org.springframework.boot:spring-boot-dependencies", version.ref = "spring-plugin-version" }
+spring-web = { module = "org.springframework.boot:spring-boot-starter-web" }
+docker-bamushko-plugin = {module = "com.bmuschko:gradle-docker-plugin", version.ref = "docker-bamushko-plugin-version"}
+
+groovy-core = { module = "org.codehaus.groovy:groovy", version.ref = "groovy" }
+groovy-json = { module = "org.codehaus.groovy:groovy-json", version.ref = "groovy" }
+groovy-nio = { module = "org.codehaus.groovy:groovy-nio", version.ref = "groovy" }
+
+[bundles]
+groovy = ["groovy-core", "groovy-json", "groovy-nio"]

@@ -1,0 +1,6 @@
+spring:
+  config:
+    import:
+      - classpath:config/dev/application-r2dbc-dev.yml
+      - classpath:config/dev/application-liquibase-dev.yml
+      - classpath:config/dev/application-logging-dev.yml

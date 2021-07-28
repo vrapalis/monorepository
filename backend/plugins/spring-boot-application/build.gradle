@@ -1,0 +1,10 @@
+plugins {
+    id 'groovy-gradle-plugin'
+    id 'java-library'
+}
+
+dependencies {
+    api platform('com.delloit.www.backend.platforms:plugin')
+    implementation project(':commons')
+    implementation 'org.springframework.boot:org.springframework.boot.gradle.plugin'
+}

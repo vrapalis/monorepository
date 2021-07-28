@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: Webflux and Liquibase Try
+
+# dev profile
+---
+spring:
+  config:
+    activate:
+      on-profile: dev
+    import:
+      - classpath:config/dev/application-dev.yml

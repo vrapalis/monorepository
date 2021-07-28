@@ -1,0 +1,21 @@
+dependencyResolutionManagement {
+    repositories {
+        gradlePluginPortal()
+    }
+}
+
+includeBuild('../platforms')
+
+rootProject.name = 'plugins'
+
+enableFeaturePreview("VERSION_CATALOGS")
+
+dependencyResolutionManagement {
+    versionCatalogs {
+        libs {
+            from(files('../catalogs/libs.versions.toml'))
+        }
+    }
+}
+
+include 'commons', 'spring-boot-application', 'spring-boot-library', 'docker', 'utils'

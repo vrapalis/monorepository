@@ -1,0 +1,6 @@
+logging:
+  level:
+    liquibase: debug
+    org:
+      springframework:
+        r2dbc: debug

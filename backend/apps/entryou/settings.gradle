@@ -1,0 +1,24 @@
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+    }
+    includeBuild('../../plugins')
+}
+
+rootProject.name = 'entryou'
+
+enableFeaturePreview("VERSION_CATALOGS")
+
+dependencyResolutionManagement {
+    versionCatalogs {
+        libs {
+            from(files('../../catalogs/libs.versions.toml'))
+        }
+    }
+}
+
+include ':apps', ':apps:check-in'
+
+include ':libs'
+
+

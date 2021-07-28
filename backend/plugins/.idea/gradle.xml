@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="GradleMigrationSettings" migrationVersion="1" />
+  <component name="GradleSettings">
+    <option name="linkedExternalProjectsSettings">
+      <GradleProjectSettings>
+        <compositeConfiguration>
+          <compositeBuild compositeDefinitionSource="SCRIPT">
+            <builds>
+              <build path="$PROJECT_DIR$/../platforms" name="platforms">
+                <projects>
+                  <project path="$PROJECT_DIR$/../platforms" />
+                  <project path="$PROJECT_DIR$/../platforms/plugin" />
+                  <project path="$PROJECT_DIR$/../platforms/product" />
+                  <project path="$PROJECT_DIR$/../platforms/test" />
+                </projects>
+              </build>
+            </builds>
+          </compositeBuild>
+        </compositeConfiguration>
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="gradleHome" value="$USER_HOME$/.sdkman/candidates/gradle/current" />
+        <option name="gradleJvm" value="#JAVA_HOME" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/../platforms" />
+            <option value="$PROJECT_DIR$/../platforms/plugin" />
+            <option value="$PROJECT_DIR$/../platforms/product" />
+            <option value="$PROJECT_DIR$/../platforms/test" />
+            <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/commons" />
+            <option value="$PROJECT_DIR$/spring-boot-application" />
+            <option value="$PROJECT_DIR$/spring-boot-library" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+    </option>
+  </component>
+</project>

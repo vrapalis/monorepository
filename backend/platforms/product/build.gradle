@@ -1,0 +1,15 @@
+plugins {
+    id 'java-platform'
+}
+
+javaPlatform {
+    // allow the definition of dependencies to other platforms like the Spring Boot BOM
+    allowDependencies()
+}
+dependencies {
+    api platform(libs.spring.dependencies)
+
+//    constraints {
+//        api(libs.bundles.groovy)
+//    }
+}

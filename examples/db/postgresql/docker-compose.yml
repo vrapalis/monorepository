@@ -1,0 +1,36 @@
+version: '3.9'
+
+services:
+
+  postgres:
+    image: postgres:alpine
+    container_name: postgres-dev-db
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: admin
+      POSTGRES_USER: admin
+      POSTGRES_DB: admin_db
+    networks:
+      - postgres-dev-db-nt
+    ports:
+      - 5432:5432
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+
+  adminer:
+    image: adminer
+    container_name: adminer
+    restart: always
+    networks:
+      - postgres-dev-db-nt
+    ports:
+      - 9090:8080
+
+networks: 
+  postgres-dev-db-nt:
+    name: postgres-dev-db-nt
+    driver: bridge
+
+volumes: 
+  pgdata:

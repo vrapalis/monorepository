@@ -1,0 +1,12 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/admin_db
+    username: admin
+    password: admin
+    driver-class-name: org.postgresql.Driver
+  liquibase:
+    enabled: true
+    password: admin
+    user: admin
+    url: jdbc:postgresql://localhost:5432/admin_db
+    change-log: classpath:db/changelog/db.changelog-master.xml

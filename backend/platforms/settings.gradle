@@ -1,0 +1,13 @@
+rootProject.name = 'platforms'
+
+enableFeaturePreview("VERSION_CATALOGS")
+
+dependencyResolutionManagement {
+    versionCatalogs {
+        libs {
+            from(files('../catalogs/libs.versions.toml'))
+        }
+    }
+}
+
+include 'plugin', 'product', 'test'

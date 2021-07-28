@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Gradle Imported" enabled="true">
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-configuration-processor/2.5.3/dbcb7b9aa82f98f4d079a2d3d7d1dc8a0dd171b1/spring-boot-configuration-processor-2.5.3.jar" />
+          <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.projectlombok/lombok/1.18.20/18bcea7d5df4d49227b4a0743a536208ce4825bb/lombok-1.18.20.jar" />
+        </processorPath>
+        <module name="webflux-liquibase.app.main" />
+      </profile>
+      <profile name="Gradle Imported" enabled="true">
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.projectlombok/lombok/1.18.20/18bcea7d5df4d49227b4a0743a536208ce4825bb/lombok-1.18.20.jar" />
+        </processorPath>
+        <module name="webflux-liquibase.app.test" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel target="16">
+      <module name="aoo" target="16" />
+      <module name="aoo.main" target="16" />
+      <module name="aoo.test" target="16" />
+      <module name="app" target="16" />
+      <module name="app.main" target="16" />
+      <module name="app.test" target="16" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
