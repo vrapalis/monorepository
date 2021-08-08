@@ -1,0 +1,18 @@
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+    }
+    includeBuild('../../../plugins')
+}
+
+rootProject.name = 'dto'
+
+enableFeaturePreview("VERSION_CATALOGS")
+
+dependencyResolutionManagement {
+    versionCatalogs {
+        libs {
+            from(files('../../../catalogs/libs.versions.toml'))
+        }
+    }
+}

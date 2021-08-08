@@ -1,12 +1,15 @@
 [versions]
 spring-plugin-version = "2.5.2"
 docker-bamushko-plugin-version = "7.0.1"
+springdoc = "1.5.10"
 groovy = "3.0.5"
 
 [libraries]
 spring-plugin = { module = "org.springframework.boot:org.springframework.boot.gradle.plugin", version.ref = "spring-plugin-version" }
 spring-dependencies = { module = "org.springframework.boot:spring-boot-dependencies", version.ref = "spring-plugin-version" }
 spring-web = { module = "org.springframework.boot:spring-boot-starter-web" }
+springdoc-openapi-ui = { module = "org.springdoc:springdoc-openapi-ui", version.ref = "springdoc" }
+springdoc-openapi-security = { module = "org.springdoc:springdoc-openapi-security", version.ref = "springdoc" }
 docker-bamushko-plugin = {module = "com.bmuschko:gradle-docker-plugin", version.ref = "docker-bamushko-plugin-version"}
 
 groovy-core = { module = "org.codehaus.groovy:groovy", version.ref = "groovy" }

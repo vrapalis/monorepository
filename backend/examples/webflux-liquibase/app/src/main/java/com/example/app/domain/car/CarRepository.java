@@ -1,10 +1,12 @@
 package com.example.app.domain.car;
 
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.repository.reactive.ReactiveSortingRepository;
 import org.springframework.stereotype.Repository;
-import reactor.core.publisher.Mono;
+import reactor.core.publisher.Flux;
 
 @Repository
 public interface CarRepository extends ReactiveSortingRepository<CarEntity, Integer> {
-    Mono<CarEntity> findByName(String name);
+    Flux<CarEntity> findByNameLike(String name, Pageable pageable);
+    Flux<CarEntity> findByNameLike(String name);
 }

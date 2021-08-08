@@ -1,0 +1,15 @@
+import com.delloit.www.backend.plugins.utils.UtilsProperties
+
+plugins {
+    id 'com.delloit.www.backend.plugins.spring-boot-application' apply false
+    id 'com.delloit.www.backend.plugins.docker' apply false
+    id 'com.delloit.www.backend.plugins.utils' apply false
+}
+
+
+subprojects {
+    apply plugin: 'com.delloit.www.backend.plugins.utils'
+
+    group "${UtilsProperties.BASE_GROUP}.apps.estate-management"
+    version UtilsProperties.ESTATE_MANAGEMENT_VERSION
+}

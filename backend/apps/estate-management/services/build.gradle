@@ -1,0 +1,6 @@
+group "${group}.services"
+
+subprojects {
+    apply plugin: 'com.delloit.www.backend.plugins.spring-boot-application'
+    apply plugin: 'com.delloit.www.backend.plugins.docker'
+}

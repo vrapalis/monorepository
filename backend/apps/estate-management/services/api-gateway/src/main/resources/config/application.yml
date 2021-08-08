@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: estate-management-api-gateway
+  banner:
+    location: classpath:/banner/banner.txt
+server:
+  port: 8080

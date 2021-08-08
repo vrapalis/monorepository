@@ -8,13 +8,27 @@
         <processorPath useClasspath="false">
           <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.projectlombok/lombok/1.18.20/18bcea7d5df4d49227b4a0743a536208ce4825bb/lombok-1.18.20.jar" />
         </processorPath>
+        <module name="tutorials.spring.test" />
+        <module name="tutorials.spring.security.test" />
         <module name="tutorials.classes-and-objects.test" />
         <module name="tutorials.classes-and-objects.main" />
+        <module name="tutorials.spring.main" />
+      </profile>
+      <profile name="Gradle Imported" enabled="true">
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.projectlombok/lombok/1.18.20/18bcea7d5df4d49227b4a0743a536208ce4825bb/lombok-1.18.20.jar" />
+          <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-configuration-processor/2.5.3/dbcb7b9aa82f98f4d079a2d3d7d1dc8a0dd171b1/spring-boot-configuration-processor-2.5.3.jar" />
+        </processorPath>
+        <module name="tutorials.spring.security.main" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel target="1.6">
+    <bytecodeTargetLevel target="16">
       <module name="classes-and-objects.main" target="16" />
       <module name="classes-and-objects.test" target="16" />
+      <module name="security" target="16" />
+      <module name="security.main" target="16" />
+      <module name="security.test" target="16" />
       <module name="tutorials.main" target="16" />
       <module name="tutorials.test" target="16" />
     </bytecodeTargetLevel>

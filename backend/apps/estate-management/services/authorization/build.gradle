@@ -1,0 +1,9 @@
+group "${parent.group}.authorization"
+
+dependencies {
+    implementation libs.spring.web
+    implementation libs.springdoc.openapi.ui
+//    implementation libs.springdoc.openapi.security
+
+    implementation 'com.delloit.www.backend.libs.shared:dto:0.0.1'
+}

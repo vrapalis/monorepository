@@ -1,0 +1,22 @@
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+    }
+    includeBuild('../../plugins')
+}
+
+rootProject.name = 'estate-management'
+
+enableFeaturePreview("VERSION_CATALOGS")
+dependencyResolutionManagement {
+    versionCatalogs {
+        libs {
+            from(files('../../catalogs/libs.versions.toml'))
+        }
+    }
+}
+
+includeBuild('../../libs/shared/dto')
+
+include ':services', ':services:authorization', ':services:api-gateway'
+include ':libs'

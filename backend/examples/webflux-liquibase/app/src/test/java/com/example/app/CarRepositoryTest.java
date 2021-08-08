@@ -5,6 +5,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.data.r2dbc.DataR2dbcTest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.r2dbc.core.DatabaseClient;
 import org.springframework.test.context.ActiveProfiles;
 import reactor.test.StepVerifier;
@@ -31,7 +32,7 @@ public class CarRepositoryTest {
                 .one()
                 .block();
 
-        carRepository.findByName(CAR_NAME)
+        carRepository.findByNameLike(CAR_NAME)
                 .map(carEntity -> carEntity.name())
                 .as(StepVerifier::create)
                 .expectNext(CAR_NAME)
