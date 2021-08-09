@@ -1,6 +1,6 @@
 spring:
   application:
-    name: estate-management-authroziation
+    name: estate-management-authroziation-service
   banner:
     location: classpath:/banner/banner.txt
 server:

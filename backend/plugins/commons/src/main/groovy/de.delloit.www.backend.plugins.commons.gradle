@@ -1,0 +1,42 @@
+// TODO CONFIGURE GROUP, ARCHIVE BASE NAME AND VERSION
+//  LIKE IN LINK => https://github.com/vrapalis/monorepository/blob/master/backend/buildSrc/src/main/groovy/com/vrapalis/www/buildsrc/buildfiles/common.build.gradle
+
+plugins {
+    id 'java-library'
+}
+
+afterEvaluate {
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(16)
+    }
+}
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    api platform('com.delloit.www.backend.platforms:product')
+
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+    testCompileOnly 'org.projectlombok:lombok'
+    testAnnotationProcessor 'org.projectlombok:lombok'
+
+    testImplementation platform('com.delloit.www.backend.platforms:test')
+    testImplementation 'org.junit.jupiter:junit-jupiter-api'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
+}
+
+tasks.named("test") {
+    useJUnitPlatform()
+}

@@ -1,0 +1,3 @@
+rootProject.name = 'spring-authorization-server'
+
+include 'app'

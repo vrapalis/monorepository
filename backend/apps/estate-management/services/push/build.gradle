@@ -1,0 +1,6 @@
+group "${parent.group}.push"
+
+dependencies {
+    implementation libs.spring.web
+    implementation libs.springdoc.openapi.ui
+}

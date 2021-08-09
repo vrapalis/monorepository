@@ -1,6 +1,10 @@
 group "${group}.services"
 
 subprojects {
-    apply plugin: 'com.delloit.www.backend.plugins.spring-boot-application'
-    apply plugin: 'com.delloit.www.backend.plugins.docker'
+    ext {
+        DOCKER_IMAGE_PREFIX = "${parent.parent.name}/${parent.name}"
+    }
+
+    apply plugin: 'de.delloit.www.backend.plugins.spring-boot-application'
+    apply plugin: 'de.delloit.www.backend.plugins.docker'
 }

@@ -1,0 +1,50 @@
+import com.bmuschko.gradle.docker.tasks.image.*
+
+plugins {
+    id 'com.bmuschko.docker-remote-api'
+}
+
+docker {}
+
+
+afterEvaluate {
+    ext {
+        JAR_FILE_BASE_NAME = "${archivesBaseName}-${version}.jar"
+        DOCKER_BASE_IMAGE = 'openjdk:16-alpine'
+        DOCKER_REPOSITORY_URL = 'nexus.delloit.de'
+        DOCKER_IMAGE_PREFIX = project.DOCKER_IMAGE_PREFIX != null ? project.DOCKER_IMAGE_PREFIX : 'defulat_image_prefix'
+        DOCKER_IMAGE_TAG = "${DOCKER_REPOSITORY_URL}/${DOCKER_IMAGE_PREFIX}/${project.archivesBaseName}:${project.version}"
+    }
+
+    task createDockerFile(type: Dockerfile) {
+        group 'Docker'
+        description 'Crete docker file'
+        from("${project.DOCKER_BASE_IMAGE}")
+        workingDir('app')
+        label([maintainer: "vrapalis", project: project.name])
+        runCommand("addgroup -S spring && adduser -S spring -G spring")
+        runCommand("apk update && apk upgrade")
+        copyFile("build/libs/${project.JAR_FILE_BASE_NAME}", "${project.JAR_FILE_BASE_NAME}")
+        exposePort(8080)
+        user("spring:spring")
+        entryPoint('java')
+        defaultCommand('-jar', "${project.JAR_FILE_BASE_NAME}")
+    }
+
+    task buildDockerImage(type: DockerBuildImage) {
+        group "Docker"
+        description "Creates docker image"
+        dependsOn build, createDockerFile
+        inputDir = file(projectDir)
+        dockerFile = file("${projectDir}/build/docker/Dockerfile")
+        noCache = true
+        images.add("$DOCKER_IMAGE_TAG")
+    }
+
+    task pushDockerImage(type: DockerPushImage) {
+        group "Docker"
+        description "Pushes docker image"
+        dependsOn build, buildDockerImage
+        images.add("$DOCKER_IMAGE_TAG")
+    }
+}

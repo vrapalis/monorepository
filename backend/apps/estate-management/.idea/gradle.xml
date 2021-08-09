@@ -44,6 +44,7 @@
             <option value="$PROJECT_DIR$/services" />
             <option value="$PROJECT_DIR$/services/api-gateway" />
             <option value="$PROJECT_DIR$/services/authorization" />
+            <option value="$PROJECT_DIR$/services/push" />
             <option value="$PROJECT_DIR$/../../libs/shared/dto" />
             <option value="$PROJECT_DIR$/../../platforms" />
             <option value="$PROJECT_DIR$/../../platforms/plugin" />
