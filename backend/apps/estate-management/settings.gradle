@@ -18,5 +18,5 @@ dependencyResolutionManagement {
 
 includeBuild('../../libs/shared/dto')
 
-include ':services', ':services:authorization', ':services:api-gateway', ':services:push'
+include ':services', ':services:authorization', ':services:api-gateway', ':services:push', ':services:config'
 include ':libs'

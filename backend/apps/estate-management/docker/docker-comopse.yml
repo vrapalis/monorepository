@@ -1,0 +1,8 @@
+version: '3.6'
+
+services:
+  estate-management-consul:
+    image: consul
+    container_name: estate-management-consul
+    network_mode: host
+    restart: on-failure

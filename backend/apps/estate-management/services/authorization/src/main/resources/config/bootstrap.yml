@@ -1,0 +1,11 @@
+spring:
+  cloud:
+    config:
+      discovery:
+        enabled: true
+        service-id: estate-management-config-server
+    consul:
+      config:
+        enabled: false
+      host: localhost
+      port: 8500

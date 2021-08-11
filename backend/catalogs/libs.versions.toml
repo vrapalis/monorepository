@@ -1,16 +1,30 @@
 [versions]
-spring-plugin-version = "2.5.2"
+spring-plugin-version = "2.5.3"
+spring-cloud-version = "2020.0.3"
 docker-bamushko-plugin-version = "7.0.1"
 springdoc = "1.5.10"
 groovy = "3.0.5"
+project-base-version = "0.0.1"
 
 [libraries]
 spring-plugin = { module = "org.springframework.boot:org.springframework.boot.gradle.plugin", version.ref = "spring-plugin-version" }
 spring-dependencies = { module = "org.springframework.boot:spring-boot-dependencies", version.ref = "spring-plugin-version" }
+spring-cloud-dependencies = { module = "org.springframework.cloud:spring-cloud-dependencies", version.ref = "spring-cloud-version" }
+
+spring-cloud-starter = { module = "org.springframework.cloud:spring-cloud-starter-bootstrap" }
+spring-cloud-config = { module = "org.springframework.cloud:spring-cloud-config-server" }
+spring-cloud-client-config = { module = "org.springframework.cloud:spring-cloud-starter-config" }
+
+spring-cloud-consul-discovery = { module = "org.springframework.cloud:spring-cloud-starter-consul-discovery" }
+spring-cloud-consul-config = { module = "org.springframework.cloud:spring-cloud-starter-consul-config" }
+
 spring-web = { module = "org.springframework.boot:spring-boot-starter-web" }
+spring-actuator = { module = "org.springframework.boot:spring-boot-starter-actuator" }
 springdoc-openapi-ui = { module = "org.springdoc:springdoc-openapi-ui", version.ref = "springdoc" }
 springdoc-openapi-security = { module = "org.springdoc:springdoc-openapi-security", version.ref = "springdoc" }
 docker-bamushko-plugin = {module = "com.bmuschko:gradle-docker-plugin", version.ref = "docker-bamushko-plugin-version"}
+
+project-shared-dto = {module = "com.delloit.www.backend.libs.shared:dto", version.ref = "project-base-version"}
 
 groovy-core = { module = "org.codehaus.groovy:groovy", version.ref = "groovy" }
 groovy-json = { module = "org.codehaus.groovy:groovy-json", version.ref = "groovy" }

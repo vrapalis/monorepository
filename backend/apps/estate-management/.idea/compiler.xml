@@ -11,15 +11,17 @@
         <module name="estate-management.services.authorization.test" />
         <module name="estate-management.services.push.test" />
         <module name="estate-management.services.api-gateway.test" />
+        <module name="estate-management.services.config.test" />
       </profile>
       <profile name="Gradle Imported" enabled="true">
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="false">
           <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.projectlombok/lombok/1.18.20/18bcea7d5df4d49227b4a0743a536208ce4825bb/lombok-1.18.20.jar" />
-          <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-configuration-processor/2.5.2/69da26fe0e896d89feb388c425947c34416fde2e/spring-boot-configuration-processor-2.5.2.jar" />
+          <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-configuration-processor/2.5.3/dbcb7b9aa82f98f4d079a2d3d7d1dc8a0dd171b1/spring-boot-configuration-processor-2.5.3.jar" />
         </processorPath>
         <module name="estate-management.services.api-gateway.main" />
         <module name="estate-management.services.push.main" />
+        <module name="estate-management.services.config.main" />
         <module name="dto.main" />
         <module name="estate-management.services.authorization.main" />
       </profile>
@@ -31,6 +33,9 @@
       <module name="authorization" target="16" />
       <module name="authorization.main" target="16" />
       <module name="authorization.test" target="16" />
+      <module name="config" target="16" />
+      <module name="config.main" target="16" />
+      <module name="config.test" target="16" />
       <module name="push" target="16" />
       <module name="push.main" target="16" />
       <module name="push.test" target="16" />

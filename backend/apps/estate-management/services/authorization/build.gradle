@@ -2,8 +2,11 @@ group "${parent.group}.authorization"
 
 dependencies {
     implementation libs.spring.web
+    implementation libs.spring.cloud.consul.discovery
+    implementation libs.spring.cloud.client.config
+    implementation libs.project.shared.dto
     implementation libs.springdoc.openapi.ui
+    implementation libs.spring.cloud.starter
+    implementation libs.spring.actuator
 //    implementation libs.springdoc.openapi.security
-
-    implementation 'com.delloit.www.backend.libs.shared:dto:0.0.1'
 }

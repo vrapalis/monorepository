@@ -1,0 +1,7 @@
+group "${parent.group}.config"
+
+dependencies {
+    implementation libs.spring.actuator
+    implementation libs.spring.cloud.config
+    implementation libs.spring.cloud.consul.discovery
+}
