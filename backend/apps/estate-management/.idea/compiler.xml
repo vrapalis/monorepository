@@ -9,6 +9,7 @@
         </processorPath>
         <module name="dto.test" />
         <module name="estate-management.services.authorization.test" />
+        <module name="utility.test" />
         <module name="estate-management.services.api-gateway.test" />
         <module name="estate-management.services.config.test" />
         <module name="assertion.test" />
@@ -26,6 +27,7 @@
         <module name="estate-management.services.config.main" />
         <module name="dto.main" />
         <module name="assertion.main" />
+        <module name="utility.main" />
         <module name="estate-management.services.authorization.main" />
         <module name="error.main" />
       </profile>

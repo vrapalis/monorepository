@@ -14,6 +14,6 @@ public class UserSignInDto {
     @Pattern(regexp = "^(\\+\\d{1,3}( )?)?((\\(\\d{1,3}\\))|\\d{1,3})[- .]?\\d{3,4}[- .]?\\d{4}$")
     private String mobilePhone;
 
-    @Length(min = 4, max = 4)
+    @Length(min = 6, max = 6)
     private String password;
 }

@@ -1,0 +1,10 @@
+import de.delloit.www.backend.plugins.utils.UtilsProperties
+
+plugins {
+    id 'de.delloit.www.backend.plugins.spring-boot-library'
+    id 'de.delloit.www.backend.plugins.utils'
+}
+
+group "${UtilsProperties.BASE_GROUP}.libs.shared"
+version UtilsProperties.BASE_VERSION
+

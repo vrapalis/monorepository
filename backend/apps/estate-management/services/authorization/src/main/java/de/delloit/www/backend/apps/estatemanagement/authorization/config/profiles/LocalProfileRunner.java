@@ -20,7 +20,7 @@ public class LocalProfileRunner implements CommandLineRunner {
                 .mobilePhone("545645645")
                 .build();
         try {
-            userRepository.save(userEntity);
+//            userRepository.save(userEntity);
         } catch (Exception ex) {
         }
     }

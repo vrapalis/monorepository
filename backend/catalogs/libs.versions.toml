@@ -31,6 +31,7 @@ docker-bamushko-plugin = {module = "com.bmuschko:gradle-docker-plugin", version.
 project-shared-dto = {module = "com.delloit.www.backend.libs.shared:dto", version.ref = "project-base-version"}
 project-shared-error = {module = "com.delloit.www.backend.libs.shared:error", version.ref = "project-base-version"}
 project-shared-assertion = {module = "com.delloit.www.backend.libs.shared:assertion", version.ref = "project-base-version"}
+project-shared-utility = {module = "com.delloit.www.backend.libs.shared:utility", version.ref = "project-base-version"}
 
 liquibase-core = {module = "org.liquibase:liquibase-core"}
 postgres = {module = "org.postgresql:postgresql"}

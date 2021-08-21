@@ -13,6 +13,7 @@ import de.delloit.www.backend.apps.estatemanagement.authorization.domain.user.mo
 import de.delloit.www.backend.apps.estatemanagement.authorization.domain.user.repository.UserRepository;
 import de.delloit.www.backend.libs.shared.dto.domain.server.AbstractServerResponseDto;
 import de.delloit.www.backend.libs.shared.dto.domain.server.SuccessServerResponseDto;
+import de.delloit.www.backend.libs.shared.util.TokenGenerationSharadUtility;
 import lombok.AllArgsConstructor;
 import lombok.NonNull;
 import lombok.extern.log4j.Log4j2;
@@ -45,8 +46,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public ResponseEntity<AbstractServerResponseDto> signUp(@NonNull UserSignUpUserDto signUpUser) throws UserSignUpError {
         try {
-            Random random = new Random();
-            final var generatedPassword = String.format("%04d", random.nextInt(10000));
+            final var generatedPassword = TokenGenerationSharadUtility.generateSixthDigitsToken().toString();
 
             final var optionalUser = userRepository.findByMobilePhone(signUpUser.getMobilePhone());
             if (optionalUser.isPresent()) {
