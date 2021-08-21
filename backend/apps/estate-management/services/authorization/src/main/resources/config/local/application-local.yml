@@ -1,0 +1,5 @@
+spring:
+  config:
+    import:
+      - classpath:config/local/application-datasource-liquibase-jpa-local.yml
+      - classpath:config/local/application-logging-local.yml

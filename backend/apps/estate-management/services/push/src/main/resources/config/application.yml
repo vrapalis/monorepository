@@ -5,3 +5,12 @@ spring:
     location: classpath:/banner/banner.txt
 server:
   port: 8082
+
+# Local Profile
+---
+spring:
+  config:
+    activate:
+      on-profile: local
+    import:
+      - classpath:config/local/application-local.yml

@@ -16,7 +16,9 @@ dependencyResolutionManagement {
     }
 }
 
+includeBuild('../../libs/shared/error')
 includeBuild('../../libs/shared/dto')
+includeBuild('../../libs/shared/assertion')
 
 include ':services', ':services:authorization', ':services:api-gateway', ':services:push', ':services:config'
 include ':libs'

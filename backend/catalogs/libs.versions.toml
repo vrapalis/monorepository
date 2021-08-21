@@ -17,14 +17,23 @@ spring-cloud-client-config = { module = "org.springframework.cloud:spring-cloud-
 
 spring-cloud-consul-discovery = { module = "org.springframework.cloud:spring-cloud-starter-consul-discovery" }
 spring-cloud-consul-config = { module = "org.springframework.cloud:spring-cloud-starter-consul-config" }
+spring-cloud-fain = { module = "org.springframework.cloud:spring-cloud-starter-openfeign" }
 
 spring-web = { module = "org.springframework.boot:spring-boot-starter-web" }
+spring-data = { module = "org.springframework.boot:spring-boot-starter-data-jpa" }
+spring-security = { module = "org.springframework.boot:spring-boot-starter-security" }
 spring-actuator = { module = "org.springframework.boot:spring-boot-starter-actuator" }
+spring-mail = { module = "org.springframework.boot:spring-boot-starter-mail" }
 springdoc-openapi-ui = { module = "org.springdoc:springdoc-openapi-ui", version.ref = "springdoc" }
 springdoc-openapi-security = { module = "org.springdoc:springdoc-openapi-security", version.ref = "springdoc" }
 docker-bamushko-plugin = {module = "com.bmuschko:gradle-docker-plugin", version.ref = "docker-bamushko-plugin-version"}
 
 project-shared-dto = {module = "com.delloit.www.backend.libs.shared:dto", version.ref = "project-base-version"}
+project-shared-error = {module = "com.delloit.www.backend.libs.shared:error", version.ref = "project-base-version"}
+project-shared-assertion = {module = "com.delloit.www.backend.libs.shared:assertion", version.ref = "project-base-version"}
+
+liquibase-core = {module = "org.liquibase:liquibase-core"}
+postgres = {module = "org.postgresql:postgresql"}
 
 groovy-core = { module = "org.codehaus.groovy:groovy", version.ref = "groovy" }
 groovy-json = { module = "org.codehaus.groovy:groovy-json", version.ref = "groovy" }

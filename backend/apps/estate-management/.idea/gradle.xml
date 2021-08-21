@@ -17,9 +17,19 @@
                   <project path="$PROJECT_DIR$/../../plugins/utils" />
                 </projects>
               </build>
+              <build path="$PROJECT_DIR$/../../libs/shared/error" name="error">
+                <projects>
+                  <project path="$PROJECT_DIR$/../../libs/shared/error" />
+                </projects>
+              </build>
               <build path="$PROJECT_DIR$/../../libs/shared/dto" name="dto">
                 <projects>
                   <project path="$PROJECT_DIR$/../../libs/shared/dto" />
+                </projects>
+              </build>
+              <build path="$PROJECT_DIR$/../../libs/shared/assertion" name="assertion">
+                <projects>
+                  <project path="$PROJECT_DIR$/../../libs/shared/assertion" />
                 </projects>
               </build>
               <build path="$PROJECT_DIR$/../../platforms" name="platforms">
@@ -46,7 +56,9 @@
             <option value="$PROJECT_DIR$/services/authorization" />
             <option value="$PROJECT_DIR$/services/config" />
             <option value="$PROJECT_DIR$/services/push" />
+            <option value="$PROJECT_DIR$/../../libs/shared/assertion" />
             <option value="$PROJECT_DIR$/../../libs/shared/dto" />
+            <option value="$PROJECT_DIR$/../../libs/shared/error" />
             <option value="$PROJECT_DIR$/../../platforms" />
             <option value="$PROJECT_DIR$/../../platforms/plugin" />
             <option value="$PROJECT_DIR$/../../platforms/product" />

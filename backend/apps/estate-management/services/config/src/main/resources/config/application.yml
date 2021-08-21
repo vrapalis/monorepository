@@ -1,0 +1,22 @@
+server:
+  port: 8888
+spring:
+  application:
+    name: estate-management-config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/delloit/env-source.git
+          search-paths: estate-management
+          username: vrapalis
+          password: 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
+
+# Local Profile
+---
+spring:
+  config:
+    activate:
+      on-profile: local
+    import:
+      - classpath:config/local/application-local.yml

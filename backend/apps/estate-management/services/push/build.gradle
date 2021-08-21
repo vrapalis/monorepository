@@ -2,5 +2,14 @@ group "${parent.group}.push"
 
 dependencies {
     implementation libs.spring.web
+    implementation libs.spring.mail
     implementation libs.springdoc.openapi.ui
+    implementation libs.spring.cloud.consul.discovery
+    implementation libs.spring.cloud.client.config
+    implementation libs.spring.cloud.starter
+    implementation libs.spring.actuator
+
+    implementation libs.project.shared.dto
+    implementation libs.project.shared.error
+    implementation libs.project.shared.assertion
 }

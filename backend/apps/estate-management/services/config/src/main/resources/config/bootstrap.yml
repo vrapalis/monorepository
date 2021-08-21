@@ -1,0 +1,17 @@
+encrypt:
+  key: dsaJDKLSAF5456sdfasdf565655DSFAsdfsdaf
+
+spring:
+  cloud:
+    consul:
+      host: localhost
+      port: 8500
+
+# Local profile
+---
+spring:
+  config:
+    activate:
+      on-profile: local
+    import:
+      - classpath:config/local/bootstrap-local.yml

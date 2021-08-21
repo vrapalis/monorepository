@@ -1,0 +1,21 @@
+spring:
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: delloit.contact@gmail.com
+    password: Auto246135
+    properties:
+      mail:
+        smtp:
+          auth: true
+          connectiontimeout: 5000
+          timeout: 5000
+          writetimeout: 5000
+          starttls:
+            enable: true
+  application:
+    name: estate-management-push-service
+  banner:
+    location: classpath:/banner/banner.txt
+server:
+  port: 8082

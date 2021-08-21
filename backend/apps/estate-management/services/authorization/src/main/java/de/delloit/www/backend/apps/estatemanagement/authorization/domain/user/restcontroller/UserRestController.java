@@ -1,7 +1,6 @@
 package de.delloit.www.backend.apps.estatemanagement.authorization.domain.user.restcontroller;
 
 import de.delloit.www.backend.apps.estatemanagement.authorization.domain.common.CommonApi;
-import de.delloit.www.backend.apps.estatemanagement.authorization.domain.common.error.BeanValidationError;
 import de.delloit.www.backend.apps.estatemanagement.authorization.domain.user.dto.UserSignInDto;
 import de.delloit.www.backend.apps.estatemanagement.authorization.domain.user.dto.UserSignUpSuccessResponseDto;
 import de.delloit.www.backend.apps.estatemanagement.authorization.domain.user.error.UserSignInError;
@@ -9,6 +8,7 @@ import de.delloit.www.backend.apps.estatemanagement.authorization.domain.user.er
 import de.delloit.www.backend.libs.shared.dto.domain.server.AbstractServerResponseDto;
 import de.delloit.www.backend.apps.estatemanagement.authorization.domain.user.dto.UserSignInSuccessResponseDto;
 import de.delloit.www.backend.apps.estatemanagement.authorization.domain.user.dto.UserSignUpUserDto;
+import de.delloit.www.backend.libs.shared.error.domain.common.BeanValidationSharedError;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.media.Content;
@@ -39,7 +39,7 @@ public interface UserRestController {
     })
     ResponseEntity<AbstractServerResponseDto> signIn(@Parameter(name = "user sign in dto model") @Valid @RequestBody
                                                              UserSignInDto signInUser, BindingResult result)
-            throws UserSignInError, BeanValidationError;
+            throws UserSignInError, BeanValidationSharedError;
 
     @PostMapping(value = UserApi.USER_SIGN_UP_API, produces = "application/json")
     @Operation(summary = "Sign up endpoint", description = "Endpoint registration of an user")
@@ -52,7 +52,7 @@ public interface UserRestController {
     })
     ResponseEntity<AbstractServerResponseDto> signUp(@Parameter(name = "user sign up dto model") @Valid @RequestBody
                                                              UserSignUpUserDto signUpUser, BindingResult result)
-            throws UserSignUpError, BeanValidationError;
+            throws UserSignUpError, BeanValidationSharedError;
 
 
 }

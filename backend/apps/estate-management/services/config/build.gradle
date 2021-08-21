@@ -2,6 +2,8 @@ group "${parent.group}.config"
 
 dependencies {
     implementation libs.spring.actuator
+    implementation libs.spring.cloud.starter
+    implementation libs.spring.security
     implementation libs.spring.cloud.config
     implementation libs.spring.cloud.consul.discovery
 }

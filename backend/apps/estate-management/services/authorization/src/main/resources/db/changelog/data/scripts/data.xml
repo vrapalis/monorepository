@@ -1,0 +1,67 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext
+   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd
+   http://www.liquibase.org/xml/ns/dbchangelog
+   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <changeSet id="insert data" author="Vitali Rapalis">
+        <insert tableName="drivers">
+            <column name="email" value="mike@email.com"/>
+        </insert>
+        <insert tableName="drivers">
+            <column name="email" value="dike@email.com"/>
+        </insert>
+        <insert tableName="drivers">
+            <column name="email" value="fike@email.com"/>
+        </insert>
+        <insert tableName="drivers">
+            <column name="email" value="nike@email.com"/>
+        </insert>
+
+        <insert tableName="cars">
+            <column name="name" value="BMW 1"/>
+        </insert>
+        <insert tableName="cars">
+            <column name="name" value="BMW 3"/>
+        </insert>
+        <insert tableName="cars">
+            <column name="name" value="BMW 5"/>
+        </insert>
+        <insert tableName="cars">
+            <column name="name" value="Mercedes A"/>
+        </insert>
+        <insert tableName="cars">
+            <column name="name" value="Mercedes B"/>
+        </insert>
+        <insert tableName="cars">
+            <column name="name" value="Mercedes E"/>
+        </insert>
+        <insert tableName="cars">
+            <column name="name" value="Mercedes C"/>
+        </insert>
+
+        <insert tableName="drivers_cars">
+            <column name="driver_id" value="1"/>
+            <column name="car_id" value="1"></column>
+        </insert>
+        <insert tableName="drivers_cars">
+            <column name="driver_id" value="1"/>
+            <column name="car_id" value="2"/>
+        </insert>
+        <insert tableName="drivers_cars">
+            <column name="driver_id" value="1"/>
+            <column name="car_id" value="3"/>
+        </insert>
+        <insert tableName="drivers_cars">
+            <column name="driver_id" value="2"/>
+            <column name="car_id" value="4"/>
+        </insert>
+        <insert tableName="drivers_cars">
+            <column name="driver_id" value="3"/>
+            <column name="car_id" value="5"/>
+        </insert>
+    </changeSet>
+</databaseChangeLog>

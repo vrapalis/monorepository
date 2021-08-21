@@ -1,4 +1,4 @@
-version: '3.6'
+version: '3.9'
 
 services:
   estate-management-consul:
@@ -6,3 +6,22 @@ services:
     container_name: estate-management-consul
     network_mode: host
     restart: on-failure
+
+  estate-management-db:
+    image: postgres:alpine
+    container_name: estate-management-db
+    restart: on-failure
+    networks:
+      - estate-management-nt
+    environment:
+      - POSTGRES_USER=estate_management_admin
+      - POSTGRES_PASSWORD=admin123
+    volumes:
+      - ./db/scripts:/docker-entrypoint-initdb.d
+    ports:
+      - 5432:5432
+
+networks:
+  estate-management-nt:
+    name: estate-management-nt
+    driver: bridge

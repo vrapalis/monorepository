@@ -1,0 +1,69 @@
+version: '3.6'
+
+services:
+  estate-management-consul:
+    image: consul
+    container_name: estate-management-consul-local
+    network_mode: host
+    restart: on-failure
+
+  estate-management-db:
+    image: postgres:alpine
+    container_name: estate-management-db
+    restart: on-failure
+    networks:
+      - estate-management-nt
+    environment:
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=admin
+    ports:
+      - 5432:5432
+
+  estate-management-backend-config:
+    image: vrapalis/config
+    container_name: estate-management-backend-config
+    network_mode: host
+    expose:
+      - 8888
+    restart: on-failure
+    environment:
+      - SPRING.PROFILES.ACTIVE=local
+    depends_on:
+      - estate-management-consul
+      - estate-management-db
+
+  estate-management-backend-push:
+    image: vrapalis/push
+    container_name: estate-management-backend-push
+    network_mode: host
+    expose:
+      - 8082
+    restart: on-failure
+    environment:
+      - SPRING.PROFILES.ACTIVE=local
+      - SERVER.PORT=8082
+    depends_on:
+      - estate-management-consul
+      - estate-management-db
+      - estate-management-backend-config
+
+  estate-management-backend-auth:
+    image: vrapalis/authorization
+    container_name: estate-management-backend-auth
+    network_mode: host
+    expose:
+      - 8081
+    restart: on-failure
+    environment:
+      - SPRING.PROFILES.ACTIVE=local
+      - SERVER.PORT=8081
+    depends_on:
+      - estate-management-consul
+      - estate-management-db
+      - estate-management-backend-config
+      - estate-management-backend-push
+
+networks:
+  estate-management-nt:
+    name: estate-management-nt
+    driver: bridge
