@@ -1,0 +1,4 @@
+spring:
+  config:
+    import:
+      - classpath:config/local/application-logging-local.yml

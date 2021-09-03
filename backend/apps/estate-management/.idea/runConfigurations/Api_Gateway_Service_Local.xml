@@ -1,7 +1,8 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="ApiGatewayService" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+  <configuration default="false" name="Api Gateway Service Local" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
     <module name="estate-management.services.api-gateway.main" />
     <option name="SPRING_BOOT_MAIN_CLASS" value="de.delloit.www.backend.apps.estatemanagement.apigateway.ApiGatewayService" />
+    <option name="ACTIVE_PROFILES" value="local" />
     <option name="ALTERNATIVE_JRE_PATH" />
     <option name="SHORTEN_COMMAND_LINE" value="NONE" />
     <method v="2">

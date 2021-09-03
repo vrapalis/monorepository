@@ -1,5 +1,5 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="Config Local" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+  <configuration default="false" name="Config Server Service Local" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
     <module name="estate-management.services.config.main" />
     <option name="SPRING_BOOT_MAIN_CLASS" value="com.delloit.www.backend.apps.estatemanagement.config.ConfigService" />
     <option name="ACTIVE_PROFILES" value="local" />

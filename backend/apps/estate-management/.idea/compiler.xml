@@ -32,7 +32,7 @@
         <module name="error.main" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel target="13">
+    <bytecodeTargetLevel target="16">
       <module name="api-gateway" target="16" />
       <module name="api-gateway.main" target="16" />
       <module name="api-gateway.test" target="16" />

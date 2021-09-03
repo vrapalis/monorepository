@@ -3,7 +3,7 @@ spring:
     config:
       discovery:
         enabled: true
-        service-id: estate-management-config-server
+        service-id: estate-management-config-server-service
     consul:
       config:
         enabled: false
