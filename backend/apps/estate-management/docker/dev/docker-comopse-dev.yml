@@ -10,7 +10,7 @@ services:
     network_mode: host
     restart: on-failure
     volumes:
-      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./dev/nginx/nginx.conf:/etc/nginx/nginx.conf
       - /etc/letsencrypt:/etc/letsencrypt
 
   estate-management-consul:
@@ -86,6 +86,40 @@ services:
       - estate-management-db
       - estate-management-backend-config
       - estate-management-backend-push
+
+  estate-management-adminer-db:
+    image: adminer
+    container_name: estate-management-adminer-db
+    restart: on-failure
+    ports:
+      - 9090:8080
+    depends_on:
+      - estate-management-db
+      - estate-management-consul
+      - estate-management-api-gateway
+      - estate-management-backend-push
+      - estate-management-reverse-proxy
+      - estate-management-backend-auth
+      - estate-management-backend-config
+
+  estate-management-swagger-ui:
+    image: swaggerapi/swagger-ui
+    container_name: estate-management-swagger-ui
+    network_mode: host
+    restart: on-failure
+    environment:
+      - API_URL=swagger/openapi.yaml
+      - PORT=9091
+    volumes:
+      - ./dev/swagger:/usr/share/nginx/html/doc
+    depends_on:
+      - estate-management-db
+      - estate-management-consul
+      - estate-management-api-gateway
+      - estate-management-backend-push
+      - estate-management-reverse-proxy
+      - estate-management-backend-auth
+      - estate-management-backend-config
 
 networks:
   estate-management-nt:
