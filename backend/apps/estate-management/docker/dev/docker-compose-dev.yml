@@ -108,7 +108,7 @@ services:
     network_mode: host
     restart: on-failure
     environment:
-      - API_URL=swagger/openapi.yaml
+      - API_URL=doc/openapi.yaml
       - PORT=9091
     volumes:
       - ./dev/swagger:/usr/share/nginx/html/doc
