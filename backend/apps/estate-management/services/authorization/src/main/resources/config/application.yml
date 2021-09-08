@@ -3,6 +3,10 @@ spring:
     name: estate-management-authorization-service
   banner:
     location: classpath:/banner/banner.txt
+  task:
+    scheduling:
+      pool:
+        size: 10
 server:
   port: 8081
 

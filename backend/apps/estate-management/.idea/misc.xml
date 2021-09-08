@@ -6,9 +6,10 @@
     <file type="web" url="file://$PROJECT_DIR$/../../libs/shared/assertion" />
     <file type="web" url="file://$PROJECT_DIR$/../../libs/shared/dto" />
     <file type="web" url="file://$PROJECT_DIR$/../../libs/shared/error" />
+    <file type="web" url="file://$PROJECT_DIR$/../../libs/shared/security" />
     <file type="web" url="file://$PROJECT_DIR$/../../libs/shared/utility" />
     <file type="web" url="file://$PROJECT_DIR$/../../platforms" />
     <file type="web" url="file://$PROJECT_DIR$/../../plugins" />
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_16" default="true" project-jdk-name="16" project-jdk-type="JavaSDK" />
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_13" project-jdk-name="16" project-jdk-type="JavaSDK" />
 </project>

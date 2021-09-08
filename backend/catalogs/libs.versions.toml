@@ -3,6 +3,7 @@ spring-plugin-version = "2.5.3"
 spring-cloud-version = "2020.0.3"
 docker-bamushko-plugin-version = "7.0.1"
 springdoc = "1.5.10"
+java-jwt = "3.18.1"
 groovy = "3.0.5"
 project-base-version = "0.0.1"
 
@@ -28,11 +29,13 @@ spring-mail = { module = "org.springframework.boot:spring-boot-starter-mail" }
 springdoc-openapi-ui = { module = "org.springdoc:springdoc-openapi-ui", version.ref = "springdoc" }
 springdoc-openapi-security = { module = "org.springdoc:springdoc-openapi-security", version.ref = "springdoc" }
 docker-bamushko-plugin = {module = "com.bmuschko:gradle-docker-plugin", version.ref = "docker-bamushko-plugin-version"}
+java-jwt = { module = "com.auth0:java-jwt", version.ref = "java-jwt" }
 
 project-shared-dto = {module = "com.delloit.www.backend.libs.shared:dto", version.ref = "project-base-version"}
 project-shared-error = {module = "com.delloit.www.backend.libs.shared:error", version.ref = "project-base-version"}
 project-shared-assertion = {module = "com.delloit.www.backend.libs.shared:assertion", version.ref = "project-base-version"}
 project-shared-utility = {module = "com.delloit.www.backend.libs.shared:utility", version.ref = "project-base-version"}
+project-shared-security = {module = "com.delloit.www.backend.libs.shared:security", version.ref = "project-base-version"}
 
 liquibase-core = {module = "org.liquibase:liquibase-core"}
 postgres = {module = "org.postgresql:postgresql"}

@@ -20,6 +20,7 @@ includeBuild('../../libs/shared/error')
 includeBuild('../../libs/shared/dto')
 includeBuild('../../libs/shared/utility')
 includeBuild('../../libs/shared/assertion')
+includeBuild('../../libs/shared/security')
 
 include ':services', ':services:authorization', ':services:api-gateway', ':services:push', ':services:config'
 include ':libs'

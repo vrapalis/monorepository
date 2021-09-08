@@ -14,4 +14,8 @@ public interface EmailApiClient {
     @RequestMapping(method = RequestMethod.POST, value = "/api/emails/send")
 //    ResponseEntity<AbstractServerResponseDto> sendEmail(EmailSendDto email);
     ResponseEntity<Object> sendEmail(EmailSendDto email);
+
+    @RequestMapping(method = RequestMethod.POST, value = "/api/sms/send")
+//    ResponseEntity<AbstractServerResponseDto> sendEmail(EmailSendDto email);
+    ResponseEntity<Object> sendSms(SmsSendDto email);
 }

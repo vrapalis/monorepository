@@ -1,7 +1,7 @@
 package de.delloit.www.backend.apps.estatemanagement.authorization.domain.user.service;
 
 import de.delloit.www.backend.apps.estatemanagement.authorization.domain.api.EmailApiClient;
-import de.delloit.www.backend.apps.estatemanagement.authorization.domain.api.EmailSendDto;
+import de.delloit.www.backend.apps.estatemanagement.authorization.domain.api.SmsSendDto;
 import de.delloit.www.backend.apps.estatemanagement.authorization.domain.user.dto.UserSignInDto;
 import de.delloit.www.backend.apps.estatemanagement.authorization.domain.user.dto.UserSignInSuccessResponseDto;
 import de.delloit.www.backend.apps.estatemanagement.authorization.domain.user.dto.UserSignUpUserDto;
@@ -13,6 +13,7 @@ import de.delloit.www.backend.apps.estatemanagement.authorization.domain.user.mo
 import de.delloit.www.backend.apps.estatemanagement.authorization.domain.user.repository.UserRepository;
 import de.delloit.www.backend.libs.shared.dto.domain.server.AbstractServerResponseDto;
 import de.delloit.www.backend.libs.shared.dto.domain.server.SuccessServerResponseDto;
+import de.delloit.www.backend.libs.shared.security.domain.jwt.service.SharedSecurityJwtService;
 import de.delloit.www.backend.libs.shared.util.TokenGenerationSharadUtility;
 import lombok.AllArgsConstructor;
 import lombok.NonNull;
@@ -24,9 +25,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityNotFoundException;
-import java.util.Optional;
-import java.util.Random;
-import java.util.UUID;
 
 @Service
 @Log4j2
@@ -35,6 +33,7 @@ import java.util.UUID;
 public class UserServiceImpl implements UserService {
     private UserRepository userRepository;
     private EmailApiClient emailApiClient;
+    private SharedSecurityJwtService jwtService;
 
     @Override
     public UserDetails loadUserByUsername(String mobilePhone) throws UsernameNotFoundException {
@@ -79,15 +78,17 @@ public class UserServiceImpl implements UserService {
                 userRepository.saveAndFlush(userEntity);
             }
 
-            emailApiClient.sendEmail(EmailSendDto.builder()
-                    .mailTo(signUpUser.getEmail()).subject("Delloit").text("Your sign in password is: " + "<b>" + generatedPassword + "</b>")
+            emailApiClient.sendSms(SmsSendDto.builder()
+                    .phoneNumber(signUpUser.getMobilePhone())
+                    .from("Estate Management")
+                    .msg(generatedPassword)
                     .build());
 
+            return ResponseEntity.ok(new SuccessServerResponseDto("Success", "Password will be send on your device"));
         } catch (Exception ex) {
             log.error(ex.getLocalizedMessage());
             throw new UserSignUpError(ex.getMessage());
         }
-        return ResponseEntity.ok(new SuccessServerResponseDto("Success", "Password will be send on your device"));
     }
 
     @Override
@@ -106,11 +107,15 @@ public class UserServiceImpl implements UserService {
                 userAccount.setIsEnabled(true);
                 userAccount.setPassword(null);
             }
+
+            return ResponseEntity.ok(
+                    new UserSignInSuccessResponseDto(jwtService.generateToken(new UserSecurityModel(userEntity),
+                            "estate-management-authorization-service"),
+                            "Success",
+                            "Sign in success"));
         } catch (Exception ex) {
             log.error(ex.getLocalizedMessage());
             throw new UserSignInError(ex.getMessage());
         }
-        return ResponseEntity.ok(new UserSignInSuccessResponseDto("Jwt token will be generated as soon as possible, not ready yet",
-                "Success", "Sign in success"));
     }
 }

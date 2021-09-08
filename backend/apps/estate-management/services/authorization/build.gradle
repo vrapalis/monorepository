@@ -11,6 +11,8 @@ dependencies {
     implementation libs.project.shared.error
     implementation libs.project.shared.utility
     implementation libs.project.shared.assertion
+    implementation libs.project.shared.security
+
     implementation libs.springdoc.openapi.ui
     implementation libs.spring.cloud.starter
     implementation libs.spring.actuator
