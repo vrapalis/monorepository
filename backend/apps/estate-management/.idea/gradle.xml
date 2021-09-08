@@ -37,6 +37,11 @@
                   <project path="$PROJECT_DIR$/../../libs/shared/assertion" />
                 </projects>
               </build>
+              <build path="$PROJECT_DIR$/../../libs/shared/security" name="security">
+                <projects>
+                  <project path="$PROJECT_DIR$/../../libs/shared/security" />
+                </projects>
+              </build>
               <build path="$PROJECT_DIR$/../../platforms" name="platforms">
                 <projects>
                   <project path="$PROJECT_DIR$/../../platforms" />
@@ -64,6 +69,7 @@
             <option value="$PROJECT_DIR$/../../libs/shared/assertion" />
             <option value="$PROJECT_DIR$/../../libs/shared/dto" />
             <option value="$PROJECT_DIR$/../../libs/shared/error" />
+            <option value="$PROJECT_DIR$/../../libs/shared/security" />
             <option value="$PROJECT_DIR$/../../libs/shared/utility" />
             <option value="$PROJECT_DIR$/../../platforms" />
             <option value="$PROJECT_DIR$/../../platforms/plugin" />

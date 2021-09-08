@@ -32,7 +32,7 @@ public class UserSecurityModel implements UserDetails {
 
     @Override
     public String getUsername() {
-        return userEntity.getEmail();
+        return userEntity.getMobilePhone();
     }
 
     @Override

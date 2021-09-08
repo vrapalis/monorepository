@@ -3,6 +3,7 @@ group "${parent.group}.push"
 dependencies {
     implementation libs.spring.web
     implementation libs.spring.mail
+    implementation libs.spring.security
     implementation libs.springdoc.openapi.ui
     implementation libs.spring.cloud.consul.discovery
     implementation libs.spring.cloud.client.config
@@ -12,4 +13,7 @@ dependencies {
     implementation libs.project.shared.dto
     implementation libs.project.shared.error
     implementation libs.project.shared.assertion
+    implementation libs.project.shared.security
+
+    implementation 'com.vonage:client:6.4.0'
 }

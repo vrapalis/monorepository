@@ -19,6 +19,6 @@ public class UserSignUpUserDto {
     @Pattern(regexp = "^(\\+\\d{1,3}( )?)?((\\(\\d{1,3}\\))|\\d{1,3})[- .]?\\d{3,4}[- .]?\\d{4}$")
     private String mobilePhone;
 
-    @Email
-    private String email;
+//    @Email
+//    private String email;
 }
