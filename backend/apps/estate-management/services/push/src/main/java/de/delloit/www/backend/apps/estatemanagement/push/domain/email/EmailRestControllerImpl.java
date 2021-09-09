@@ -1,6 +1,6 @@
 package de.delloit.www.backend.apps.estatemanagement.push.domain.email;
 
-import de.delloit.www.backend.libs.shared.assertion.domain.common.AssertionsShared;
+import de.delloit.www.backend.libs.shared.assertion.domain.common.CommonSharedAssertions;
 import de.delloit.www.backend.libs.shared.dto.domain.server.AbstractServerResponseDto;
 import de.delloit.www.backend.libs.shared.error.domain.common.BeanValidationSharedError;
 import lombok.AllArgsConstructor;
@@ -16,7 +16,7 @@ public class EmailRestControllerImpl implements EmailRestController {
     @Override
     public ResponseEntity<AbstractServerResponseDto> send(EmailSendDto email, BindingResult result)
             throws SendEmailError, BeanValidationSharedError {
-        AssertionsShared.assertNoBeanValidationErrors(result);
+        CommonSharedAssertions.assertNoBeanValidationErrors(result);
         return emailService.sendMimeMessage(email);
     }
 }

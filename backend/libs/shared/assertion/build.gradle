@@ -10,4 +10,5 @@ version UtilsProperties.BASE_VERSION
 
 dependencies {
     api libs.project.shared.error
+    api libs.project.shared.utility
 }

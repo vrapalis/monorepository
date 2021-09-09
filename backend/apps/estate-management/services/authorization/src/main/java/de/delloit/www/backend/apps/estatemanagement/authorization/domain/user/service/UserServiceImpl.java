@@ -45,7 +45,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public ResponseEntity<AbstractServerResponseDto> signUp(@NonNull UserSignUpUserDto signUpUser) throws UserSignUpError {
         try {
-            final var generatedPassword = TokenGenerationSharadUtility.generateSixthDigitsToken().toString();
+            final var generatedPassword = TokenGenerationSharadUtility.generateSixthDigitsToken();
 
             final var optionalUser = userRepository.findByMobilePhone(signUpUser.getMobilePhone());
             if (optionalUser.isPresent()) {
@@ -80,7 +80,7 @@ public class UserServiceImpl implements UserService {
 
             emailApiClient.sendSms(SmsSendDto.builder()
                     .phoneNumber(signUpUser.getMobilePhone())
-                    .from("Estate Management")
+                    .from("Delloit")
                     .msg(generatedPassword)
                     .build());
 
