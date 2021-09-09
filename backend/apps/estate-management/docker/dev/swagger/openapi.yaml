@@ -1,8 +1,8 @@
 ---
 openapi: 3.0.1
 info:
-  title: OpenAPI definition
-  version: v0
+  title: Estate Management API Documentation
+  version: 0.0.1
 servers:
 - url: https://delloit-api.ddns.net
   description: Generated server url
@@ -82,8 +82,6 @@ components:
         mobilePhone:
           pattern: "^(\\+\\d{1,3}( )?)?((\\(\\d{1,3}\\))|\\d{1,3})[- .]?\\d{3,4}[-
             .]?\\d{4}$"
-          type: string
-        email:
           type: string
     UserSignUpSuccessResponseDto:
       type: object
