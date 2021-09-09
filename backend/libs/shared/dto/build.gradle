@@ -9,5 +9,5 @@ group "${UtilsProperties.BASE_GROUP}.libs.shared"
 version UtilsProperties.BASE_VERSION
 
 dependencies {
-    implementation libs.spring.web
+    api libs.spring.web
 }
