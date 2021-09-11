@@ -10,7 +10,7 @@ spring:
           uri: https://github.com/delloit/env-source.git
           search-paths: estate-management
           username: vrapalis
-          password: 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
+          password: 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
 
 # Local Profile
 ---

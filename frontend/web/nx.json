@@ -27,9 +27,6 @@
     ]
   },
   "projects": {
-    "examples-keycloak": {
-      "tags": []
-    },
     "websites-vrapalis": {
       "tags": []
     }
