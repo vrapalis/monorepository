@@ -2,11 +2,13 @@ package de.delloit.www.backend.apps.estatemanagement.authorization.domain.user.s
 
 import de.delloit.www.backend.apps.estatemanagement.authorization.domain.api.EmailApiClient;
 import de.delloit.www.backend.apps.estatemanagement.authorization.domain.api.SmsSendDto;
+import de.delloit.www.backend.apps.estatemanagement.authorization.domain.role.entity.RoleEntity;
 import de.delloit.www.backend.apps.estatemanagement.authorization.domain.user.dto.UserSignInDto;
 import de.delloit.www.backend.apps.estatemanagement.authorization.domain.user.dto.UserSignInSuccessResponseDto;
 import de.delloit.www.backend.apps.estatemanagement.authorization.domain.user.dto.UserSignUpUserDto;
-import de.delloit.www.backend.apps.estatemanagement.authorization.domain.user.entity.UserAccount;
+import de.delloit.www.backend.apps.estatemanagement.authorization.domain.user.entity.UserAccountEntity;
 import de.delloit.www.backend.apps.estatemanagement.authorization.domain.user.entity.UserEntity;
+import de.delloit.www.backend.apps.estatemanagement.authorization.domain.user.entity.UserPasswordEntity;
 import de.delloit.www.backend.apps.estatemanagement.authorization.domain.user.error.UserSignInError;
 import de.delloit.www.backend.apps.estatemanagement.authorization.domain.user.error.UserSignUpError;
 import de.delloit.www.backend.apps.estatemanagement.authorization.domain.user.model.UserSecurityModel;
@@ -25,6 +27,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityNotFoundException;
+import java.sql.Timestamp;
+import java.util.Set;
 
 @Service
 @Log4j2
@@ -46,21 +50,29 @@ public class UserServiceImpl implements UserService {
     public ResponseEntity<AbstractServerResponseDto> signUp(@NonNull UserSignUpUserDto signUpUser) throws UserSignUpError {
         try {
             final var generatedPassword = TokenGenerationSharadUtility.generateSixthDigitsToken();
-
+            final var userPasswordEntity = UserPasswordEntity.builder()
+                    .password(generatedPassword)
+                    .signInTryCount(0)
+                    .build();
             final var optionalUser = userRepository.findByMobilePhone(signUpUser.getMobilePhone());
+
             if (optionalUser.isPresent()) {
                 final var userEntity = optionalUser.get();
-                final var userAccount = userEntity.getUserAccount();
-                if (userAccount.getPassword() != null) {
-                    throw new RuntimeException("Password was already generated for you");
+                final var passwordEntity = userEntity.getUserPasswordEntity();
+
+                if (passwordEntity != null) {
+                    passwordEntity.setPassword(generatedPassword);
+                    passwordEntity.setUser(userEntity);
+                    // TODO COMPARE TIME UPDATED DATE
+                    final var timestamp = new Timestamp(System.currentTimeMillis());
+
+                } else {
+                    userPasswordEntity.setPassword(generatedPassword);
+                    userPasswordEntity.setUser(userEntity);
+                    userEntity.setUserPasswordEntity(userPasswordEntity);
                 }
-                userAccount.setAccountNonExpired(true);
-                userAccount.setAccountNonLocked(true);
-                userAccount.setCredentialsNonExpired(true);
-                userAccount.setIsEnabled(true);
-                userAccount.setPassword(generatedPassword);
             } else {
-                final var userAccount = UserAccount.builder()
+                final var userAccountEntity = UserAccountEntity.builder()
                         .accountNonExpired(false)
                         .accountNonLocked(false)
                         .credentialsNonExpired(false)
@@ -68,12 +80,18 @@ public class UserServiceImpl implements UserService {
                         .password(generatedPassword)
                         .build();
 
+                final RoleEntity roleEntity = RoleEntity.builder().name("delloit-user").build();
+
                 final var userEntity = UserEntity.builder()
                         .mobilePhone(signUpUser.getMobilePhone())
-                        .userAccount(userAccount)
+                        .userAccountEntity(userAccountEntity)
+                        .userPasswordEntity(userPasswordEntity)
+                        .roles(Set.of(roleEntity))
                         .build();
 
-                userAccount.setUser(userEntity);
+                userAccountEntity.setUser(userEntity);
+                userPasswordEntity.setUser(userEntity);
+                roleEntity.setUsers(Set.of(userEntity));
 
                 userRepository.saveAndFlush(userEntity);
             }
@@ -84,7 +102,7 @@ public class UserServiceImpl implements UserService {
                     .msg(generatedPassword)
                     .build());
 
-            return ResponseEntity.ok(new SuccessServerResponseDto("Success", "Password will be send on your device"));
+            return ResponseEntity.ok(new SuccessServerResponseDto("Success", "Password was send to your device"));
         } catch (Exception ex) {
             log.error(ex.getLocalizedMessage());
             throw new UserSignUpError(ex.getMessage());
@@ -97,15 +115,24 @@ public class UserServiceImpl implements UserService {
         try {
             final var userEntity = userRepository.findByMobilePhone(signInUser.getMobilePhone())
                     .orElseThrow(EntityNotFoundException::new);
-            final var userAccount = userEntity.getUserAccount();
-            if (!userAccount.getPassword().equals(signInUser.getPassword())) {
-                throw new RuntimeException();
+            final var userAccountEntity = userEntity.getUserAccountEntity();
+            final var userPasswordEntity = userEntity.getUserPasswordEntity();
+
+            if(userPasswordEntity.getSignInTryCount() > 3) {
+                throw new RuntimeException("Typed wrong password three times, sign up new");
+            }
+
+            if (!userPasswordEntity.getPassword().equals(signInUser.getPassword())) {
+                userPasswordEntity.setSignInTryCount(userPasswordEntity.getSignInTryCount() + 1);
+                throw new RuntimeException("Wrong password");
             } else {
-                userAccount.setAccountNonExpired(true);
-                userAccount.setAccountNonLocked(true);
-                userAccount.setCredentialsNonExpired(true);
-                userAccount.setIsEnabled(true);
-                userAccount.setPassword(null);
+                userAccountEntity.setAccountNonExpired(true);
+                userAccountEntity.setAccountNonLocked(true);
+                userAccountEntity.setCredentialsNonExpired(true);
+                userAccountEntity.setIsEnabled(true);
+
+                // TODO DELETE RELATIONAL_SHIP
+                userEntity.setUserPasswordEntity(null);
             }
 
             return ResponseEntity.ok(
@@ -114,7 +141,7 @@ public class UserServiceImpl implements UserService {
                             "Success",
                             "Sign in success"));
         } catch (Exception ex) {
-            log.error(ex.getLocalizedMessage());
+            log.error(ex.getMessage());
             throw new UserSignInError(ex.getMessage());
         }
     }

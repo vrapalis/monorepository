@@ -89,5 +89,24 @@
                 <constraints nullable="false"/>
             </column>
         </createTable>
+
+        <createTable tableName="users_password">
+            <column name="user_id" type="uuid">
+                <constraints primaryKey="true" referencedTableName="users" referencedColumnNames="id"
+                             foreignKeyName="users_info_user_id_fk" deleteCascade="true"/>
+            </column>
+            <column name="password" type="varchar(30)">
+                <constraints nullable="false" />
+            </column>
+            <column name="sign_in_try_count" type="int" startWith="0">
+                <constraints nullable="false" />
+            </column>
+            <column name="created_date" type="date">
+                <constraints nullable="false"/>
+            </column>
+            <column name="updated_date" type="datetime">
+                <constraints nullable="false" />
+            </column>
+        </createTable>
     </changeSet>
 </databaseChangeLog>

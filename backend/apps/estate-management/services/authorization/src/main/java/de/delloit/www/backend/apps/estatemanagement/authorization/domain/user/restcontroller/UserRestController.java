@@ -9,6 +9,7 @@ import de.delloit.www.backend.libs.shared.dto.domain.server.AbstractServerRespon
 import de.delloit.www.backend.apps.estatemanagement.authorization.domain.user.dto.UserSignInSuccessResponseDto;
 import de.delloit.www.backend.apps.estatemanagement.authorization.domain.user.dto.UserSignUpUserDto;
 import de.delloit.www.backend.libs.shared.error.domain.common.BeanValidationSharedError;
+import de.delloit.www.backend.libs.shared.error.domain.common.MobilePhoneValidationSharedError;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.media.Content;
@@ -39,7 +40,7 @@ public interface UserRestController {
     })
     ResponseEntity<AbstractServerResponseDto> signIn(@Parameter(name = "user sign in dto model") @Valid @RequestBody
                                                              UserSignInDto signInUser, BindingResult result)
-            throws UserSignInError, BeanValidationSharedError;
+            throws UserSignInError, BeanValidationSharedError, MobilePhoneValidationSharedError;
 
     @PostMapping(value = UserApi.USER_SIGN_UP_API, produces = "application/json")
     @Operation(summary = "Sign up endpoint", description = "Endpoint registration of an user")
@@ -52,7 +53,7 @@ public interface UserRestController {
     })
     ResponseEntity<AbstractServerResponseDto> signUp(@Parameter(name = "user sign up dto model") @Valid @RequestBody
                                                              UserSignUpUserDto signUpUser, BindingResult result)
-            throws UserSignUpError, BeanValidationSharedError;
+            throws UserSignUpError, BeanValidationSharedError, MobilePhoneValidationSharedError;
 
 
 }

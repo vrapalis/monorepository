@@ -4,6 +4,7 @@ import de.delloit.www.backend.apps.estatemanagement.authorization.domain.user.er
 import de.delloit.www.backend.apps.estatemanagement.authorization.domain.user.error.UserSignUpError;
 import de.delloit.www.backend.libs.shared.dto.domain.server.ErrorServerResponseDto;
 import de.delloit.www.backend.libs.shared.error.domain.common.BeanValidationSharedError;
+import de.delloit.www.backend.libs.shared.error.domain.common.MobilePhoneValidationSharedError;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,15 +16,21 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 @ControllerAdvice
 public class ExceptionHandlerRestController extends ResponseEntityExceptionHandler {
 
+    @ExceptionHandler(MobilePhoneValidationSharedError.class)
+    protected ResponseEntity<Object> mobilePhoneValidationExceptionHandler(MobilePhoneValidationSharedError ex, WebRequest request) {
+        final var errorResponse = new ErrorServerResponseDto("Error", ex.getMessage());
+        return handleExceptionInternal(ex, errorResponse, new HttpHeaders(), HttpStatus.BAD_REQUEST, request);
+    }
+
     @ExceptionHandler(UserSignUpError.class)
     protected ResponseEntity<Object> userSignUpExceptionHandler(UserSignUpError ex, WebRequest request) {
-        final var errorResponse = new ErrorServerResponseDto("Sign up error", ex.getMessage());
+        final var errorResponse = new ErrorServerResponseDto("Error", ex.getMessage());
         return handleExceptionInternal(ex, errorResponse, new HttpHeaders(), HttpStatus.BAD_REQUEST, request);
     }
 
     @ExceptionHandler(UserSignInError.class)
     protected ResponseEntity<Object> userSignInExceptionHandler(UserSignInError ex, WebRequest request) {
-        final var errorResponse = new ErrorServerResponseDto("Sign in error", ex.getMessage());
+        final var errorResponse = new ErrorServerResponseDto("Error", ex.getMessage());
         return handleExceptionInternal(ex, errorResponse, new HttpHeaders(), HttpStatus.BAD_REQUEST, request);
     }
 

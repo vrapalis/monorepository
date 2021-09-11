@@ -27,7 +27,7 @@ public class UserSecurityModel implements UserDetails {
 
     @Override
     public String getPassword() {
-        return userEntity.getUserAccount().getPassword();
+        return userEntity.getUserAccountEntity().getPassword();
     }
 
     @Override
@@ -37,21 +37,21 @@ public class UserSecurityModel implements UserDetails {
 
     @Override
     public boolean isAccountNonExpired() {
-        return userEntity.getUserAccount().getAccountNonExpired();
+        return userEntity.getUserAccountEntity().getAccountNonExpired();
     }
 
     @Override
     public boolean isAccountNonLocked() {
-        return userEntity.getUserAccount().getAccountNonLocked();
+        return userEntity.getUserAccountEntity().getAccountNonLocked();
     }
 
     @Override
     public boolean isCredentialsNonExpired() {
-        return userEntity.getUserAccount().getCredentialsNonExpired();
+        return userEntity.getUserAccountEntity().getCredentialsNonExpired();
     }
 
     @Override
     public boolean isEnabled() {
-        return userEntity.getUserAccount().getIsEnabled();
+        return userEntity.getUserAccountEntity().getIsEnabled();
     }
 }

@@ -13,30 +13,21 @@ import java.util.UUID;
 
 @Data
 @Entity
-@Table(name = "users_account")
+@Table(name = "users_info")
 @SuperBuilder
 @ToString(onlyExplicitlyIncluded = true)
 @NoArgsConstructor
 @AllArgsConstructor
-public class UserAccount extends BaseEntity {
+public class UserInfoEntity extends BaseEntity {
     @Id
     @ToString.Include
     private UUID userId;
 
     @ToString.Include
-    private String password;
+    private String firstName;
 
     @ToString.Include
-    private Boolean accountNonExpired;
-
-    @ToString.Include
-    private Boolean accountNonLocked;
-
-    @ToString.Include
-    private Boolean credentialsNonExpired;
-
-    @ToString.Include
-    private Boolean isEnabled;
+    private String lastName;
 
     @MapsId
     @OneToOne
@@ -46,10 +37,10 @@ public class UserAccount extends BaseEntity {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof UserAccount)) return false;
+        if (!(o instanceof UserInfoEntity)) return false;
         if (!super.equals(o)) return false;
-        UserAccount userInfo = (UserAccount) o;
-        return getUserId().equals(userInfo.getUserId());
+        UserInfoEntity userInfoEntity = (UserInfoEntity) o;
+        return getUserId().equals(userInfoEntity.getUserId());
     }
 
     @Override

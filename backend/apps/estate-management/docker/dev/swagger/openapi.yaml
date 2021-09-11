@@ -1,21 +1,25 @@
 ---
 openapi: 3.0.1
 info:
-  title: Estate Management API Documentation
+  title: Delloit API Documentation
+  description: This documentation list all apis for delloit estate management application.
+  contact:
+    name: Vitali Rapalis
+    email: vitali.rapalis@gmail.com
   version: 0.0.1
 servers:
 - url: https://delloit-api.ddns.net
   description: Generated server url
 tags:
-- name: User
-  description: User management endpoints
+- name: Authentication
+  description: The endpoints provide authentication to api caller.
 paths:
   "/sign-up":
     post:
       tags:
-      - User
+      - Authentication
       summary: Sign up endpoint
-      description: Endpoint registration of an user
+      description: The endpoint will generated login password for you and send it to your mobile device.
       operationId: signUp
       requestBody:
         content:
@@ -45,9 +49,9 @@ paths:
   "/sign-in":
     post:
       tags:
-      - User
+      - Authentication
       summary: Sign in endpoint
-      description: Endpoint to authenticate user, jwt token will send
+      description: Endpoint will generate the jwt token.
       operationId: signIn
       requestBody:
         content:

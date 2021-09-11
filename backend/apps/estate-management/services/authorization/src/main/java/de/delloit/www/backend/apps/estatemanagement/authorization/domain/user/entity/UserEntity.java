@@ -32,11 +32,15 @@ public class UserEntity extends BaseEntity {
 
     @JoinColumn(name = "user_id")
     @OneToOne(mappedBy = "user", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    private UserAccount userAccount;
+    private UserAccountEntity userAccountEntity;
 
     @JoinColumn(name = "user_id")
     @OneToOne(mappedBy = "user")
-    private UserInfo userInfo;
+    private UserInfoEntity userInfoEntity;
+
+    @JoinColumn(name = "user_id")
+    @OneToOne(mappedBy = "user", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    private UserPasswordEntity userPasswordEntity;
 
     @ManyToMany(fetch = FetchType.EAGER, cascade = {
             CascadeType.PERSIST,

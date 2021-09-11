@@ -8,6 +8,7 @@ import de.delloit.www.backend.apps.estatemanagement.authorization.domain.user.se
 import de.delloit.www.backend.libs.shared.assertion.domain.common.CommonSharedAssertions;
 import de.delloit.www.backend.libs.shared.dto.domain.server.AbstractServerResponseDto;
 import de.delloit.www.backend.libs.shared.error.domain.common.BeanValidationSharedError;
+import de.delloit.www.backend.libs.shared.error.domain.common.MobilePhoneValidationSharedError;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
@@ -23,15 +24,17 @@ public class UserRestControllerImpl implements UserRestController {
 
     @Override
     public ResponseEntity<AbstractServerResponseDto> signIn(UserSignInDto signInUser, BindingResult result)
-            throws UserSignInError, BeanValidationSharedError {
+            throws UserSignInError, BeanValidationSharedError, MobilePhoneValidationSharedError {
         CommonSharedAssertions.assertNoBeanValidationErrors(result);
+        CommonSharedAssertions.assertValidMobilePhone(signInUser.getMobilePhone());
         return userService.signIn(signInUser);
     }
 
     @Override
     public ResponseEntity<AbstractServerResponseDto> signUp(UserSignUpUserDto signUpUser, BindingResult result)
-            throws UserSignUpError, BeanValidationSharedError {
+            throws UserSignUpError, BeanValidationSharedError, MobilePhoneValidationSharedError {
         CommonSharedAssertions.assertNoBeanValidationErrors(result);
+        CommonSharedAssertions.assertValidMobilePhone(signUpUser.getMobilePhone());
         return userService.signUp(signUpUser);
     }
 }
