@@ -87,7 +87,10 @@
               "apps/examples/keycloak/src/**/*.ts",
               "apps/examples/keycloak/src/**/*.html"
             ]
-          }
+          },
+          "outputs": [
+            "{options.outputFile}"
+          ]
         },
         "test": {
           "builder": "@nrwl/jest:jest",
@@ -96,6 +99,109 @@
           ],
           "options": {
             "jestConfig": "apps/examples/keycloak/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy",
+          "options": {}
+        }
+      }
+    },
+    "websites-vrapalis": {
+      "projectType": "application",
+      "root": "apps/websites/vrapalis",
+      "sourceRoot": "apps/websites/vrapalis/src",
+      "prefix": "web",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "outputs": [
+            "{options.outputPath}"
+          ],
+          "options": {
+            "outputPath": "dist/apps/websites/vrapalis",
+            "index": "apps/websites/vrapalis/src/index.html",
+            "main": "apps/websites/vrapalis/src/main.ts",
+            "polyfills": "apps/websites/vrapalis/src/polyfills.ts",
+            "tsConfig": "apps/websites/vrapalis/tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "apps/websites/vrapalis/src/favicon.ico",
+              "apps/websites/vrapalis/src/assets"
+            ],
+            "styles": [
+              "apps/websites/vrapalis/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "apps/websites/vrapalis/src/environments/environment.ts",
+                  "with": "apps/websites/vrapalis/src/environments/environment.prod.ts"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "websites-vrapalis:build:production"
+            },
+            "development": {
+              "browserTarget": "websites-vrapalis:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "websites-vrapalis:build"
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "apps/websites/vrapalis/src/**/*.ts",
+              "apps/websites/vrapalis/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/apps/websites/vrapalis"
+          ],
+          "options": {
+            "jestConfig": "apps/websites/vrapalis/jest.config.js",
             "passWithNoTests": true
           }
         }
