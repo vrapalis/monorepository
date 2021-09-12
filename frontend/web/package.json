@@ -25,7 +25,11 @@
     "update": "nx migrate latest",
     "workspace-generator": "nx workspace-generator",
     "dep-graph": "nx dep-graph",
-    "help": "nx help"
+    "help": "nx help",
+    "dev:ssr": "nx run websites-vrapalis:serve-ssr",
+    "serve:ssr": "node dist/websites-vrapalis/server/main.js",
+    "build:ssr": "nx build && ng run websites-vrapalis:server",
+    "prerender": "nx run websites-vrapalis:prerender"
   },
   "private": true,
   "dependencies": {
@@ -36,10 +40,13 @@
     "@angular/forms": "12.2.5",
     "@angular/platform-browser": "12.2.5",
     "@angular/platform-browser-dynamic": "12.2.5",
+    "@angular/platform-server": "12.2.5",
     "@angular/router": "12.2.5",
+    "@nguniversal/express-engine": "12.1.0",
     "@nrwl/angular": "12.9.0",
     "angular-oauth2-oidc": "^12.0.0",
     "bootstrap": "^5.0.2",
+    "express": "^4.15.2",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "zone.js": "0.11.4"
@@ -52,6 +59,7 @@
     "@angular/cli": "12.2.5",
     "@angular/compiler-cli": "12.2.5",
     "@angular/language-service": "12.2.5",
+    "@nguniversal/builders": "^12.1.0",
     "@nrwl/cli": "12.9.0",
     "@nrwl/cypress": "12.9.0",
     "@nrwl/eslint-plugin-nx": "12.9.0",
@@ -59,6 +67,7 @@
     "@nrwl/linter": "12.9.0",
     "@nrwl/tao": "12.9.0",
     "@nrwl/workspace": "12.9.0",
+    "@types/express": "^4.17.0",
     "@types/jest": "26.0.8",
     "@types/node": "14.14.33",
     "@typescript-eslint/eslint-plugin": "4.28.5",

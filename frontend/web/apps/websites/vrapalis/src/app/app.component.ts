@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'web-root',
   template: `
-    In progress
+    <h1>In progress</h1>
   `,
   styles: [`
 
