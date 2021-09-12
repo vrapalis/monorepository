@@ -1,0 +1,48 @@
+version: '3.9'
+services:
+  vrapalis-website-proxy:
+    image: nginx:alpine
+    container_name: vrapalis-website-proxy
+    restart: always
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+      - /etc/letsencrypt:/etc/letsencrypt
+
+  vrapalis-website:
+    image: vrapalis/website
+    container_name: vrapalis-website
+    restart: always
+    build:
+      context: ../../../../../.
+      dockerfile: apps/websites/vrapalis/docker/Dockerfile
+    expose:
+      - 4000
+
+  vrapalis-website-backend:
+    image: strapi/strapi
+    container_name: vrapalis-website-backend
+    restart: always
+    environment:
+      DATABASE_CLIENT: postgres
+      DATABASE_NAME: vrapalis_website_db
+      DATABASE_HOST: vrapalis-website-db
+      DATABASE_PORT: 5432
+      DATABASE_USERNAME: vrapalis
+      DATABASE_PASSWORD: vrapalis123456
+    volumes:
+      - ./strapi/app:/srv/app
+    expose:
+      - 1337'
+    depends_on:
+      - postgres
+
+  vrapalis-website-db:
+    image: postgres:13-alpine
+    container_name: vrapalis-website-db
+    restart: always
+    environment:
+      POSTGRES_DB: vrapalis_website_db
+      POSTGRES_USER: vrapalis
+      POSTGRES_PASSWORD: vrapalis123456
+    volumes:
+      - ./strapi/db:/var/lib/postgresql/data

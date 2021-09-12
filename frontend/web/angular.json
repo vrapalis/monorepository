@@ -13,7 +13,7 @@
             "{options.outputPath}"
           ],
           "options": {
-            "outputPath": "dist/apps/websites/vrapalis",
+            "outputPath": "dist/websites-vrapalis/browser",
             "index": "apps/websites/vrapalis/src/index.html",
             "main": "apps/websites/vrapalis/src/main.ts",
             "polyfills": "apps/websites/vrapalis/src/polyfills.ts",
@@ -101,6 +101,65 @@
         "deploy": {
           "builder": "angular-cli-ghpages:deploy",
           "options": {}
+        },
+        "server": {
+          "builder": "@angular-devkit/build-angular:server",
+          "options": {
+            "outputPath": "dist/websites-vrapalis/server",
+            "main": "apps/websites/vrapalis/server.ts",
+            "tsConfig": "apps/websites/vrapalis/tsconfig.server.json",
+            "inlineStyleLanguage": "scss"
+          },
+          "configurations": {
+            "production": {
+              "outputHashing": "media",
+              "fileReplacements": [
+                {
+                  "replace": "apps/websites/vrapalis/src/environments/environment.ts",
+                  "with": "apps/websites/vrapalis/src/environments/environment.prod.ts"
+                }
+              ]
+            },
+            "development": {
+              "optimization": false,
+              "sourceMap": true,
+              "extractLicenses": false
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve-ssr": {
+          "builder": "@nguniversal/builders:ssr-dev-server",
+          "configurations": {
+            "development": {
+              "browserTarget": "websites-vrapalis:build:development",
+              "serverTarget": "websites-vrapalis:server:development"
+            },
+            "production": {
+              "browserTarget": "websites-vrapalis:build:production",
+              "serverTarget": "websites-vrapalis:server:production"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "prerender": {
+          "builder": "@nguniversal/builders:prerender",
+          "options": {
+            "routes": [
+              "/"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "websites-vrapalis:build:production",
+              "serverTarget": "websites-vrapalis:server:production"
+            },
+            "development": {
+              "browserTarget": "websites-vrapalis:build:development",
+              "serverTarget": "websites-vrapalis:server:development"
+            }
+          },
+          "defaultConfiguration": "production"
         }
       }
     }
