@@ -1,0 +1,10 @@
+{
+  "NAVBAR": {
+    "LINKS": {
+      "HOME": "Startseite",
+      "BLOG": "Blog",
+      "PROJECTS": "Projekte",
+      "LANGUAGE": "Sprachen"
+    }
+  }
+}

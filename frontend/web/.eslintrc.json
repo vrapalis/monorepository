@@ -13,8 +13,12 @@
             "allow": [],
             "depConstraints": [
               {
-                "sourceTag": "*",
-                "onlyDependOnLibsWithTags": ["*"]
+                "sourceTag": "type:website",
+                "onlyDependOnLibsWithTags": ["type:ui", "type:feature"]
+              },
+              {
+                "sourceTag": "scope:websites-vrapalis",
+                "onlyDependOnLibsWithTags": ["scope:websites-shared", "scope:websites-vrapalis"]
               }
             ]
           }

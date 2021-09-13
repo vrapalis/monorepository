@@ -14,7 +14,18 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@web/websites/shared/ui": ["libs/websites/shared/ui/src/index.ts"],
+      "@web/websites/vrapalis/feature/blog": [
+        "libs/websites/vrapalis/feature/blog/src/index.ts"
+      ],
+      "@web/websites/vrapalis/feature/home": [
+        "libs/websites/vrapalis/feature/home/src/index.ts"
+      ],
+      "@web/websites/vrapalis/feature/projects": [
+        "libs/websites/vrapalis/feature/projects/src/index.ts"
+      ]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

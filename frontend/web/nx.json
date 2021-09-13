@@ -27,8 +27,20 @@
     ]
   },
   "projects": {
+    "websites-shared-ui": {
+      "tags": ["scope:websites-shared", "type:ui"]
+    },
     "websites-vrapalis": {
-      "tags": []
+      "tags": ["scope:websites-vrapalis", "type:website"]
+    },
+    "websites-vrapalis-feature-blog": {
+      "tags": ["scope:websites-vrapalis", "type:feature"]
+    },
+    "websites-vrapalis-feature-home": {
+      "tags": ["scope:websites-vrapalis", "type:feature"]
+    },
+    "websites-vrapalis-feature-projects": {
+      "tags": ["scope:websites-vrapalis", "type:feature"]
     }
   }
 }
