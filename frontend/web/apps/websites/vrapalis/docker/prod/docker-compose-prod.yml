@@ -31,7 +31,7 @@ services:
       DATABASE_USERNAME: vrapalis
       DATABASE_PASSWORD: vrapalis123456
     volumes:
-      - ../../strapi/app:/srv/app
+      - ../strapi/app:/srv/app
     ports:
       - 8081:1337      
     depends_on:
@@ -46,5 +46,5 @@ services:
       POSTGRES_USER: vrapalis
       POSTGRES_PASSWORD: vrapalis123456
     volumes:
-      - ../../strapi/db:/var/lib/postgresql/data
+      - ../strapi/db:/var/lib/postgresql/data
 
