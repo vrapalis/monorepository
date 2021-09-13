@@ -1,0 +1,18 @@
+{
+  "kind": "singleType",
+  "collectionName": "tmps",
+  "info": {
+    "name": "tmp"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "tmp": {
+      "type": "string"
+    }
+  }
+}

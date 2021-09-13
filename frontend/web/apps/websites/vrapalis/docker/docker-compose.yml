@@ -10,7 +10,7 @@ services:
     ports:
       - '8080:4000'
 
-  strapi:
+  vrapalis-website-backend:
     image: strapi/strapi
     container_name: vrapalis-website-backend
     restart: always
@@ -26,9 +26,9 @@ services:
     ports:
       - '1337:1337'
     depends_on:
-      - postgres
+      - vrapalis-website-db
 
-  postgres:
+  vrapalis-website-db:
     image: postgres:13-alpine
     container_name: vrapalis-website-db
     restart: always
