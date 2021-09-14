@@ -54,6 +54,7 @@
               "apps/websites/vrapalis/src/styles.scss"
             ],
             "scripts": [
+              "node_modules/marked/lib/marked.js",
               "./node_modules/@popperjs/core/dist/umd/popper.min.js",
               "./node_modules/bootstrap/dist/js/bootstrap.min.js"
             ],

@@ -28,8 +28,15 @@ import { Component } from '@angular/core';
     .item {
       margin: 8px;
       height: 50px;
-      font-size: xxx-large;
+      font-size: 50px;
       width: 50px;
+      transition: 0.1s font-size ease-out;
+    }
+
+    .item:hover {
+      cursor: pointer;
+      font-size: 52px;
+      transition: 0.1s font-size ease-in;
     }
   `]
 })

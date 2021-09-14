@@ -2,17 +2,22 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ContactSideLinkContainerComponent } from './containers/contact-side-link-container.component';
 import { ContactSideLinkComponent } from './components/contact-side-link.component';
+import { ContactSideItemLinkComponent } from './components/contact-side-item-link.component';
 
 
 @NgModule({
   declarations: [
     ContactSideLinkContainerComponent,
-    ContactSideLinkComponent
+    ContactSideLinkComponent,
+    ContactSideItemLinkComponent
   ],
   imports: [
     CommonModule
   ],
-  exports: [ContactSideLinkContainerComponent, ContactSideLinkComponent]
+  exports: [
+    ContactSideLinkContainerComponent,
+    ContactSideItemLinkComponent
+  ]
 })
 export class WebShUiContactSideLinkModule {
 }

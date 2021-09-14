@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule, Route } from '@angular/router';
 import { HomeContainerComponent } from './containers/home-container.component';
 import { HomeComponentComponent } from './components/home.component';
+import { MarkdownModule } from 'ngx-markdown';
 
 export const websitesVrapalisFeatureHomeRoutes: Route[] = [
   { path: '', component: HomeContainerComponent }
@@ -11,7 +12,8 @@ export const websitesVrapalisFeatureHomeRoutes: Route[] = [
 @NgModule({
   imports: [
     CommonModule,
-    RouterModule.forChild(websitesVrapalisFeatureHomeRoutes)
+    RouterModule.forChild(websitesVrapalisFeatureHomeRoutes),
+    MarkdownModule.forChild()
   ],
   declarations: [
     HomeContainerComponent,

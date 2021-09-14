@@ -7,11 +7,8 @@ import { TranslateService } from '@ngx-translate/core';
   template: `
     <web-sh-ui-navbar></web-sh-ui-navbar>
     <web-sh-ui-contact-side-link></web-sh-ui-contact-side-link>
-
-
-    <div class='container mt-3 text-center'>
-      <div>{{'NAVBAR.LINKS.HOME' | translate}}</div>
-      <button class='btn btn-info' (click)='eng()'>En</button>
+    <web-sh-ui-contact-assistant></web-sh-ui-contact-assistant>
+    <div class='container-fluid container-md mt-3 text-center'>
       <router-outlet></router-outlet>
     </div>
   `,
@@ -25,7 +22,6 @@ export class AppComponent {
     if (isPlatformBrowser(platformId)) {
     }
 
-    this.translate.get('NAVBAR.LINKS.HOME').subscribe(console.log);
   }
 
   eng() {
