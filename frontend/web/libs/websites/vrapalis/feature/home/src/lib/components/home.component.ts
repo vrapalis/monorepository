@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import {environment} from "../../../../../../../../apps/websites/vrapalis/src/environments/environment";
 
 @Component({
   selector: 'web-home-component',
@@ -35,10 +36,9 @@ export class HomeComponentComponent {
   markdown = '';
 
   constructor(private http: HttpClient) {
-    this.http.get('http://localhost:1337/home', { observe: 'body' }).subscribe(response => {
+    this.http.get(`${environment.strapiPath}/home`, { observe: 'body' }).subscribe(response => {
       // @ts-ignore
       this.markdown = response.profileDescription;
-      console.log(response);
     });
   }
 }
