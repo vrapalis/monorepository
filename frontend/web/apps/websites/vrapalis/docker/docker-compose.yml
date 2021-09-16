@@ -1,15 +1,5 @@
 version: '3.9'
 services:
-  vrapalis-website:
-    image: vrapalis/website
-    container_name: vrapalis-website
-    restart: always
-    build:
-      context: ../../../../.
-      dockerfile: apps/websites/vrapalis/docker/Dockerfile
-    ports:
-      - '8080:4000'
-
   vrapalis-website-backend:
     image: strapi/strapi
     container_name: vrapalis-website-backend
@@ -17,7 +7,7 @@ services:
     environment:
       DATABASE_CLIENT: postgres
       DATABASE_NAME: vrapalis_website_db
-      DATABASE_HOST: vrapalis-website-db
+      DATABASE_HOST: vrapalis-db.ddns.net
       DATABASE_PORT: 5432
       DATABASE_USERNAME: vrapalis
       DATABASE_PASSWORD: vrapalis123456
@@ -25,16 +15,3 @@ services:
       - ../strapi/app:/srv/app
     ports:
       - '1337:1337'
-    depends_on:
-      - vrapalis-website-db
-
-  vrapalis-website-db:
-    image: postgres:13-alpine
-    container_name: vrapalis-website-db
-    restart: always
-    environment:
-      POSTGRES_DB: vrapalis_website_db
-      POSTGRES_USER: vrapalis
-      POSTGRES_PASSWORD: vrapalis123456
-    volumes:
-      - ../strapi/db:/var/lib/postgresql/data
