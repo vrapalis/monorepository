@@ -45,6 +45,8 @@ services:
       POSTGRES_DB: vrapalis_website_db
       POSTGRES_USER: vrapalis
       POSTGRES_PASSWORD: vrapalis123456
+    ports:
+      - 5432:5432       
     volumes:
       - ../strapi/db:/var/lib/postgresql/data
 
