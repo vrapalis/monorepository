@@ -11,8 +11,8 @@ services:
 
   vrapalis-website:
     build:
-      context: ../../.
-      dockerfile: Dockerfile
+      context: ../../../../../.
+      dockerfile: apps/websites/vrapalis/Dockerfile
     image: vrapalis/website
     container_name: vrapalis-website
     restart: always
