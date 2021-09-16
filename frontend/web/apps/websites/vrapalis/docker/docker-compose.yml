@@ -12,6 +12,6 @@ services:
       DATABASE_USERNAME: vrapalis
       DATABASE_PASSWORD: vrapalis123456
     volumes:
-      - ../strapi/app:/srv/app
+      - ../strapi:/srv/app
     ports:
       - '1337:1337'

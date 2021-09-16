@@ -6,7 +6,7 @@ services:
     restart: always
     network_mode: host
     volumes:
-      - ./devdev/nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./dev/nginx/nginx.conf:/etc/nginx/nginx.conf
       - /etc/letsencrypt:/etc/letsencrypt
 
   vrapalis-website:
@@ -20,7 +20,10 @@ services:
       - 8080:4000
 
   vrapalis-website-backend:
-    image: strapi/strapi
+    build:
+      context: ../../strapi/.
+      dockerfile: Dockerfile
+    image: vrapalis-website-backend
     container_name: vrapalis-website-backend
     restart: always
     environment:
@@ -31,7 +34,7 @@ services:
       DATABASE_USERNAME: vrapalis
       DATABASE_PASSWORD: vrapalis123456
     volumes:
-      - ../strapi/app:/srv/app
+      - ../strapi:/srv/app
     ports:
       - 8081:1337
     depends_on:
