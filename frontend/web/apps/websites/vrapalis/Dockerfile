@@ -5,7 +5,7 @@ ARG version=0.0.1
 ARG description="Vitali Rapalis Website"
 LABEL description=$description version=$version author="vrapalis"
 COPY package*.json ./
-RUN npm set progress=false && npm config set depth 0 && npm cache clean --force
+RUN npm set progress=false && npm config set depth 0 && npm cache clean --force && npm i nx -g
 RUN npm i && mkdir /app && cp -R ./node_modules ./app
 WORKDIR /app
 COPY . .

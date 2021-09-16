@@ -11,7 +11,7 @@ services:
 
   vrapalis-website:
     build:
-      context: ../../../../../.
+      context: ../../../../.
       dockerfile: apps/websites/vrapalis/Dockerfile
     image: vrapalis/website
     container_name: vrapalis-website
@@ -21,7 +21,7 @@ services:
 
   vrapalis-website-backend:
     build:
-      context: ../../strapi/.
+      context: ../strapi/.
       dockerfile: Dockerfile
     image: vrapalis-website-backend
     container_name: vrapalis-website-backend
