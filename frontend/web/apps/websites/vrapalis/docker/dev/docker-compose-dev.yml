@@ -33,8 +33,6 @@ services:
       DATABASE_PORT: 5432
       DATABASE_USERNAME: vrapalis
       DATABASE_PASSWORD: vrapalis123456
-    volumes:
-      - ../strapi:/srv/app
     ports:
       - 8081:1337
     depends_on:
