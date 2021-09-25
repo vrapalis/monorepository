@@ -8,15 +8,13 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   styles: [`
     .item {
       margin: 8px;
-      height: 50px;
-      font-size: 50px;
-      width: 50px;
+      font-size: 40px;
       transition: 0.1s font-size ease-out;
     }
 
     .item:hover {
       cursor: pointer;
-      font-size: 52px;
+      font-size: 42px;
       transition: 0.1s font-size ease-in;
     }
   `]

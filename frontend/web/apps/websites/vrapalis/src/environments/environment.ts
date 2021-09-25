@@ -1,6 +1,6 @@
-import { IEnvironment } from './i-environment';
+import {IWebsiteStrapiEnv} from "@web/websites/shared/model";
 
-export const environment: IEnvironment = {
+export const environment: IWebsiteStrapiEnv = {
   strapiPath: 'http://localhost:1337',
   production: false,
   basePath: 'http://localhost:4200'

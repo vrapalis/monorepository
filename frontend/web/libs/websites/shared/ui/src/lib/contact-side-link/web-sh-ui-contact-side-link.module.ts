@@ -1,8 +1,8 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { ContactSideLinkContainerComponent } from './containers/contact-side-link-container.component';
-import { ContactSideLinkComponent } from './components/contact-side-link.component';
-import { ContactSideItemLinkComponent } from './components/contact-side-item-link.component';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {ContactSideLinkContainerComponent} from './containers/contact-side-link-container.component';
+import {ContactSideLinkComponent} from './components/contact-side-link.component';
+import {ContactSideItemLinkComponent} from './components/item/contact-side-item-link.component';
 
 
 @NgModule({

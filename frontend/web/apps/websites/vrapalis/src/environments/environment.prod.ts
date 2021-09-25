@@ -1,6 +1,6 @@
-import { IEnvironment } from './i-environment';
+import {IWebsiteStrapiEnv} from "@web/websites/shared/model";
 
-export const environment: IEnvironment = {
+export const environment: IWebsiteStrapiEnv = {
   strapiPath: 'https://vrapalis-strapi.ddns.net',
   production: true,
   basePath: 'https://vrapalis.ddns.net'

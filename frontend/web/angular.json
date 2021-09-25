@@ -1,6 +1,53 @@
 {
   "version": 1,
   "projects": {
+    "websites-shared-data-access": {
+      "projectType": "library",
+      "root": "libs/websites/shared/data-access",
+      "sourceRoot": "libs/websites/shared/data-access/src",
+      "prefix": "web",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/websites/shared/data-access"],
+          "options": {
+            "jestConfig": "libs/websites/shared/data-access/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/websites/shared/data-access/src/**/*.ts",
+              "libs/websites/shared/data-access/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "websites-shared-model": {
+      "root": "libs/websites/shared/model",
+      "sourceRoot": "libs/websites/shared/model/src",
+      "projectType": "library",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["libs/websites/shared/model/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/websites/shared/model"],
+          "options": {
+            "jestConfig": "libs/websites/shared/model/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "websites-shared-ui": {
       "projectType": "library",
       "root": "libs/websites/shared/ui",
@@ -192,6 +239,31 @@
         }
       }
     },
+    "websites-vrapalis-data-access": {
+      "projectType": "library",
+      "root": "libs/websites/vrapalis/data-access",
+      "sourceRoot": "libs/websites/vrapalis/data-access/src",
+      "prefix": "web",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/websites/vrapalis/data-access"],
+          "options": {
+            "jestConfig": "libs/websites/vrapalis/data-access/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/websites/vrapalis/data-access/src/**/*.ts",
+              "libs/websites/vrapalis/data-access/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
     "websites-vrapalis-feature-blog": {
       "projectType": "library",
       "root": "libs/websites/vrapalis/feature/blog",
@@ -262,6 +334,78 @@
             "lintFilePatterns": [
               "libs/websites/vrapalis/feature/projects/src/**/*.ts",
               "libs/websites/vrapalis/feature/projects/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "websites-vrapalis-model": {
+      "root": "libs/websites/vrapalis/model",
+      "sourceRoot": "libs/websites/vrapalis/model/src",
+      "projectType": "library",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["libs/websites/vrapalis/model/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/websites/vrapalis/model"],
+          "options": {
+            "jestConfig": "libs/websites/vrapalis/model/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "websites-vrapalis-ui": {
+      "projectType": "library",
+      "root": "libs/websites/vrapalis/ui",
+      "sourceRoot": "libs/websites/vrapalis/ui/src",
+      "prefix": "web",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/websites/vrapalis/ui"],
+          "options": {
+            "jestConfig": "libs/websites/vrapalis/ui/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/websites/vrapalis/ui/src/**/*.ts",
+              "libs/websites/vrapalis/ui/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "websites-vrapalis-utility": {
+      "projectType": "library",
+      "root": "libs/websites/vrapalis/utility",
+      "sourceRoot": "libs/websites/vrapalis/utility/src",
+      "prefix": "web",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/websites/vrapalis/utility"],
+          "options": {
+            "jestConfig": "libs/websites/vrapalis/utility/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/websites/vrapalis/utility/src/**/*.ts",
+              "libs/websites/vrapalis/utility/src/**/*.html"
             ]
           }
         }

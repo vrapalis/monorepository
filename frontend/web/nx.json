@@ -27,11 +27,20 @@
     ]
   },
   "projects": {
+    "websites-shared-data-access": {
+      "tags": ["scope:websites-shared", "type:data-access"]
+    },
+    "websites-shared-model": {
+      "tags": ["scope:websites-shared", "type:model"]
+    },
     "websites-shared-ui": {
       "tags": ["scope:websites-shared", "type:ui"]
     },
     "websites-vrapalis": {
       "tags": ["scope:websites-vrapalis", "type:website"]
+    },
+    "websites-vrapalis-data-access": {
+      "tags": ["scope:websites-vrapalis", "type:data-access"]
     },
     "websites-vrapalis-feature-blog": {
       "tags": ["scope:websites-vrapalis", "type:feature"]
@@ -41,6 +50,15 @@
     },
     "websites-vrapalis-feature-projects": {
       "tags": ["scope:websites-vrapalis", "type:feature"]
+    },
+    "websites-vrapalis-model": {
+      "tags": ["scope:websites-vrapalis", "type:model"]
+    },
+    "websites-vrapalis-ui": {
+      "tags": ["scope:websites-vrapalis", "type:ui"]
+    },
+    "websites-vrapalis-utility": {
+      "tags": ["scope:websites-vrapalis", "type:utility"]
     }
   }
 }

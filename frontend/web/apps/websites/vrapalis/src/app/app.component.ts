@@ -1,27 +1,28 @@
-import { Component, Inject, PLATFORM_ID } from '@angular/core';
-import { isPlatformBrowser } from '@angular/common';
-import { TranslateService } from '@ngx-translate/core';
+import
+{Component} from '@angular/core';
+import {TranslateService} from '@ngx-translate/core';
+import {WebsitesVrapalisSideLinkDataAccessService} from "@web/websites/vrapalis/data-access";
+import {Observable} from "rxjs";
+import {ISideLink} from "@web/websites/shared/model";
 
 @Component({
   selector: 'web-root',
   template: `
-    <web-sh-ui-navbar></web-sh-ui-navbar>
-    <web-sh-ui-contact-side-link></web-sh-ui-contact-side-link>
-    <web-sh-ui-contact-assistant></web-sh-ui-contact-assistant>
-    <div class='container-fluid container-md mt-3 text-center'>
+    <web-vr-header></web-vr-header>
+    <web-sh-ui-contact-side-link [links]="links | async"></web-sh-ui-contact-side-link>
+
+    <web-websites-vrapalis-ui-body>
       <router-outlet></router-outlet>
-    </div>
+    </web-websites-vrapalis-ui-body>
   `,
-  styles: [`
-
-  `]
-
+  styles: [``]
 })
 export class AppComponent {
-  constructor(@Inject(PLATFORM_ID) private platformId: any, private translate: TranslateService) {
-    if (isPlatformBrowser(platformId)) {
-    }
+  links: Observable<ISideLink>;
 
+  constructor(private translate: TranslateService,
+              public sideLinkService: WebsitesVrapalisSideLinkDataAccessService) {
+    this.links = sideLinkService.getSingle('side-links');
   }
 
   eng() {

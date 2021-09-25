@@ -1,0 +1,28 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/side-links",
+      "handler": "side-links.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/side-links",
+      "handler": "side-links.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/side-links",
+      "handler": "side-links.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

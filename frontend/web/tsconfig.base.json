@@ -15,7 +15,14 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@web/websites/shared/data-access": [
+        "libs/websites/shared/data-access/src/index.ts"
+      ],
+      "@web/websites/shared/model": ["libs/websites/shared/model/src/index.ts"],
       "@web/websites/shared/ui": ["libs/websites/shared/ui/src/index.ts"],
+      "@web/websites/vrapalis/data-access": [
+        "libs/websites/vrapalis/data-access/src/index.ts"
+      ],
       "@web/websites/vrapalis/feature/blog": [
         "libs/websites/vrapalis/feature/blog/src/index.ts"
       ],
@@ -24,6 +31,13 @@
       ],
       "@web/websites/vrapalis/feature/projects": [
         "libs/websites/vrapalis/feature/projects/src/index.ts"
+      ],
+      "@web/websites/vrapalis/model": [
+        "libs/websites/vrapalis/model/src/index.ts"
+      ],
+      "@web/websites/vrapalis/ui": ["libs/websites/vrapalis/ui/src/index.ts"],
+      "@web/websites/vrapalis/utility": [
+        "libs/websites/vrapalis/utility/src/index.ts"
       ]
     }
   },

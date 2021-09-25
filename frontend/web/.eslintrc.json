@@ -1,10 +1,19 @@
 {
   "root": true,
-  "ignorePatterns": ["**/*"],
-  "plugins": ["@nrwl/nx"],
+  "ignorePatterns": [
+    "**/*"
+  ],
+  "plugins": [
+    "@nrwl/nx"
+  ],
   "overrides": [
     {
-      "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
+      "files": [
+        "*.ts",
+        "*.tsx",
+        "*.js",
+        "*.jsx"
+      ],
       "rules": {
         "@nrwl/nx/enforce-module-boundaries": [
           "error",
@@ -14,11 +23,51 @@
             "depConstraints": [
               {
                 "sourceTag": "type:website",
-                "onlyDependOnLibsWithTags": ["type:ui", "type:feature"]
+                "onlyDependOnLibsWithTags": [
+                  "type:ui",
+                  "type:feature",
+                  "type:model",
+                  "type:utility",
+                  "type:data-access"
+                ]
+              },
+              {
+                "sourceTag": "type:feature",
+                "onlyDependOnLibsWithTags": [
+                  "type:ui",
+                  "type:model",
+                  "type:utility",
+                  "type:data-access"
+                ]
+              },
+              {
+                "sourceTag": "type:ui",
+                "onlyDependOnLibsWithTags": [
+                  "type:ui",
+                  "type:model",
+                  "type:utility"
+                ]
+              },
+              {
+                "sourceTag": "type:data-access",
+                "onlyDependOnLibsWithTags": [
+                  "type:model",
+                  "type:data-access",
+                  "type:utility"
+                ]
               },
               {
                 "sourceTag": "scope:websites-vrapalis",
-                "onlyDependOnLibsWithTags": ["scope:websites-shared", "scope:websites-vrapalis"]
+                "onlyDependOnLibsWithTags": [
+                  "scope:websites-shared",
+                  "scope:websites-vrapalis"
+                ]
+              },
+              {
+                "sourceTag": "scope:websites-shared",
+                "onlyDependOnLibsWithTags": [
+                  "scope:websites-shared"
+                ]
               }
             ]
           }
@@ -26,13 +75,23 @@
       }
     },
     {
-      "files": ["*.ts", "*.tsx"],
-      "extends": ["plugin:@nrwl/nx/typescript"],
+      "files": [
+        "*.ts",
+        "*.tsx"
+      ],
+      "extends": [
+        "plugin:@nrwl/nx/typescript"
+      ],
       "rules": {}
     },
     {
-      "files": ["*.js", "*.jsx"],
-      "extends": ["plugin:@nrwl/nx/javascript"],
+      "files": [
+        "*.js",
+        "*.jsx"
+      ],
+      "extends": [
+        "plugin:@nrwl/nx/javascript"
+      ],
       "rules": {}
     }
   ]

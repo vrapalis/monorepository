@@ -1,44 +1,22 @@
-import { Component } from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {IBootstrapIconLink, ISideLink} from "@web/websites/shared/model";
 
 @Component({
   selector: 'web-sh-ui-contact-side-link-component',
   template: `
-    <div class='wrapper'>
-      <i class='item bi-github' role="img" aria-label="GitHub"></i>
-      <i class='item bi-linkedin' role="img" aria-label="GitHub"></i>
-      <i class='item bi-facebook' role="img" aria-label="GitHub"></i>
-      <i class='item bi-youtube' role="img" aria-label="GitHub"></i>
+    <div class='wrapper' *ngIf="links">
+      <web-sh-ui-contact-side-item-link-component [bootstrapIcon]="link.className" *ngFor="let link of links.links;"
+                                                  class="item" (itemClickEvent)="onClickEvent(link)">
+      </web-sh-ui-contact-side-item-link-component>
     </div>
   `,
-  styles: [`
-    .wrapper {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: flex-start;
-      align-content: space-between;
-      position: fixed;
-      left: 0px;
-      top: 50%;
-      transform: translate(0, -50%);
-      width: 100px;
-      height: 400px;
-    }
-
-    .item {
-      margin: 8px;
-      height: 50px;
-      font-size: 50px;
-      width: 50px;
-      transition: 0.1s font-size ease-out;
-    }
-
-    .item:hover {
-      cursor: pointer;
-      font-size: 52px;
-      transition: 0.1s font-size ease-in;
-    }
-  `]
+  styleUrls: ['contact-side-link.component.scss']
 })
 export class ContactSideLinkComponent {
+  @Input() links!: ISideLink | null;
+  @Output() clickEvent = new EventEmitter<IBootstrapIconLink>();
+
+  onClickEvent(link: IBootstrapIconLink) {
+    this.clickEvent.emit(link);
+  }
 }
