@@ -5,19 +5,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   template: `
     <i class='item' [class]='bootstrapIcon' role='img' (click)='itemClick()'></i>
   `,
-  styles: [`
-    .item {
-      margin: 8px;
-      font-size: 40px;
-      transition: 0.1s font-size ease-out;
-    }
-
-    .item:hover {
-      cursor: pointer;
-      font-size: 42px;
-      transition: 0.1s font-size ease-in;
-    }
-  `]
+  styleUrls: ['contact-side-item-link.component.scss']
 })
 export class ContactSideItemLinkComponent {
   @Input() bootstrapIcon = '';

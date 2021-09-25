@@ -1,7 +1,7 @@
 @import "libs/websites/vrapalis/ui/src/lib/style/vars";
 
 .wrapper {
-  height: 70vh;
+  height: 55vh;
   overflow: hidden;
 }
 
@@ -21,10 +21,6 @@
   object-fit: cover;
 }
 
-.wrapper {
-  height: 70vh;
-}
-
 .profile {
   height: 100%;
 }
@@ -42,7 +38,9 @@
 }
 
 @media only screen and (min-width: $mobile-layout) and (max-width: $desktop-layout) {
-
+  .profile img {
+    width: 60%;
+  }
 }
 
 @media only screen and (max-width: 1199px) {
@@ -52,4 +50,8 @@
   }
 }
 
-
+@media only screen and (max-width: $mobile-layout) {
+  .profile img {
+    width: 100%;
+  }
+}

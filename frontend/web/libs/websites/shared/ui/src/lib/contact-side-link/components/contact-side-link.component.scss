@@ -1,3 +1,5 @@
+@import "libs/websites/vrapalis/ui/src/lib/style/vars";
+
 .wrapper {
   display: flex;
   flex-direction: column;
@@ -5,14 +7,32 @@
   align-items: flex-start;
   align-content: space-between;
   position: fixed;
-  left: 0px;
+  left: 5px;
   top: 50%;
   transform: translate(0, -50%);
   width: 100px;
   height: 400px;
+
+  .item {
+    width: 75px;
+    height: 75px;
+  }
 }
 
-.item {
-  width: 50px;
-  height: 50px;
+
+@media only screen and (max-width: $desktop-layout) {
+  .wrapper {
+    right: 0;
+    bottom: 0;
+    left: unset;
+    opacity: 0.2;
+    transform: translate(45%, 15%);
+
+    .item {
+      width: 45px;
+      height: 45px;
+    }
+  }
 }
+
+
