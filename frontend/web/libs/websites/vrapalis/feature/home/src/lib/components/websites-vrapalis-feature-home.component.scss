@@ -39,7 +39,7 @@
 
 @media only screen and (min-width: $mobile-layout) and (max-width: $desktop-layout) {
   .profile img {
-    width: 60%;
+    width: 50%;
   }
 }
 
@@ -52,6 +52,6 @@
 
 @media only screen and (max-width: $mobile-layout) {
   .profile img {
-    width: 100%;
+    width: 80%;
   }
 }

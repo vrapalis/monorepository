@@ -22,11 +22,14 @@
 
 @media only screen and (max-width: $desktop-layout) {
   .wrapper {
-    right: 0;
-    bottom: 0;
+    right: 10px;
+    justify-content: end;
+    align-items: flex-end;
+    top: unset;
+    bottom: 10px;
     left: unset;
     opacity: 0.2;
-    transform: translate(45%, 15%);
+    transform: unset;
 
     .item {
       width: 45px;
