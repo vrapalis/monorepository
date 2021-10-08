@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: spring-config
+data:
+  dev-config.json:
+    '{
+        "example.prop" : "The example value prop",
+        "bean.message" : "bean.message property was set by configmap"
+      }'

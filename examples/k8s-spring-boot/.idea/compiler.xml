@@ -5,23 +5,28 @@
       <profile name="Gradle Imported" enabled="true">
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="false">
+          <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-configuration-processor/2.5.5/1b42319eedaba1ddf25ec6c5b28b5ed732a8fcf8/spring-boot-configuration-processor-2.5.5.jar" />
           <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.projectlombok/lombok/1.18.20/18bcea7d5df4d49227b4a0743a536208ce4825bb/lombok-1.18.20.jar" />
         </processorPath>
-        <module name="entryou.apps.check-in.test" />
+        <module name="k8s-spring-boot.apps.api-gateway.main" />
+        <module name="k8s-spring-boot.apps.auth.main" />
       </profile>
       <profile name="Gradle Imported" enabled="true">
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="false">
           <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.projectlombok/lombok/1.18.20/18bcea7d5df4d49227b4a0743a536208ce4825bb/lombok-1.18.20.jar" />
-          <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-configuration-processor/2.5.3/dbcb7b9aa82f98f4d079a2d3d7d1dc8a0dd171b1/spring-boot-configuration-processor-2.5.3.jar" />
         </processorPath>
-        <module name="entryou.apps.check-in.main" />
+        <module name="k8s-spring-boot.apps.user.main" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="13">
-      <module name="check-in" target="16" />
-      <module name="check-in.main" target="16" />
-      <module name="check-in.test" target="16" />
+      <module name="api-gateway" target="11" />
+      <module name="api-gateway.main" target="11" />
+      <module name="api-gateway.test" target="11" />
+      <module name="auth" target="11" />
+      <module name="user" target="11" />
+      <module name="user.main" target="11" />
+      <module name="user.test" target="11" />
     </bytecodeTargetLevel>
   </component>
 </project>

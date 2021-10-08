@@ -1,13 +1,14 @@
-import com.delloit.www.backend.plugins.utils.UtilsProperties
+import de.delloit.www.backend.plugins.utils.*
 
 plugins {
-    id 'com.delloit.www.backend.plugins.spring-boot-application' apply false
-    id 'com.delloit.www.backend.plugins.docker' apply false
-    id 'com.delloit.www.backend.plugins.utils' apply false
+    id 'de.delloit.www.backend.plugins.spring-boot-application' apply false
+    id 'de.delloit.www.backend.plugins.docker' apply false
+    id 'de.delloit.www.backend.plugins.utils' apply false
 }
 
 subprojects {
-    apply plugin: 'com.delloit.www.backend.plugins.utils'
-    group "${UtilsProperties.BASE_GROUP}.entryou"
+    apply plugin: 'de.delloit.www.backend.plugins.utils'
+
+    group "${UtilsProperties.BASE_GROUP}.apps.entryou"
     version UtilsProperties.ENTRYOU_VERSION
 }

@@ -1,0 +1,4 @@
+rootProject.name = 'k8s-spring-boot'
+
+include ':apps', ':libs', ':apps:auth', ':apps:user', ':apps:api-gateway', ':libs:security'
+
