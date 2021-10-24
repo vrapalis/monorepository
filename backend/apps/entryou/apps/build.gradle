@@ -7,8 +7,8 @@ subprojects {
         DOCKER_IMAGE_PREFIX = "${parent.parent.name}/${parent.name}"
     }
 
-    apply plugin: 'de.delloit.www.backend.plugins.spring-boot-application'
-    apply plugin: 'de.delloit.www.backend.plugins.docker'
+    apply plugin: 'com.vrapalis.www.backend.plugins.spring-boot-application'
+    apply plugin: 'com.vrapalis.www.backend.plugins.docker'
 
     group "${UtilsProperties.BASE_GROUP}.apps.entryou"
 }

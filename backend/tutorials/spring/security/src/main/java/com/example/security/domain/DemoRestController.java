@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class DemoRestController {
+
     @GetMapping
     public ResponseEntity<String> greeting() {
         return ResponseEntity.ok("Greeting!!!");

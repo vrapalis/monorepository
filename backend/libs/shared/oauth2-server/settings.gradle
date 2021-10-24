@@ -1,0 +1,17 @@
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+    }
+    includeBuild('../../../plugins')
+}
+
+enableFeaturePreview("VERSION_CATALOGS")
+dependencyResolutionManagement {
+    versionCatalogs {
+        libs {
+            from(files('../../../catalogs/libs.versions.toml'))
+        }
+    }
+}
+
+rootProject.name = 'oauth2-server'

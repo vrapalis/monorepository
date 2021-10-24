@@ -1,0 +1,3 @@
+dependencies {
+    implementation libs.project.shared.push.server
+}

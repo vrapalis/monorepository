@@ -3,6 +3,8 @@
   <component name="ExternalStorageConfigurationManager" enabled="true" />
   <component name="FrameworkDetectionExcludesConfiguration">
     <file type="web" url="file://$PROJECT_DIR$" />
+    <file type="web" url="file://$PROJECT_DIR$/../../libs/shared/oauth2-server" />
+    <file type="web" url="file://$PROJECT_DIR$/../../libs/shared/push-server" />
     <file type="web" url="file://$PROJECT_DIR$/../../platforms" />
     <file type="web" url="file://$PROJECT_DIR$/../../plugins" />
   </component>

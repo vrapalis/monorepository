@@ -51,8 +51,8 @@ public class DefaultSecurityConfig {
                 .authorizeRequests(authorizeRequests ->
                         authorizeRequests.mvcMatchers("/sms").permitAll().anyRequest().authenticated()
                 )
-                .formLogin().loginPage("/login").permitAll();
-//                .formLogin(withDefaults());
+//                .formLogin().loginPage("/login").permitAll();
+                .formLogin(withDefaults());
         return http.build();
     }
     // @formatter:on
@@ -61,7 +61,7 @@ public class DefaultSecurityConfig {
     @Bean
     public UserDetailsService users() {
         UserDetails user = User.withUsername("user")
-                .password("password")
+                .password("user")
                 .roles("USER")
                 .build();
         return new InMemoryUserDetailsManager(user);

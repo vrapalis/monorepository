@@ -11,9 +11,12 @@ dependencies {
     api platform(libs.spring.cloud.dependencies)
 
     constraints {
-        api libs.bundles.groovy
         api libs.project.shared.error
         api libs.project.shared.dto
         api libs.project.shared.assertion
+
+        runtime libs.postgres
+
+        api libs.bundles.groovy
     }
 }

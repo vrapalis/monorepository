@@ -17,6 +17,16 @@
                   <project path="$PROJECT_DIR$/../../plugins/utils" />
                 </projects>
               </build>
+              <build path="$PROJECT_DIR$/../../libs/shared/oauth2-server" name="oauth2-server">
+                <projects>
+                  <project path="$PROJECT_DIR$/../../libs/shared/oauth2-server" />
+                </projects>
+              </build>
+              <build path="$PROJECT_DIR$/../../libs/shared/push-server" name="push-server">
+                <projects>
+                  <project path="$PROJECT_DIR$/../../libs/shared/push-server" />
+                </projects>
+              </build>
               <build path="$PROJECT_DIR$/../../platforms" name="platforms">
                 <projects>
                   <project path="$PROJECT_DIR$/../../platforms" />
@@ -36,8 +46,11 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/apps" />
-            <option value="$PROJECT_DIR$/apps/check-in" />
+            <option value="$PROJECT_DIR$/apps/oauth2" />
+            <option value="$PROJECT_DIR$/apps/push" />
             <option value="$PROJECT_DIR$/libs" />
+            <option value="$PROJECT_DIR$/../../libs/shared/oauth2-server" />
+            <option value="$PROJECT_DIR$/../../libs/shared/push-server" />
             <option value="$PROJECT_DIR$/../../platforms" />
             <option value="$PROJECT_DIR$/../../platforms/plugin" />
             <option value="$PROJECT_DIR$/../../platforms/product" />

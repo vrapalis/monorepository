@@ -6,6 +6,7 @@ springdoc = "1.5.10"
 java-jwt = "3.18.1"
 groovy = "3.0.5"
 project-base-version = "0.0.1"
+spring-oauth-server-version = "0.1.2"
 
 [libraries]
 spring-plugin = { module = "org.springframework.boot:org.springframework.boot.gradle.plugin", version.ref = "spring-plugin-version" }
@@ -31,6 +32,15 @@ springdoc-openapi-security = { module = "org.springdoc:springdoc-openapi-securit
 docker-bamushko-plugin = {module = "com.bmuschko:gradle-docker-plugin", version.ref = "docker-bamushko-plugin-version"}
 java-jwt = { module = "com.auth0:java-jwt", version.ref = "java-jwt" }
 
+# OAuth2
+spring-oauth2-server = { module = "org.springframework.security.experimental:spring-security-oauth2-authorization-server", version.ref = "spring-oauth-server-version" }
+
+# Utils
+lombok = { module = "org.projectlombok:lombok" }
+
+# Internal Projects
+project-shared-oauth2-server = { module = "com.vrapalis.www.backend.libs.shared:oauth2-server" }
+project-shared-push-server = { module = "com.vrapalis.www.backend.libs.shared:push-server" }
 project-shared-dto = {module = "com.delloit.www.backend.libs.shared:dto", version.ref = "project-base-version"}
 project-shared-error = {module = "com.delloit.www.backend.libs.shared:error", version.ref = "project-base-version"}
 project-shared-assertion = {module = "com.delloit.www.backend.libs.shared:assertion", version.ref = "project-base-version"}

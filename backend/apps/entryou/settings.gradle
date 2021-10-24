@@ -5,10 +5,7 @@ pluginManagement {
     includeBuild('../../plugins')
 }
 
-rootProject.name = 'entryou'
-
 enableFeaturePreview("VERSION_CATALOGS")
-
 dependencyResolutionManagement {
     versionCatalogs {
         libs {
@@ -17,8 +14,11 @@ dependencyResolutionManagement {
     }
 }
 
-include ':apps', ':apps:check-in'
+rootProject.name = 'entryou'
+
+include ':apps', ':apps:oauth2', ':apps:push'
 
 include ':libs'
 
-
+includeBuild '../../libs/shared/oauth2-server'
+includeBuild '../../libs/shared/push-server'

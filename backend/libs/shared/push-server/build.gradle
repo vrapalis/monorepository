@@ -1,0 +1,14 @@
+import com.vrapalis.www.backend.plugins.utils.*
+
+plugins {
+    id 'com.vrapalis.www.backend.plugins.spring-boot-library'
+    id 'com.vrapalis.www.backend.plugins.utils'
+}
+
+group PropertiesUtils.LIBS_SHARED_GROUP
+version PropertiesUtils.BASE_VERSION
+
+dependencies {
+    implementation libs.spring.web
+    implementation libs.spring.security
+}
