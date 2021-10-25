@@ -17,3 +17,7 @@
 - Show all databses
 
   ```\l```
+
+  - Switch database
+
+    `` \l database_name ``

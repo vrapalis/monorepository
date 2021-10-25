@@ -18,7 +18,7 @@ rootProject.name = 'entryou'
 
 include ':apps', ':apps:oauth2', ':apps:push'
 
-include ':libs'
+include ':libs', ':libs:config'
 
 includeBuild '../../libs/shared/oauth2-server'
 includeBuild '../../libs/shared/push-server'

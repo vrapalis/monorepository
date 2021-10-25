@@ -1,0 +1,2 @@
+-- CREATE OAUTH2 LOCAL DB
+CREATE DATABASE oauth2_local_db WITH OWNER admin;

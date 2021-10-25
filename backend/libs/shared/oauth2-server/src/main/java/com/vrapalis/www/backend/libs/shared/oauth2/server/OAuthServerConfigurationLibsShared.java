@@ -1,4 +1,4 @@
-package com.vrapalis.www.backend.libs.shared.oauth.server;
+package com.vrapalis.www.backend.libs.shared.oauth2.server;
 
 import com.nimbusds.jose.jwk.JWKSet;
 import com.nimbusds.jose.jwk.RSAKey;
@@ -37,7 +37,7 @@ public class OAuthServerConfigurationLibsShared {
     @Bean
     @Order(Ordered.HIGHEST_PRECEDENCE)
     public SecurityFilterChain authorizationServerSecurityFilterChain(HttpSecurity http) throws Exception {
-        OAuth2AuthorizationServerConfiguration.applyDefaultSecurity(http);
+        OyAuth2AuthorizationServerConfiguration.applyDefaultSecurity(http);
         return http.cors(httpSecurityCorsConfigurer -> httpSecurityCorsConfigurer.configurationSource(corsConfigurationSource())).formLogin(Customizer.withDefaults()).build();
     }
 

@@ -49,6 +49,7 @@
             <option value="$PROJECT_DIR$/apps/oauth2" />
             <option value="$PROJECT_DIR$/apps/push" />
             <option value="$PROJECT_DIR$/libs" />
+            <option value="$PROJECT_DIR$/libs/config" />
             <option value="$PROJECT_DIR$/../../libs/shared/oauth2-server" />
             <option value="$PROJECT_DIR$/../../libs/shared/push-server" />
             <option value="$PROJECT_DIR$/../../platforms" />

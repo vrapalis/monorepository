@@ -1,0 +1,7 @@
+spring:
+  config:
+    import:
+      - classpath:config/local/db/db-local.yaml
+      - classpath:config/local/db/jpa-local.yaml
+      - classpath:config/local/db/liquibase-local.yaml
+      - classpath:config/local/logging/logging-local.yaml

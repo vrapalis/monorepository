@@ -10,6 +10,7 @@
         <module name="entryou.apps.oauth2.test" />
         <module name="entryou.apps.push.test" />
         <module name="oauth2-server.test" />
+        <module name="entryou.libs.config.test" />
         <module name="push-server.test" />
       </profile>
       <profile name="Gradle Imported" enabled="true">
@@ -19,6 +20,7 @@
           <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-configuration-processor/2.5.3/dbcb7b9aa82f98f4d079a2d3d7d1dc8a0dd171b1/spring-boot-configuration-processor-2.5.3.jar" />
         </processorPath>
         <module name="oauth2-server.main" />
+        <module name="entryou.libs.config.main" />
         <module name="push-server.main" />
         <module name="entryou.apps.oauth2.main" />
         <module name="entryou.apps.push.main" />
@@ -39,6 +41,11 @@
       <module name="entryou.apps.check-in.test" target="16" />
       <module name="entryou.apps.oauth2-server.main" target="16" />
       <module name="entryou.apps.oauth2-server.test" target="16" />
+      <module name="entryou.libs.profiles.main" target="16" />
+      <module name="entryou.libs.profiles.test" target="16" />
+      <module name="profiles" target="11" />
+      <module name="profiles.main" target="11" />
+      <module name="profiles.test" target="11" />
       <module name="push.main" target="11" />
       <module name="push.test" target="11" />
     </bytecodeTargetLevel>

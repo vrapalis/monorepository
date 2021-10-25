@@ -1,8 +1,12 @@
+import static com.vrapalis.www.backend.plugins.commons.UtilsCommons.getCombinedArchiveBaseName
+
 plugins {
     id 'java-library'
 }
 
-afterEvaluate {
+jar {
+    archivesBaseName = "${getCombinedArchiveBaseName(project)}"
+    archiveClassifier = ''
 }
 
 java {

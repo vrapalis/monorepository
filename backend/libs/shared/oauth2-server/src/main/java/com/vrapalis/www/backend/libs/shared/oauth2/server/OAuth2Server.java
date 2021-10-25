@@ -1,4 +1,4 @@
-package com.vrapalis.www.backend.libs.shared.oauth.server;
+package com.vrapalis.www.backend.libs.shared.oauth2.server;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
@@ -14,5 +14,3 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 public @interface OAuth2Server {
 }
-
-

@@ -1,0 +1,21 @@
+version: '3.9'
+
+services:
+  postgres-local:
+    image: postgres:alpine
+    container_name: postgres-local
+    restart: on-failure
+    networks:
+      - postgres-local-nt
+    environment:
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=admin
+    volumes:
+      - ./db/scripts:/docker-entrypoint-initdb.d
+    ports:
+      - 5432:5432
+
+networks:
+  postgres-local-nt:
+    name: postgres-local-nt
+    driver: bridge

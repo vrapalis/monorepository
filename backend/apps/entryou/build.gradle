@@ -2,6 +2,7 @@ import com.vrapalis.www.backend.plugins.utils.*
 
 plugins {
     id 'com.vrapalis.www.backend.plugins.spring-boot-application' apply false
+    id 'com.vrapalis.www.backend.plugins.spring-boot-library' apply false
     id 'com.vrapalis.www.backend.plugins.docker' apply false
     id 'com.vrapalis.www.backend.plugins.utils' apply false
 }

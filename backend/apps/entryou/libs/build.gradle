@@ -1,0 +1,9 @@
+import de.delloit.www.backend.plugins.utils.*
+
+group "${group}.libs"
+
+subprojects {
+    apply plugin: 'com.vrapalis.www.backend.plugins.spring-boot-library'
+
+    group "${UtilsProperties.BASE_GROUP}.libs.entryou"
+}

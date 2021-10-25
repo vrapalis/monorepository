@@ -1,0 +1,17 @@
+spring:
+  jpa:
+    open-in-view: false
+---
+spring:
+  config:
+    activate:
+      on-profile: dev
+    import:
+      - classpath:config/dev/application-dev.yaml
+---
+spring:
+  config:
+    activate:
+      on-profile: local
+    import:
+      - classpath:config/local/application-local.yaml

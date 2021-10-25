@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.vrapalis.www.backend.libs.shared.oauth.server;
+package com.vrapalis.www.backend.libs.shared.oauth2.server;
 
 import com.nimbusds.jose.jwk.Curve;
 import com.nimbusds.jose.jwk.ECKey;
