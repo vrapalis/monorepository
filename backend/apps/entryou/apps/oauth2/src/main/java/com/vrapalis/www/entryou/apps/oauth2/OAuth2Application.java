@@ -1,6 +1,6 @@
 package com.vrapalis.www.entryou.apps.oauth2;
 
-import com.vrapalis.www.backend.libs.shared.oauth2.server.OAuth2Server;
+import com.vrapalis.www.backend.libs.shared.oauth2.server.config.OAuth2Server;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 

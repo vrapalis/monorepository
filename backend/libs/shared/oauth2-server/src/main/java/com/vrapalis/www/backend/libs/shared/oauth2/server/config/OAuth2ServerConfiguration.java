@@ -1,16 +1,20 @@
-package com.vrapalis.www.backend.libs.shared.oauth2.server;
+package com.vrapalis.www.backend.libs.shared.oauth2.server.config;
 
 import com.nimbusds.jose.jwk.JWKSet;
 import com.nimbusds.jose.jwk.RSAKey;
 import com.nimbusds.jose.jwk.source.JWKSource;
 import com.nimbusds.jose.proc.SecurityContext;
+import com.vrapalis.www.backend.libs.shared.oauth2.server.config.key.Jwks;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
-import org.springframework.security.config.Customizer;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.OAuth2AuthorizationServerConfiguration;
+import org.springframework.security.config.annotation.web.configurers.ExpressionUrlAuthorizationConfigurer;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -33,22 +37,38 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import static org.springframework.security.config.Customizer.withDefaults;
 
 @Configuration
-public class OAuthServerConfigurationLibsShared {
+@EnableJpaRepositories(basePackages = {"com.vrapalis.www.backend.libs.shared.oauth2.server.domain.*"})
+@ComponentScan(basePackages = {"com.vrapalis.www.backend.libs.shared.oauth2.server.domain.*"})
+public class OAuth2ServerConfiguration {
+
     @Bean
     @Order(Ordered.HIGHEST_PRECEDENCE)
     public SecurityFilterChain authorizationServerSecurityFilterChain(HttpSecurity http) throws Exception {
-        OyAuth2AuthorizationServerConfiguration.applyDefaultSecurity(http);
-        return http.cors(httpSecurityCorsConfigurer -> httpSecurityCorsConfigurer.configurationSource(corsConfigurationSource())).formLogin(Customizer.withDefaults()).build();
+        OAuth2AuthorizationServerConfiguration.applyDefaultSecurity(http);
+        return http.cors(httpSecurityCorsConfigurer -> httpSecurityCorsConfigurer.configurationSource(corsConfigurationSource()))
+                .formLogin(withDefaults()).build();
     }
 
     @Bean
     SecurityFilterChain defaultSecurityFilterChain(HttpSecurity http) throws Exception {
         http.cors(httpSecurityCorsConfigurer -> httpSecurityCorsConfigurer.configurationSource(corsConfigurationSource()))
-                .authorizeRequests(authorizeRequests ->
-                        authorizeRequests.anyRequest().authenticated()
-                )
-                .formLogin(withDefaults());
+                .authorizeRequests(OAuth2ServerConfiguration::customizeAuthorizeRequest)
+                .formLogin().loginPage("/login").permitAll();
         return http.build();
+    }
+
+    private static void customizeAuthorizeRequest(ExpressionUrlAuthorizationConfigurer<HttpSecurity>.ExpressionInterceptUrlRegistry
+                                                          authorizeRequests) {
+        try {
+            authorizeRequests
+                    .mvcMatchers("/**").permitAll()
+                    .mvcMatchers("/webjars/**").permitAll()
+                    .mvcMatchers("/api/users/**").access("hasAuthority('SCOPE_read')")
+                    .anyRequest().authenticated()
+                    .and()
+                    .oauth2ResourceServer().jwt();
+        } catch (Exception ex) {
+        }
     }
 
     @Bean
@@ -69,7 +89,7 @@ public class OAuthServerConfigurationLibsShared {
     public UserDetailsService users() {
         UserDetails user = User.withUsername("user")
                 .password("user")
-                .roles("USER")
+                .roles("user")
                 .build();
         return new InMemoryUserDetailsManager(user);
     }
@@ -81,14 +101,13 @@ public class OAuthServerConfigurationLibsShared {
                 .clientSecret("secret")
                 .clientAuthenticationMethod(ClientAuthenticationMethod.BASIC)
                 .authorizationGrantType(AuthorizationGrantType.AUTHORIZATION_CODE)
-//                .authorizationGrantType(AuthorizationGrantType.REFRESH_TOKEN)
-//                .authorizationGrantType(AuthorizationGrantType.CLIENT_CREDENTIALS)
                 .redirectUri("http://127.0.0.1:4200/index.html")
                 .scope(OidcScopes.OPENID)
                 .scope("read")
                 .scope("write")
                 .clientSettings(clientSettings -> clientSettings.requireUserConsent(true))
                 .build();
+
         return new InMemoryRegisteredClientRepository(registeredClient);
     }
 

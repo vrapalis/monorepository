@@ -51,8 +51,8 @@ public class DefaultSecurityConfig {
                 .authorizeRequests(authorizeRequests ->
                         authorizeRequests.mvcMatchers("/sms").permitAll().anyRequest().authenticated()
                 )
-//                .formLogin().loginPage("/login").permitAll();
-                .formLogin(withDefaults());
+                .formLogin().loginPage("/login").permitAll();
+//                .formLogin(withDefaults());
         return http.build();
     }
     // @formatter:on
