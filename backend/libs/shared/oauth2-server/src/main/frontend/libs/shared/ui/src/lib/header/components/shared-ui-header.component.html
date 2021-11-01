@@ -1,0 +1,20 @@
+<mat-toolbar color='primary' *ngIf='drawer && authUser'>
+  <button
+    type='button'
+    aria-label='Toggle sidenav'
+    mat-icon-button
+    (click)='drawer.toggle()'
+    *ngIf='isHandset$ | async'>
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span>{{appName}}</span>
+  <span class='example-spacer'></span>
+  <button mat-icon-button *ngIf='authUser.id; else login;' routerLink='/users/profile'>
+    <mat-icon>account_circle</mat-icon>
+  </button>
+  <ng-template #login>
+    <button mat-icon-button (click)='oauth2Flow()'>
+      <mat-icon>login</mat-icon>
+    </button>
+  </ng-template>
+</mat-toolbar>

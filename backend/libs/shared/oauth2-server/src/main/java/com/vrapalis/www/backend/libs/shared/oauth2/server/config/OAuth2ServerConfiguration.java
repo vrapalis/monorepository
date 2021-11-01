@@ -101,7 +101,7 @@ public class OAuth2ServerConfiguration {
                 .clientSecret("secret")
                 .clientAuthenticationMethod(ClientAuthenticationMethod.BASIC)
                 .authorizationGrantType(AuthorizationGrantType.AUTHORIZATION_CODE)
-                .redirectUri("http://127.0.0.1:4200/index.html")
+                .redirectUri("http://127.0.0.1:4200")
                 .scope(OidcScopes.OPENID)
                 .scope("read")
                 .scope("write")

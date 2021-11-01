@@ -1,0 +1,17 @@
+<mat-sidenav-container class='sidenav-container'>
+  <mat-sidenav #drawer class='sidenav' fixedInViewport
+               [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+               [mode]="(isHandset$ | async) ? 'over' : 'side'"
+               [opened]='(isHandset$ | async) === false'>
+    <mat-toolbar>Menu</mat-toolbar>
+    <mat-nav-list>
+      <a mat-list-item routerLink='/users/home' routerLinkActive='active'>Users</a>
+      <a mat-list-item routerLink='/clients/home' routerLinkActive='active'>Clients</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <frontend-shared-ui-header-container [drawer]='drawer' [appName]='appName'></frontend-shared-ui-header-container>
+    <!-- Add Content Here -->
+    <ng-content></ng-content>
+  </mat-sidenav-content>
+</mat-sidenav-container>
