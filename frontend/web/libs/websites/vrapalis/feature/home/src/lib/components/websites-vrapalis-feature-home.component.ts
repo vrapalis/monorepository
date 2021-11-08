@@ -4,13 +4,18 @@ import {IHome} from "@web/websites/vrapalis/model";
 @Component({
   selector: 'web-home-component',
   template: `
-    <div *ngIf="home" class='wrapper row justify-content-center justify-content-xl-start justify-content-xxl-evenly'>
-      <div class="col col-xl-auto"></div>
-      <div class='profile col-12 col-xl-5 col-xxl-4'>
+    <div *ngIf="home" class='wrapper row align-items-start'>
+      <div class='profile col-12 col-md-4 col-lg-3'>
         <img [src]="home.profile.url">
       </div>
-      <div class='description col-12 mt-4 text-start text-xl-center mt-xl-0 col-xl-6 col-xxl-7 p-1 p-xl-2'>
+      <div class='description col-12 col-md-8 col-lg-9'>
         <markdown [data]='home.profileDescription'></markdown>
+      </div>
+
+      <div class="row justify-content-center">
+        <div class="col-3"></div>
+        <div class="col-3"></div>
+        <div class="col-3"></div>
       </div>
     </div>
   `,

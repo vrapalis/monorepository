@@ -3,7 +3,7 @@ import {Component} from '@angular/core';
 @Component({
   selector: 'web-websites-vrapalis-ui-body',
   template: `
-    <div class="wrapper mt-3 mt-xl-5 text-center">
+    <div class="wrapper text-center">
       <ng-content></ng-content>
     </div>
   `,

@@ -26,39 +26,35 @@
       }
     ]
   },
-  "projects": {
-    "websites-shared-data-access": {
-      "tags": ["scope:websites-shared", "type:data-access"]
+  "cli": {
+    "defaultCollection": "@nrwl/angular"
+  },
+  "defaultProject": "websites-vrapalis",
+  "generators": {
+    "@nrwl/angular": {
+      "application": {
+        "linter": "eslint"
+      },
+      "library": {
+        "linter": "eslint"
+      },
+      "storybook-configuration": {
+        "linter": "eslint"
+      }
     },
-    "websites-shared-model": {
-      "tags": ["scope:websites-shared", "type:model"]
+    "@nrwl/angular:application": {
+      "style": "scss",
+      "linter": "eslint",
+      "unitTestRunner": "jest",
+      "e2eTestRunner": "cypress"
     },
-    "websites-shared-ui": {
-      "tags": ["scope:websites-shared", "type:ui"]
+    "@nrwl/angular:library": {
+      "style": "scss",
+      "linter": "eslint",
+      "unitTestRunner": "jest"
     },
-    "websites-vrapalis": {
-      "tags": ["scope:websites-vrapalis", "type:website"]
-    },
-    "websites-vrapalis-data-access": {
-      "tags": ["scope:websites-vrapalis", "type:data-access"]
-    },
-    "websites-vrapalis-feature-blog": {
-      "tags": ["scope:websites-vrapalis", "type:feature"]
-    },
-    "websites-vrapalis-feature-home": {
-      "tags": ["scope:websites-vrapalis", "type:feature"]
-    },
-    "websites-vrapalis-feature-projects": {
-      "tags": ["scope:websites-vrapalis", "type:feature"]
-    },
-    "websites-vrapalis-model": {
-      "tags": ["scope:websites-vrapalis", "type:model"]
-    },
-    "websites-vrapalis-ui": {
-      "tags": ["scope:websites-vrapalis", "type:ui"]
-    },
-    "websites-vrapalis-utility": {
-      "tags": ["scope:websites-vrapalis", "type:utility"]
+    "@nrwl/angular:component": {
+      "style": "scss"
     }
   }
 }

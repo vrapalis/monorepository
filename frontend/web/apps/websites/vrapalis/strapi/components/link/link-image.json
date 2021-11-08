@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_link_link_images",
+  "info": {
+    "name": "link-image",
+    "icon": "address-card"
+  },
+  "options": {},
+  "attributes": {
+    "linkUrl": {
+      "type": "string"
+    },
+    "picture": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
+    }
+  }
+}

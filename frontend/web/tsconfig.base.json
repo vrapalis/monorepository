@@ -15,6 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@web/shared/ui": ["libs/shared/ui/src/index.ts"],
       "@web/websites/shared/data-access": [
         "libs/websites/shared/data-access/src/index.ts"
       ],

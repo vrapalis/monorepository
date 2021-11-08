@@ -1,6 +1,32 @@
 {
   "version": 1,
   "projects": {
+    "shared-ui": {
+      "projectType": "library",
+      "root": "libs/shared/ui",
+      "sourceRoot": "libs/shared/ui/src",
+      "prefix": "web",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/shared/ui"],
+          "options": {
+            "jestConfig": "libs/shared/ui/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/shared/ui/src/**/*.ts",
+              "libs/shared/ui/src/**/*.html"
+            ]
+          }
+        }
+      },
+      "tags": []
+    },
     "websites-shared-data-access": {
       "projectType": "library",
       "root": "libs/websites/shared/data-access",
@@ -24,7 +50,8 @@
             ]
           }
         }
-      }
+      },
+      "tags": ["scope:websites-shared", "type:data-access"]
     },
     "websites-shared-model": {
       "root": "libs/websites/shared/model",
@@ -46,7 +73,8 @@
             "passWithNoTests": true
           }
         }
-      }
+      },
+      "tags": ["scope:websites-shared", "type:model"]
     },
     "websites-shared-ui": {
       "projectType": "library",
@@ -71,7 +99,8 @@
             ]
           }
         }
-      }
+      },
+      "tags": ["scope:websites-shared", "type:ui"]
     },
     "websites-vrapalis": {
       "projectType": "application",
@@ -237,7 +266,8 @@
           },
           "defaultConfiguration": "production"
         }
-      }
+      },
+      "tags": ["scope:websites-vrapalis", "type:website"]
     },
     "websites-vrapalis-data-access": {
       "projectType": "library",
@@ -262,7 +292,8 @@
             ]
           }
         }
-      }
+      },
+      "tags": ["scope:websites-vrapalis", "type:data-access"]
     },
     "websites-vrapalis-feature-blog": {
       "projectType": "library",
@@ -287,7 +318,8 @@
             ]
           }
         }
-      }
+      },
+      "tags": ["scope:websites-vrapalis", "type:feature"]
     },
     "websites-vrapalis-feature-home": {
       "projectType": "library",
@@ -312,7 +344,8 @@
             ]
           }
         }
-      }
+      },
+      "tags": ["scope:websites-vrapalis", "type:feature"]
     },
     "websites-vrapalis-feature-projects": {
       "projectType": "library",
@@ -337,7 +370,8 @@
             ]
           }
         }
-      }
+      },
+      "tags": ["scope:websites-vrapalis", "type:feature"]
     },
     "websites-vrapalis-model": {
       "root": "libs/websites/vrapalis/model",
@@ -359,7 +393,8 @@
             "passWithNoTests": true
           }
         }
-      }
+      },
+      "tags": ["scope:websites-vrapalis", "type:model"]
     },
     "websites-vrapalis-ui": {
       "projectType": "library",
@@ -384,7 +419,8 @@
             ]
           }
         }
-      }
+      },
+      "tags": ["scope:websites-vrapalis", "type:ui"]
     },
     "websites-vrapalis-utility": {
       "projectType": "library",
@@ -409,38 +445,8 @@
             ]
           }
         }
-      }
-    }
-  },
-  "defaultProject": "websites-vrapalis",
-  "cli": {
-    "defaultCollection": "@nrwl/angular"
-  },
-  "schematics": {
-    "@nrwl/angular": {
-      "application": {
-        "linter": "eslint"
       },
-      "library": {
-        "linter": "eslint"
-      },
-      "storybook-configuration": {
-        "linter": "eslint"
-      }
-    },
-    "@nrwl/angular:application": {
-      "style": "scss",
-      "linter": "eslint",
-      "unitTestRunner": "jest",
-      "e2eTestRunner": "cypress"
-    },
-    "@nrwl/angular:library": {
-      "style": "scss",
-      "linter": "eslint",
-      "unitTestRunner": "jest"
-    },
-    "@nrwl/angular:component": {
-      "style": "scss"
+      "tags": ["scope:websites-vrapalis", "type:utility"]
     }
   }
 }

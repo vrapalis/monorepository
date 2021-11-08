@@ -1,57 +1,12 @@
-@import "libs/websites/vrapalis/ui/src/lib/style/vars";
-
 .wrapper {
-  height: 55vh;
-  overflow: hidden;
-}
 
-.profile {
-  height: 100%;
-}
-
-.description {
-  height: 100%;
-  font-size: 21px;
-  line-height: 31px;
-}
-
-.profile img {
-  width: 90%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.profile {
-  height: 100%;
-}
-
-.description {
-  height: 100%;
-  font-size: 21px;
-  line-height: 31px;
-}
-
-.profile img {
-  width: 90%;
-  height: 100%;
-  object-fit: cover;
-}
-
-@media only screen and (min-width: $mobile-layout) and (max-width: $desktop-layout) {
-  .profile img {
-    width: 50%;
+  .profile {
+    img {
+      width: 80%;
+    }
   }
-}
 
-@media only screen and (max-width: 1199px) {
-  .wrapper {
-    height: unset;
-    overflow: unset;
-  }
-}
-
-@media only screen and (max-width: $mobile-layout) {
-  .profile img {
-    width: 80%;
+  .description {
+    text-align: left;
   }
 }

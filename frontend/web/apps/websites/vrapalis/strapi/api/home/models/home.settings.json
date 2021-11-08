@@ -39,6 +39,16 @@
           "localized": true
         }
       }
+    },
+    "projects": {
+      "type": "component",
+      "repeatable": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "project.project"
     }
   }
 }

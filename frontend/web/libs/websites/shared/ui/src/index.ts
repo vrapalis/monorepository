@@ -12,3 +12,6 @@ export * from './lib/page-not-found/containers/web-sh-ui-page-not-found-containe
 
 export * from './lib/contact-assistant/web-sh-ui-contact-assistant.module';
 export * from './lib/contact-assistant/containers/contact-assistant-container.component';
+
+export * from './lib/page/containers/web-sh-ui-page-container.component';
+export * from './lib/page/web-sh-ui-page.module';
