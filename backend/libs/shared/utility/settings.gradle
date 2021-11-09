@@ -16,3 +16,6 @@ dependencyResolutionManagement {
         }
     }
 }
+
+includeBuild '../error'
+includeBuild '../dto'

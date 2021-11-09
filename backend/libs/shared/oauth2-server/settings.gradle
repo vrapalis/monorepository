@@ -14,4 +14,7 @@ dependencyResolutionManagement {
     }
 }
 
+includeBuild '../dto'
+includeBuild '../utility'
+
 rootProject.name = 'oauth2-server'

@@ -7,5 +7,10 @@ javaPlatform {
 }
 
 dependencies {
+    api platform(libs.spring.dependencies)
     api platform('org.junit:junit-bom:5.7.2')
+
+    constraints {
+        api libs.spring.test
+    }
 }

@@ -1,15 +1,17 @@
 import de.delloit.www.backend.plugins.utils.UtilsProperties
 
 plugins {
-    id 'de.delloit.www.backend.plugins.spring-boot-library'
-    id 'de.delloit.www.backend.plugins.utils'
+    id 'com.vrapalis.www.backend.plugins.spring-boot-library'
+    id 'com.vrapalis.www.backend.plugins.utils'
 }
 
 group "${UtilsProperties.BASE_GROUP}.libs.shared"
 version UtilsProperties.BASE_VERSION
 
 dependencies {
+    api libs.spring.web
     api libs.project.shared.error
+    api libs.project.shared.dto
     api'com.googlecode.libphonenumber:libphonenumber:8.10.2'
     api 'com.googlecode.libphonenumber:geocoder:2.108'
 }

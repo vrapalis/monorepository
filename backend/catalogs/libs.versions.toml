@@ -7,6 +7,7 @@ java-jwt = "3.18.1"
 groovy = "3.0.5"
 project-base-version = "0.0.1"
 spring-oauth-server-version = "0.1.2"
+mapstruct-version = "1.4.2.Final"
 
 [libraries]
 spring-plugin = { module = "org.springframework.boot:org.springframework.boot.gradle.plugin", version.ref = "spring-plugin-version" }
@@ -24,6 +25,8 @@ spring-cloud-gateway = { module = "org.springframework.cloud:spring-cloud-starte
 
 spring-web = { module = "org.springframework.boot:spring-boot-starter-web" }
 spring-data = { module = "org.springframework.boot:spring-boot-starter-data-jpa" }
+spring-test = { module = "org.springframework.boot:spring-boot-starter-test" }
+spring-validation = { module = "org.springframework.boot:spring-boot-starter-validation" }
 spring-security = { module = "org.springframework.boot:spring-boot-starter-security" }
 spring-actuator = { module = "org.springframework.boot:spring-boot-starter-actuator" }
 spring-mail = { module = "org.springframework.boot:spring-boot-starter-mail" }
@@ -37,6 +40,7 @@ spring-oauth2-server = { module = "org.springframework.security.experimental:spr
 
 # Utils
 lombok = { module = "org.projectlombok:lombok" }
+mapstruct = { module = "org.mapstruct:mapstruct", version.ref = "mapstruct-version" }
 
 # Internal Projects
 project-shared-oauth2-server = { module = "com.vrapalis.www.backend.libs.shared:oauth2-server" }

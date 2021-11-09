@@ -5,6 +5,7 @@ import com.nimbusds.jose.jwk.RSAKey;
 import com.nimbusds.jose.jwk.source.JWKSource;
 import com.nimbusds.jose.proc.SecurityContext;
 import com.vrapalis.www.backend.libs.shared.oauth2.server.config.key.Jwks;
+import com.vrapalis.www.backend.libs.shared.oauth2.server.domain.user.util.UserApiUrl;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -12,7 +13,6 @@ import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.OAuth2AuthorizationServerConfiguration;
 import org.springframework.security.config.annotation.web.configurers.ExpressionUrlAuthorizationConfigurer;
 import org.springframework.security.core.userdetails.User;
@@ -45,13 +45,16 @@ public class OAuth2ServerConfiguration {
     @Order(Ordered.HIGHEST_PRECEDENCE)
     public SecurityFilterChain authorizationServerSecurityFilterChain(HttpSecurity http) throws Exception {
         OAuth2AuthorizationServerConfiguration.applyDefaultSecurity(http);
-        return http.cors(httpSecurityCorsConfigurer -> httpSecurityCorsConfigurer.configurationSource(corsConfigurationSource()))
+        return http
+                .cors(httpSecurityCorsConfigurer -> httpSecurityCorsConfigurer.configurationSource(corsConfigurationSource()))
                 .formLogin(withDefaults()).build();
     }
 
     @Bean
     SecurityFilterChain defaultSecurityFilterChain(HttpSecurity http) throws Exception {
-        http.cors(httpSecurityCorsConfigurer -> httpSecurityCorsConfigurer.configurationSource(corsConfigurationSource()))
+        http
+                .csrf().disable() // TODO SHOULD BE OPTIMIZED
+                .cors(httpSecurityCorsConfigurer -> httpSecurityCorsConfigurer.configurationSource(corsConfigurationSource()))
                 .authorizeRequests(OAuth2ServerConfiguration::customizeAuthorizeRequest)
                 .formLogin().loginPage("/login").permitAll();
         return http.build();
@@ -61,10 +64,11 @@ public class OAuth2ServerConfiguration {
                                                           authorizeRequests) {
         try {
             authorizeRequests
-                    .mvcMatchers("/**").permitAll()
+//                    .mvcMatchers("/**").permitAll()
                     .mvcMatchers("/webjars/**").permitAll()
-                    .mvcMatchers("/api/users/**").access("hasAuthority('SCOPE_read')")
-                    .anyRequest().authenticated()
+                    .mvcMatchers(UserApiUrl.USER_BASE_URL + UserApiUrl.USER_REGISTRATION_URL).anonymous()
+//                    .mvcMatchers("/api/users/**").access("hasAuthority('SCOPE_read')")
+//                    .anyRequest().authenticated()
                     .and()
                     .oauth2ResourceServer().jwt();
         } catch (Exception ex) {

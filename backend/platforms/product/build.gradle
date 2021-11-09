@@ -14,6 +14,7 @@ dependencies {
         api libs.project.shared.error
         api libs.project.shared.dto
         api libs.project.shared.assertion
+        api libs.mapstruct
 
         runtime libs.postgres
 
