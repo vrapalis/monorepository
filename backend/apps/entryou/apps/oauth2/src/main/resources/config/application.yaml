@@ -1,3 +1,14 @@
 spring:
   application:
     name: entroyu-apps-oauth2
+
+  security:
+    oauth2:
+      client:
+        registration:
+#          github:
+#            clientId: github-client-id
+#            clientSecret: github-client-secret
+          google:
+            client-id: 510777182796-be62clqeh8ik12cuclrmjqhqqc15c44d.apps.googleusercontent.com
+            client-secret: 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

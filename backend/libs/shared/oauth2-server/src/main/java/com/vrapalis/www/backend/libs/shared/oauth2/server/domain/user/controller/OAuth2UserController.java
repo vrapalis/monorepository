@@ -13,4 +13,9 @@ public class OAuth2UserController {
     public String login(Model model) {
         return "login";
     }
+
+    @GetMapping("/registration")
+    public String registration(Model model) {
+        return "registration";
+    }
 }

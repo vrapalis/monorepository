@@ -1,0 +1,78 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext
+   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd
+   http://www.liquibase.org/xml/ns/dbchangelog
+   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <changeSet id="1" author="Vitali Rapalis">
+        <sql dbms="postgresql">CREATE
+        EXTENSION IF NOT EXISTS "uuid-ossp"</sql>
+
+        <createTable tableName="oauth2_user">
+            <column name="id" type="uuid" defaultValue="uuid_generate_v4()">
+                <constraints unique="true" primaryKey="true" primaryKeyName="users_id_pk"/>
+            </column>
+
+            <column name="email" type="varchar(120)">
+                <constraints unique="true" nullable="true"/>
+            </column>
+
+            <column name="created_date" type="date">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <createTable tableName="oauth2_user_account">
+            <column name="user_id" type="uuid">
+                <constraints primaryKey="true" referencedTableName="oauth2_user" referencedColumnNames="id"
+                             foreignKeyName="oauth2_user_id_fk" deleteCascade="true"/>
+            </column>
+
+            <column name="password" type="varchar(10)">
+                <constraints nullable="true"/>
+            </column>
+
+            <column name="account_non_expired" type="boolean" defaultValue="0">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="account_non_locked" type="boolean" defaultValue="0">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="credentials_non_expired" type="boolean" defaultValue="0">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="is_enabled" type="boolean" defaultValue="0">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+    </changeSet>
+
+    <changeSet id="2" author="Vitali Rapalis">
+        <createTable tableName="oauth2_user_info">
+            <column name="user_id" type="uuid">
+                <constraints primaryKey="true" referencedTableName="oauth2_user" referencedColumnNames="id"
+                             foreignKeyName="oauth2_user_id_fk" deleteCascade="true"/>
+            </column>
+
+            <column name="firstName" type="varchar(10)">
+                <constraints nullable="true"/>
+            </column>
+
+            <column name="lastName" type="varchar(10)">
+                <constraints nullable="true"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="3" author="Vitali Rapalis">
+        <renameColumn tableName="oauth2_user_info" oldColumnName="firstName" newColumnName="first_name" />
+        <renameColumn tableName="oauth2_user_info" oldColumnName="lastName" newColumnName="last_name" />
+    </changeSet>
+</databaseChangeLog>

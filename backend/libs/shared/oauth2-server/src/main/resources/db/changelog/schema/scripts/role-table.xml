@@ -1,0 +1,36 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext
+   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd
+   http://www.liquibase.org/xml/ns/dbchangelog
+   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <changeSet id="1" author="Vitali Rapalis">
+        <createTable tableName="oauth2_user_role">
+            <column name="name" type="varchar(50)">
+                <constraints primaryKey="true" unique="true" primaryKeyName="oauth2_user_role_name_pk"/>
+            </column>
+        </createTable>
+
+        <createTable tableName="oauth2_user_has_role">
+            <column name="user_id" type="uuid">
+                <constraints primaryKey="true" referencedTableName="oauth2_user" referencedColumnNames="id"
+                             foreignKeyName="oauth2_user_has_role_user_id_fk" deleteCascade="true"/>
+            </column>
+            <column name="role_name" type="varchar(50)">
+                <constraints primaryKey="true" referencedTableName="oauth2_user_role" referencedColumnNames="name"
+                             foreignKeyName="oauth2_user_has_role_name_fk" deleteCascade="true"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="2" author="Vitali Rapalis">
+        <addColumn tableName="oauth2_user_role">
+            <column name="description" type="varchar(160)">
+                <constraints nullable="false" />
+            </column>
+        </addColumn>
+    </changeSet>
+</databaseChangeLog>

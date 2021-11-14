@@ -5,21 +5,23 @@ import com.nimbusds.jose.jwk.RSAKey;
 import com.nimbusds.jose.jwk.source.JWKSource;
 import com.nimbusds.jose.proc.SecurityContext;
 import com.vrapalis.www.backend.libs.shared.oauth2.server.config.key.Jwks;
+import com.vrapalis.www.backend.libs.shared.oauth2.server.domain.user.service.CustomOAuth2UserServiceImp;
+import com.vrapalis.www.backend.libs.shared.oauth2.server.domain.user.service.OAuth2AuthenticationSuccessHandler;
+import com.vrapalis.www.backend.libs.shared.oauth2.server.domain.user.service.UserServiceImpl;
 import com.vrapalis.www.backend.libs.shared.oauth2.server.domain.user.util.UserApiUrl;
+import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.FilterType;
 import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.OAuth2AuthorizationServerConfiguration;
 import org.springframework.security.config.annotation.web.configurers.ExpressionUrlAuthorizationConfigurer;
-import org.springframework.security.core.userdetails.User;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.crypto.password.NoOpPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.oauth2.core.AuthorizationGrantType;
 import org.springframework.security.oauth2.core.ClientAuthenticationMethod;
 import org.springframework.security.oauth2.core.oidc.OidcScopes;
@@ -28,7 +30,6 @@ import org.springframework.security.oauth2.server.authorization.client.InMemoryR
 import org.springframework.security.oauth2.server.authorization.client.RegisteredClient;
 import org.springframework.security.oauth2.server.authorization.client.RegisteredClientRepository;
 import org.springframework.security.oauth2.server.authorization.config.ProviderSettings;
-import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
@@ -38,8 +39,19 @@ import static org.springframework.security.config.Customizer.withDefaults;
 
 @Configuration
 @EnableJpaRepositories(basePackages = {"com.vrapalis.www.backend.libs.shared.oauth2.server.domain.*"})
-@ComponentScan(basePackages = {"com.vrapalis.www.backend.libs.shared.oauth2.server.domain.*"})
+@ComponentScan(basePackages = {"com.vrapalis.www.backend.libs.shared.oauth2.server.domain.*"},
+        excludeFilters = {
+                @ComponentScan.Filter(
+                        type = FilterType.ASSIGNABLE_TYPE,
+                        classes = UserServiceImpl.class)
+        }
+)
+@EntityScan(basePackages = {"com.vrapalis.www.backend.libs.shared.oauth2.server.domain.*"})
+@AllArgsConstructor
 public class OAuth2ServerConfiguration {
+
+    private CustomOAuth2UserServiceImp oauth2UserService;
+    private OAuth2AuthenticationSuccessHandler auth2AuthenticationSuccessHandler;
 
     @Bean
     @Order(Ordered.HIGHEST_PRECEDENCE)
@@ -56,7 +68,17 @@ public class OAuth2ServerConfiguration {
                 .csrf().disable() // TODO SHOULD BE OPTIMIZED
                 .cors(httpSecurityCorsConfigurer -> httpSecurityCorsConfigurer.configurationSource(corsConfigurationSource()))
                 .authorizeRequests(OAuth2ServerConfiguration::customizeAuthorizeRequest)
-                .formLogin().loginPage("/login").permitAll();
+                .formLogin()
+                .loginPage("/login")
+                .usernameParameter("email")
+                .permitAll()
+                .and()
+                .oauth2Login().loginPage("/login")
+                .userInfoEndpoint().userService(oauth2UserService)
+                .and()
+                .successHandler(auth2AuthenticationSuccessHandler)
+                .and()
+                .oauth2ResourceServer().jwt();
         return http.build();
     }
 
@@ -64,13 +86,10 @@ public class OAuth2ServerConfiguration {
                                                           authorizeRequests) {
         try {
             authorizeRequests
-//                    .mvcMatchers("/**").permitAll()
-                    .mvcMatchers("/webjars/**").permitAll()
                     .mvcMatchers(UserApiUrl.USER_BASE_URL + UserApiUrl.USER_REGISTRATION_URL).anonymous()
-//                    .mvcMatchers("/api/users/**").access("hasAuthority('SCOPE_read')")
-//                    .anyRequest().authenticated()
-                    .and()
-                    .oauth2ResourceServer().jwt();
+                    .mvcMatchers(UserApiUrl.USER_BASE_URL + "/security-test").hasAuthority("SCOPE_read")
+                    .mvcMatchers("/webjars/**").permitAll()
+                    .anyRequest().permitAll();
         } catch (Exception ex) {
         }
     }
@@ -90,15 +109,6 @@ public class OAuth2ServerConfiguration {
     }
 
     @Bean
-    public UserDetailsService users() {
-        UserDetails user = User.withUsername("user")
-                .password("user")
-                .roles("user")
-                .build();
-        return new InMemoryUserDetailsManager(user);
-    }
-
-    @Bean
     public RegisteredClientRepository registeredClientRepository() {
         RegisteredClient registeredClient = RegisteredClient.withId("client")
                 .clientId("client")
@@ -107,6 +117,9 @@ public class OAuth2ServerConfiguration {
                 .authorizationGrantType(AuthorizationGrantType.AUTHORIZATION_CODE)
                 .redirectUri("http://127.0.0.1:4200")
                 .scope(OidcScopes.OPENID)
+                .scope(OidcScopes.EMAIL)
+                .scope(OidcScopes.PROFILE)
+                .scope(OidcScopes.PHONE)
                 .scope("read")
                 .scope("write")
                 .clientSettings(clientSettings -> clientSettings.requireUserConsent(true))
@@ -133,10 +146,5 @@ public class OAuth2ServerConfiguration {
     @Bean
     public JwtDecoder jwtDecoder(JWKSource<SecurityContext> jwkSource) {
         return OAuth2AuthorizationServerConfiguration.jwtDecoder(jwkSource);
-    }
-
-    @Bean
-    public PasswordEncoder passwordEncoder() {
-        return NoOpPasswordEncoder.getInstance();
     }
 }
