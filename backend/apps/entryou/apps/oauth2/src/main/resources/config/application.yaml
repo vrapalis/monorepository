@@ -6,9 +6,21 @@ spring:
     oauth2:
       client:
         registration:
-#          github:
-#            clientId: github-client-id
-#            clientSecret: github-client-secret
           google:
             client-id: 510777182796-be62clqeh8ik12cuclrmjqhqqc15c44d.apps.googleusercontent.com
             client-secret: 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
+            scope:
+              - email
+              - profile
+          facebook:
+            clientId: 121189305185277
+            clientSecret: 42ffe5aa7379e8326387e0fe16f34132
+            scope:
+              - email
+              - public_profile
+            github:
+              clientId: d3e47fc2ddd966fa4352
+              clientSecret: 3bc0f6b8332f93076354c2a5bada2f5a05aea60d
+              scope:
+                - user:email
+                - read:user

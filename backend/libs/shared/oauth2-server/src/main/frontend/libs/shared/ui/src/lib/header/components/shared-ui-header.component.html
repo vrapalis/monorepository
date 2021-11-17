@@ -9,7 +9,7 @@
   </button>
   <span>{{appName}}</span>
   <span class='example-spacer'></span>
-  <button mat-icon-button *ngIf='authUser.id; else login;' routerLink='/users/profile'>
+  <button mat-icon-button *ngIf='authUser.id; else login;' routerLink='/profile'>
     <mat-icon>account_circle</mat-icon>
   </button>
   <ng-template #login>

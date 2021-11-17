@@ -10,7 +10,6 @@ import com.vrapalis.www.backend.libs.shared.oauth2.server.domain.user.service.OA
 import com.vrapalis.www.backend.libs.shared.oauth2.server.domain.user.service.UserServiceImpl;
 import com.vrapalis.www.backend.libs.shared.oauth2.server.domain.user.util.UserApiUrl;
 import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -82,8 +81,8 @@ public class OAuth2ServerConfiguration {
         return http.build();
     }
 
-    private static void customizeAuthorizeRequest(ExpressionUrlAuthorizationConfigurer<HttpSecurity>.ExpressionInterceptUrlRegistry
-                                                          authorizeRequests) {
+    private static void customizeAuthorizeRequest(ExpressionUrlAuthorizationConfigurer<HttpSecurity>
+                                                          .ExpressionInterceptUrlRegistry authorizeRequests) {
         try {
             authorizeRequests
                     .mvcMatchers(UserApiUrl.USER_BASE_URL + UserApiUrl.USER_REGISTRATION_URL).anonymous()
@@ -117,9 +116,6 @@ public class OAuth2ServerConfiguration {
                 .authorizationGrantType(AuthorizationGrantType.AUTHORIZATION_CODE)
                 .redirectUri("http://127.0.0.1:4200")
                 .scope(OidcScopes.OPENID)
-                .scope(OidcScopes.EMAIL)
-                .scope(OidcScopes.PROFILE)
-                .scope(OidcScopes.PHONE)
                 .scope("read")
                 .scope("write")
                 .clientSettings(clientSettings -> clientSettings.requireUserConsent(true))

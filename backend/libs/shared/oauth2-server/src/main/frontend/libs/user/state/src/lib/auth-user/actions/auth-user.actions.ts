@@ -1,18 +1,17 @@
 import { createAction, props } from '@ngrx/store';
 import { IAuthUser } from '@frontend/shared/model';
 
-export const loadAuthUsers = createAction(
-  '[AuthUser] Load AuthUsers',
-  props<{ authUser: IAuthUser }>()
+export const LOAD_AUTH_USER_ACTION = createAction(
+  '[Home Component] Load Authenticated User'
 );
 
-export const loadAuthUsersSuccess = createAction(
-  '[AuthUser] Load AuthUsers Success',
+export const LOAD_AUTH_USER_ACTION_SUCCESS = createAction(
+  '[User Effect] Load Authenticated User Success',
   props<{ data: any }>()
 );
 
-export const loadAuthUsersFailure = createAction(
-  '[AuthUser] Load AuthUsers Failure',
+export const LOAD_AUTH_USER_ACTION_ERROR = createAction(
+  '[User Effect] Load Authenticated User Error',
   props<{ error: any }>()
 );
 

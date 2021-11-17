@@ -7,6 +7,7 @@
     <title>OAuth 2 Server</title>
 
     <link rel="stylesheet" th:href="@{webjars/bootstrap/5.0.0/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" th:href="@{webjars/bootstrap-icons/1.7.0/font/bootstrap-icons.css}"/>
     <link rel="stylesheet" th:href="@{main.css}"/>
 </head>
 
@@ -22,7 +23,7 @@
                placeholder="Email" required autofocus/>
         <input type="password" id="password" name="password" class="form-control mt-4"
                placeholder="Password" required autofocus/>
-        <div class="text-end mt-3">
+        <div class="text-end mt-4">
             <a type="button" class="btn btn-sm btn-link" href="/registration"
                data-bs-toggle="tooltip" data-bs-placement="bottom" title="Redirection to registration page">
                 Registration
@@ -31,7 +32,17 @@
                     data-bs-toggle="tooltip" data-bs-placement="bottom" title="Submit the login">
                 Login
             </button>
-            <a th:href="@{/oauth2/authorization/google}">Login with Google</a>
+        </div>
+        <div class="text-end mt-3 fs-2">
+            <a class="text-decoration-none text-white m-1" th:href="@{/oauth2/authorization/google}">
+                <i class="bi bi-google"></i>
+            </a>
+            <a class="text-decoration-none text-white m-1" th:href="@{/oauth2/authorization/facebook}">
+                <i class="bi bi-facebook"></i>
+            </a>
+            <a class="text-decoration-none text-white m-1" th:href="@{/oauth2/authorization/github}">
+                <i class="bi bi-github"></i>
+            </a>
         </div>
     </form>
 

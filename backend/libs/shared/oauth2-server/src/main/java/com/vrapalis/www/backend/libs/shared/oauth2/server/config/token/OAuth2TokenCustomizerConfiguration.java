@@ -2,15 +2,10 @@ package com.vrapalis.www.backend.libs.shared.oauth2.server.config.token;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.oauth2.core.OAuth2TokenType;
 import org.springframework.security.oauth2.server.authorization.JwtEncodingContext;
 import org.springframework.security.oauth2.server.authorization.OAuth2TokenCustomizer;
 
-import java.util.stream.Collectors;
 
 @Configuration
 public class OAuth2TokenCustomizerConfiguration {
@@ -18,6 +13,7 @@ public class OAuth2TokenCustomizerConfiguration {
     @Bean
     public OAuth2TokenCustomizer<JwtEncodingContext> buildCustomizer() {
         OAuth2TokenCustomizer<JwtEncodingContext> customizer = (context) -> {
+            System.out.println("CONTEXT: " + context.getPrincipal().getPrincipal());
             final var authentication = SecurityContextHolder.getContext().getAuthentication();
             System.out.println("TOKENCLASS:     " + authentication.getClass());
 

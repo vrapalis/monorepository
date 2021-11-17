@@ -14,7 +14,7 @@ export class AuthUserEffects {
 
   loadAuthUsers$ = createEffect(() => {
     return this.actions$.pipe(
-      ofType(AuthUserActions.loadAuthUsers),
+      ofType(AuthUserActions.LOAD_AUTH_USER_ACTION),
       switchMap(action => this.http.get('http://127.0.0.1:8080/api/users/security-test', {observe: 'body'})),
       tap(console.log)
     );

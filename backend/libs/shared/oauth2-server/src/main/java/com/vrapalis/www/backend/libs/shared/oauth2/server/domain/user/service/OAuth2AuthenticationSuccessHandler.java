@@ -14,8 +14,8 @@ import java.io.IOException;
 public class OAuth2AuthenticationSuccessHandler extends SavedRequestAwareAuthenticationSuccessHandler {
     @Override
     public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws ServletException, IOException {
-        final var oidcUser = (DefaultOidcUser) authentication.getPrincipal();
-        System.out.println("OAUTH2USER: " + oidcUser);
+        final var user = authentication.getPrincipal();
+        System.out.println("OAUTH2USER: " + user);
         // TODO PERSIST USER IN DB
         super.onAuthenticationSuccess(request, response, authentication);
     }

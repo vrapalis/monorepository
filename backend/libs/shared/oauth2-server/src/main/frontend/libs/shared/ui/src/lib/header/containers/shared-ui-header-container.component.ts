@@ -1,9 +1,8 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { MatSidenav } from '@angular/material/sidenav';
 import { Store } from '@ngrx/store';
 import { IAuthUser } from '@frontend/shared/model';
-import { tap } from 'rxjs/operators';
-import { loadAuthUsers, selectAuthUserState, selectUserId } from '@frontend/user/state';
+import { LOAD_AUTH_USER_ACTION, selectAuthUserState } from '@frontend/user/state';
 import { OAuthService } from 'angular-oauth2-oidc';
 import { defer } from 'rxjs';
 
@@ -17,16 +16,20 @@ import { defer } from 'rxjs';
   `,
   styles: [``]
 })
-export class SharedUiHeaderContainerComponent {
+export class SharedUiHeaderContainerComponent implements OnInit{
   @Input() drawer?: MatSidenav;
   @Input() appName?: string;
   authUser$ = this.store.select(selectAuthUserState);
 
   constructor(private store: Store<IAuthUser>, private authService: OAuthService) {
-    console.log(`token: ${this.authService.getAccessToken()}`)
+    console.log(`token: ${authService.getAccessToken()}`)
   }
 
   oAuth2Flow() {
     defer(() => this.authService.initLoginFlow()).subscribe(value => console.log(`Value: ${value}`));
+  }
+
+  ngOnInit(): void {
+    this.store.dispatch(LOAD_AUTH_USER_ACTION());
   }
 }

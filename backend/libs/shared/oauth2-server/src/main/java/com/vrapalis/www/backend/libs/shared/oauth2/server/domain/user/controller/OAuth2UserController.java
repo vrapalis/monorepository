@@ -18,4 +18,5 @@ public class OAuth2UserController {
     public String registration(Model model) {
         return "registration";
     }
+
 }

@@ -10,9 +10,9 @@ import { UserFeaturesHomeModule } from '@frontend/user/features/home';
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'home' },
   { path: 'home', loadChildren: () => HomeModule },
-  { path: 'clients/home', loadChildren: () => ClientFeaturesHomeModule, canLoad: [AuthGuardService] },
-  { path: 'users/home', loadChildren: () => UserFeaturesHomeModule, canLoad: [AuthGuardService] },
-  { path: 'users/profile', loadChildren: () => UserFeaturesProfileModule, canLoad: [AuthGuardService] },
+  { path: 'clients', loadChildren: () => ClientFeaturesHomeModule, canLoad: [AuthGuardService] },
+  { path: 'users', loadChildren: () => UserFeaturesHomeModule, canLoad: [AuthGuardService] },
+  { path: 'profile', loadChildren: () => UserFeaturesProfileModule, canLoad: [AuthGuardService] },
   { path: '**', component: NotFoundComponent }
 ];
 
