@@ -18,9 +18,24 @@ spring:
             scope:
               - email
               - public_profile
-            github:
-              clientId: d3e47fc2ddd966fa4352
-              clientSecret: 3bc0f6b8332f93076354c2a5bada2f5a05aea60d
-              scope:
-                - user:email
-                - read:user
+          github:
+            clientId: d3e47fc2ddd966fa4352
+            clientSecret: 3bc0f6b8332f93076354c2a5bada2f5a05aea60d
+            scope:
+              - user:email
+              - read:user
+          azuread:
+            clientId: a10d7d10-bada-4faf-9d90-85c8d8a91c40
+            clientSecret: 8XX7Q~yqyW3tnUKoIkImUsvhvYo8FqYKVWkSe
+            client-name: Test1
+            authorization-grant-type: authorization_code
+            redirect-uri: '{baseUrl}/login/oauth2/code/{registrationId}'
+            scope:
+              - https://graph.microsoft.com/.default
+              - openid
+              - profile
+        provider:
+         azuread:
+           issuer-uri: https://login.microsoftonline.com/815692a5-a5c8-461a-b480-6675c658ad5b/v2.0
+           token-uri: https://login.microsoftonline.com/815692a5-a5c8-461a-b480-6675c658ad5b/oauth2/v2.0/token
+           authorization-uri: https://login.microsoftonline.com/815692a5-a5c8-461a-b480-6675c658ad5b/oauth2/v2.0/authorize

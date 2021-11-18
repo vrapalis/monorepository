@@ -6,6 +6,7 @@ import com.nimbusds.jose.jwk.source.JWKSource;
 import com.nimbusds.jose.proc.SecurityContext;
 import com.vrapalis.www.backend.libs.shared.oauth2.server.config.key.Jwks;
 import com.vrapalis.www.backend.libs.shared.oauth2.server.domain.user.service.CustomOAuth2UserServiceImp;
+import com.vrapalis.www.backend.libs.shared.oauth2.server.domain.user.service.CustomOidcUserServiceImp;
 import com.vrapalis.www.backend.libs.shared.oauth2.server.domain.user.service.OAuth2AuthenticationSuccessHandler;
 import com.vrapalis.www.backend.libs.shared.oauth2.server.domain.user.service.UserServiceImpl;
 import com.vrapalis.www.backend.libs.shared.oauth2.server.domain.user.util.UserApiUrl;
@@ -21,6 +22,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.OAuth2AuthorizationServerConfiguration;
 import org.springframework.security.config.annotation.web.configurers.ExpressionUrlAuthorizationConfigurer;
+import org.springframework.security.oauth2.client.oidc.userinfo.OidcUserService;
 import org.springframework.security.oauth2.core.AuthorizationGrantType;
 import org.springframework.security.oauth2.core.ClientAuthenticationMethod;
 import org.springframework.security.oauth2.core.oidc.OidcScopes;
@@ -49,6 +51,7 @@ import static org.springframework.security.config.Customizer.withDefaults;
 @AllArgsConstructor
 public class OAuth2ServerConfiguration {
 
+    private CustomOidcUserServiceImp oidcUserService;
     private CustomOAuth2UserServiceImp oauth2UserService;
     private OAuth2AuthenticationSuccessHandler auth2AuthenticationSuccessHandler;
 
@@ -69,11 +72,12 @@ public class OAuth2ServerConfiguration {
                 .authorizeRequests(OAuth2ServerConfiguration::customizeAuthorizeRequest)
                 .formLogin()
                 .loginPage("/login")
+//                .successHandler(auth2AuthenticationSuccessHandler)
                 .usernameParameter("email")
                 .permitAll()
                 .and()
                 .oauth2Login().loginPage("/login")
-                .userInfoEndpoint().userService(oauth2UserService)
+                .userInfoEndpoint().oidcUserService(oidcUserService).userService(oauth2UserService)
                 .and()
                 .successHandler(auth2AuthenticationSuccessHandler)
                 .and()

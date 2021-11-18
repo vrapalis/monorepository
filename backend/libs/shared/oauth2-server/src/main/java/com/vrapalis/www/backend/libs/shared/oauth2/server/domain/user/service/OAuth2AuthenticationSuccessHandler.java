@@ -1,7 +1,6 @@
 package com.vrapalis.www.backend.libs.shared.oauth2.server.domain.user.service;
 
 import org.springframework.security.core.Authentication;
-import org.springframework.security.oauth2.core.oidc.user.DefaultOidcUser;
 import org.springframework.security.web.authentication.SavedRequestAwareAuthenticationSuccessHandler;
 import org.springframework.stereotype.Service;
 
@@ -15,7 +14,7 @@ public class OAuth2AuthenticationSuccessHandler extends SavedRequestAwareAuthent
     @Override
     public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws ServletException, IOException {
         final var user = authentication.getPrincipal();
-        System.out.println("OAUTH2USER: " + user);
+        System.out.println("OAUTH2USER: " + user.getClass());
         // TODO PERSIST USER IN DB
         super.onAuthenticationSuccess(request, response, authentication);
     }
