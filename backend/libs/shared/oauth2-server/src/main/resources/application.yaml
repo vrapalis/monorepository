@@ -1,3 +1,10 @@
+server:
+  # Custom error handling, if no handler is found
+  error:
+    whitelabel:
+      enabled: false
+    path: /error
+
 spring:
   security:
     oauth2:

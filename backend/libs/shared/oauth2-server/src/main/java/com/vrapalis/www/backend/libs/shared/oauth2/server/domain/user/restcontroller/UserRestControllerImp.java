@@ -1,28 +1,23 @@
 package com.vrapalis.www.backend.libs.shared.oauth2.server.domain.user.restcontroller;
 
-import com.vrapalis.www.backend.libs.shared.oauth2.server.domain.user.dto.UserRegistrationDto;
-import com.vrapalis.www.backend.libs.shared.oauth2.server.domain.user.service.UserService;
+import com.vrapalis.www.backend.libs.shared.oauth2.server.domain.user.dto.OAuth2UserRegistrationExceptionDto;
+import com.vrapalis.www.backend.libs.shared.oauth2.server.domain.user.service.OAuth2UserService;
 import de.delloit.www.backend.libs.shared.dto.domain.server.AbstractServerResponseDto;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.security.Principal;
-import java.util.Optional;
-
 @RestController
 @AllArgsConstructor
-public class UserRestControllerImp implements UserRestController {
+public class UserRestControllerImp implements OAuth2UserRestController {
 
-    private UserService userService;
+    private OAuth2UserService userService;
 
     @Override
-    public ResponseEntity<AbstractServerResponseDto> registration(UserRegistrationDto user) {
+    public ResponseEntity<AbstractServerResponseDto> registration(OAuth2UserRegistrationExceptionDto user) {
         return userService.registration(user);
     }
 

@@ -1,1 +1,5 @@
 db-name: oauth2_local_db
+
+logging:
+  level:
+    com.vrapalis.www.backend.libs.shared.oauth2.server: DEBUG

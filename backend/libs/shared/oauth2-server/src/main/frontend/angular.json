@@ -1,17 +1,17 @@
 {
   "version": 1,
   "projects": {
-    "client-features-home": {
+    "oauth2-feature-login": {
       "projectType": "library",
-      "root": "libs/client/features/home",
-      "sourceRoot": "libs/client/features/home/src",
+      "root": "libs/oauth2/feature/login",
+      "sourceRoot": "libs/oauth2/feature/login/src",
       "prefix": "frontend",
       "architect": {
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/client/features/home"],
+          "outputs": ["coverage/libs/oauth2/feature/login"],
           "options": {
-            "jestConfig": "libs/client/features/home/jest.config.js",
+            "jestConfig": "libs/oauth2/feature/login/jest.config.js",
             "passWithNoTests": true
           }
         },
@@ -19,96 +19,18 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "libs/client/features/home/src/**/*.ts",
-              "libs/client/features/home/src/**/*.html"
+              "libs/oauth2/feature/login/src/**/*.ts",
+              "libs/oauth2/feature/login/src/**/*.html"
             ]
           }
         }
       },
-      "tags": ["scope:client", "type:feature"]
+      "tags": ["scope:oauth2","type:feature"]
     },
-    "client-features-list": {
-      "projectType": "library",
-      "root": "libs/client/features/list",
-      "sourceRoot": "libs/client/features/list/src",
-      "prefix": "frontend",
-      "architect": {
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/client/features/list"],
-          "options": {
-            "jestConfig": "libs/client/features/list/jest.config.js",
-            "passWithNoTests": true
-          }
-        },
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": [
-              "libs/client/features/list/src/**/*.ts",
-              "libs/client/features/list/src/**/*.html"
-            ]
-          }
-        }
-      },
-      "tags": ["scope:client", "type:feature"]
-    },
-    "client-state": {
-      "projectType": "library",
-      "root": "libs/client/state",
-      "sourceRoot": "libs/client/state/src",
-      "prefix": "frontend",
-      "architect": {
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/client/state"],
-          "options": {
-            "jestConfig": "libs/client/state/jest.config.js",
-            "passWithNoTests": true
-          }
-        },
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": [
-              "libs/client/state/src/**/*.ts",
-              "libs/client/state/src/**/*.html"
-            ]
-          }
-        }
-      },
-      "tags": []
-    },
-    "home": {
-      "projectType": "library",
-      "root": "libs/home",
-      "sourceRoot": "libs/home/src",
-      "prefix": "frontend",
-      "architect": {
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/home"],
-          "options": {
-            "jestConfig": "libs/home/jest.config.js",
-            "passWithNoTests": true
-          }
-        },
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": [
-              "libs/home/src/**/*.ts",
-              "libs/home/src/**/*.html"
-            ]
-          }
-        }
-      },
-      "tags": ["scope:home", "type:feature"]
-    },
-    "oauth2": {
+    "oauth2-ui": {
       "projectType": "application",
-      "root": "apps/oauth2",
-      "sourceRoot": "apps/oauth2/src",
+      "root": "apps/oauth2/ui",
+      "sourceRoot": "apps/oauth2/ui/src",
       "prefix": "frontend",
       "architect": {
         "build": {
@@ -116,16 +38,19 @@
           "outputs": ["{options.outputPath}"],
           "options": {
             "outputPath": "../resources/static/",
-            "index": "apps/oauth2/src/index.html",
-            "main": "apps/oauth2/src/main.ts",
-            "polyfills": "apps/oauth2/src/polyfills.ts",
-            "tsConfig": "apps/oauth2/tsconfig.app.json",
+            "index": "apps/oauth2/ui/src/index.html",
+            "main": "apps/oauth2/ui/src/main.ts",
+            "polyfills": "apps/oauth2/ui/src/polyfills.ts",
+            "tsConfig": "apps/oauth2/ui/tsconfig.app.json",
             "inlineStyleLanguage": "scss",
-            "assets": ["apps/oauth2/src/favicon.ico", "apps/oauth2/src/assets"],
+            "assets": [
+              "apps/oauth2/ui/src/favicon.ico",
+              "apps/oauth2/ui/src/assets"
+            ],
             "styles": [
               "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "./node_modules/bootstrap/dist/css/bootstrap.min.css",
-              "apps/oauth2/src/styles.scss"
+              "apps/oauth2/ui/src/styles.scss"
             ],
             "scripts": [
               "./node_modules/@popperjs/core/dist/umd/popper.min.js",
@@ -148,8 +73,8 @@
               ],
               "fileReplacements": [
                 {
-                  "replace": "apps/oauth2/src/environments/environment.ts",
-                  "with": "apps/oauth2/src/environments/environment.prod.ts"
+                  "replace": "apps/oauth2/ui/src/environments/environment.ts",
+                  "with": "apps/oauth2/ui/src/environments/environment.prod.ts"
                 }
               ],
               "outputHashing": "all"
@@ -169,10 +94,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "oauth2:build:production"
+              "browserTarget": "oauth2-ui:build:production"
             },
             "development": {
-              "browserTarget": "oauth2:build:development"
+              "browserTarget": "oauth2-ui:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -180,44 +105,43 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "oauth2:build"
+            "browserTarget": "oauth2-ui:build"
           }
         },
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "apps/oauth2/src/**/*.ts",
-              "apps/oauth2/src/**/*.html"
+              "apps/oauth2/ui/src/**/*.ts",
+              "apps/oauth2/ui/src/**/*.html"
             ]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/apps/oauth2"],
+          "outputs": ["coverage/apps/oauth2/ui"],
           "options": {
-            "jestConfig": "apps/oauth2/jest.config.js",
+            "jestConfig": "apps/oauth2/ui/jest.config.js",
             "passWithNoTests": true
           }
         }
       },
       "tags": ["scope:oauth2", "type:app"]
     },
-    "oauth2-e2e": {
-      "root": "apps/oauth2-e2e",
-      "sourceRoot": "apps/oauth2-e2e/src",
+    "oauth2-ui-e2e": {
+      "root": "apps/oauth2/ui-e2e",
+      "sourceRoot": "apps/oauth2/ui-e2e/src",
       "projectType": "application",
       "architect": {
         "e2e": {
           "builder": "@nrwl/cypress:cypress",
           "options": {
-            "cypressConfig": "apps/oauth2-e2e/cypress.json",
-            "devServerTarget": "oauth2:serve:development",
-            "tsConfig": "apps/oauth2-e2e/tsconfig.json"
+            "cypressConfig": "apps/oauth2/ui-e2e/cypress.json",
+            "devServerTarget": "oauth2-ui:serve:development"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "oauth2:serve:production"
+              "devServerTarget": "oauth2-ui:serve:production"
             }
           }
         },
@@ -225,12 +149,12 @@
           "builder": "@nrwl/linter:eslint",
           "outputs": ["{options.outputFile}"],
           "options": {
-            "lintFilePatterns": ["apps/oauth2-e2e/**/*.{js,ts}"]
+            "lintFilePatterns": ["apps/oauth2/ui-e2e/**/*.{js,ts}"]
           }
         }
       },
       "tags": [],
-      "implicitDependencies": ["oauth2"]
+      "implicitDependencies": ["oauth2-ui"]
     },
     "shared-model": {
       "projectType": "library",
@@ -309,110 +233,6 @@
         }
       },
       "tags": ["scope:shared", "type:util"]
-    },
-    "user-data-access": {
-      "projectType": "library",
-      "root": "libs/user/data-access",
-      "sourceRoot": "libs/user/data-access/src",
-      "prefix": "frontend",
-      "architect": {
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/user/data-access"],
-          "options": {
-            "jestConfig": "libs/user/data-access/jest.config.js",
-            "passWithNoTests": true
-          }
-        },
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": [
-              "libs/user/data-access/src/**/*.ts",
-              "libs/user/data-access/src/**/*.html"
-            ]
-          }
-        }
-      },
-      "tags": ["scope:user", "type:data-access"]
-    },
-    "user-features-home": {
-      "projectType": "library",
-      "root": "libs/user/features/home",
-      "sourceRoot": "libs/user/features/home/src",
-      "prefix": "frontend",
-      "architect": {
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/user/features/home"],
-          "options": {
-            "jestConfig": "libs/user/features/home/jest.config.js",
-            "passWithNoTests": true
-          }
-        },
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": [
-              "libs/user/features/home/src/**/*.ts",
-              "libs/user/features/home/src/**/*.html"
-            ]
-          }
-        }
-      },
-      "tags": ["scope:user", "type:feature"]
-    },
-    "user-features-profile": {
-      "projectType": "library",
-      "root": "libs/user/features/profile",
-      "sourceRoot": "libs/user/features/profile/src",
-      "prefix": "frontend",
-      "architect": {
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/user/features/profile"],
-          "options": {
-            "jestConfig": "libs/user/features/profile/jest.config.js",
-            "passWithNoTests": true
-          }
-        },
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": [
-              "libs/user/features/profile/src/**/*.ts",
-              "libs/user/features/profile/src/**/*.html"
-            ]
-          }
-        }
-      },
-      "tags": ["scope:user", "type:feature"]
-    },
-    "user-state": {
-      "projectType": "library",
-      "root": "libs/user/state",
-      "sourceRoot": "libs/user/state/src",
-      "prefix": "frontend",
-      "architect": {
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/user/state"],
-          "options": {
-            "jestConfig": "libs/user/state/jest.config.js",
-            "passWithNoTests": true
-          }
-        },
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": [
-              "libs/user/state/src/**/*.ts",
-              "libs/user/state/src/**/*.html"
-            ]
-          }
-        }
-      },
-      "tags": ["scope:user", "type:state"]
     }
   }
 }

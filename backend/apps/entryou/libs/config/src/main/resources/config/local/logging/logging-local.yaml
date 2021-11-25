@@ -6,4 +6,3 @@ logging:
     org.springframework.security.web.FilterChainProxy: DEBUG
     org.springframework.security.oauth2: DEBUG
     liquibase: INFO
-

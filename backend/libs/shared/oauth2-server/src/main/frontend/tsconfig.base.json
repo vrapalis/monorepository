@@ -15,23 +15,12 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@frontend/client/features/home": [
-        "libs/client/features/home/src/index.ts"
+      "@frontend/oauth2-feature-login": [
+        "libs/oauth2/feature/login/src/index.ts"
       ],
-      "@frontend/client/features/list": [
-        "libs/client/features/list/src/index.ts"
-      ],
-      "@frontend/client/state": ["libs/client/state/src/index.ts"],
-      "@frontend/home": ["libs/home/src/index.ts"],
       "@frontend/shared/model": ["libs/shared/model/src/index.ts"],
       "@frontend/shared/ui": ["libs/shared/ui/src/index.ts"],
-      "@frontend/shared/util": ["libs/shared/util/src/index.ts"],
-      "@frontend/user/data-access": ["libs/user/data-access/src/index.ts"],
-      "@frontend/user/features/home": ["libs/user/features/home/src/index.ts"],
-      "@frontend/user/features/profile": [
-        "libs/user/features/profile/src/index.ts"
-      ],
-      "@frontend/user/state": ["libs/user/state/src/index.ts"]
+      "@frontend/shared/util": ["libs/shared/util/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

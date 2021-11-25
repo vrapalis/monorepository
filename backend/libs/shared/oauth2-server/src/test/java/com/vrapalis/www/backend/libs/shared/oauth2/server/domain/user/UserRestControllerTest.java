@@ -1,9 +1,9 @@
 package com.vrapalis.www.backend.libs.shared.oauth2.server.domain.user;
 
 import com.vrapalis.www.backend.libs.shared.oauth2.server.config.RestControllerTestConfiguration;
-import com.vrapalis.www.backend.libs.shared.oauth2.server.domain.user.dto.UserRegistrationDto;
-import com.vrapalis.www.backend.libs.shared.oauth2.server.domain.user.service.UserService;
-import com.vrapalis.www.backend.libs.shared.oauth2.server.domain.user.util.UserApiUrl;
+import com.vrapalis.www.backend.libs.shared.oauth2.server.domain.user.dto.OAuth2UserRegistrationExceptionDto;
+import com.vrapalis.www.backend.libs.shared.oauth2.server.domain.user.service.OAuth2UserService;
+import com.vrapalis.www.backend.libs.shared.oauth2.server.domain.user.util.OAuth2UserApiUrl;
 import de.delloit.www.backend.libs.shared.dto.domain.server.ErrorServerResponseDto;
 import de.delloit.www.backend.libs.shared.dto.domain.server.SuccessServerResponseDto;
 import org.assertj.core.api.Assertions;
@@ -18,11 +18,10 @@ import org.springframework.security.test.context.support.WithAnonymousUser;
 import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.csrf;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
 
 @DisplayName("User rest controller group test")
 public class UserRestControllerTest extends RestControllerTestConfiguration {
-    private UserRegistrationDto givenUserRegistrationDto;
+    private OAuth2UserRegistrationExceptionDto givenUserRegistrationDto;
 
     @BeforeEach
     void setUp() {
@@ -43,7 +42,7 @@ public class UserRestControllerTest extends RestControllerTestConfiguration {
         @DisplayName("Not valid email request test, should return 400 (Bad Request) as status code")
         void notValidEmailBadRequestTest() throws Exception {
             // When
-            final var result = mockMvc.perform(post(UserApiUrl.USER_BASE_URL + UserApiUrl.USER_REGISTRATION_URL)
+            final var result = mockMvc.perform(post(OAuth2UserApiUrl.USER_BASE_URL + OAuth2UserApiUrl.USER_REGISTRATION_URL)
                             .accept(MediaType.APPLICATION_JSON)
                             .contentType(MediaType.APPLICATION_JSON)
                             .with(csrf())
@@ -73,7 +72,7 @@ public class UserRestControllerTest extends RestControllerTestConfiguration {
         @DisplayName("Not valid password request test, should return 400 (Bad Request) as status code")
         void notValidPasswordBadRequestTest() throws Exception {
             // When
-            final var result = mockMvc.perform(post(UserApiUrl.USER_BASE_URL + UserApiUrl.USER_REGISTRATION_URL)
+            final var result = mockMvc.perform(post(OAuth2UserApiUrl.USER_BASE_URL + OAuth2UserApiUrl.USER_REGISTRATION_URL)
                     .accept(MediaType.APPLICATION_JSON)
                     .contentType(MediaType.APPLICATION_JSON)
                     .with(csrf())
@@ -93,13 +92,13 @@ public class UserRestControllerTest extends RestControllerTestConfiguration {
     class UserRestControllerValidRequestTest {
 
         @Mock
-        private UserService userService;
+        private OAuth2UserService userService;
 
         @Test
         @DisplayName("Valid request test")
         void validRequestTest() throws Exception {
             // When
-            final var result = mockMvc.perform(post(UserApiUrl.USER_BASE_URL + UserApiUrl.USER_REGISTRATION_URL)
+            final var result = mockMvc.perform(post(OAuth2UserApiUrl.USER_BASE_URL + OAuth2UserApiUrl.USER_REGISTRATION_URL)
                     .accept(MediaType.APPLICATION_JSON)
                     .contentType(MediaType.APPLICATION_JSON)
                     .with(csrf())

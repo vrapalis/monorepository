@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+
 @Controller
 @AllArgsConstructor
 public class OAuth2UserController {
@@ -17,6 +18,11 @@ public class OAuth2UserController {
     @GetMapping("/registration")
     public String registration(Model model) {
         return "registration";
+    }
+
+    @GetMapping("/registration-success")
+    public String registrationSuccess(Model model) {
+        return "registration-success";
     }
 
 }

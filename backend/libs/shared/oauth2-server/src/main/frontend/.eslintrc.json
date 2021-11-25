@@ -24,10 +24,8 @@
               {
                 "sourceTag": "scope:oauth2",
                 "onlyDependOnLibsWithTags": [
-                  "scope:shared",
-                  "scope:client",
-                  "scope:user",
-                  "scope:home"
+                  "scope:oauth2",
+                  "scope:shared"
                 ]
               },
               {
@@ -36,7 +34,8 @@
                   "type:feature",
                   "type:state",
                   "type:ui",
-                  "type:util"
+                  "type:util",
+                  "type:model"
                 ]
               },
               {
