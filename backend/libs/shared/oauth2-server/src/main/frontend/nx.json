@@ -47,5 +47,5 @@
       "style": "scss"
     }
   },
-  "defaultProject": "oauth2-ui"
+  "defaultProject": "ui"
 }

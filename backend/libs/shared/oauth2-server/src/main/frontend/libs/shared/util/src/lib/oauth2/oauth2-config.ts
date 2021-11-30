@@ -8,6 +8,7 @@ export const OAUTH2_CODE_FLOW_CONFIG: AuthConfig = {
 
   // URL of the SPA to redirect the user to after login
   redirectUri: window.location.origin,
+  oidc: true,
 
   // The SPA's id. The SPA is registerd with this id at the auth-server
   // clientId: 'server.code',

@@ -1,6 +1,6 @@
 package com.vrapalis.www.backend.libs.shared.oauth2.server.domain.user.entity;
 
-import com.vrapalis.www.backend.libs.shared.oauth2.server.domain.common.entity.CommonEntity;
+import com.vrapalis.www.backend.libs.shared.oauth2.server.domain.common.entity.OAuth2CommonEntity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -19,7 +19,7 @@ import java.util.UUID;
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = false)
-public class OAuth2UserEntity extends CommonEntity {
+public class OAuth2UserEntity extends OAuth2CommonEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -33,6 +33,9 @@ public class OAuth2UserEntity extends CommonEntity {
 
     @OneToOne(cascade = CascadeType.ALL, optional = false, mappedBy = "user", fetch = FetchType.EAGER)
     private OAuth2UserInfoEntity info;
+
+    @OneToOne(cascade = CascadeType.ALL, optional = false, mappedBy = "user", fetch = FetchType.LAZY)
+    private OAuth2UserRegistrationCodeEntity registrationCode;
 
     @ManyToMany(
             fetch = FetchType.EAGER,

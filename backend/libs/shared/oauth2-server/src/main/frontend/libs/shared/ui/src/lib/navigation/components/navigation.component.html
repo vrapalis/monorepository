@@ -10,8 +10,10 @@
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
-    <frontend-shared-ui-header-container [drawer]='drawer' [appName]='appName'></frontend-shared-ui-header-container>
+    <frontend-shared-ui-header-container [drawer]='drawer' [appName]='appName' (loginEvent)='login()'></frontend-shared-ui-header-container>
     <!-- Add Content Here -->
-    <ng-content></ng-content>
+    <div class='m-3'>
+      <ng-content></ng-content>
+    </div>
   </mat-sidenav-content>
 </mat-sidenav-container>

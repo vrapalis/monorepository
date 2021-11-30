@@ -5,7 +5,11 @@ import de.delloit.www.backend.libs.shared.dto.domain.server.AbstractServerRespon
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.userdetails.UserDetailsService;
 
+import java.util.UUID;
+
 public interface OAuth2UserService extends UserDetailsService {
 
     ResponseEntity<AbstractServerResponseDto> registration(OAuth2UserRegistrationExceptionDto user);
+
+    void completeRegistration(UUID userId);
 }

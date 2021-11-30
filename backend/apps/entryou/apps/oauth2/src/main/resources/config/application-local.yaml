@@ -3,3 +3,27 @@ db-name: oauth2_local_db
 logging:
   level:
     com.vrapalis.www.backend.libs.shared.oauth2.server: DEBUG
+
+spring:
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: it.development.for.you@gmail.com
+    password: PsD4vaOHn
+    properties:
+      mail:
+        smtp:
+          auth: true
+          connectiontimeout: 5000
+          timeout: 5000
+          writetimeout: 5000
+          starttls:
+            enable: true
+com:
+  vrapalis:
+    www:
+      oauth2:
+        email:
+          registration:
+            subject: Registration Success!!!
+            text: '<a href=%s>Please click on link to accomplish the registration process</a>'

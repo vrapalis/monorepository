@@ -22,9 +22,9 @@
             "allow": [],
             "depConstraints": [
               {
-                "sourceTag": "scope:oauth2",
+                "sourceTag": "scope:ui",
                 "onlyDependOnLibsWithTags": [
-                  "scope:oauth2",
+                  "scope:ui",
                   "scope:shared"
                 ]
               },

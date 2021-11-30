@@ -11,6 +11,7 @@ version PropertiesUtils.BASE_VERSION
 dependencies {
     implementation libs.spring.web
     implementation libs.spring.data
+    implementation libs.spring.mail
     implementation libs.spring.security
     implementation libs.spring.oauth2.server
     implementation 'org.springframework.boot:spring-boot-starter-oauth2-client'

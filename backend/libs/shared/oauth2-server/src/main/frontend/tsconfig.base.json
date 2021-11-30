@@ -15,12 +15,12 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@frontend/oauth2-feature-login": [
-        "libs/oauth2/feature/login/src/index.ts"
-      ],
+      "@frontend/feature/home": ["libs/feature/home/src/index.ts"],
+      "@frontend/feature/profile": ["libs/feature/profile/src/index.ts"],
       "@frontend/shared/model": ["libs/shared/model/src/index.ts"],
       "@frontend/shared/ui": ["libs/shared/ui/src/index.ts"],
-      "@frontend/shared/util": ["libs/shared/util/src/index.ts"]
+      "@frontend/shared/util": ["libs/shared/util/src/index.ts"],
+      "@frontend/state": ["libs/state/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

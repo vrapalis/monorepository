@@ -11,3 +11,4 @@
 ### Close Code Block  ``ctrl+shift+numpad-``
 ### Open Code Block ``ctrl+shift+numpad+``
 ### Surround With ``ctrl+shift+numpad0``
+### Insert Live Templates ``ctrl+j``

@@ -1,4 +1,4 @@
-<mat-toolbar color='primary' *ngIf='drawer && authUser'>
+<mat-toolbar color='primary' *ngIf='drawer'>
   <button
     type='button'
     aria-label='Toggle sidenav'
@@ -9,12 +9,12 @@
   </button>
   <span>{{appName}}</span>
   <span class='example-spacer'></span>
-  <button mat-icon-button *ngIf='authUser.id; else login;' routerLink='/profile'>
-    <mat-icon>account_circle</mat-icon>
-  </button>
-  <ng-template #login>
+<!--  <button mat-icon-button routerLink='/profile'>-->
+<!--    <mat-icon>account_circle</mat-icon>-->
+<!--  </button>-->
+<!--  <ng-template #login>-->
     <button mat-icon-button (click)='oauth2Flow()'>
       <mat-icon>login</mat-icon>
     </button>
-  </ng-template>
+<!--  </ng-template>-->
 </mat-toolbar>

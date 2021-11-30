@@ -4,6 +4,9 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import java.util.Optional;
 
 
 @Controller
@@ -19,10 +22,4 @@ public class OAuth2UserController {
     public String registration(Model model) {
         return "registration";
     }
-
-    @GetMapping("/registration-success")
-    public String registrationSuccess(Model model) {
-        return "registration-success";
-    }
-
 }

@@ -16,7 +16,7 @@ public class OAuth2ErrorController implements ErrorController {
 
     @RequestMapping(value = PATH)
     public String error() {
-//        return "forward:/index.html";
-        return "redirect:/index.html";
+        return "forward:/index.html";
+//        return "redirect:/index.html";
     }
 }

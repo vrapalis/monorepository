@@ -15,6 +15,7 @@ export class SharedUiHeaderComponent {
   @Input() appName?: string;
   @Input() authUser?: IAuthUser | null;
   @Output() login = new EventEmitter<void>();
+
   isHandset$ = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
     map(result => result.matches),
     shareReplay()

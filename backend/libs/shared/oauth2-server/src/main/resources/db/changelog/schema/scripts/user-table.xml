@@ -75,4 +75,21 @@
         <renameColumn tableName="oauth2_user_info" oldColumnName="firstName" newColumnName="first_name" />
         <renameColumn tableName="oauth2_user_info" oldColumnName="lastName" newColumnName="last_name" />
     </changeSet>
+
+    <changeSet id="4" author="Vitali Rapalis">
+        <createTable tableName="oauth2_user_registration_code">
+            <column name="user_id" type="uuid">
+                <constraints primaryKey="true" referencedTableName="oauth2_user" referencedColumnNames="id"
+                             foreignKeyName="oauth2_user_id_fk" deleteCascade="true"/>
+            </column>
+
+            <column name="code" type="uuid" defaultValue="uuid_generate_v4()">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="created_date" type="date">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
 </databaseChangeLog>
