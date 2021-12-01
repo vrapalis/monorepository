@@ -6,7 +6,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { EffectsModule } from '@ngrx/effects';
 import { environment } from '../../environments/environment';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
-import { SharedUiModule } from '@frontend/shared/ui';
 import { ENV_INJECT_TOKEN, SharedUtilEnvService } from '@frontend/shared/util';
 import { AppRoutingModule } from '../app-routing.module';
 import { StoreModule } from '@ngrx/store';
@@ -37,7 +36,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
     NoopAnimationsModule,
     GlobalStateModule,
   ],
-  exports: [RouterModule, SharedUiModule],
+  exports: [RouterModule],
   providers: [
     { provide: ENV_INJECT_TOKEN, useValue: environment },
     SharedUtilEnvService,

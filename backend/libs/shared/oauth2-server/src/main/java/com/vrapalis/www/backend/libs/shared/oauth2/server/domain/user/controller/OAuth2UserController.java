@@ -13,7 +13,7 @@ import java.util.Optional;
 @AllArgsConstructor
 public class OAuth2UserController {
 
-    @GetMapping("/login")
+/*    @GetMapping("/login")
     public String login(Model model) {
         return "login";
     }
@@ -21,5 +21,5 @@ public class OAuth2UserController {
     @GetMapping("/registration")
     public String registration(Model model) {
         return "registration";
-    }
+    }*/
 }

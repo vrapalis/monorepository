@@ -27,6 +27,32 @@
       },
       "tags": []
     },
+    "feature-login": {
+      "projectType": "library",
+      "root": "libs/feature/login",
+      "sourceRoot": "libs/feature/login/src",
+      "prefix": "frontend",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/feature/login"],
+          "options": {
+            "jestConfig": "libs/feature/login/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/feature/login/src/**/*.ts",
+              "libs/feature/login/src/**/*.html"
+            ]
+          }
+        }
+      },
+      "tags": []
+    },
     "feature-profile": {
       "projectType": "library",
       "root": "libs/feature/profile",

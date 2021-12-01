@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { OAuthService } from 'angular-oauth2-oidc';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import {
@@ -11,14 +11,14 @@ import {
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
   constructor(
     private authService: OAuthService,
     private http: HttpClient,
-    public envService: SharedUtilEnvService
+    public envService: SharedUtilEnvService,
   ) {
     this.authService.configure(OAUTH2_CODE_FLOW_CONFIG);
-    this.authService.loadDiscoveryDocumentAndTryLogin();
+    // this.authService.loadDiscoveryDocumentAndTryLogin();
   }
 
   login() {
@@ -39,5 +39,8 @@ export class AppComponent {
         (value) => console.log(value),
         (error) => console.error({ err: error })
       );
+  }
+
+  ngOnInit(): void {
   }
 }

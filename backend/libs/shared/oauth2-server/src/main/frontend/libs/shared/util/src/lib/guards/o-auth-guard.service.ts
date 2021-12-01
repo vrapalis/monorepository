@@ -13,19 +13,21 @@ import { fromPromise } from 'rxjs/internal-compatibility';
 })
 export class OAuthGuardService implements CanLoad {
 
-  constructor(private oauth2Service: OAuthService, private state: Store<UserState>) {
+  constructor(private oauthService: OAuthService, private state: Store<UserState>) {
   }
 
   canLoad(route: Route, segments: UrlSegment[]): Observable<boolean> {
-    return this.state.select(SELECT_USER_STATE).pipe(
-      take(1),
-      map(user => {
-        if (user.id !== null) {
-          return true;
-        } else {
-          return true;
-        }
-      })
-    );
+    return fromPromise(this.oauthService.loadDiscoveryDocumentAndTryLogin())
+      .pipe(
+        take(1),
+        map(() => {
+          if (!this.oauthService.hasValidIdToken() || !this.oauthService.hasValidAccessToken()) {
+            this.oauthService.initImplicitFlow('some-state');
+            return false;
+          } else {
+            return true;
+          }
+        })
+      );
   }
 }

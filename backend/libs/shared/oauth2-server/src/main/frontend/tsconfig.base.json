@@ -16,6 +16,7 @@
     "baseUrl": ".",
     "paths": {
       "@frontend/feature/home": ["libs/feature/home/src/index.ts"],
+      "@frontend/feature/login": ["libs/feature/login/src/index.ts"],
       "@frontend/feature/profile": ["libs/feature/profile/src/index.ts"],
       "@frontend/shared/model": ["libs/shared/model/src/index.ts"],
       "@frontend/shared/ui": ["libs/shared/ui/src/index.ts"],
