@@ -5,31 +5,48 @@ import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 @Component({
   selector: 'frontend-login-cn',
   template: `
-    <form class='row justify-content-end mt-5' [formGroup]='form' (ngSubmit)='onSubmit()'>
-      <h1>Login</h1>
-      
-      <mat-form-field appearance='outline' class='col-12'>
+    <form class='row justify-content-center align-content-center mt-5' [formGroup]='form' (ngSubmit)='onSubmit()'>
+      <h1 class='col-12 fs-1 text-opacity-50 text-primary bi-door-open'>
+        <span class='ms-1'>Login</span>
+      </h1>
+
+      <mat-form-field appearance='outline' class='col-12 mt-4'>
         <mat-label>Email</mat-label>
         <input matInput type='email' placeholder='Email' formControlName='email'>
-        <mat-icon matSuffix>email</mat-icon>
-        <mat-hint>Hint</mat-hint>
+        <mat-icon matSuffix>alternate_email</mat-icon>
+        <mat-error *ngIf="form.get('email')?.invalid">{{getEmailErrorMessage()}}</mat-error>
       </mat-form-field>
 
-      <mat-form-field appearance='outline' class='col-12'>
+      <mat-form-field appearance='outline' class='col-12 mt-3'>
         <mat-label>Password</mat-label>
         <input matInput type='password' placeholder='Password' formControlName='password'>
-        <mat-icon matSuffix>Password</mat-icon>
-        <mat-hint>Hint</mat-hint>
+        <mat-icon matSuffix>password</mat-icon>
+        <mat-error *ngIf="form.get('password')?.invalid">{{getPasswordErrorMessage()}}</mat-error>
       </mat-form-field>
 
-      <button mat-raised-button color='primary' class='col-3 mt-3' type='submit' [disabled]="!form.valid">Submit</button>
-      <a href='/oauth2/authorization/google'>Google</a>
+      <div class='row mt-4 justify-content-end'>
+        <a mat-button color='primary' routerLink='/registration' class='col-2'>Registration</a>
+        <button mat-raised-button color='primary' class='col-3' type='submit' [disabled]='!form.valid'>Submit</button>
+      </div>
+
+      <div class='row m-4 justify-content-end'>
+        <a mat-icon-button href='/oauth2/authorization/google' class='col-1 bi-google text-primary fs-2'></a>
+        <a mat-icon-button color='primary' href='/oauth2/authorization/facebook' class='col-1 bi-facebook text-info fs-2 ms-3'></a>
+        <a mat-icon-button color='primary' href='/oauth2/authorization/azuread' class='col-1 bi-microsoft text-success fs-2 ms-3'></a>
+        <a mat-icon-button color='primary' href='/oauth2/authorization/github' class='col-1 bi-github text-black fs-2 ms-3'></a>
+      </div>
     </form>
   `,
   styles: [`
+      ::ng-deep body {
+          background-color: azure;
+          overflow: hidden;
+      }
+      
       form {
           width: 50%;
           margin: auto;
+          height: 100%;
       }
   `]
 })
@@ -39,7 +56,7 @@ export class LoginCnComponent {
   constructor(private fb: FormBuilder, private http: HttpClient) {
     this.form = fb.group({
       email: ['', [Validators.email, Validators.required]],
-      password: ['', [Validators.maxLength(6), Validators.maxLength(12), Validators.required]]
+      password: ['', [Validators.minLength(6), Validators.maxLength(12), Validators.required]]
     });
   }
 
@@ -47,13 +64,41 @@ export class LoginCnComponent {
     const payload = new HttpParams()
       .set('email', this.form.value.email)
       .set('password', this.form.value.password);
-    this.http.post('/login', payload.toString(), {
+    this.http.post('http://127.0.0.1:8080/login', payload.toString(), {
       headers: new HttpHeaders()
         .set('Content-Type', 'application/x-www-form-urlencoded')
     }).subscribe(console.log, err => {
-      if(err.url) {
+      if (err.url) {
         window.location.href = err.url;
       }
-    })
+    });
+  }
+
+  getEmailErrorMessage() {
+    if(this.form.get('email')?.hasError('required')) {
+      return 'You must enter a value';
+    }
+
+    if(this.form.get('email')?.hasError('email')) {
+      return 'Not a valid email';
+    }
+
+    return '';
+  }
+
+  getPasswordErrorMessage() {
+    if(this.form.get('password')?.hasError('required')) {
+      return 'You must enter a value';
+    }
+
+    if(this.form.get('password')?.hasError('minlength')) {
+      return 'Should be min 6 length'
+    }
+
+    if(this.form.get('password')?.hasError('maxlength')) {
+      return 'Should be max 12 length'
+    }
+
+    return '';
   }
 }

@@ -1,9 +1,9 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'frontend-navigation-container',
   template: `
-    <frontend-navigation [appName]='appName' (loginEvent)='login()'>
+    <frontend-navigation [appName]='appName'>
       <ng-content></ng-content>
     </frontend-navigation>
   `,
@@ -13,9 +13,4 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 })
 export class NavigationContainerComponent {
   @Input() appName?: string;
-  @Output() loginEvent = new EventEmitter<void>();
-
-  login() {
-    this.loginEvent.emit();
-  }
 }

@@ -5,12 +5,13 @@
                [opened]='(isHandset$ | async) === false'>
     <mat-toolbar>Menu</mat-toolbar>
     <mat-nav-list>
-      <a mat-list-item routerLink='/users' routerLinkActive='active'>Users</a>
-      <a mat-list-item routerLink='/clients' routerLinkActive='active'>Clients</a>
+      <a mat-list-item routerLink='./profile' routerLinkActive='active'>Profile</a>
+      <a mat-list-item routerLink='./users' routerLinkActive='active'>Users</a>
+      <a mat-list-item routerLink='./clients' routerLinkActive='active'>Clients</a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
-    <frontend-shared-ui-header-container [drawer]='drawer' [appName]='appName' (loginEvent)='login()'></frontend-shared-ui-header-container>
+    <frontend-shared-ui-header-container [drawer]='drawer' [appName]='appName'></frontend-shared-ui-header-container>
     <!-- Add Content Here -->
     <div class='m-3'>
       <ng-content></ng-content>

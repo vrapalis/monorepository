@@ -1,5 +1,4 @@
-import { Component, ElementRef, EventEmitter, Input, Output } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Component, Input } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { map, shareReplay } from 'rxjs/operators';
 import { MatSidenav } from '@angular/material/sidenav';
@@ -14,7 +13,6 @@ export class SharedUiHeaderComponent {
   @Input() drawer?: MatSidenav;
   @Input() appName?: string;
   @Input() authUser?: IAuthUser | null;
-  @Output() login = new EventEmitter<void>();
 
   isHandset$ = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
     map(result => result.matches),
@@ -22,9 +20,5 @@ export class SharedUiHeaderComponent {
   );
 
   constructor(private breakpointObserver: BreakpointObserver) {
-  }
-
-  oauth2Flow() {
-    this.login.emit();
   }
 }
