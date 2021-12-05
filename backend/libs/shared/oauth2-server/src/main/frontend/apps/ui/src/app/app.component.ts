@@ -1,39 +1,38 @@
 import { Component, OnInit } from '@angular/core';
 import { OAuthService } from 'angular-oauth2-oidc';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import {
-  OAUTH2_CODE_FLOW_CONFIG,
-  SharedUtilEnvService,
-} from '@frontend/shared/util';
+import { OAUTH2_CODE_FLOW_CONFIG, SharedUtilAuthService } from '@frontend/shared/util';
+import { RouterOutlet } from '@angular/router';
+import { slideInAnimation } from '@frontend/shared/ui';
 
 @Component({
   selector: 'frontend-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
+  animations: [
+    slideInAnimation
+  ]
 })
-export class AppComponent implements OnInit{
-  constructor(
-    private authService: OAuthService,
-    private http: HttpClient,
-    public envService: SharedUtilEnvService,
-  ) {
+export class AppComponent implements OnInit {
+
+  constructor(private authService: OAuthService, private http: HttpClient,
+              private sharedUtilAuthService: SharedUtilAuthService) {
+  }
+
+  ngOnInit(): void {
     this.authService.configure(OAUTH2_CODE_FLOW_CONFIG);
-    // this.authService.loadDiscoveryDocumentAndTryLogin();
+    this.sharedUtilAuthService.onOAuthEvents();
   }
 
-  login() {
-    this.authService.initLoginFlow();
-  }
-
-  request() {
+  testRequest() {
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
-      Authorization: `Bearer ${this.authService.getAccessToken()}`,
+      Authorization: `Bearer ${this.authService.getAccessToken()}`
     });
     this.http
       .get('http://127.0.0.1:8080/api/users/test-api', {
         observe: 'body',
-        headers,
+        headers
       })
       .subscribe(
         (value) => console.log(value),
@@ -41,6 +40,8 @@ export class AppComponent implements OnInit{
       );
   }
 
-  ngOnInit(): void {
+  prepareRoute(outlet: RouterOutlet) {
+    return outlet?.activatedRouteData?.['animation'];
   }
+
 }

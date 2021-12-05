@@ -9,6 +9,8 @@ import { SharedUiApplicationModule } from './application/shared-ui-application.m
   exports: [
     SharedUiApplicationModule,
     SharedUiNotFoundModule
+  ],
+  declarations: [
   ]
 })
 export class SharedUiModule {

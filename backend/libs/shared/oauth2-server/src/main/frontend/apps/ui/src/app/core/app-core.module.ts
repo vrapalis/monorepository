@@ -12,6 +12,7 @@ import { StoreModule } from '@ngrx/store';
 import { StoreRouterConnectingModule } from '@ngrx/router-store';
 import { GlobalStateModule } from '@frontend/state';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [],
@@ -35,6 +36,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
     StoreRouterConnectingModule.forRoot(),
     NoopAnimationsModule,
     GlobalStateModule,
+    MatSnackBarModule
   ],
   exports: [RouterModule],
   providers: [

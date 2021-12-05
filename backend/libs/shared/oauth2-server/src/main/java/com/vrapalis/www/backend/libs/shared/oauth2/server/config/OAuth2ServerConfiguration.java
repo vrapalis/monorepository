@@ -4,7 +4,7 @@ import com.nimbusds.jose.jwk.JWKSet;
 import com.nimbusds.jose.jwk.RSAKey;
 import com.nimbusds.jose.jwk.source.JWKSource;
 import com.nimbusds.jose.proc.SecurityContext;
-import com.vrapalis.www.backend.libs.shared.oauth2.server.config.filter.OAuth2RegistrationFilter;
+import com.vrapalis.www.backend.libs.shared.oauth2.server.config.filter.OAuth2RegistrationCodeFilter;
 import com.vrapalis.www.backend.libs.shared.oauth2.server.config.key.Jwks;
 import com.vrapalis.www.backend.libs.shared.oauth2.server.domain.user.service.OAuth2CustomOAuth2UserServiceImp;
 import com.vrapalis.www.backend.libs.shared.oauth2.server.domain.user.service.OAuth2CustomOidcUserServiceImp;
@@ -23,7 +23,6 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.OAuth2AuthorizationServerConfiguration;
 import org.springframework.security.config.annotation.web.configurers.ExpressionUrlAuthorizationConfigurer;
-import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.oauth2.core.AuthorizationGrantType;
 import org.springframework.security.oauth2.core.ClientAuthenticationMethod;
 import org.springframework.security.oauth2.core.oidc.OidcScopes;
@@ -44,7 +43,7 @@ import static org.springframework.security.config.Customizer.withDefaults;
 @AllArgsConstructor
 @EnableJpaRepositories(basePackages = {"com.vrapalis.www.backend.libs.shared.oauth2.server.domain.*"})
 @ComponentScan(basePackages = {"com.vrapalis.www.backend.libs.shared.oauth2.server.domain.*"},
-        basePackageClasses = {OAuth2RegistrationFilter.class},
+        basePackageClasses = {OAuth2RegistrationCodeFilter.class},
         excludeFilters = {
                 @ComponentScan.Filter(
                         type = FilterType.ASSIGNABLE_TYPE,
@@ -56,7 +55,7 @@ public class OAuth2ServerConfiguration {
 
     private OAuth2CustomOidcUserServiceImp oidcUserService;
     private OAuth2CustomOAuth2UserServiceImp oauth2UserService;
-    private OAuth2RegistrationFilter oAuth2RegistrationFilter;
+    private OAuth2RegistrationCodeFilter oAuth2RegistrationCodeFilter;
     private OAuth2AuthenticationSuccessHandler auth2AuthenticationSuccessHandler;
 
     @Bean
@@ -75,7 +74,7 @@ public class OAuth2ServerConfiguration {
                 .cors(httpSecurityCorsConfigurer -> httpSecurityCorsConfigurer.configurationSource(corsConfigurationSource()))
 //                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
 //                .and()
-                .addFilterBefore(oAuth2RegistrationFilter, UsernamePasswordAuthenticationFilter.class)
+                .addFilterBefore(oAuth2RegistrationCodeFilter, UsernamePasswordAuthenticationFilter.class)
                 .authorizeRequests(OAuth2ServerConfiguration::customizeAuthorizeRequest)
                 .formLogin()
                 .loginPage("/login")

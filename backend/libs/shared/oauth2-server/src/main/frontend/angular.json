@@ -27,6 +27,32 @@
       },
       "tags": ["scope:ui", "type:feature"]
     },
+    "feature-forgot-password": {
+      "projectType": "library",
+      "root": "libs/feature/forgot-password",
+      "sourceRoot": "libs/feature/forgot-password/src",
+      "prefix": "frontend",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/feature/forgot-password"],
+          "options": {
+            "jestConfig": "libs/feature/forgot-password/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/feature/forgot-password/src/**/*.ts",
+              "libs/feature/forgot-password/src/**/*.html"
+            ]
+          }
+        }
+      },
+      "tags": ["scope:ui", "type:feature"]
+    },
     "feature-home": {
       "projectType": "library",
       "root": "libs/feature/home",
@@ -125,6 +151,32 @@
             "lintFilePatterns": [
               "libs/feature/registration/src/**/*.ts",
               "libs/feature/registration/src/**/*.html"
+            ]
+          }
+        }
+      },
+      "tags": ["scope:ui", "type:feature"]
+    },
+    "feature-reset-password": {
+      "projectType": "library",
+      "root": "libs/feature/reset-password",
+      "sourceRoot": "libs/feature/reset-password/src",
+      "prefix": "frontend",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/feature/reset-password"],
+          "options": {
+            "jestConfig": "libs/feature/reset-password/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/feature/reset-password/src/**/*.ts",
+              "libs/feature/reset-password/src/**/*.html"
             ]
           }
         }
@@ -294,8 +346,8 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kb",
-                  "maximumError": "1mb"
+                  "maximumWarning": "600kb",
+                  "maximumError": "1.5mb"
                 },
                 {
                   "type": "anyComponentStyle",

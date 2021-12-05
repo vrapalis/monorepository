@@ -44,6 +44,8 @@
                   "type:ui",
                   "type:feature",
                   "type:data-access",
+                  "type:model",
+                  "type:util",
                   "type:state"
                 ]
               },
