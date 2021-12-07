@@ -5,6 +5,7 @@ import com.vrapalis.www.backend.libs.shared.oauth2.server.domain.email.error.OAu
 import com.vrapalis.www.backend.libs.shared.oauth2.server.domain.email.model.OAuth2EmailSendDto;
 import lombok.AllArgsConstructor;
 import lombok.NonNull;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
@@ -12,6 +13,7 @@ import org.springframework.stereotype.Service;
 
 import javax.mail.internet.MimeMessage;
 
+@Log4j2
 @Service
 @AllArgsConstructor
 public class OAuth2EmailServiceImpl implements OAuth2EmailService {
@@ -50,6 +52,7 @@ public class OAuth2EmailServiceImpl implements OAuth2EmailService {
             emailSender.send(mimeMessage);
 
         } catch (Exception ex) {
+            log.error(ex);
             throw new OAuth2SendEmailError(ex.getLocalizedMessage());
         }
     }

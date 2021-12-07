@@ -24,6 +24,10 @@ com:
     www:
       oauth2:
         email:
+          password:
+            subject: Reset Password!!!
+            text: '<a href=%s>Please click on link to accomplish the reset password process</a>'
           registration:
             subject: Registration Success!!!
             text: '<a href=%s>Please click on link to accomplish the registration process</a>'
+            registration-path: '/registration?code='

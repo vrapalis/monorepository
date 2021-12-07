@@ -44,6 +44,7 @@ public class OAuth2RegistrationCodeFilter extends OncePerRequestFilter {
         final var requestMethod = request.getMethod();
         final var isPostMethod = requestMethod.equals("GET");
         final var shouldNotFilter = (request.getServletPath().equals(REGISTRATION_PATH) && isPostMethod && codeNotNull);
-        return !shouldNotFilter;
+//        return !shouldNotFilter;
+        return true;
     }
 }

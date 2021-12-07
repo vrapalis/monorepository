@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { SharedUtilAuthService, SharedUtilFormUtilService } from '@frontend/shared/util';
+import { Store } from '@ngrx/store';
+import { FORGOT_PASSWORD_ACTION, IUserState } from '@frontend/state';
 
 @Component({
   selector: 'frontend-forgot-password-cn',
@@ -30,13 +32,13 @@ import { SharedUtilAuthService, SharedUtilFormUtilService } from '@frontend/shar
 export class ForgotPasswordCnComponent {
   form: FormGroup;
 
-  constructor(private fb: FormBuilder, public fUtilService: SharedUtilFormUtilService, private authService: SharedUtilAuthService) {
+  constructor(private fb: FormBuilder, public fUtilService: SharedUtilFormUtilService, private store: Store<IUserState>) {
     this.form = fb.group({
       email: ['', [Validators.email, Validators.required]]
     });
   }
 
   onSubmit() {
-    this.authService.forgotPassword(this.form.value.email);
+    this.store.dispatch(FORGOT_PASSWORD_ACTION(this.form.value.email));
   }
 }

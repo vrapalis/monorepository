@@ -14,11 +14,9 @@ import javax.validation.constraints.Size;
 
 @Data
 @Builder
-@Component
 @NoArgsConstructor
 @AllArgsConstructor
-@Scope(value = "request", proxyMode = ScopedProxyMode.TARGET_CLASS)
-public class OAuth2UserRegistrationExceptionDto {
+public class OAuth2UserRegistrationDto {
     @Email
     @NotBlank
     private String email;
@@ -29,5 +27,11 @@ public class OAuth2UserRegistrationExceptionDto {
 
     @NotBlank
     @Size(min = 6, max = 10)
-    private String repeatedPassword;
+    private String passwordRepeated;
+
+    @Size(min = 6, max = 20)
+    private String clientId;
+
+    @Size(min = 6, max = 60)
+    private String redirectUrl;
 }

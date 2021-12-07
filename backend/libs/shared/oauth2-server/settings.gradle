@@ -16,5 +16,6 @@ dependencyResolutionManagement {
 
 includeBuild '../dto'
 includeBuild '../utility'
+includeBuild '../assertion'
 
 rootProject.name = 'oauth2-server'

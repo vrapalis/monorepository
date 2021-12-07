@@ -74,7 +74,7 @@ public class OAuth2ServerConfiguration {
                 .cors(httpSecurityCorsConfigurer -> httpSecurityCorsConfigurer.configurationSource(corsConfigurationSource()))
 //                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
 //                .and()
-                .addFilterBefore(oAuth2RegistrationCodeFilter, UsernamePasswordAuthenticationFilter.class)
+//                .addFilterBefore(oAuth2RegistrationCodeFilter, UsernamePasswordAuthenticationFilter.class)
                 .authorizeRequests(OAuth2ServerConfiguration::customizeAuthorizeRequest)
                 .formLogin()
                 .loginPage("/login")

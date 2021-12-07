@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkui=self.webpackChunkui||[]).push([[442],{8442:(n,t,r)=>{r.r(t),r.d(t,{FeatureForgotPasswordModule:()=>d});var s=r(6019),e=r(9522),u=r(3668);let d=(()=>{class o{}return o.\u0275fac=function(l){return new(l||o)},o.\u0275mod=u.oAB({type:o}),o.\u0275inj=u.cJS({imports:[[s.ez,e.Bz.forChild([])]]}),o})()}}]);

@@ -4,7 +4,7 @@ import { Observable, of } from 'rxjs';
 import { OAuthService } from 'angular-oauth2-oidc';
 import { flatMap, map, switchMap, take, tap } from 'rxjs/operators';
 import { Store } from '@ngrx/store';
-import { UserState } from '@frontend/state';
+import { IUserState } from '@frontend/state';
 import { SELECT_USER_STATE } from '../../../../../state/src/lib/user/selectors/user.selectors';
 import { fromPromise } from 'rxjs/internal-compatibility';
 
@@ -13,7 +13,7 @@ import { fromPromise } from 'rxjs/internal-compatibility';
 })
 export class OAuthGuardService implements CanLoad {
 
-  constructor(private oauthService: OAuthService, private state: Store<UserState>) {
+  constructor(private oauthService: OAuthService, private state: Store<IUserState>) {
   }
 
   canLoad(route: Route, segments: UrlSegment[]): Observable<boolean> {

@@ -1,20 +1,21 @@
 import { Injectable } from '@angular/core';
 import { OAuthService, OAuthSuccessEvent } from 'angular-oauth2-oidc';
-import { TRY_TO_RECEIVE_TOKEN_ACTION, UserState } from '@frontend/state';
+import { TRY_TO_RECEIVE_TOKEN_ACTION, IUserState } from '@frontend/state';
 import { Store } from '@ngrx/store';
-import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
-import { IUserRegistration } from '@frontend/shared/model';
+import { HttpClient, HttpHeaders, HttpParams, HttpResponse } from '@angular/common/http';
+import { IServerResponse, IUserRegistration } from '@frontend/shared/model';
 import { SharedUtilEnvService } from '../env/shared-util-env.service';
 import { SharedUtilSnackService } from '../snack/shared-util-snack.service';
 import { Router } from '@angular/router';
 import { catchError, switchMap, tap } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SharedUtilAuthService {
 
-  constructor(private oauthService: OAuthService, private state: Store<UserState>,
+  constructor(private oauthService: OAuthService, private state: Store<IUserState>,
               private http: HttpClient, private envService: SharedUtilEnvService,
               private snackBarUtilService: SharedUtilSnackService, private router: Router) {
   }
@@ -40,33 +41,22 @@ export class SharedUtilAuthService {
       });
   }
 
-  registration(user: IUserRegistration) {
-    if (user.email !== null && user.password !== null && user.passwordRepeated !== null) {
-      const payload = new HttpParams()
-        .set('email', user.email)
-        .set('password', user.password)
-        .set('passwordRepeated', user.passwordRepeated);
-
-      const headers = new HttpHeaders()
-        .set('Content-Type', 'application/x-www-form-urlencoded');
-
-      this.http.post(`${this.envService.env.host}/registration`, payload.toString(), { headers })
-        .pipe(
-          switchMap(response => this.snackBarUtilService.open('Success', 'You should receive the message.')),
-          tap(() => {
-            this.router.navigate(['/home']);
-          }),
-          catchError(err => this.snackBarUtilService.open('Error', 'Registration failed.'))
-        )
-        .subscribe();
-    }
+  registration(user: IUserRegistration): Observable<IServerResponse> {
+    return this.http.post<IServerResponse>(`${this.envService.env.host}/api/users/registration`, user, { observe: 'body' });
   }
 
-  forgotPassword(email: string) {
-    console.log(email);
+  forgotPassword(email: string): Observable<HttpResponse<any>> {
+    const payload = new HttpParams().set('email', email);
+    const headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded');
+    return this.http.post<any>(`${this.envService.env.host}/forgot-password`, payload.toString(), { headers });
   }
 
   resetPassword(password: string) {
     console.log(password);
+  }
+
+  registrationCode(code: string): Observable<IServerResponse> {
+    const body = { code };
+    return this.http.put<IServerResponse>(`${this.envService.env.host}/api/users/registration`, body, { observe: 'body' });
   }
 }

@@ -45,6 +45,11 @@
                   <project path="$PROJECT_DIR$/../../libs/shared/utility" />
                 </projects>
               </build>
+              <build path="$PROJECT_DIR$/../../libs/shared/assertion" name="assertion">
+                <projects>
+                  <project path="$PROJECT_DIR$/../../libs/shared/assertion" />
+                </projects>
+              </build>
               <build path="$PROJECT_DIR$/../../libs/shared/error" name="error">
                 <projects>
                   <project path="$PROJECT_DIR$/../../libs/shared/error" />
@@ -65,6 +70,7 @@
             <option value="$PROJECT_DIR$/apps/push" />
             <option value="$PROJECT_DIR$/libs" />
             <option value="$PROJECT_DIR$/libs/config" />
+            <option value="$PROJECT_DIR$/../../libs/shared/assertion" />
             <option value="$PROJECT_DIR$/../../libs/shared/dto" />
             <option value="$PROJECT_DIR$/../../libs/shared/error" />
             <option value="$PROJECT_DIR$/../../libs/shared/oauth2-server" />

@@ -1,7 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { SharedUtilAuthService, SharedUtilFormUtilService } from '@frontend/shared/util';
 import { IUserRegistration } from '@frontend/shared/model';
+import { Store } from '@ngrx/store';
+import { IUserState, REGISTRATION_ACTION, REGISTRATION_CODE_ACTION } from '@frontend/state';
+import { ActivatedRoute } from '@angular/router';
+import { filter, map, takeUntil } from 'rxjs/operators';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'frontend-registration-cn',
@@ -44,11 +49,12 @@ import { IUserRegistration } from '@frontend/shared/model';
   `,
   styles: []
 })
-export class RegistrationCnComponent {
+export class RegistrationCnComponent implements OnInit, OnDestroy {
   form: FormGroup;
+  subscribeUntil$ = new Subject<void>();
 
   constructor(private fb: FormBuilder, public fUtilService: SharedUtilFormUtilService,
-              private authService: SharedUtilAuthService) {
+              private store: Store<IUserState>, private route: ActivatedRoute) {
     this.form = this.fb.group({
       email: ['', [Validators.email, Validators.required]],
       password: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(12)]],
@@ -56,16 +62,32 @@ export class RegistrationCnComponent {
     });
   }
 
+  ngOnInit(): void {
+    this.route.queryParams
+      .pipe(
+        filter(params => params.code),
+        map(params => params.code),
+        takeUntil(this.subscribeUntil$)
+      )
+      .subscribe(code => this.store.dispatch(REGISTRATION_CODE_ACTION({ code })));
+  }
+
   onSubmit() {
     const user = { ...this.form.value } as IUserRegistration;
-    this.authService.registration(user);
+    this.store.dispatch(REGISTRATION_ACTION({ user }));
   }
 
   isFormNotValid() {
-    if(this.form.value.password.length >= 6) {
-      return !this.form?.valid  || !(this.form?.value.password === this.form?.value.passwordRepeated);
+    if (this.form.value.password.length >= 6) {
+      return !this.form?.valid || !(this.form?.value.password === this.form?.value.passwordRepeated);
     } else {
       return true;
     }
   }
+
+  ngOnDestroy(): void {
+    this.subscribeUntil$.next();
+    this.subscribeUntil$.complete();
+  }
+
 }

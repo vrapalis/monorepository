@@ -5,13 +5,11 @@ import lombok.NoArgsConstructor;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 
-//TODO VALIDATION CONSTRAINS
 @Data
 @Configuration
 @NoArgsConstructor
-@ConfigurationProperties(prefix = "com.vrapalis.www.oauth2.email.registration")
-public class OAuth2RegistrationPropertiesTemplate {
-    private String registrationPath;
+@ConfigurationProperties(prefix = "com.vrapalis.www.oauth2.email.password")
+public class OAuth2PasswordPropertiesTemplate {
     private String subject;
     private String text;
 }

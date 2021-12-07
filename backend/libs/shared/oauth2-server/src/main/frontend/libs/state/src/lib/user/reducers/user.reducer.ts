@@ -3,13 +3,13 @@ import * as UserActions from '../actions/user.actions';
 
 export const userFeatureKey = 'user';
 
-export interface UserState {
+export interface IUserState {
   id: string | null;
   email: string | null;
   scopes: Array<string> | null;
 }
 
-export const initialState: UserState = {
+export const initialState: IUserState = {
   id: null,
   email: null,
   scopes: null

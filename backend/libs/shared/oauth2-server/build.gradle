@@ -17,6 +17,7 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-oauth2-client'
 
     implementation libs.project.shared.dto
+    implementation libs.project.shared.assertion
     implementation libs.project.shared.utility
 
     implementation 'org.springframework.boot:spring-boot-starter-oauth2-resource-server'

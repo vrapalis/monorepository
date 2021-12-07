@@ -13,6 +13,7 @@
         <module name="entryou.apps.oauth2.test" />
         <module name="entryou.apps.push.test" />
         <module name="entryou.libs.config.test" />
+        <module name="assertion.test" />
         <module name="error.test" />
         <module name="oauth2-server.test" />
         <module name="push-server.test" />
@@ -27,6 +28,7 @@
         <module name="oauth2-server.main" />
         <module name="push-server.main" />
         <module name="dto.main" />
+        <module name="assertion.main" />
         <module name="entryou.apps.push.main" />
         <module name="utility.main" />
         <module name="entryou.libs.config.main" />

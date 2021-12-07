@@ -1,7 +1,7 @@
 package com.vrapalis.www.backend.libs.shared.oauth2.server.domain.user;
 
 import com.vrapalis.www.backend.libs.shared.oauth2.server.config.RestControllerTestConfiguration;
-import com.vrapalis.www.backend.libs.shared.oauth2.server.domain.user.dto.OAuth2UserRegistrationExceptionDto;
+import com.vrapalis.www.backend.libs.shared.oauth2.server.domain.user.dto.OAuth2UserRegistrationDto;
 import com.vrapalis.www.backend.libs.shared.oauth2.server.domain.user.service.OAuth2UserService;
 import com.vrapalis.www.backend.libs.shared.oauth2.server.domain.user.util.OAuth2UserApiUrl;
 import de.delloit.www.backend.libs.shared.dto.domain.server.ErrorServerResponseDto;
@@ -21,7 +21,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @DisplayName("User rest controller group test")
 public class UserRestControllerTest extends RestControllerTestConfiguration {
-    private OAuth2UserRegistrationExceptionDto givenUserRegistrationDto;
+    private OAuth2UserRegistrationDto givenUserRegistrationDto;
 
     @BeforeEach
     void setUp() {
