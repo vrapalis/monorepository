@@ -1,13 +1,11 @@
 package com.vrapalis.www.backend.libs.shared.oauth2.server.domain.user.restcontroller;
 
-import com.vrapalis.www.backend.libs.shared.oauth2.server.domain.common.error.OAuth2RegistrationCodeException;
-import com.vrapalis.www.backend.libs.shared.oauth2.server.domain.common.error.OAuth2RegistrationException;
+import com.vrapalis.www.backend.libs.shared.oauth2.server.domain.user.dto.OAuth2UserForgotPasswordDto;
 import com.vrapalis.www.backend.libs.shared.oauth2.server.domain.user.dto.OAuth2UserRegistrationCodeDto;
 import com.vrapalis.www.backend.libs.shared.oauth2.server.domain.user.dto.OAuth2UserRegistrationDto;
+import com.vrapalis.www.backend.libs.shared.oauth2.server.domain.user.dto.OAuth2UserResetPasswordDto;
 import com.vrapalis.www.backend.libs.shared.oauth2.server.domain.user.service.OAuth2UserService;
 import de.delloit.www.backend.libs.shared.dto.domain.server.AbstractServerResponseDto;
-import de.delloit.www.backend.libs.shared.error.domain.common.BeanValidationSharedError;
-import de.delloit.www.backend.libs.shared.error.domain.common.PasswordIsNotSameSharedError;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -29,8 +27,7 @@ public class OAuth2UserRestControllerImp implements OAuth2UserRestController {
     public ResponseEntity<AbstractServerResponseDto> registration(OAuth2UserRegistrationDto user,
                                                                   BindingResult bindingResult,
                                                                   HttpServletResponse response,
-                                                                  HttpServletRequest request)
-            throws OAuth2RegistrationException {
+                                                                  HttpServletRequest request) {
         return userService.registration(user, bindingResult, response, request);
     }
 
@@ -38,9 +35,24 @@ public class OAuth2UserRestControllerImp implements OAuth2UserRestController {
     public ResponseEntity<AbstractServerResponseDto> registrationCode(OAuth2UserRegistrationCodeDto code,
                                                                       BindingResult bindingResult,
                                                                       HttpServletResponse response,
-                                                                      HttpServletRequest request)
-            throws OAuth2RegistrationCodeException {
+                                                                      HttpServletRequest request) {
         return userService.registrationCode(code, bindingResult, response, request);
+    }
+
+    @Override
+    public ResponseEntity<AbstractServerResponseDto> forgotPassword(OAuth2UserForgotPasswordDto dto,
+                                                                    BindingResult bindingResult,
+                                                                    HttpServletResponse response,
+                                                                    HttpServletRequest request) {
+        return userService.forgotPassword(dto, bindingResult, response, request);
+    }
+
+    @Override
+    public ResponseEntity<AbstractServerResponseDto> resetPassword(OAuth2UserResetPasswordDto dto,
+                                                                   BindingResult bindingResult,
+                                                                   HttpServletResponse response,
+                                                                   HttpServletRequest request) {
+        return userService.resetPassword(dto, bindingResult, response, request);
     }
 
     @GetMapping("security-test")

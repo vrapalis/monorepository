@@ -20,7 +20,7 @@
                 <constraints unique="true" nullable="true"/>
             </column>
 
-            <column name="created_date" type="date">
+            <column name="created_date" type="timestamp">
                 <constraints nullable="false"/>
             </column>
         </createTable>
@@ -87,7 +87,7 @@
                 <constraints nullable="false"/>
             </column>
 
-            <column name="created_date" type="date">
+            <column name="created_date" type="timestamp">
                 <constraints nullable="false"/>
             </column>
         </createTable>
@@ -104,7 +104,7 @@
                 <constraints nullable="false"/>
             </column>
 
-            <column name="created_date" type="date">
+            <column name="created_date" type="timestamp">
                 <constraints nullable="false"/>
             </column>
         </createTable>

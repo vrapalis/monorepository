@@ -2,8 +2,10 @@ package com.vrapalis.www.backend.libs.shared.oauth2.server.domain.user.service;
 
 import com.vrapalis.www.backend.libs.shared.oauth2.server.domain.common.error.OAuth2RegistrationCodeException;
 import com.vrapalis.www.backend.libs.shared.oauth2.server.domain.common.error.OAuth2RegistrationException;
+import com.vrapalis.www.backend.libs.shared.oauth2.server.domain.user.dto.OAuth2UserForgotPasswordDto;
 import com.vrapalis.www.backend.libs.shared.oauth2.server.domain.user.dto.OAuth2UserRegistrationCodeDto;
 import com.vrapalis.www.backend.libs.shared.oauth2.server.domain.user.dto.OAuth2UserRegistrationDto;
+import com.vrapalis.www.backend.libs.shared.oauth2.server.domain.user.dto.OAuth2UserResetPasswordDto;
 import de.delloit.www.backend.libs.shared.dto.domain.server.AbstractServerResponseDto;
 import lombok.NonNull;
 import org.springframework.http.ResponseEntity;
@@ -17,8 +19,7 @@ import java.util.UUID;
 public interface OAuth2UserService extends UserDetailsService {
 
     ResponseEntity<AbstractServerResponseDto> registration(OAuth2UserRegistrationDto user, BindingResult bindingResult,
-                                                           HttpServletResponse response, HttpServletRequest request)
-            throws OAuth2RegistrationException;
+                                                           HttpServletResponse response, HttpServletRequest request);
 
     void completeRegistration(UUID userId);
 
@@ -26,6 +27,12 @@ public interface OAuth2UserService extends UserDetailsService {
 
     ResponseEntity<AbstractServerResponseDto> registrationCode(OAuth2UserRegistrationCodeDto code,
                                                                BindingResult bindingResult,
-                                                               HttpServletResponse response, HttpServletRequest request)
-            throws OAuth2RegistrationCodeException;
+                                                               HttpServletResponse response, HttpServletRequest request);
+
+    ResponseEntity<AbstractServerResponseDto> forgotPassword(OAuth2UserForgotPasswordDto dto,
+                                                             BindingResult bindingResult,
+                                                             HttpServletResponse response, HttpServletRequest request);
+
+    ResponseEntity<AbstractServerResponseDto> resetPassword(OAuth2UserResetPasswordDto dto, BindingResult bindingResult,
+                                                            HttpServletResponse response, HttpServletRequest request);
 }

@@ -5,8 +5,9 @@ body {
   height: 100%;
 }
 body {
-  margin: 0;
+  margin: auto !important;
   font-family: Roboto, 'Helvetica Neue', sans-serif;
+  max-width: 3000px;
 }
 
 html,

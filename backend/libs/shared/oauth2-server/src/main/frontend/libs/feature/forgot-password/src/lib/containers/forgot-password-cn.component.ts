@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { SharedUtilAuthService, SharedUtilFormUtilService } from '@frontend/shared/util';
+import { SharedUtilFormUtilService } from '@frontend/shared/util';
 import { Store } from '@ngrx/store';
 import { FORGOT_PASSWORD_ACTION, IUserState } from '@frontend/state';
 
@@ -20,8 +20,8 @@ import { FORGOT_PASSWORD_ACTION, IUserState } from '@frontend/state';
           <mat-error *ngIf="form.get('email')?.invalid">{{fUtilService.getEmailErrorMessage(form)}}</mat-error>
         </mat-form-field>
 
-        <div class='row mt-3 justify-content-end'>
-          <button mat-raised-button color='primary' class='col-3 ms-1' type='submit' [disabled]='!form.valid'>Submit
+        <div class='row col-12 mt-3 justify-content-end'>
+          <button mat-raised-button color='primary' class='col-6 col-lg-3 ms-1' type='submit' [disabled]='!form.valid'>Submit
           </button>
         </div>
       </form>
@@ -39,6 +39,6 @@ export class ForgotPasswordCnComponent {
   }
 
   onSubmit() {
-    this.store.dispatch(FORGOT_PASSWORD_ACTION(this.form.value.email));
+    this.store.dispatch(FORGOT_PASSWORD_ACTION({ email: this.form.value.email }));
   }
 }

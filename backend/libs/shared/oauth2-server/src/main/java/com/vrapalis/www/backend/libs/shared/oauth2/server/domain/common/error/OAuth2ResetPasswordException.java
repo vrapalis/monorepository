@@ -6,7 +6,7 @@ import org.springframework.http.HttpStatus;
 
 @Getter
 @AllArgsConstructor
-public class OAuth2RegistrationCodeException extends RuntimeException {
+public class OAuth2ResetPasswordException extends RuntimeException {
     private HttpStatus httpStatus;
     private String msg;
 }

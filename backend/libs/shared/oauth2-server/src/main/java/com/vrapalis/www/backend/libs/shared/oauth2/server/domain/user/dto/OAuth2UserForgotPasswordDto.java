@@ -5,16 +5,15 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
-import java.util.UUID;
 
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class OAuth2UserRegistrationCodeDto {
-
-    @NotNull
-    private UUID code;
+public class OAuth2UserForgotPasswordDto {
+    @Email
+    @NotBlank
+    private String email;
 }

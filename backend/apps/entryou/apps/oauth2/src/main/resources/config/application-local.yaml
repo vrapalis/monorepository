@@ -27,6 +27,7 @@ com:
           password:
             subject: Reset Password!!!
             text: '<a href=%s>Please click on link to accomplish the reset password process</a>'
+            password-path: '/reset-password?code='
           registration:
             subject: Registration Success!!!
             text: '<a href=%s>Please click on link to accomplish the registration process</a>'

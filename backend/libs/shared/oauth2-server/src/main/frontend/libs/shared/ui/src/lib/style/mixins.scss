@@ -1,0 +1,27 @@
+@import "vars";
+
+/* MEDIA QUERIES */
+
+@mixin maxMobileScreen {
+  @media only screen and (max-width: $minMobileScreen){
+    @content;
+  }
+}
+
+@mixin minTabletScreen {
+  @media only screen and (min-width: $minTabletScreen){
+    @content;
+  }
+}
+
+@mixin maxTabletScreen {
+  @media only screen and (max-width: $minTabletScreen){
+    @content;
+  }
+}
+
+@mixin betweenMobileAndTabletScreen {
+  @media only screen and (min-width: $minMobileScreen) and (max-width: $minTabletScreen){
+    @content;
+  }
+}

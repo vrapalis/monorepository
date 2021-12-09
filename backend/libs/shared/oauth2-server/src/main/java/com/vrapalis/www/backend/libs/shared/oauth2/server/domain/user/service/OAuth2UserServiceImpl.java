@@ -1,22 +1,25 @@
 package com.vrapalis.www.backend.libs.shared.oauth2.server.domain.user.service;
 
+import com.vrapalis.www.backend.libs.shared.oauth2.server.domain.common.error.OAuth2ForgotPasswordException;
 import com.vrapalis.www.backend.libs.shared.oauth2.server.domain.common.error.OAuth2RegistrationCodeException;
 import com.vrapalis.www.backend.libs.shared.oauth2.server.domain.common.error.OAuth2RegistrationException;
+import com.vrapalis.www.backend.libs.shared.oauth2.server.domain.common.error.OAuth2ResetPasswordException;
 import com.vrapalis.www.backend.libs.shared.oauth2.server.domain.email.error.OAuth2SendEmailError;
 import com.vrapalis.www.backend.libs.shared.oauth2.server.domain.email.model.OAuth2EmailSendDto;
+import com.vrapalis.www.backend.libs.shared.oauth2.server.domain.email.props.OAuth2PasswordPropertiesTemplate;
 import com.vrapalis.www.backend.libs.shared.oauth2.server.domain.email.props.OAuth2RegistrationPropertiesTemplate;
 import com.vrapalis.www.backend.libs.shared.oauth2.server.domain.email.service.OAuth2EmailService;
+import com.vrapalis.www.backend.libs.shared.oauth2.server.domain.user.dto.OAuth2UserForgotPasswordDto;
 import com.vrapalis.www.backend.libs.shared.oauth2.server.domain.user.dto.OAuth2UserRegistrationCodeDto;
 import com.vrapalis.www.backend.libs.shared.oauth2.server.domain.user.dto.OAuth2UserRegistrationDto;
+import com.vrapalis.www.backend.libs.shared.oauth2.server.domain.user.dto.OAuth2UserResetPasswordDto;
 import com.vrapalis.www.backend.libs.shared.oauth2.server.domain.user.entity.*;
 import com.vrapalis.www.backend.libs.shared.oauth2.server.domain.user.model.OAuth2UserDetailsModel;
 import com.vrapalis.www.backend.libs.shared.oauth2.server.domain.user.repository.OAuth2UserRepository;
 import de.delloit.www.backend.libs.shared.assertion.domain.common.CommonSharedAssertions;
 import de.delloit.www.backend.libs.shared.dto.domain.server.AbstractServerResponseDto;
-import de.delloit.www.backend.libs.shared.dto.domain.server.ErrorServerResponseDto;
 import de.delloit.www.backend.libs.shared.dto.domain.server.SuccessServerResponseDto;
 import de.delloit.www.backend.libs.shared.error.domain.common.BeanValidationSharedError;
-import de.delloit.www.backend.libs.shared.error.domain.common.PasswordIsNotSameSharedError;
 import lombok.AllArgsConstructor;
 import lombok.NonNull;
 import lombok.extern.log4j.Log4j2;
@@ -32,6 +35,7 @@ import org.springframework.validation.BindingResult;
 import javax.persistence.EntityNotFoundException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.Optional;
 import java.util.UUID;
 
 @Log4j2
@@ -43,14 +47,15 @@ public class OAuth2UserServiceImpl implements OAuth2UserService {
     private OAuth2EmailService emailService;
     private OAuth2UserRepository userRepository;
     private OAuth2UserRegistrationCodeService codeService;
-    private OAuth2RegistrationPropertiesTemplate emailTemplate;
+    private OAuth2UserPasswordCodeService passwordCodeService;
+    private OAuth2RegistrationPropertiesTemplate registrationPropertiesTemplate;
+    private OAuth2PasswordPropertiesTemplate passwordPropertiesTemplate;
 
     @Override
-    @Transactional(rollbackFor = OAuth2RegistrationException.class)
     public ResponseEntity<AbstractServerResponseDto> registration(OAuth2UserRegistrationDto user,
                                                                   BindingResult bindingResult,
                                                                   HttpServletResponse response,
-                                                                  HttpServletRequest request) throws OAuth2RegistrationException {
+                                                                  HttpServletRequest request) {
 
         try {
             CommonSharedAssertions.assertNoBeanValidationErrors(bindingResult);
@@ -79,12 +84,12 @@ public class OAuth2UserServiceImpl implements OAuth2UserService {
             final var registeredUser = userRepository.saveAndFlush(userEntity);
 
             final var link = request.getScheme() + "://" + request.getRemoteHost() + ":" + request.getServerPort()
-                    + emailTemplate.getRegistrationPath() + codeEntity.getCode();
+                    + registrationPropertiesTemplate.getRegistrationPath() + codeEntity.getCode();
 
             final var emailDto = OAuth2EmailSendDto.builder()
                     .mailTo(registeredUser.getEmail())
-                    .subject(emailTemplate.getSubject())
-                    .text(String.format(emailTemplate.getText(), link))
+                    .subject(registrationPropertiesTemplate.getSubject())
+                    .text(String.format(registrationPropertiesTemplate.getText(), link))
                     .build();
 
             emailService.sendMimeMessage(emailDto);
@@ -130,8 +135,7 @@ public class OAuth2UserServiceImpl implements OAuth2UserService {
     public ResponseEntity<AbstractServerResponseDto> registrationCode(OAuth2UserRegistrationCodeDto code,
                                                                       BindingResult bindingResult,
                                                                       HttpServletResponse response,
-                                                                      HttpServletRequest request)
-            throws OAuth2RegistrationCodeException {
+                                                                      HttpServletRequest request) {
         try {
             final var codeEntity = codeService.findByCode(code.getCode());
             final var foundUserEntity = userRepository.findById(codeEntity.getUserId())
@@ -144,10 +148,69 @@ public class OAuth2UserServiceImpl implements OAuth2UserService {
             foundUserEntity.setRegistrationCode(null);
             codeService.deleteByUserId(codeEntity.getUserId());
         } catch (Exception e) {
+            log.error(e.getMessage());
             throw new OAuth2RegistrationCodeException(HttpStatus.INTERNAL_SERVER_ERROR, "Registration error.");
         }
 
         return ResponseEntity.ok(new SuccessServerResponseDto("Success", "Registration Success."));
+    }
+
+    @Override
+    public ResponseEntity<AbstractServerResponseDto> forgotPassword(OAuth2UserForgotPasswordDto dto,
+                                                                    BindingResult bindingResult,
+                                                                    HttpServletResponse response,
+                                                                    HttpServletRequest request) {
+        try {
+            CommonSharedAssertions.assertNoBeanValidationErrors(bindingResult);
+            final var userEntity = userRepository.findByEmail(dto.getEmail()).orElseThrow(EntityNotFoundException::new);
+            final var passwordCodeEntity = new OAuth2UserPasswordCodeEntity();
+            passwordCodeEntity.setUser(userEntity);
+            passwordCodeEntity.setCode(UUID.randomUUID());
+            userEntity.setPasswordCode(passwordCodeEntity);
+            userRepository.saveAndFlush(userEntity);
+
+            final var link = request.getScheme() + "://" + request.getRemoteHost() + ":" + request.getServerPort()
+                    + passwordPropertiesTemplate.getPasswordPath() + passwordCodeEntity.getCode();
+
+            final var emailDto = OAuth2EmailSendDto.builder()
+                    .mailTo(userEntity.getEmail())
+                    .subject(passwordPropertiesTemplate.getSubject())
+                    .text(String.format(passwordPropertiesTemplate.getText(), link))
+                    .build();
+
+            emailService.sendMimeMessage(emailDto);
+
+        } catch (Exception e) {
+            log.error(e);
+            if (e instanceof BeanValidationSharedError) {
+                throw new OAuth2ForgotPasswordException(HttpStatus.BAD_REQUEST, e.getMessage());
+            }
+            throw new OAuth2ForgotPasswordException(HttpStatus.INTERNAL_SERVER_ERROR, "Forgot password error.");
+        }
+        return ResponseEntity.ok(new SuccessServerResponseDto("Success", "The email was send."));
+    }
+
+    @Override
+    public ResponseEntity<AbstractServerResponseDto> resetPassword(OAuth2UserResetPasswordDto dto,
+                                                                   BindingResult bindingResult,
+                                                                   HttpServletResponse response,
+                                                                   HttpServletRequest request) {
+        try {
+            CommonSharedAssertions.assertPasswordIsSame(dto.getPassword(), dto.getPasswordRepeated());
+            final var passwordCodeEntity = passwordCodeService.findByCode(dto.getCode());
+            final var userEntity = userRepository.findById(passwordCodeEntity.getUserId())
+                    .orElseThrow(EntityNotFoundException::new);
+            userEntity.getAccount().setPassword(dto.getPassword());
+            userEntity.setPasswordCode(null);
+            passwordCodeService.deleteByUserId(userEntity.getId());
+        } catch (Exception e) {
+            log.error(e);
+            if(e instanceof BeanValidationSharedError) {
+                throw new OAuth2ResetPasswordException(HttpStatus.BAD_REQUEST, e.getMessage());
+            }
+            throw new OAuth2ResetPasswordException(HttpStatus.INTERNAL_SERVER_ERROR, "Reset password error.");
+        }
+        return ResponseEntity.ok(new SuccessServerResponseDto("Success", "Password was successfully reset."));
     }
 
     @Override

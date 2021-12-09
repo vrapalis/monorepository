@@ -1,6 +1,6 @@
 import { createAction, props } from '@ngrx/store';
 import { IUserState } from '../reducers/user.reducer';
-import { IServerResponse, IUserRegistration } from '@frontend/shared/model';
+import { IServerResponse, IUserRegistration, IUserResetPassword } from '@frontend/shared/model';
 
 const APPLICATION_CONTAINER = '[Application Container]';
 
@@ -53,9 +53,26 @@ export const FORGOT_PASSWORD_ACTION = createAction(
 );
 
 export const FORGOT_PASSWORD_SUCCESS_ACTION = createAction(
-  '[User Effect] Forgot Password Success'
+  '[User Effect] Forgot Password Success',
+  props<{ response: IServerResponse }>()
 );
 
 export const FORGOT_PASSWORD_ERROR_ACTION = createAction(
-  '[User Effect] Forgot Password Error'
+  '[User Effect] Forgot Password Error',
+  props<{ response: IServerResponse }>()
+);
+
+export const RESET_PASSWORD_ACTION = createAction(
+  '[Reset Password Component] Reset Password',
+  props<{ resetPassword: IUserResetPassword }>()
+);
+
+export const RESET_PASSWORD_SUCCESS_ACTION = createAction(
+  '[User Effect] Reset Password Success',
+  props<{ response: IServerResponse }>()
+);
+
+export const RESET_PASSWORD_ERROR_ACTION = createAction(
+  '[User Effect] Reset Password Error',
+  props<{ response: IServerResponse }>()
 );

@@ -7,4 +7,6 @@ import lombok.experimental.UtilityClass;
 public class OAuth2UserApiUrl {
     public static final String USER_BASE_URL = CommonApiUrl.API_BASE_URL + "/users";
     public static final String USER_REGISTRATION_URL = "/registration";
+    public static final String USER_FORGOT_PASSWORD_URL = "/forgot-password";
+    public static final String USER_RESET_PASSWORD_URL = "/reset-password";
 }

@@ -25,18 +25,18 @@ import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
           <mat-error *ngIf="form.get('password')?.invalid">{{getPasswordErrorMessage()}}</mat-error>
         </mat-form-field>
 
-        <div class='row mt-3 justify-content-end'>
+        <div class='row col-12 mt-3 justify-content-end'>
           <a mat-button color='primary' routerLink='/registration' matTooltip='Navigate to registration page'
-             class='col-2'>Registration</a>
-          <button mat-raised-button color='primary' class='col-3 ms-1' type='submit' [disabled]='!form.valid'>Submit</button>
+             class='col-4 col-lg-2'>Registration</a>
+          <button mat-raised-button color='primary' class='col-6 col-lg-3 ms-1' type='submit' [disabled]='!form.valid'>Submit</button>
         </div>
         
-        <div class='row justify-content-end mt-3'>
+        <div class='row col-12 justify-content-end mt-3'>
           <a mat-button color='accent' routerLink='/forgot-password' matTooltip='Navigate to forgot password page'
-             class='col-2'>Forgot Password</a>
+             class='col-6 col-lg-3'>Forgot Password</a>
         </div>
 
-        <div class='row mt-4 justify-content-end'>
+        <div class='row col-12 mt-4 justify-content-end'>
           <a mat-icon-button matTooltip="Login with Google" href='/oauth2/authorization/google' 
              class='sn-icon col-1 bi-google text-primary fs-2'></a>
           <a mat-icon-button matTooltip="Login with Facebook" href='/oauth2/authorization/facebook' 

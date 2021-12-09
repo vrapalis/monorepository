@@ -1,9 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { catchError, map, concatMap, switchMap, tap, filter, repeat } from 'rxjs/operators';
-import { Observable, EMPTY, of, throwError } from 'rxjs';
+import { catchError, map, switchMap, tap } from 'rxjs/operators';
+import { of } from 'rxjs';
 
-import * as UserActions from '../actions/user.actions';
 import {
   FORGOT_PASSWORD_ACTION,
   FORGOT_PASSWORD_ERROR_ACTION,
@@ -13,14 +12,13 @@ import {
   REGISTRATION_CODE_ERROR_ACTION,
   REGISTRATION_CODE_SUCCESS_ACTION,
   REGISTRATION_ERROR_ACTION,
-  REGISTRATION_SUCCESS_ACTION,
+  REGISTRATION_SUCCESS_ACTION, RESET_PASSWORD_ACTION, RESET_PASSWORD_ERROR_ACTION, RESET_PASSWORD_SUCCESS_ACTION,
   TRY_TO_RECEIVE_TOKEN_ACTION,
   TRY_TO_RECEIVE_TOKEN_ERROR_ACTION,
   TRY_TO_RECEIVE_TOKEN_SUCCESS_ACTION
 } from '../actions/user.actions';
 import { Store } from '@ngrx/store';
 import { IUserState } from '@frontend/state';
-import { SELECT_USER_STATE } from '../selectors/user.selectors';
 import { OAuthService } from 'angular-oauth2-oidc';
 import { SharedUtilAuthService, SharedUtilSnackService } from '@frontend/shared/util';
 import { Router } from '@angular/router';
@@ -85,25 +83,52 @@ export class UserEffects {
   ));
 
   registrationCodeSuccessAction$ = createEffect(() => this.actions$.pipe(
-    ofType(REGISTRATION_CODE_SUCCESS_ACTION)
+    ofType(REGISTRATION_CODE_SUCCESS_ACTION),
+    switchMap(action => this.snackService.open(action.response.msg, action.response.detailedMsg)),
+    tap(() => this.router.navigate(['/login']))
   ), { dispatch: false });
 
   registrationCodeErrorAction$ = createEffect(() => this.actions$.pipe(
-    ofType(REGISTRATION_CODE_ERROR_ACTION)
+    ofType(REGISTRATION_CODE_ERROR_ACTION),
+    tap(action => this.snackService.open(action.response.msg, action.response.detailedMsg))
   ), { dispatch: false });
 
   forgotPasswordAction$ = createEffect(() => this.actions$.pipe(
     ofType(FORGOT_PASSWORD_ACTION),
-    switchMap(action => this.authUtilService.forgotPassword(action.email)),
-    map(response => FORGOT_PASSWORD_SUCCESS_ACTION()),
-    catchError(err => of(FORGOT_PASSWORD_ERROR_ACTION()))
+    switchMap(action => this.authUtilService.forgotPassword(action.email).pipe(
+      map(response => FORGOT_PASSWORD_SUCCESS_ACTION({ response })),
+      catchError(err => of(FORGOT_PASSWORD_ERROR_ACTION({ response: err.error })))
+    ))
   ));
 
   forgotPasswordSuccessAction$ = createEffect(() => this.actions$.pipe(
-    ofType(FORGOT_PASSWORD_SUCCESS_ACTION)
+    ofType(FORGOT_PASSWORD_SUCCESS_ACTION),
+    switchMap(action => this.snackService.open(action.response.msg, action.response.detailedMsg)),
+    tap(() => this.router.navigate(['/reset-password']))
   ), { dispatch: false });
 
   forgotPasswordErrorAction$ = createEffect(() => this.actions$.pipe(
-    ofType(FORGOT_PASSWORD_ERROR_ACTION)
+    ofType(FORGOT_PASSWORD_ERROR_ACTION),
+    tap(action => this.snackService.open(action.response.msg, action.response.detailedMsg))
   ), { dispatch: false });
+
+  resetPasswordAction$ = createEffect(() => this.actions$.pipe(
+    ofType(RESET_PASSWORD_ACTION),
+    switchMap(action => this.authUtilService.resetPassword(action.resetPassword).pipe(
+      map(response => RESET_PASSWORD_SUCCESS_ACTION({ response })),
+      catchError(err => of(RESET_PASSWORD_ERROR_ACTION({ response: err.error })))
+    ))
+  ));
+
+  resetPasswordSuccessAction$ = createEffect(() => this.actions$.pipe(
+    ofType(RESET_PASSWORD_SUCCESS_ACTION),
+    switchMap(action => this.snackService.open(action.response.msg, action.response.detailedMsg)),
+    tap(() => this.router.navigate(['/login']))
+  ), { dispatch: false });
+
+  resetPasswordErrorAction$ = createEffect(() => this.actions$.pipe(
+    ofType(RESET_PASSWORD_ERROR_ACTION),
+    tap(action => this.snackService.open(action.response.msg, action.response.detailedMsg))
+  ), { dispatch: false });
+
 }

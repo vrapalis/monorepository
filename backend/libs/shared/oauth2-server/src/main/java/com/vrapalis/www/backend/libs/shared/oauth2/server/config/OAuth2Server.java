@@ -2,7 +2,7 @@ package com.vrapalis.www.backend.libs.shared.oauth2.server.config;
 
 import com.vrapalis.www.backend.libs.shared.oauth2.server.config.jpa.OAuth2JpaConfiguration;
 import com.vrapalis.www.backend.libs.shared.oauth2.server.config.profile.OAuth2ServerLocalProfileConfiguration;
-import com.vrapalis.www.backend.libs.shared.oauth2.server.config.schedul.OAuth2SchedulingConfiguration;
+import com.vrapalis.www.backend.libs.shared.oauth2.server.config.scheduling.OAuth2SchedulingConfiguration;
 import com.vrapalis.www.backend.libs.shared.oauth2.server.config.token.OAuth2TokenCustomizerConfiguration;
 import com.vrapalis.www.backend.libs.shared.oauth2.server.config.user.OAuth2UserSecurityConfiguration;
 import com.vrapalis.www.backend.libs.shared.util.config.RestControllerAdviceConfiguration;

@@ -23,6 +23,7 @@ import java.util.Date;
 public class OAuth2CommonEntity implements Serializable {
 
     @CreatedDate
-    @Temporal(TemporalType.DATE)
+    @Temporal(TemporalType.TIMESTAMP)
     private Date createdDate;
+
 }

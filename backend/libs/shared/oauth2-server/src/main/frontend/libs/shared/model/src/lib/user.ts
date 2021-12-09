@@ -13,3 +13,7 @@ export interface IUser {
 export interface IUserRegistration extends IUser {
   passwordRepeated: string | null;
 }
+
+export interface IUserResetPassword extends IUserRegistration{
+  code: string | null;
+}

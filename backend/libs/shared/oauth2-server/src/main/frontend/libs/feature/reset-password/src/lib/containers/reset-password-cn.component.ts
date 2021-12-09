@@ -1,7 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { SharedUtilAuthService, SharedUtilFormUtilService } from '@frontend/shared/util';
-import { IUserRegistration } from '@frontend/shared/model';
+import { IUserRegistration, IUserResetPassword } from '@frontend/shared/model';
+import { ActivatedRoute } from '@angular/router';
+import { filter, map, takeUntil } from 'rxjs/operators';
+import { Observable, Subject } from 'rxjs';
+import { Store } from '@ngrx/store';
+import { IUserState, RESET_PASSWORD_ACTION } from '@frontend/state';
 
 @Component({
   selector: 'frontend-reset-passoword-cn',
@@ -25,36 +30,55 @@ import { IUserRegistration } from '@frontend/shared/model';
           <mat-icon matSuffix>password</mat-icon>
           <mat-error *ngIf="form.get('password')?.invalid">{{fUtilService.getPasswordErrorMessage(form)}}</mat-error>
         </mat-form-field>
-        
-        <div class='row mt-3 justify-content-end'>
-          <button mat-raised-button color='primary' class='col-3 ms-1' type='submit' [disabled]='isFormNotValid()'>Submit
+
+        <div class='row col-12 mt-3 justify-content-end'>
+          <button mat-raised-button color='primary' class='col-6 col-lg-3 ms-1' type='submit' [disabled]='isFormNotValid()'>
+            Submit
           </button>
         </div>
       </form>
     </frontend-login-form-cn>
   `,
-  styles: [
-  ]
+  styles: []
 })
-export class ResetPasswordCnComponent {
+export class ResetPasswordCnComponent implements OnInit, OnDestroy {
   form: FormGroup;
+  code$: Observable<string> | undefined;
+  subscribeUntil$ = new Subject<void>();
 
-  constructor(private fb: FormBuilder, public fUtilService: SharedUtilFormUtilService, private authService: SharedUtilAuthService) {
+  constructor(private fb: FormBuilder, public fUtilService: SharedUtilFormUtilService, private route: ActivatedRoute,
+              private store: Store<IUserState>) {
     this.form = fb.group({
       password: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(12)]],
       passwordRepeated: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(12)]]
     });
   }
 
+  ngOnInit(): void {
+    this.code$ = this.route.queryParams.pipe(
+      filter(params => params.code),
+      map(params => params.code),
+      takeUntil(this.subscribeUntil$)
+    );
+  }
+
   onSubmit() {
-    this.authService.resetPassword(this.form.value.password);
+    this.code$?.pipe(
+      map(code => ({ ...this.form.value, code } as IUserResetPassword)),
+      takeUntil(this.subscribeUntil$)
+    ).subscribe(resetPassword => this.store.dispatch(RESET_PASSWORD_ACTION({ resetPassword })));
   }
 
   isFormNotValid() {
-    if(this.form.value.password.length >= 6) {
-      return !this.form?.valid  || !(this.form?.value.password === this.form?.value.passwordRepeated);
+    if (this.form.value.password.length >= 6) {
+      return !this.form?.valid || !(this.form?.value.password === this.form?.value.passwordRepeated);
     } else {
       return true;
     }
+  }
+
+  ngOnDestroy(): void {
+    this.subscribeUntil$.next();
+    this.subscribeUntil$.complete();
   }
 }

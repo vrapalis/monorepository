@@ -38,9 +38,9 @@ import { Subject } from 'rxjs';
           <mat-error *ngIf="form.get('password')?.invalid">{{fUtilService.getPasswordErrorMessage(form)}}</mat-error>
         </mat-form-field>
 
-        <div class='row mt-3 justify-content-end'>
-          <a mat-button color='primary' routerLink='/login' matTooltip='Navigate to login page' class='col-2'>Login</a>
-          <button mat-raised-button color='primary' class='col-3 ms-1' type='submit' [disabled]='isFormNotValid()'>
+        <div class='row col-12 mt-3 justify-content-end'>
+          <a mat-button color='primary' routerLink='/login' matTooltip='Navigate to login page' class='col-4 col-lg-2'>Login</a>
+          <button mat-raised-button color='primary' class='col-6 col-lg-3 ms-1' type='submit' [disabled]='isFormNotValid()'>
             Submit
           </button>
         </div>

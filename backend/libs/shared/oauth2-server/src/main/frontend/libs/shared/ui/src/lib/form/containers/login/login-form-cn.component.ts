@@ -7,18 +7,7 @@ import { Component } from '@angular/core';
       <ng-content></ng-content>
     </div>
   `,
-  styles: [`
-      ::ng-deep body {
-          background-color: azure;
-          overflow: hidden;
-      }
-
-      .wrapper {
-          width: 50%;
-          margin: auto;
-          height: 100%;
-      }
-  `]
+  styleUrls: ['login-form-cn.component.scss']
 })
 export class LoginFormCnComponent {
 

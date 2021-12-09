@@ -32,7 +32,6 @@ import org.springframework.security.oauth2.server.authorization.client.Registere
 import org.springframework.security.oauth2.server.authorization.client.RegisteredClientRepository;
 import org.springframework.security.oauth2.server.authorization.config.ProviderSettings;
 import org.springframework.security.web.SecurityFilterChain;
-import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
@@ -55,7 +54,6 @@ public class OAuth2ServerConfiguration {
 
     private OAuth2CustomOidcUserServiceImp oidcUserService;
     private OAuth2CustomOAuth2UserServiceImp oauth2UserService;
-    private OAuth2RegistrationCodeFilter oAuth2RegistrationCodeFilter;
     private OAuth2AuthenticationSuccessHandler auth2AuthenticationSuccessHandler;
 
     @Bean
@@ -74,7 +72,6 @@ public class OAuth2ServerConfiguration {
                 .cors(httpSecurityCorsConfigurer -> httpSecurityCorsConfigurer.configurationSource(corsConfigurationSource()))
 //                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
 //                .and()
-//                .addFilterBefore(oAuth2RegistrationCodeFilter, UsernamePasswordAuthenticationFilter.class)
                 .authorizeRequests(OAuth2ServerConfiguration::customizeAuthorizeRequest)
                 .formLogin()
                 .loginPage("/login")

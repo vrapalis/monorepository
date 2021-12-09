@@ -1,12 +1,10 @@
 package com.vrapalis.www.backend.libs.shared.oauth2.server.domain.common.error;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
+import lombok.Value;
 import org.springframework.http.HttpStatus;
 
-@Getter
-@AllArgsConstructor
-public class OAuth2RegistrationCodeException extends RuntimeException {
+@Value
+public class OAuth2ForgotPasswordException extends RuntimeException {
     private HttpStatus httpStatus;
     private String msg;
 }
