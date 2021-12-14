@@ -12,6 +12,7 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/classes-and-objects" />
+            <option value="$PROJECT_DIR$/data-structure" />
             <option value="$PROJECT_DIR$/spring" />
             <option value="$PROJECT_DIR$/spring/security" />
           </set>

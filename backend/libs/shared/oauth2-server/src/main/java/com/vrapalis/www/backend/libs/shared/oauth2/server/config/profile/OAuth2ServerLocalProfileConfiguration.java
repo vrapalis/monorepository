@@ -11,6 +11,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 @EnableWebSecurity(debug = true)
 public class OAuth2ServerLocalProfileConfiguration {
 
+
     @Bean
     public CommandLineRunner commandLineRunner() {
         return args -> {

@@ -1,7 +1,7 @@
 subprojects {
     apply plugin: 'java'
 
-    group = 'com.example'
+    group = 'com.vrapalis.www.backend'
     version = '0.0.1-SNAPSHOT'
     sourceCompatibility = '16'
 
@@ -21,6 +21,10 @@ subprojects {
 
         testCompileOnly 'org.projectlombok:lombok:1.18.20'
         testAnnotationProcessor 'org.projectlombok:lombok:1.18.20'
+
+        testImplementation 'org.junit.jupiter:junit-jupiter:5.7.1'
+        testImplementation("org.assertj:assertj-core:3.21.0")
+
     }
 
     test {
