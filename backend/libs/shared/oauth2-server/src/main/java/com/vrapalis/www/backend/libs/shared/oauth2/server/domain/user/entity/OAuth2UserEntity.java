@@ -1,10 +1,7 @@
 package com.vrapalis.www.backend.libs.shared.oauth2.server.domain.user.entity;
 
 import com.vrapalis.www.backend.libs.shared.oauth2.server.domain.common.entity.OAuth2CommonEntity;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import lombok.experimental.SuperBuilder;
 
 import javax.persistence.*;
@@ -20,12 +17,15 @@ import java.util.UUID;
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = false)
+@ToString(onlyExplicitlyIncluded = true)
 public class OAuth2UserEntity extends OAuth2CommonEntity {
 
     @Id
+    @ToString.Include
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
 
+    @ToString.Include
     @Column(unique = true, nullable = false, length = 120)
     private String email;
 

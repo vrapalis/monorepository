@@ -7,6 +7,8 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
+import java.util.Stack;
+
 @DisplayName("Stack test group")
 public class StackGroupTest {
     private CStack<String> stack;
@@ -54,11 +56,12 @@ public class StackGroupTest {
 
             // When
             stack.push(item);
-            final var popItem= stack.pop();
+            final var popItem = stack.pop();
 
             // Then
             Assertions.assertThat(item).isEqualTo(popItem);
             Assertions.assertThat(stack.isEmpty()).isTrue();
         }
+
     }
 }

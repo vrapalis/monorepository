@@ -27,7 +27,7 @@ public class OAuth2UserDetailsModel implements UserDetails {
 
     @Override
     public String getUsername() {
-        return userEntity.getEmail();
+        return userEntity.getId().toString();
     }
 
     @Override

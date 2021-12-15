@@ -14,6 +14,8 @@ import com.vrapalis.www.backend.libs.shared.oauth2.server.domain.user.dto.OAuth2
 import com.vrapalis.www.backend.libs.shared.oauth2.server.domain.user.dto.OAuth2UserRegistrationDto;
 import com.vrapalis.www.backend.libs.shared.oauth2.server.domain.user.dto.OAuth2UserResetPasswordDto;
 import com.vrapalis.www.backend.libs.shared.oauth2.server.domain.user.entity.*;
+import com.vrapalis.www.backend.libs.shared.oauth2.server.domain.user.model.EOAuth2Provider;
+import com.vrapalis.www.backend.libs.shared.oauth2.server.domain.user.model.OAuth2UserModel;
 import com.vrapalis.www.backend.libs.shared.oauth2.server.domain.user.model.OAuth2UserDetailsModel;
 import com.vrapalis.www.backend.libs.shared.oauth2.server.domain.user.repository.OAuth2UserRepository;
 import de.delloit.www.backend.libs.shared.assertion.domain.common.CommonSharedAssertions;
@@ -35,7 +37,6 @@ import org.springframework.validation.BindingResult;
 import javax.persistence.EntityNotFoundException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.util.Optional;
 import java.util.UUID;
 
 @Log4j2
@@ -69,6 +70,7 @@ public class OAuth2UserServiceImpl implements OAuth2UserService {
             accountEntity.setAccountNonLocked(false);
             accountEntity.setCredentialsNonExpired(false);
             accountEntity.setIsEnabled(false);
+            accountEntity.setProvider(EOAuth2Provider.INTERN);
 
             final var codeEntity = new OAuth2UserRegistrationCodeEntity();
             codeEntity.setCode(UUID.randomUUID());
@@ -211,6 +213,52 @@ public class OAuth2UserServiceImpl implements OAuth2UserService {
             throw new OAuth2ResetPasswordException(HttpStatus.INTERNAL_SERVER_ERROR, "Reset password error.");
         }
         return ResponseEntity.ok(new SuccessServerResponseDto("Success", "Password was successfully reset."));
+    }
+
+    @Override
+    public OAuth2UserEntity save(OAuth2UserModel user, String clientRegistrationId) {
+        OAuth2UserEntity userEntity = null;
+
+        try {
+            final var isUserExists = userRepository.findByEmail(user.getEmail());
+
+            if(isUserExists.isPresent()) {
+             userEntity = isUserExists.get();
+                final var info = userEntity.getInfo();
+                info.setFirstName(user.getGivenName());
+                info.setLastName(user.getFamilyName());
+                final var account = userEntity.getAccount();
+                account.setIsEnabled(user.isEmailVerified());
+            } else {
+                final var provider = EOAuth2Provider.valueOf(clientRegistrationId.toUpperCase());
+
+                final var account = OAuth2UserAccountEntity.builder()
+                        .accountNonExpired(true)
+                        .accountNonLocked(true)
+                        .credentialsNonExpired(true)
+                        .isEnabled(user.isEmailVerified())
+                        .provider(provider)
+                        .build();
+
+                final var info = OAuth2UserInfoEntity.builder()
+                        .firstName(user.getGivenName())
+                        .lastName(user.getFamilyName())
+                        .build();
+
+                userEntity = OAuth2UserEntity.builder()
+                        .email(user.getEmail())
+                        .account(account)
+                        .info(info)
+                        .build();
+
+                account.setUser(userEntity);
+                info.setUser(userEntity);
+                userRepository.save(userEntity);
+            }
+        } catch (IllegalArgumentException e) {
+            log.error(e);
+        }
+        return userEntity;
     }
 
     @Override

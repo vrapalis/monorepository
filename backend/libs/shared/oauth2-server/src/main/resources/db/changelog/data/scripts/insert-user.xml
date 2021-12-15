@@ -20,6 +20,7 @@
             <column name="account_non_locked" value="1"/>
             <column name="credentials_non_expired" value="1"/>
             <column name="is_enabled" value="1"/>
+            <column name="provider" value="INTERN"/>
         </insert>
 
         <insert tableName="oauth2_user_info">

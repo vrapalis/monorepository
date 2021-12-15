@@ -72,8 +72,8 @@
     </changeSet>
 
     <changeSet id="3" author="Vitali Rapalis">
-        <renameColumn tableName="oauth2_user_info" oldColumnName="firstName" newColumnName="first_name" />
-        <renameColumn tableName="oauth2_user_info" oldColumnName="lastName" newColumnName="last_name" />
+        <renameColumn tableName="oauth2_user_info" oldColumnName="firstName" newColumnName="first_name"/>
+        <renameColumn tableName="oauth2_user_info" oldColumnName="lastName" newColumnName="last_name"/>
     </changeSet>
 
     <changeSet id="4" author="Vitali Rapalis">
@@ -108,5 +108,13 @@
                 <constraints nullable="false"/>
             </column>
         </createTable>
+    </changeSet>
+
+    <changeSet id="6" author="Vitali Rapalis">
+        <addColumn tableName="oauth2_user_account">
+            <column name="provider" type="varchar(12)">
+                <constraints nullable="false"/>
+            </column>
+        </addColumn>
     </changeSet>
 </databaseChangeLog>

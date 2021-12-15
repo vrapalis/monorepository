@@ -4,6 +4,7 @@ import com.vrapalis.www.backend.tutorials.datastructure.stack.CStack;
 import com.vrapalis.www.backend.tutorials.datastructure.stack.CStackOverflow;
 import com.vrapalis.www.backend.tutorials.datastructure.stack.CStackUnderflow;
 
+@SuppressWarnings("unchecked")
 public class ArrayBoundCStackImp<T> implements CStack<T> {
     private final int START_INDEX = -1;
     private final int DEFAULT_SIZE = 100;

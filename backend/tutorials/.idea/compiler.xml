@@ -25,7 +25,7 @@
         <module name="tutorials.spring.security.main" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel target="16">
+    <bytecodeTargetLevel target="13">
       <module name="classes-and-objects.main" target="16" />
       <module name="classes-and-objects.test" target="16" />
       <module name="security" target="16" />

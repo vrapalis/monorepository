@@ -3,7 +3,6 @@ subprojects {
 
     group = 'com.vrapalis.www.backend'
     version = '0.0.1-SNAPSHOT'
-    sourceCompatibility = '16'
 
     configurations {
         compileOnly {

@@ -1,11 +1,11 @@
 package com.vrapalis.www.backend.libs.shared.oauth2.server.domain.user.service;
 
-import com.vrapalis.www.backend.libs.shared.oauth2.server.domain.common.error.OAuth2RegistrationCodeException;
-import com.vrapalis.www.backend.libs.shared.oauth2.server.domain.common.error.OAuth2RegistrationException;
 import com.vrapalis.www.backend.libs.shared.oauth2.server.domain.user.dto.OAuth2UserForgotPasswordDto;
 import com.vrapalis.www.backend.libs.shared.oauth2.server.domain.user.dto.OAuth2UserRegistrationCodeDto;
 import com.vrapalis.www.backend.libs.shared.oauth2.server.domain.user.dto.OAuth2UserRegistrationDto;
 import com.vrapalis.www.backend.libs.shared.oauth2.server.domain.user.dto.OAuth2UserResetPasswordDto;
+import com.vrapalis.www.backend.libs.shared.oauth2.server.domain.user.entity.OAuth2UserEntity;
+import com.vrapalis.www.backend.libs.shared.oauth2.server.domain.user.model.OAuth2UserModel;
 import de.delloit.www.backend.libs.shared.dto.domain.server.AbstractServerResponseDto;
 import lombok.NonNull;
 import org.springframework.http.ResponseEntity;
@@ -35,4 +35,6 @@ public interface OAuth2UserService extends UserDetailsService {
 
     ResponseEntity<AbstractServerResponseDto> resetPassword(OAuth2UserResetPasswordDto dto, BindingResult bindingResult,
                                                             HttpServletResponse response, HttpServletRequest request);
+
+    OAuth2UserEntity save(OAuth2UserModel user, String clientRegistrationId);
 }
