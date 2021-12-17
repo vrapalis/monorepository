@@ -1,19 +1,38 @@
 version: '3.9'
 
 services:
+  reverse-proxy-local:
+    image: nginx:alpine
+    container_name: reverse-proxy-local
+    network_mode: host
+    restart: on-failure
+    volumes:
+      - ./local/nginx/nginx.conf:/etc/nginx/nginx.conf
+      - /etc/letsencrypt:/etc/letsencrypt
+
   postgres-local:
     image: postgres:alpine
     container_name: postgres-local
     restart: on-failure
-    networks:
-      - postgres-local-nt
+    expose:
+      - 5432
+    network_mode: host
     environment:
       - POSTGRES_USER=admin
       - POSTGRES_PASSWORD=admin
-    ports:
-      - 5432:5432
 
-networks:
-  postgres-local-nt:
-    name: postgres-local-nt
-    driver: bridge
+  oauth2-local:
+    build:
+      context: ../apps/oauth2
+      dockerfile: build/docker/Dockerfile
+    image: vrapalis/oauth2
+    container_name: oauth2-local
+    network_mode: host
+    expose:
+      - 8080
+    restart: on-failure
+    environment:
+      - SPRING.PROFILES.ACTIVE=local
+    depends_on:
+      - postgres-local
+

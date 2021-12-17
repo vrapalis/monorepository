@@ -29,6 +29,7 @@
         "libs/feature/reset-password/src/index.ts"
       ],
       "@frontend/feature/users": ["libs/feature/users/src/index.ts"],
+      "@frontend/shared/data-access": ["libs/shared/data-access/src/index.ts"],
       "@frontend/shared/model": ["libs/shared/model/src/index.ts"],
       "@frontend/shared/ui": ["libs/shared/ui/src/index.ts"],
       "@frontend/shared/util": ["libs/shared/util/src/index.ts"],

@@ -11,7 +11,7 @@ afterEvaluate {
     ext {
         JAR_FILE_BASE_NAME = "${archivesBaseName}-${version}.jar"
         DOCKER_BASE_IMAGE = 'openjdk:16-alpine'
-        DOCKER_REPOSITORY_URL = 'nexus.delloit.de'
+        DOCKER_REPOSITORY_URL = 'vrapalis'
         DOCKER_IMAGE_PREFIX = project.DOCKER_IMAGE_PREFIX != null ? project.DOCKER_IMAGE_PREFIX : 'defulat_image_prefix'
         DOCKER_IMAGE_TAG = "${DOCKER_REPOSITORY_URL}/${DOCKER_IMAGE_PREFIX}/${project.archivesBaseName}:${project.version}"
     }
@@ -34,7 +34,7 @@ afterEvaluate {
     task buildDockerImage(type: DockerBuildImage) {
         group "Docker"
         description "Creates docker image"
-        dependsOn build, createDockerFile
+        dependsOn bootJar, createDockerFile
         inputDir = file(projectDir)
         dockerFile = file("${projectDir}/build/docker/Dockerfile")
         noCache = true
@@ -44,7 +44,7 @@ afterEvaluate {
     task pushDockerImage(type: DockerPushImage) {
         group "Docker"
         description "Pushes docker image"
-        dependsOn build, buildDockerImage
+        dependsOn bootJar, buildDockerImage
         images.add("$DOCKER_IMAGE_TAG")
     }
 }

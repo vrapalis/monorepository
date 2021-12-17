@@ -39,3 +39,22 @@ spring:
            issuer-uri: https://login.microsoftonline.com/815692a5-a5c8-461a-b480-6675c658ad5b/v2.0
            token-uri: https://login.microsoftonline.com/815692a5-a5c8-461a-b480-6675c658ad5b/oauth2/v2.0/token
            authorization-uri: https://login.microsoftonline.com/815692a5-a5c8-461a-b480-6675c658ad5b/oauth2/v2.0/authorize
+
+com:
+  vrapalis:
+    www:
+      oauth2:
+        clients:
+          classes:
+            google:
+              - bi-google
+              - text-primary
+            facebook :
+              - bi-facebook
+              - text-info
+            github :
+              - bi-github
+              - text-black
+            azuread :
+              - bi-microsoft
+              - text-success

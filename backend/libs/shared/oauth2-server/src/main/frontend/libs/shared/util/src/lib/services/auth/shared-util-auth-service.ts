@@ -42,21 +42,21 @@ export class SharedUtilAuthService {
   }
 
   registration(user: IUserRegistration): Observable<IServerResponse> {
-    return this.http.post<IServerResponse>(`${this.envService.env.host}/api/users/registration`, user, { observe: 'body' });
+    return this.http.post<IServerResponse>(`${this.envService.env.host}${this.envService.env.apiBasePath}/users/registration`, user, { observe: 'body' });
   }
 
   forgotPassword(email: string): Observable<IServerResponse> {
     const forgotPasswordDao = { email };
-    return this.http.post<IServerResponse>(`${this.envService.env.host}/api/users/forgot-password`, forgotPasswordDao, { observe: 'body' });
+    return this.http.post<IServerResponse>(`${this.envService.env.host}${this.envService.env.apiBasePath}/users/forgot-password`, forgotPasswordDao, { observe: 'body' });
   }
 
   resetPassword(resetPasswordDto: IUserResetPassword): Observable<IServerResponse> {
-    return this.http.put<IServerResponse>(`${this.envService.env.host}/api/users/reset-password`, resetPasswordDto, { observe: 'body' });
+    return this.http.put<IServerResponse>(`${this.envService.env.host}${this.envService.env.apiBasePath}/users/reset-password`, resetPasswordDto, { observe: 'body' });
   }
 
   registrationCode(code: string): Observable<IServerResponse> {
     const body = { code };
-    return this.http.put<IServerResponse>(`${this.envService.env.host}/api/users/registration`, body, { observe: 'body' });
+    return this.http.put<IServerResponse>(`${this.envService.env.host}${this.envService.env.apiBasePath}/users/registration`, body, { observe: 'body' });
   }
 
 }

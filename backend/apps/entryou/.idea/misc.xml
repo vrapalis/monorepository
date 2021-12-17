@@ -3,6 +3,7 @@
   <component name="ExternalStorageConfigurationManager" enabled="true" />
   <component name="FrameworkDetectionExcludesConfiguration">
     <file type="web" url="file://$PROJECT_DIR$" />
+    <file type="web" url="file://$PROJECT_DIR$/../../libs/shared/assertion" />
     <file type="web" url="file://$PROJECT_DIR$/../../libs/shared/dto" />
     <file type="web" url="file://$PROJECT_DIR$/../../libs/shared/error" />
     <file type="web" url="file://$PROJECT_DIR$/../../libs/shared/oauth2-server" />

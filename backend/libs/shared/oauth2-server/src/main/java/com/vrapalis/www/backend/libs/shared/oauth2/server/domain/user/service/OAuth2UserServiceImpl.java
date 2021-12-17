@@ -1,9 +1,9 @@
 package com.vrapalis.www.backend.libs.shared.oauth2.server.domain.user.service;
 
-import com.vrapalis.www.backend.libs.shared.oauth2.server.domain.common.error.OAuth2ForgotPasswordException;
-import com.vrapalis.www.backend.libs.shared.oauth2.server.domain.common.error.OAuth2RegistrationCodeException;
-import com.vrapalis.www.backend.libs.shared.oauth2.server.domain.common.error.OAuth2RegistrationException;
-import com.vrapalis.www.backend.libs.shared.oauth2.server.domain.common.error.OAuth2ResetPasswordException;
+import com.vrapalis.www.backend.libs.shared.oauth2.server.domain.user.error.OAuth2UserForgotPasswordException;
+import com.vrapalis.www.backend.libs.shared.oauth2.server.domain.user.error.OAuth2UserRegistrationCodeException;
+import com.vrapalis.www.backend.libs.shared.oauth2.server.domain.user.error.OAuth2UserRegistrationException;
+import com.vrapalis.www.backend.libs.shared.oauth2.server.domain.user.error.OAuth2UserResetPasswordException;
 import com.vrapalis.www.backend.libs.shared.oauth2.server.domain.email.error.OAuth2SendEmailError;
 import com.vrapalis.www.backend.libs.shared.oauth2.server.domain.email.model.OAuth2EmailSendDto;
 import com.vrapalis.www.backend.libs.shared.oauth2.server.domain.email.props.OAuth2PasswordPropertiesTemplate;
@@ -99,12 +99,12 @@ public class OAuth2UserServiceImpl implements OAuth2UserService {
         } catch (Exception e) {
             log.error(e);
             if (e instanceof OAuth2SendEmailError) {
-                throw new OAuth2RegistrationException(HttpStatus.INTERNAL_SERVER_ERROR, "Something went wrong, try it again latter.");
+                throw new OAuth2UserRegistrationException(HttpStatus.INTERNAL_SERVER_ERROR, "Something went wrong, try it again latter.");
             }
             if (e instanceof DataIntegrityViolationException) {
-                throw new OAuth2RegistrationException(HttpStatus.BAD_REQUEST, "Email already exists.");
+                throw new OAuth2UserRegistrationException(HttpStatus.BAD_REQUEST, "Email already exists.");
             }
-            throw new OAuth2RegistrationException(HttpStatus.BAD_REQUEST, e.getMessage());
+            throw new OAuth2UserRegistrationException(HttpStatus.BAD_REQUEST, e.getMessage());
         }
 
         return ResponseEntity.ok(new SuccessServerResponseDto("Success", "Registration Success."));
@@ -151,7 +151,7 @@ public class OAuth2UserServiceImpl implements OAuth2UserService {
             codeService.deleteByUserId(codeEntity.getUserId());
         } catch (Exception e) {
             log.error(e.getMessage());
-            throw new OAuth2RegistrationCodeException(HttpStatus.INTERNAL_SERVER_ERROR, "Registration error.");
+            throw new OAuth2UserRegistrationCodeException(HttpStatus.INTERNAL_SERVER_ERROR, "Registration error.");
         }
 
         return ResponseEntity.ok(new SuccessServerResponseDto("Success", "Registration Success."));
@@ -185,9 +185,9 @@ public class OAuth2UserServiceImpl implements OAuth2UserService {
         } catch (Exception e) {
             log.error(e);
             if (e instanceof BeanValidationSharedError) {
-                throw new OAuth2ForgotPasswordException(HttpStatus.BAD_REQUEST, e.getMessage());
+                throw new OAuth2UserForgotPasswordException(HttpStatus.BAD_REQUEST, e.getMessage());
             }
-            throw new OAuth2ForgotPasswordException(HttpStatus.INTERNAL_SERVER_ERROR, "Forgot password error.");
+            throw new OAuth2UserForgotPasswordException(HttpStatus.INTERNAL_SERVER_ERROR, "Forgot password error.");
         }
         return ResponseEntity.ok(new SuccessServerResponseDto("Success", "The email was send."));
     }
@@ -208,9 +208,9 @@ public class OAuth2UserServiceImpl implements OAuth2UserService {
         } catch (Exception e) {
             log.error(e);
             if(e instanceof BeanValidationSharedError) {
-                throw new OAuth2ResetPasswordException(HttpStatus.BAD_REQUEST, e.getMessage());
+                throw new OAuth2UserResetPasswordException(HttpStatus.BAD_REQUEST, e.getMessage());
             }
-            throw new OAuth2ResetPasswordException(HttpStatus.INTERNAL_SERVER_ERROR, "Reset password error.");
+            throw new OAuth2UserResetPasswordException(HttpStatus.INTERNAL_SERVER_ERROR, "Reset password error.");
         }
         return ResponseEntity.ok(new SuccessServerResponseDto("Success", "Password was successfully reset."));
     }

@@ -1,9 +1,9 @@
 package com.vrapalis.www.backend.libs.shared.oauth2.server.domain.common.controller;
 
-import com.vrapalis.www.backend.libs.shared.oauth2.server.domain.common.error.OAuth2ForgotPasswordException;
-import com.vrapalis.www.backend.libs.shared.oauth2.server.domain.common.error.OAuth2RegistrationCodeException;
-import com.vrapalis.www.backend.libs.shared.oauth2.server.domain.common.error.OAuth2RegistrationException;
-import com.vrapalis.www.backend.libs.shared.oauth2.server.domain.common.error.OAuth2ResetPasswordException;
+import com.vrapalis.www.backend.libs.shared.oauth2.server.domain.user.error.OAuth2UserForgotPasswordException;
+import com.vrapalis.www.backend.libs.shared.oauth2.server.domain.user.error.OAuth2UserRegistrationCodeException;
+import com.vrapalis.www.backend.libs.shared.oauth2.server.domain.user.error.OAuth2UserRegistrationException;
+import com.vrapalis.www.backend.libs.shared.oauth2.server.domain.user.error.OAuth2UserResetPasswordException;
 import de.delloit.www.backend.libs.shared.dto.domain.server.ErrorServerResponseDto;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,8 +16,8 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 @ControllerAdvice
 public class OAuth2ControllerAdvice extends ResponseEntityExceptionHandler {
 
-    @ExceptionHandler(value = OAuth2RegistrationException.class)
-    private ResponseEntity<Object> registrationExceptionHandler(OAuth2RegistrationException ex, WebRequest request) {
+    @ExceptionHandler(value = OAuth2UserRegistrationException.class)
+    private ResponseEntity<Object> registrationExceptionHandler(OAuth2UserRegistrationException ex, WebRequest request) {
         final var errorServerResponseDto = new ErrorServerResponseDto("Error", ex.getMsg());
         if (ex.getHttpStatus() == HttpStatus.INTERNAL_SERVER_ERROR) {
             return ResponseEntity.internalServerError().body(errorServerResponseDto);
@@ -26,8 +26,8 @@ public class OAuth2ControllerAdvice extends ResponseEntityExceptionHandler {
         }
     }
 
-    @ExceptionHandler(value = OAuth2RegistrationCodeException.class)
-    private ResponseEntity<Object> registrationCodeExceptionHandler(OAuth2RegistrationCodeException ex) {
+    @ExceptionHandler(value = OAuth2UserRegistrationCodeException.class)
+    private ResponseEntity<Object> registrationCodeExceptionHandler(OAuth2UserRegistrationCodeException ex) {
         final var errorServerResponseDto = new ErrorServerResponseDto("Error", ex.getMsg());
         if (ex.getHttpStatus() == HttpStatus.INTERNAL_SERVER_ERROR) {
             return ResponseEntity.internalServerError().body(errorServerResponseDto);
@@ -36,8 +36,8 @@ public class OAuth2ControllerAdvice extends ResponseEntityExceptionHandler {
         }
     }
 
-    @ExceptionHandler(value = OAuth2ForgotPasswordException.class)
-    private ResponseEntity<Object> forgotPasswordExceptionHandler(OAuth2ForgotPasswordException ex) {
+    @ExceptionHandler(value = OAuth2UserForgotPasswordException.class)
+    private ResponseEntity<Object> forgotPasswordExceptionHandler(OAuth2UserForgotPasswordException ex) {
         final var errorServerResponseDto = new ErrorServerResponseDto("Error", ex.getMsg());
         if (ex.getHttpStatus() == HttpStatus.INTERNAL_SERVER_ERROR) {
             return ResponseEntity.internalServerError().body(errorServerResponseDto);
@@ -46,8 +46,8 @@ public class OAuth2ControllerAdvice extends ResponseEntityExceptionHandler {
         }
     }
 
-    @ExceptionHandler(value = OAuth2ResetPasswordException.class)
-    private ResponseEntity<Object> resetPasswordExceptionHandler(OAuth2ResetPasswordException ex) {
+    @ExceptionHandler(value = OAuth2UserResetPasswordException.class)
+    private ResponseEntity<Object> resetPasswordExceptionHandler(OAuth2UserResetPasswordException ex) {
         final var errorServerResponseDto = new ErrorServerResponseDto("Error", ex.getMsg());
         if (ex.getHttpStatus() == HttpStatus.INTERNAL_SERVER_ERROR) {
             return ResponseEntity.internalServerError().body(errorServerResponseDto);

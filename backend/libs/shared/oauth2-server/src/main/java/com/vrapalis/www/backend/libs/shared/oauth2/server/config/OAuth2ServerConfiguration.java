@@ -13,6 +13,7 @@ import com.vrapalis.www.backend.libs.shared.oauth2.server.domain.user.service.OA
 import com.vrapalis.www.backend.libs.shared.oauth2.server.domain.user.util.OAuth2UserApiUrl;
 import lombok.AllArgsConstructor;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
+import org.springframework.boot.context.properties.ConfigurationPropertiesScan;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -49,6 +50,7 @@ import static org.springframework.security.config.Customizer.withDefaults;
                         classes = OAuth2UserServiceImpl.class)
         }
 )
+@ConfigurationPropertiesScan(basePackages = {"com.vrapalis.www.backend.libs.shared.oauth2.server.domain.*"})
 @EntityScan(basePackages = {"com.vrapalis.www.backend.libs.shared.oauth2.server.domain.*"})
 public class OAuth2ServerConfiguration {
 

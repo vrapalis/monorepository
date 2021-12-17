@@ -1,8 +1,4 @@
-import com.bmuschko.gradle.docker.tasks.container.DockerCreateContainer
-import com.bmuschko.gradle.docker.tasks.container.DockerStartContainer
-import com.bmuschko.gradle.docker.tasks.image.DockerBuildImage
-import com.bmuschko.gradle.docker.tasks.image.DockerPullImage
-import de.delloit.www.backend.plugins.utils.*
+import com.vrapalis.www.backend.plugins.utils.*
 
 group "${group}.apps"
 
@@ -14,7 +10,7 @@ subprojects {
     apply plugin: 'com.vrapalis.www.backend.plugins.spring-boot-application'
     apply plugin: 'com.vrapalis.www.backend.plugins.docker'
 
-    group "${UtilsProperties.BASE_GROUP}.apps.entryou"
+    group "${PropertiesUtils.BASE_GROUP}.apps.entryou"
 
     dependencies {
         implementation project(':libs:config')
