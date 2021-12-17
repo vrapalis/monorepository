@@ -107,6 +107,8 @@ public class OAuth2ServerConfiguration {
         CorsConfiguration config = new CorsConfiguration();
         config.addAllowedOrigin("http://localhost:4200");
         config.addAllowedOrigin("http://127.0.0.1:4200");
+        config.addAllowedOrigin("http://vrapalis-oauth2.ddns.net");
+        config.addAllowedOrigin("https://vrapalis-oauth2.ddns.net");
         config.addAllowedHeader("*");
         config.addAllowedMethod("*");
 
@@ -124,6 +126,8 @@ public class OAuth2ServerConfiguration {
                 .clientAuthenticationMethod(ClientAuthenticationMethod.BASIC)
                 .authorizationGrantType(AuthorizationGrantType.AUTHORIZATION_CODE)
                 .redirectUri("http://127.0.0.1:4200")
+                .redirectUri("http://vrapalis-oauth2.ddns.net")
+                .redirectUri("htts://vrapalis-oauth2.ddns.net")
                 .scope(OidcScopes.OPENID)
                 .scope("read")
                 .scope("write")
