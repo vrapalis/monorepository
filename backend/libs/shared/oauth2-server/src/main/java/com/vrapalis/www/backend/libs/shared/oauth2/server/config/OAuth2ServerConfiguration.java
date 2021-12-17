@@ -127,7 +127,7 @@ public class OAuth2ServerConfiguration {
                 .authorizationGrantType(AuthorizationGrantType.AUTHORIZATION_CODE)
                 .redirectUri("http://127.0.0.1:4200")
                 .redirectUri("http://vrapalis-oauth2.ddns.net")
-                .redirectUri("htts://vrapalis-oauth2.ddns.net")
+                .redirectUri("https://vrapalis-oauth2.ddns.net")
                 .scope(OidcScopes.OPENID)
                 .scope("read")
                 .scope("write")
@@ -147,7 +147,8 @@ public class OAuth2ServerConfiguration {
     @Bean
     public ProviderSettings providerSettings() {
         var ps = new ProviderSettings();
-        ps = ps.issuer("http://127.0.0.1:8080");
+//        ps = ps.issuer("http://127.0.0.1:8080");
+        ps = ps.issuer("https://vrapalis-oauth2.ddns.net");
         ps = ps.jwkSetEndpoint("/certs");
         return ps;
     }
