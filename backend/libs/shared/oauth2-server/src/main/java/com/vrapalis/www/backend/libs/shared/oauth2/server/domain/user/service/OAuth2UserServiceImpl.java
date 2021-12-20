@@ -85,7 +85,7 @@ public class OAuth2UserServiceImpl implements OAuth2UserService {
             codeEntity.setUser(userEntity);
             final var registeredUser = userRepository.saveAndFlush(userEntity);
 
-            final var link = request.getScheme() + "://" + request.getRemoteHost() + ":" + request.getServerPort()
+            final var link = registrationPropertiesTemplate.getHost()
                     + registrationPropertiesTemplate.getRegistrationPath() + codeEntity.getCode();
 
             final var emailDto = OAuth2EmailSendDto.builder()
@@ -171,7 +171,7 @@ public class OAuth2UserServiceImpl implements OAuth2UserService {
             userEntity.setPasswordCode(passwordCodeEntity);
             userRepository.saveAndFlush(userEntity);
 
-            final var link = request.getScheme() + "://" + request.getRemoteHost() + ":" + request.getServerPort()
+            final var link = passwordPropertiesTemplate.getHost()
                     + passwordPropertiesTemplate.getPasswordPath() + passwordCodeEntity.getCode();
 
             final var emailDto = OAuth2EmailSendDto.builder()

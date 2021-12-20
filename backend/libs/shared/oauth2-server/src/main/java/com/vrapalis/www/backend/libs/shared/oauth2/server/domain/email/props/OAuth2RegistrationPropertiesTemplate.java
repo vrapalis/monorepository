@@ -16,6 +16,9 @@ import javax.validation.constraints.NotNull;
 public class OAuth2RegistrationPropertiesTemplate {
 
     @NotNull
+    private String host;
+
+    @NotNull
     private String registrationPath;
 
     @NotNull

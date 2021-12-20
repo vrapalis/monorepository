@@ -16,6 +16,9 @@ import javax.validation.constraints.NotNull;
 public class OAuth2PasswordPropertiesTemplate {
 
     @NotNull
+    private String host;
+
+    @NotNull
     private String subject;
 
     @NotNull
