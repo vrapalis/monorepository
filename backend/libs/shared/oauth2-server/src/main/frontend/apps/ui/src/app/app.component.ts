@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { OAuthService } from 'angular-oauth2-oidc';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { OAUTH2_CODE_FLOW_CONFIG, SharedUtilAuthService } from '@frontend/shared/util';
+import { SharedUtilAuthService, SharedUtilEnvService } from '@frontend/shared/util';
 import { RouterOutlet } from '@angular/router';
 import { slideInAnimation } from '@frontend/shared/ui';
 
@@ -16,11 +16,11 @@ import { slideInAnimation } from '@frontend/shared/ui';
 export class AppComponent implements OnInit {
 
   constructor(private authService: OAuthService, private http: HttpClient,
-              private sharedUtilAuthService: SharedUtilAuthService) {
+              private sharedUtilAuthService: SharedUtilAuthService, private env: SharedUtilEnvService) {
   }
 
   ngOnInit(): void {
-    this.authService.configure(OAUTH2_CODE_FLOW_CONFIG);
+    this.authService.configure(this.env.getAuthConfig());
     this.sharedUtilAuthService.onOAuthEvents();
   }
 

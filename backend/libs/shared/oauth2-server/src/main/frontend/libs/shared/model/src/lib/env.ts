@@ -3,4 +3,5 @@ export interface IEnv {
   apiBasePath: string;
   appName: string;
   production: boolean;
+  issuer: string;
 }
