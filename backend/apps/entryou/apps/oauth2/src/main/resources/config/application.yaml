@@ -29,7 +29,8 @@ spring:
             clientSecret: 8XX7Q~yqyW3tnUKoIkImUsvhvYo8FqYKVWkSe
             client-name: Test1
             authorization-grant-type: authorization_code
-            redirect-uri: '{baseUrl}/login/oauth2/code/{registrationId}'
+            redirect-uri: 'https://vrapalis-oauth2.ddns.net/login/oauth2/code/{registrationId}'
+#            redirect-uri: '{baseUrl}/login/oauth2/code/{registrationId}'
             scope:
               - https://graph.microsoft.com/.default
               - openid
