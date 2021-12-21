@@ -25,7 +25,7 @@ import java.io.IOException;
 import java.util.UUID;
 
 @Log4j2
-@Component
+//@Component
 public class OAuth2RegistrationFilter extends OncePerRequestFilter {
     private final String REGISTRATION_PATH = OAuth2UserApiUrl.USER_REGISTRATION_URL;
     private final String REGISTRATION_ERROR_URL = "/registration?error";

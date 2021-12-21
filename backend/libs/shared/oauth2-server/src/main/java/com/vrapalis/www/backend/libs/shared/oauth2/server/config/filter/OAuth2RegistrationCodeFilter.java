@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.util.UUID;
 
 @Log4j2
-@Component
+//@Component
 @AllArgsConstructor
 public class OAuth2RegistrationCodeFilter extends OncePerRequestFilter {
     private static final String PARAMETER_CODE_NAME = "code";
