@@ -228,7 +228,6 @@ public class OAuth2UserServiceImpl implements OAuth2UserService {
                 info.setFirstName(user.getGivenName());
                 info.setLastName(user.getFamilyName());
                 final var account = userEntity.getAccount();
-                account.setIsEnabled(user.isEmailVerified());
             } else {
                 final var provider = EOAuth2Provider.valueOf(clientRegistrationId.toUpperCase());
 
@@ -236,7 +235,7 @@ public class OAuth2UserServiceImpl implements OAuth2UserService {
                         .accountNonExpired(true)
                         .accountNonLocked(true)
                         .credentialsNonExpired(true)
-                        .isEnabled(user.isEmailVerified())
+                        .isEnabled(true)
                         .provider(provider)
                         .build();
 

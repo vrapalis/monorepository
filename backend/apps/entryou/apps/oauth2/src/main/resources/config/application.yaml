@@ -30,6 +30,7 @@ spring:
             client-name: Test1
             authorization-grant-type: authorization_code
             redirect-uri: 'https://vrapalis-oauth2.ddns.net/login/oauth2/code/{registrationId}'
+#            redirect-uri: 'http://localhost:8080/login/oauth2/code/{registrationId}'
 #            redirect-uri: '{baseUrl}/login/oauth2/code/{registrationId}'
             scope:
               - https://graph.microsoft.com/.default
@@ -56,6 +57,6 @@ com:
             github :
               - bi-github
               - text-black
-            azuread :
+            microsoft :
               - bi-microsoft
               - text-success
