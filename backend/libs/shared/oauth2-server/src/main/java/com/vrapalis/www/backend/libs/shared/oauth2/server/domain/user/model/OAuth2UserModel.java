@@ -4,14 +4,18 @@ import com.vrapalis.www.backend.libs.shared.oauth2.server.domain.user.entity.OAu
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.oauth2.core.oidc.OidcIdToken;
+import org.springframework.security.oauth2.core.oidc.OidcUserInfo;
+import org.springframework.security.oauth2.core.oidc.user.OidcUser;
 import org.springframework.security.oauth2.core.user.OAuth2User;
 
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.Map;
 
 @Data
 @AllArgsConstructor
-public class OAuth2UserModel implements OAuth2User {
+public class OAuth2UserModel implements OidcUser {
     private OAuth2User oauth2User;
     private OAuth2UserEntity userEntity;
 
@@ -63,5 +67,29 @@ public class OAuth2UserModel implements OAuth2User {
 
     public String getPicture() {
         return oauth2User.getAttribute("picture");
+    }
+
+    @Override
+    public Map<String, Object> getClaims() {
+        if(oauth2User instanceof OidcUser) {
+            return ((OidcUser) oauth2User).getClaims();
+        }
+        return null;
+    }
+
+    @Override
+    public OidcUserInfo getUserInfo() {
+        if(oauth2User instanceof OidcUser) {
+            return ((OidcUser) oauth2User).getUserInfo();
+        }
+        return null;
+    }
+
+    @Override
+    public OidcIdToken getIdToken() {
+        if(oauth2User instanceof OidcUser) {
+            return ((OidcUser) oauth2User).getIdToken();
+        }
+        return null;
     }
 }

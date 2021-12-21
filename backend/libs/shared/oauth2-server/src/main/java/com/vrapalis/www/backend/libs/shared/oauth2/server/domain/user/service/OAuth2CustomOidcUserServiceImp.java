@@ -21,6 +21,6 @@ public class OAuth2CustomOidcUserServiceImp extends OidcUserService {
         final var oidcUser = super.loadUser(userRequest);
         final var auth2UserModel = new OAuth2UserModel(oidcUser);
         OAuth2UserEntity persistedUser = userService.save(auth2UserModel, userRequest.getClientRegistration().getClientName());
-        return (OidcUser) new OAuth2UserModel(oidcUser, persistedUser);
+        return new OAuth2UserModel(oidcUser, persistedUser);
     }
 }
