@@ -22,7 +22,7 @@ public class OAuth2CustomOAuth2UserServiceImp extends DefaultOAuth2UserService {
         OAuth2User user = (OAuth2User) super.loadUser(userRequest);
         final var auth2UserModel = new OAuth2UserModel(user);
         log.debug("CLIENT REGISTRATION: " + userRequest.getClientRegistration().toString());
-        OAuth2UserEntity persistedUser = userService.save(auth2UserModel, userRequest.getClientRegistration().getClientName());
+        OAuth2UserEntity persistedUser = userService.save(auth2UserModel, userRequest.getClientRegistration().getRegistrationId());
         return new OAuth2UserModel(user, persistedUser);
     }
 }
