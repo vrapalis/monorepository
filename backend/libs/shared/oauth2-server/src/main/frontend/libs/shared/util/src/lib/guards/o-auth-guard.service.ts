@@ -22,7 +22,7 @@ export class OAuthGuardService implements CanLoad {
         take(1),
         map(() => {
           if (!this.oauthService.hasValidIdToken() || !this.oauthService.hasValidAccessToken()) {
-            // this.oauthService.initImplicitFlow('some-state');
+            //this.oauthService.initImplicitFlow('some-state');
             this.oauthService.initImplicitFlow();
             return false;
           } else {
