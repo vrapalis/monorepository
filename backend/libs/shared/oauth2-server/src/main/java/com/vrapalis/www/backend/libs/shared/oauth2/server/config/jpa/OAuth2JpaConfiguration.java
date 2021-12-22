@@ -1,5 +1,6 @@
 package com.vrapalis.www.backend.libs.shared.oauth2.server.config.jpa;
 
+import com.fasterxml.jackson.datatype.hibernate5.Hibernate5Module;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.domain.AuditorAware;
@@ -18,5 +19,10 @@ public class OAuth2JpaConfiguration {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         return () -> Optional.ofNullable(authentication != null ? ((UserDetails) authentication.getPrincipal()).getUsername()
                 : "unknown");
+    }
+
+    @Bean
+    public com.fasterxml.jackson.databind.Module datatypeHibernateModule() {
+        return new Hibernate5Module();
     }
 }

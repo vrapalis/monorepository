@@ -9,4 +9,5 @@
 
     <include file="scripts/user-table.xml" relativeToChangelogFile="true"/>
     <include file="scripts/role-table.xml" relativeToChangelogFile="true"/>
+    <include file="scripts/oauth2-schema.xml" relativeToChangelogFile="true"/>
 </databaseChangeLog>

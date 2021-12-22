@@ -1,5 +1,8 @@
 package com.vrapalis.www.backend.libs.shared.oauth2.server.domain.user.entity;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.vrapalis.www.backend.libs.shared.oauth2.server.domain.common.entity.OAuth2CommonEntity;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
@@ -14,6 +17,7 @@ import java.util.UUID;
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = false)
+@JsonIgnoreProperties("user")
 public class OAuth2UserRegistrationCodeEntity extends OAuth2CommonEntity {
 
     @Id

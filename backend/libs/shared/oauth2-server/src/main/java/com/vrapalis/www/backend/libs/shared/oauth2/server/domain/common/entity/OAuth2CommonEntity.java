@@ -1,5 +1,7 @@
 package com.vrapalis.www.backend.libs.shared.oauth2.server.domain.common.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

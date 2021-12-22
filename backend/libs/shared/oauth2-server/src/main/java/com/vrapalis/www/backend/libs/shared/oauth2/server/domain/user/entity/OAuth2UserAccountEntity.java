@@ -1,5 +1,8 @@
 package com.vrapalis.www.backend.libs.shared.oauth2.server.domain.user.entity;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.vrapalis.www.backend.libs.shared.oauth2.server.domain.user.model.EOAuth2Provider;
 import lombok.*;
 
@@ -14,6 +17,7 @@ import java.util.UUID;
 @AllArgsConstructor
 @Table(name = "oauth2_user_account")
 @ToString(onlyExplicitlyIncluded = true)
+@JsonIgnoreProperties("user")
 public class OAuth2UserAccountEntity implements Serializable {
 
     @Id
