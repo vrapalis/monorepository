@@ -6,21 +6,19 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.function.Consumer;
 
+import com.fasterxml.jackson.annotation.*;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.*;
 
 import com.fasterxml.jackson.databind.Module;
 import org.springframework.dao.DataRetrievalFailureException;
 import org.springframework.security.jackson2.SecurityJackson2Modules;
-import org.springframework.security.oauth2.core.AuthorizationGrantType;
-import org.springframework.security.oauth2.core.OAuth2AccessToken;
-import org.springframework.security.oauth2.core.OAuth2RefreshToken;
-import org.springframework.security.oauth2.core.OAuth2Token;
-import org.springframework.security.oauth2.core.OAuth2TokenType;
+import org.springframework.security.oauth2.core.*;
 import org.springframework.security.oauth2.core.endpoint.OAuth2ParameterNames;
 import org.springframework.security.oauth2.core.oidc.OidcIdToken;
-import org.springframework.security.oauth2.server.authorization.OAuth2AuthorizationCode;
+import org.springframework.security.oauth2.server.authorization.OAuth2Authorization;
 import org.springframework.security.oauth2.server.authorization.OAuth2AuthorizationService;
+import org.springframework.security.oauth2.server.authorization.authentication.OAuth2ClientAuthenticationToken;
 import org.springframework.security.oauth2.server.authorization.client.RegisteredClient;
 import org.springframework.security.oauth2.server.authorization.client.RegisteredClientRepository;
 import org.springframework.security.oauth2.server.authorization.jackson2.OAuth2AuthorizationServerJackson2Module;
@@ -47,29 +45,35 @@ public class OAuth2CustomJpaAuthorizationService implements OAuth2AuthorizationS
         this.objectMapper.registerModule(new OAuth2AuthorizationServerJackson2Module());
         this.objectMapper.configure(SerializationFeature.FAIL_ON_EMPTY_BEANS, false);
         this.objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
-        this.objectMapper.configure(MapperFeature.USE_GETTERS_AS_SETTERS, false);
+//        this.objectMapper.configure(MapperFeature.USE_GETTERS_AS_SETTERS, false);
+
+        objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+//        objectMapper.configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, false);
+        objectMapper.addMixIn(OAuth2ClientAuthenticationToken.class, OAuth2ClientAuthenticationTokenMix.class);
+        objectMapper.addMixIn(ClientAuthenticationMethod.class, ClientAuthenticationMethodMix.class);
+
     }
 
     @Override
-    public void save(org.springframework.security.oauth2.server.authorization.OAuth2Authorization OAuth2Authorization) {
-        Assert.notNull(OAuth2Authorization, "authorization cannot be null");
-        this.OAuth2CustomAuthorizationRepository.save(toEntity(OAuth2Authorization));
+    public void save(OAuth2Authorization oAuth2Authorization) {
+        Assert.notNull(oAuth2Authorization, "authorization cannot be null");
+        this.OAuth2CustomAuthorizationRepository.save(toEntity(oAuth2Authorization));
     }
 
     @Override
-    public void remove(org.springframework.security.oauth2.server.authorization.OAuth2Authorization OAuth2Authorization) {
+    public void remove(OAuth2Authorization OAuth2Authorization) {
         Assert.notNull(OAuth2Authorization, "authorization cannot be null");
         this.OAuth2CustomAuthorizationRepository.deleteById(OAuth2Authorization.getId());
     }
 
     @Override
-    public org.springframework.security.oauth2.server.authorization.OAuth2Authorization findById(String id) {
+    public OAuth2Authorization findById(String id) {
         Assert.hasText(id, "id cannot be empty");
         return this.OAuth2CustomAuthorizationRepository.findById(id).map(this::toObject).orElse(null);
     }
 
     @Override
-    public org.springframework.security.oauth2.server.authorization.OAuth2Authorization findByToken(String token, OAuth2TokenType tokenType) {
+    public OAuth2Authorization findByToken(String token, OAuth2TokenType tokenType) {
         Assert.hasText(token, "token cannot be empty");
 
         Optional<OAuth2CustomAuthorization> result;
@@ -90,14 +94,14 @@ public class OAuth2CustomJpaAuthorizationService implements OAuth2AuthorizationS
         return result.map(this::toObject).orElse(null);
     }
 
-    private org.springframework.security.oauth2.server.authorization.OAuth2Authorization toObject(OAuth2CustomAuthorization entity) {
+    private OAuth2Authorization toObject(OAuth2CustomAuthorization entity) {
         RegisteredClient registeredClient = this.registeredClientRepository.findById(entity.getRegisteredClientId());
         if (registeredClient == null) {
             throw new DataRetrievalFailureException(
                     "The RegisteredClient with id '" + entity.getRegisteredClientId() + "' was not found in the RegisteredClientRepository.");
         }
 
-        org.springframework.security.oauth2.server.authorization.OAuth2Authorization.Builder builder = org.springframework.security.oauth2.server.authorization.OAuth2Authorization.withRegisteredClient(registeredClient)
+        OAuth2Authorization.Builder builder = OAuth2Authorization.withRegisteredClient(registeredClient)
                 .id(entity.getId())
                 .principalName(entity.getPrincipalName())
                 .authorizationGrantType(resolveAuthorizationGrantType(entity.getAuthorizationGrantType()))
@@ -143,7 +147,7 @@ public class OAuth2CustomJpaAuthorizationService implements OAuth2AuthorizationS
         return builder.build();
     }
 
-    private OAuth2CustomAuthorization toEntity(org.springframework.security.oauth2.server.authorization.OAuth2Authorization OAuth2Authorization) {
+    private OAuth2CustomAuthorization toEntity(OAuth2Authorization OAuth2Authorization) {
         OAuth2CustomAuthorization entity = new OAuth2CustomAuthorization();
         entity.setId(OAuth2Authorization.getId());
         entity.setRegisteredClientId(OAuth2Authorization.getRegisteredClientId());
@@ -152,7 +156,7 @@ public class OAuth2CustomJpaAuthorizationService implements OAuth2AuthorizationS
         entity.setAttributes(writeMap(OAuth2Authorization.getAttributes()));
         entity.setState(OAuth2Authorization.getAttribute(OAuth2ParameterNames.STATE));
 
-        org.springframework.security.oauth2.server.authorization.OAuth2Authorization.Token<OAuth2AuthorizationCode> authorizationCode =
+        OAuth2Authorization.Token<OAuth2AuthorizationCode> authorizationCode =
                 OAuth2Authorization.getToken(OAuth2AuthorizationCode.class);
         setTokenValues(
                 authorizationCode,
@@ -162,7 +166,7 @@ public class OAuth2CustomJpaAuthorizationService implements OAuth2AuthorizationS
                 entity::setAuthorizationCodeMetadata
         );
 
-        org.springframework.security.oauth2.server.authorization.OAuth2Authorization.Token<OAuth2AccessToken> accessToken =
+        OAuth2Authorization.Token<OAuth2AccessToken> accessToken =
                 OAuth2Authorization.getToken(OAuth2AccessToken.class);
         setTokenValues(
                 accessToken,
@@ -175,7 +179,7 @@ public class OAuth2CustomJpaAuthorizationService implements OAuth2AuthorizationS
             entity.setAccessTokenScopes(StringUtils.collectionToDelimitedString(accessToken.getToken().getScopes(), ","));
         }
 
-        org.springframework.security.oauth2.server.authorization.OAuth2Authorization.Token<OAuth2RefreshToken> refreshToken =
+        OAuth2Authorization.Token<OAuth2RefreshToken> refreshToken =
                 OAuth2Authorization.getToken(OAuth2RefreshToken.class);
         setTokenValues(
                 refreshToken,
@@ -185,7 +189,7 @@ public class OAuth2CustomJpaAuthorizationService implements OAuth2AuthorizationS
                 entity::setRefreshTokenMetadata
         );
 
-        org.springframework.security.oauth2.server.authorization.OAuth2Authorization.Token<OidcIdToken> oidcIdToken =
+        OAuth2Authorization.Token<OidcIdToken> oidcIdToken =
                 OAuth2Authorization.getToken(OidcIdToken.class);
         setTokenValues(
                 oidcIdToken,
@@ -202,7 +206,7 @@ public class OAuth2CustomJpaAuthorizationService implements OAuth2AuthorizationS
     }
 
     private void setTokenValues(
-            org.springframework.security.oauth2.server.authorization.OAuth2Authorization.Token<?> token,
+            OAuth2Authorization.Token<?> token,
             Consumer<String> tokenValueConsumer,
             Consumer<Instant> issuedAtConsumer,
             Consumer<Instant> expiresAtConsumer,
@@ -241,6 +245,48 @@ public class OAuth2CustomJpaAuthorizationService implements OAuth2AuthorizationS
         } else if (AuthorizationGrantType.REFRESH_TOKEN.getValue().equals(authorizationGrantType)) {
             return AuthorizationGrantType.REFRESH_TOKEN;
         }
-        return new AuthorizationGrantType(authorizationGrantType);		// Custom authorization grant type
+        return new AuthorizationGrantType(authorizationGrantType);        // Custom authorization grant type
     }
+}
+
+abstract class OAuth2ClientAuthenticationTokenMix {
+    //    @JsonIgnore
+    @JsonProperty("clientId")
+    private String clientId;
+
+    //    @JsonIgnore
+    @JsonProperty("clientAuthenticationMethod")
+    private ClientAuthenticationMethod clientAuthenticationMethod;
+
+    //    @JsonIgnore
+    @JsonProperty("additionalParameters")
+    private Map<String, Object> additionalParameters;
+
+    @JsonProperty("credentials")
+    Object credentials;
+
+    @JsonIgnore
+    private RegisteredClient registeredClient;
+
+
+    @JsonCreator
+    public OAuth2ClientAuthenticationTokenMix(@JsonProperty("clientId") String clientId,
+                                              @JsonProperty("clientAuthenticationMethod") ClientAuthenticationMethod
+                                                      clientAuthenticationMethod,
+                                              @JsonProperty("credentials") Object credentials,
+                                              @JsonProperty("additionalParameters") Map<String, Object> additionalParameters) {
+    }
+}
+
+abstract class ClientAuthenticationMethodMix {
+    @JsonProperty("value")
+    private String value;
+
+    @JsonCreator
+    public ClientAuthenticationMethodMix(@JsonProperty("value") String value) {
+    }
+}
+
+abstract class RegisteredClientMix {
+
 }

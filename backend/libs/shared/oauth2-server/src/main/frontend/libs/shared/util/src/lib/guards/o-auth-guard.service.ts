@@ -5,7 +5,6 @@ import { OAuthService } from 'angular-oauth2-oidc';
 import { flatMap, map, switchMap, take, tap } from 'rxjs/operators';
 import { Store } from '@ngrx/store';
 import { IUserState } from '@frontend/state';
-import { SELECT_USER_STATE } from '../../../../../state/src/lib/user/selectors/user.selectors';
 import { fromPromise } from 'rxjs/internal-compatibility';
 
 @Injectable({
@@ -21,9 +20,9 @@ export class OAuthGuardService implements CanLoad {
       .pipe(
         take(1),
         map(() => {
+          console.log(this.oauthService)
           if (!this.oauthService.hasValidIdToken() || !this.oauthService.hasValidAccessToken()) {
-            //this.oauthService.initImplicitFlow('some-state');
-            this.oauthService.initImplicitFlow();
+            this.oauthService.initLoginFlow();
             return false;
           } else {
             return true;

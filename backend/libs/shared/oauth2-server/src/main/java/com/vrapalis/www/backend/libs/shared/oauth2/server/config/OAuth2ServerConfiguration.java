@@ -43,7 +43,9 @@ import org.springframework.security.oauth2.server.authorization.client.InMemoryR
 import org.springframework.security.oauth2.server.authorization.client.JdbcRegisteredClientRepository;
 import org.springframework.security.oauth2.server.authorization.client.RegisteredClient;
 import org.springframework.security.oauth2.server.authorization.client.RegisteredClientRepository;
+import org.springframework.security.oauth2.server.authorization.config.ClientSettings;
 import org.springframework.security.oauth2.server.authorization.config.ProviderSettings;
+import org.springframework.security.oauth2.server.authorization.config.TokenSettings;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
@@ -147,23 +149,30 @@ public class OAuth2ServerConfiguration {
         RegisteredClient registeredClient = RegisteredClient.withId("client")
                 .clientId("client")
                 .clientSecret("secret")
-                .clientAuthenticationMethod(ClientAuthenticationMethod.BASIC)
+//                .clientAuthenticationMethod(ClientAuthenticationMethod.BASIC)
+                .clientAuthenticationMethod(ClientAuthenticationMethod.CLIENT_SECRET_BASIC)
                 .authorizationGrantType(AuthorizationGrantType.AUTHORIZATION_CODE)
                 .redirectUri("http://127.0.0.1:4200")
+                .redirectUri("http://127.0.0.1:8080")
                 .redirectUri("http://vrapalis-oauth2.ddns.net")
                 .redirectUri("https://vrapalis-oauth2.ddns.net")
                 .scope(OidcScopes.OPENID)
                 .scope("read")
                 .scope("write")
-                .clientSettings(clientSettings -> clientSettings.requireUserConsent(true))
-                .tokenSettings(tokenSettings -> {
-                    // accessToken  The validity of the
-                    tokenSettings.accessTokenTimeToLive(Duration.ofHours(1));
-                    // refreshToken  The validity of the
-                    tokenSettings.refreshTokenTimeToLive(Duration.ofDays(3));
-                    //  Whether the refresh token can be reused
-                    tokenSettings.reuseRefreshTokens(true);
-                })
+//                .clientSettings(clientSettings -> clientSettings.requireUserConsent(true))
+                .clientSettings(ClientSettings.builder().requireAuthorizationConsent(true).build())
+//                .tokenSettings(tokenSettings -> {
+//                    // accessToken  The validity of the
+//                    tokenSettings.accessTokenTimeToLive(Duration.ofHours(1));
+//                    // refreshToken  The validity of the
+//                    tokenSettings.refreshTokenTimeToLive(Duration.ofDays(3));
+//                    //  Whether the refresh token can be reused
+//                    tokenSettings.reuseRefreshTokens(true);
+//                })
+                .tokenSettings(TokenSettings.builder().accessTokenTimeToLive(Duration.ofHours(1))
+                        .refreshTokenTimeToLive(Duration.ofHours(1))
+                        .reuseRefreshTokens(true)
+                        .build())
                 .build();
 
         final var jdbcRegisteredClientRepository = new JdbcRegisteredClientRepository(jdbcOperations);
@@ -185,11 +194,11 @@ public class OAuth2ServerConfiguration {
 
     @Bean
     public ProviderSettings providerSettings() {
-        var ps = new ProviderSettings();
-//        ps = ps.issuer("http://127.0.0.1:8080");
-        ps = ps.issuer("https://vrapalis-oauth2.ddns.net");
+        var ps = ProviderSettings.builder();
+        ps = ps.issuer("http://127.0.0.1:8080");
+//        ps = ps.issuer("https://vrapalis-oauth2.ddns.net");
         ps = ps.jwkSetEndpoint("/certs");
-        return ps;
+        return ps.build();
     }
 
     @Bean
@@ -208,4 +217,9 @@ public class OAuth2ServerConfiguration {
                                                                          RegisteredClientRepository registeredClientRepository) {
         return new JdbcOAuth2AuthorizationConsentService(jdbcTemplate, registeredClientRepository);
     }
+
+/*    @Bean
+    public OAuth2AuthorizationService oAuth2AuthorizationService(JdbcOperations jdbcOperations, RegisteredClientRepository repository) {
+        return new JdbcOAuth2AuthorizationService(jdbcOperations, repository);
+    }*/
 }

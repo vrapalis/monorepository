@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ExternalStorageConfigurationManager" enabled="true" />
   <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="web" url="file://$PROJECT_DIR$/../../../../../tutorials/spring-authorization-server/oauth2-authorization-server" />
     <file type="web" url="file://$PROJECT_DIR$" />
     <file type="web" url="file://$PROJECT_DIR$/../../libs/shared/assertion" />
     <file type="web" url="file://$PROJECT_DIR$/../../libs/shared/dto" />

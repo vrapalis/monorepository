@@ -1134,9 +1134,9 @@ class OAuthGuardService {
     canLoad(route, segments) {
         return (0,rxjs_internal_compatibility__WEBPACK_IMPORTED_MODULE_0__.fromPromise)(this.oauthService.loadDiscoveryDocumentAndTryLogin())
             .pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_1__.take)(1), (0,rxjs_operators__WEBPACK_IMPORTED_MODULE_2__.map)(() => {
+            console.log(this.oauthService);
             if (!this.oauthService.hasValidIdToken() || !this.oauthService.hasValidAccessToken()) {
-                //this.oauthService.initImplicitFlow('some-state');
-                this.oauthService.initImplicitFlow();
+                this.oauthService.initLoginFlow();
                 return false;
             }
             else {
