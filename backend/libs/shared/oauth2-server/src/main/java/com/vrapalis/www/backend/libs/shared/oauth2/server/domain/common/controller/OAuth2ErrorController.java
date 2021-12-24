@@ -16,7 +16,9 @@ public class OAuth2ErrorController implements ErrorController {
 
     @RequestMapping(value = PATH)
     public String error() {
-        return "forward:/index.html";
+//        TODO REPLACE THRU VARIABLE
+        return "redirect:http://127.0.0.1:4200";
+//        return "forward:/index.html";
 //        return "redirect:/index.html";
     }
 }

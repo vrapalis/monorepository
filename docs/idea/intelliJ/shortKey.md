@@ -1,6 +1,7 @@
 # IntellijJ Short Keys
 
 ## Gradle
+### Open Gradle Tab ctrl+shift+numpad1``
 
 ### Updated/Reaload Project ``strg + shift + o``
 

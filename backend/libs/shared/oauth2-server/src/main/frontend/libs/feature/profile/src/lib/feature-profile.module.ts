@@ -7,11 +7,12 @@ import { ProfileCnComponent } from './containers/profile-cn.component';
   imports: [
     CommonModule,
     RouterModule.forChild([
-       {path: '', pathMatch: 'full', component: ProfileCnComponent}
-    ]),
+      { path: '', component: ProfileCnComponent }
+    ])
   ],
   declarations: [
     ProfileCnComponent
-  ],
+  ]
 })
-export class FeatureProfileModule {}
+export class FeatureProfileModule {
+}

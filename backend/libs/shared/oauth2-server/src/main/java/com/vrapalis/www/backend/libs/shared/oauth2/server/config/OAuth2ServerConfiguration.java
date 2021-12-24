@@ -153,6 +153,7 @@ public class OAuth2ServerConfiguration {
                 .clientAuthenticationMethod(ClientAuthenticationMethod.CLIENT_SECRET_BASIC)
                 .authorizationGrantType(AuthorizationGrantType.AUTHORIZATION_CODE)
                 .redirectUri("http://127.0.0.1:4200")
+                .redirectUri("http://127.0.0.1:4200/profile")
                 .redirectUri("http://127.0.0.1:8080")
                 .redirectUri("http://vrapalis-oauth2.ddns.net")
                 .redirectUri("https://vrapalis-oauth2.ddns.net")
