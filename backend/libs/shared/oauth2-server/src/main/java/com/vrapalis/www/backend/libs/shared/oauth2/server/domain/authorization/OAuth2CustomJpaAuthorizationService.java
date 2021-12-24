@@ -45,7 +45,7 @@ public class OAuth2CustomJpaAuthorizationService implements OAuth2AuthorizationS
         this.objectMapper.registerModule(new OAuth2AuthorizationServerJackson2Module());
         this.objectMapper.configure(SerializationFeature.FAIL_ON_EMPTY_BEANS, false);
         this.objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
-//        this.objectMapper.configure(MapperFeature.USE_GETTERS_AS_SETTERS, false);
+        this.objectMapper.configure(MapperFeature.USE_GETTERS_AS_SETTERS, false);
 
         objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
 //        objectMapper.configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, false);
