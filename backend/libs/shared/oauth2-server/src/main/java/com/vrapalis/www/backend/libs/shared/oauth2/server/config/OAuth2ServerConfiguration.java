@@ -196,6 +196,7 @@ public class OAuth2ServerConfiguration {
     @Bean
     public ProviderSettings providerSettings() {
         var ps = ProviderSettings.builder();
+//        TODO EXTERNALIZE THRU PROPERTY
 //        ps = ps.issuer("http://127.0.0.1:8080");
         ps = ps.issuer("https://vrapalis-oauth2.ddns.net");
         ps = ps.jwkSetEndpoint("/certs");
