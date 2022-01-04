@@ -17,23 +17,23 @@ import {Component} from '@angular/core';
             <li class='nav-item'>
               <a class='nav-link' aria-current='page' routerLinkActive="active" routerLink='home'>Home</a>
             </li>
-            <!--<li class='nav-item'>
-              <a class='nav-link active' aria-current='page' routerLink='blog'>Blog</a>
-            </li>
-            <li class='nav-item'>
-              <a class='nav-link active' aria-current='page' routerLink='projects'>Projects</a>
-            </li>
-            <li class='nav-item dropdown'>
-              <a class='nav-link dropdown-toggle' href='#' id='navbarScrollingDropdown' role='button'
-                 data-bs-toggle='dropdown' aria-expanded='false'>
-                Language
-              </a>
-              <ul class='dropdown-menu dropdown-menu-end' aria-labelledby='navbarScrollingDropdown'>
-                <li><a class='dropdown-item' href='#'>GER</a></li>
-                <li><a class='dropdown-item' href='#'>ENG</a></li>
-                <li><a class='dropdown-item' href='#'>RUS</a></li>
-              </ul>
-            </li>-->
+            <!--   <li class='nav-item'>
+                 <a class='nav-link active' aria-current='page' routerLink='blog'>Blog</a>
+               </li>
+               <li class='nav-item'>
+                 <a class='nav-link active' aria-current='page' routerLink='projects'>Projects</a>
+               </li>
+               <li class='nav-item dropdown'>
+                 <a class='nav-link dropdown-toggle' href='#' id='navbarScrollingDropdown' role='button'
+                    data-bs-toggle='dropdown' aria-expanded='false'>
+                   Language
+                 </a>
+                 <ul class='dropdown-menu dropdown-menu-end' aria-labelledby='navbarScrollingDropdown'>
+                   <li><a class='dropdown-item' href='#'>GER</a></li>
+                   <li><a class='dropdown-item' href='#'>ENG</a></li>
+                   <li><a class='dropdown-item' href='#'>RUS</a></li>
+                 </ul>
+               </li>-->
           </ul>
         </div>
       </div>

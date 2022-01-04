@@ -1,12 +1,31 @@
-.wrapper {
+@import "libs/shared/ui/src/lib/style/mixins";
+
+.home-wrapper {
 
   .profile {
     img {
-      width: 80%;
+      object-fit: contain;
+      height: 400px;
     }
   }
 
-  .description {
-    text-align: left;
+  .projects {
+    margin-top: 80px;
+    z-index: 100;
+  }
+
+  @include minXXLargeScreen {
+    .profile {
+      img {
+      }
+    }
+  }
+
+  @include maxMediumScreen {
+    .profile {
+      img {
+        height: 400px;
+      }
+    }
   }
 }

@@ -2,4 +2,11 @@
 
 .nav-wrapper {
   max-width: $max-body-width;
+
+  .nav-item a {
+    background: black;
+    color: white !important;
+    border-radius: 55px;
+    padding: 5px 20px;
+  }
 }

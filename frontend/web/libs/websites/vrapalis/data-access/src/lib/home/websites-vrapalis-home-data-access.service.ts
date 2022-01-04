@@ -19,6 +19,7 @@ export class WebsitesVrapalisHomeDataAccessService extends StrapiService<IHome> 
       .pipe(
         map(response => {
           response.profile.url = this.env.strapiPath + response.profile.url;
+          response.projects.projects.forEach(project => project.picture.url = this.env.strapiPath + project.picture.url);
           return response;
         })
       );

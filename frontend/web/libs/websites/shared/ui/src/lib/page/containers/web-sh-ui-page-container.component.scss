@@ -1,8 +1,19 @@
-@import "libs/shared/ui/src/lib/style/reset";
+//@import "libs/shared/ui/src/lib/style/reset";
+@import "libs/shared/ui/src/lib/style/vars";
 
-.wrapper {
-  position: absolute;
-  width: 100%;
-  background: #80B1A6;
-  height: 100%;
+body {
+  background: $body-color;
 }
+
+.page-container-wrapper {
+  .image {
+    background: url("./assets/background.svg");
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 800px;
+    height: 600px;
+    background-size: cover;
+  }
+}
+

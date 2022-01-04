@@ -1,0 +1,26 @@
+/* MIXINS */
+
+/* MEDIA QUERIES */
+@mixin maxXSmallScreen {
+  @media only screen and (max-width: 576px) {
+    @content;
+  }
+}
+
+@mixin maxMediumScreen {
+  @media only screen and (max-width: 768px) {
+    @content;
+  }
+}
+
+@mixin minXSmallMaxTabletScreen {
+  @media only screen and (min-width: 768px) and (max-width: 1200px) {
+    @content;
+  }
+}
+
+@mixin minXXLargeScreen {
+  @media only screen and (min-width: 1400px) {
+    @content;
+  }
+}
