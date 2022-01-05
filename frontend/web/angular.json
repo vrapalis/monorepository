@@ -5,7 +5,7 @@
       "projectType": "library",
       "root": "libs/shared/ui",
       "sourceRoot": "libs/shared/ui/src",
-      "prefix": "web",
+      "prefix": "lb-sh-ui",
       "architect": {
         "test": {
           "builder": "@nrwl/jest:jest",
@@ -31,7 +31,7 @@
       "projectType": "library",
       "root": "libs/websites/shared/data-access",
       "sourceRoot": "libs/websites/shared/data-access/src",
-      "prefix": "web",
+      "prefix": "web-sh",
       "architect": {
         "test": {
           "builder": "@nrwl/jest:jest",
@@ -106,7 +106,7 @@
       "projectType": "application",
       "root": "apps/websites/vrapalis",
       "sourceRoot": "apps/websites/vrapalis/src",
-      "prefix": "web",
+      "prefix": "web-vr",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
@@ -273,7 +273,7 @@
       "projectType": "library",
       "root": "libs/websites/vrapalis/data-access",
       "sourceRoot": "libs/websites/vrapalis/data-access/src",
-      "prefix": "web",
+      "prefix": "web-vr",
       "architect": {
         "test": {
           "builder": "@nrwl/jest:jest",
@@ -299,7 +299,7 @@
       "projectType": "library",
       "root": "libs/websites/vrapalis/feature/blog",
       "sourceRoot": "libs/websites/vrapalis/feature/blog/src",
-      "prefix": "web",
+      "prefix": "web-vr",
       "architect": {
         "test": {
           "builder": "@nrwl/jest:jest",
@@ -325,7 +325,7 @@
       "projectType": "library",
       "root": "libs/websites/vrapalis/feature/home",
       "sourceRoot": "libs/websites/vrapalis/feature/home/src",
-      "prefix": "web",
+      "prefix": "web-vr",
       "architect": {
         "test": {
           "builder": "@nrwl/jest:jest",
@@ -351,7 +351,7 @@
       "projectType": "library",
       "root": "libs/websites/vrapalis/feature/projects",
       "sourceRoot": "libs/websites/vrapalis/feature/projects/src",
-      "prefix": "web",
+      "prefix": "web-vr",
       "architect": {
         "test": {
           "builder": "@nrwl/jest:jest",
@@ -400,7 +400,7 @@
       "projectType": "library",
       "root": "libs/websites/vrapalis/ui",
       "sourceRoot": "libs/websites/vrapalis/ui/src",
-      "prefix": "web",
+      "prefix": "web-vr",
       "architect": {
         "test": {
           "builder": "@nrwl/jest:jest",
@@ -426,7 +426,7 @@
       "projectType": "library",
       "root": "libs/websites/vrapalis/utility",
       "sourceRoot": "libs/websites/vrapalis/utility/src",
-      "prefix": "web",
+      "prefix": "web-vr",
       "architect": {
         "test": {
           "builder": "@nrwl/jest:jest",

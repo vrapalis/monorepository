@@ -1,12 +1,12 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {WebShUiPageContainerComponent} from './containers/web-sh-ui-page-container.component';
-import {WebsitesVrapalisHeaderModule, WebsitesVrapalisUiBodyModule} from "@web/websites/vrapalis/ui";
-import {WebShUiContactSideLinkModule} from "../contact-side-link/web-sh-ui-contact-side-link.module";
 import {
-  WebsitesVrapalisSideLinkDataAccessService,
   WebsitesVrapalisSideLinkModule
 } from "@web/websites/vrapalis/data-access";
+import {WebShUiContactSideLinkModule} from "@web/websites/shared/ui";
+import {WebsitesVrapalisHeaderModule} from "../header/websites-vrapalis-header.module";
+import {WebsitesVrapalisUiBodyModule} from "../body/websites-vrapalis-ui-body.module";
 
 
 @NgModule({

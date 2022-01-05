@@ -4,12 +4,12 @@ import {WebsitesVrapalisHomeDataAccessService} from "@web/websites/vrapalis/data
 @Component({
   selector: 'web-home',
   template: `
-    <web-home-component [home]="home | async"></web-home-component>
+    <web-home-component [home]="home$ | async"></web-home-component>
   `,
   styles: []
 })
 export class WebsitesVrapalisFeatureHomeContainerComponent {
-  home = this.homeService.getSingle('home');
+  home$ = this.homeService.getSingle('home');
 
   constructor(private homeService: WebsitesVrapalisHomeDataAccessService) {
   }
