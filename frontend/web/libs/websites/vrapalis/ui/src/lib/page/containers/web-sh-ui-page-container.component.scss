@@ -1,3 +1,4 @@
+//@import "libs/shared/ui/src/lib/style/reset";
 @import "libs/shared/ui/src/lib/style/mixins";
 @import "libs/shared/ui/src/lib/style/vars";
 
@@ -20,6 +21,13 @@ body {
     .image {
       width: 400px;
       height: 200px;
+    }
+  }
+
+  @include maxXSmallScreen {
+    .image {
+      width: 300px;
+      height: 100px;
     }
   }
 }

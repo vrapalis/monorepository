@@ -6,7 +6,7 @@ import {IBootstrapIconLink, ISideLink} from "@web/websites/shared/model";
   template: `
     <div class='wrapper' *ngIf="links">
       <web-sh-ui-contact-side-item-link-component [bootstrapIcon]="link.className" *ngFor="let link of links.links;"
-                                                  class="item" (itemClickEvent)="onClickEvent(link)">
+                                                  class="item" [color]="link.color" (itemClickEvent)="onClickEvent(link)">
       </web-sh-ui-contact-side-item-link-component>
     </div>
   `,

@@ -11,7 +11,3 @@ export * from './lib/body/websites-vrapalis-ui-body.module';
 // PAGE
 export * from './lib/page/containers/web-sh-ui-page-container.component';
 export * from './lib/page/web-sh-ui-page.module';
-
-// NAVBAR
-export * from './lib/navbar/containers/web-sh-ui-navbar-container.component';
-export * from './lib/navbar/web-sh-ui-navbar.module';

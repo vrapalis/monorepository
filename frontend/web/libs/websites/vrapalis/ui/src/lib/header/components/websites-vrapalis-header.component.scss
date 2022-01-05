@@ -1,12 +1,37 @@
 @import "libs/websites/vrapalis/ui/src/lib/style/vars";
+@import "libs/shared/ui/src/lib/style/mixins";
 
-.nav-wrapper {
-  max-width: $max-body-width;
+.navbar {
+  transition: 0.2s all ease-in;
 
-  .nav-item a {
-    background: black;
-    color: white !important;
-    border-radius: 55px;
-    padding: 5px 20px;
+  .navbar-brand {
+    opacity: 0.65;
   }
+
+  .nav-wrapper {
+    max-width: $max-body-width;
+
+    .nav-item a {
+      background: black;
+      color: white !important;
+      border-radius: 55px;
+      padding: 5px 20px;
+    }
+
+    @include maxMediumScreen {
+      .nav-item a {
+        padding: unset;
+        width: 80%;
+        margin: 20px auto 10px auto;
+      }
+    }
+  }
+
 }
+
+.navbar-scrolled {
+  background: white;
+  transition: 0.2s all ease-in;
+  opacity: 0.96;
+}
+

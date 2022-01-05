@@ -3,12 +3,13 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 @Component({
   selector: 'web-sh-ui-contact-side-item-link-component',
   template: `
-    <i class='item' [class]='bootstrapIcon' role='img' (click)='itemClick()'></i>
+    <i class='item' [style.color]="color" [class]='bootstrapIcon' role='img' (click)='itemClick()'></i>
   `,
   styleUrls: ['contact-side-item-link.component.scss']
 })
 export class ContactSideItemLinkComponent {
   @Input() bootstrapIcon = '';
+  @Input() color = ''
   @Output() itemClickEvent = new EventEmitter<void>();
 
   itemClick() {

@@ -6,6 +6,7 @@
     img {
       object-fit: contain;
       height: 400px;
+      opacity: 0.75;
     }
   }
 
@@ -14,10 +15,15 @@
     z-index: 100;
   }
 
-  @include minXXLargeScreen {
+  @include maxXSmallScreen {
     .profile {
       img {
+        height: 280px !important;
       }
+    }
+
+    .projects {
+      margin: 50px 0px;
     }
   }
 
@@ -28,4 +34,11 @@
       }
     }
   }
+  @include minXXLargeScreen {
+    .profile {
+      img {
+      }
+    }
+  }
+
 }
