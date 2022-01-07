@@ -6,35 +6,51 @@
 </head>
 <body>
 <div layout:fragment="content">
-    <form class="col-12 col-md-8 col-lg-6" th:action="@{/login}" method="post" id="login">
+    <div th:if="${param.error}" class="col-12 alert alert-danger alert-dismissible fade show" role="alert">
+        <strong>Invalid user or password</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+
+    <form class="col-12 col-md-8 col-lg-6 mt-3" th:action="@{/login}" @submit="onSubmit" method="post" id="loginApp"
+          novalidate="true">
         <h1 class='fs-1 text-opacity-50 text-primary bi-door-open'>
             <span class='ms-2'>Login</span>
         </h1>
 
-        <p th:if="${param.error}" class="mt-4 text-danger">Invalid user or password</p>
-
-        <div class="input-group mt-3 mt-lg-4">
-            <input v-model="email" type="email" id="email" name="email" class="form-control" placeholder="Email" required autofocus/>
-            <span class="input-group-text bi-at" id="basic-addon1"></span>
+        <div style="height: 55px;">
+            <div class="input-group mt-4">
+                <input v-model="email.value" type="email" @change="onInputChange" id="email" name="email"
+                       class="form-control" placeholder="Email" required/>
+                <span class="input-group-text bi-at" id="basic-addon1"></span>
+            </div>
+            <p class="text-danger mt-1 ps-1" v-if="!email.valid">
+                <small>{{email.errorMessage}}</small>
+            </p>
         </div>
 
-        <div class="input-group mt-3 mt-lg-4">
-            <input type="password" id="password" name="password" class="form-control" placeholder="Password" required
-                   autofocus/>
-            <span class="input-group-text bi-key" id="basic-addon2"></span>
+        <div style="height: 55px;">
+            <div class="input-group mt-3">
+                <input type="password" v-model="password.value" id="password" name="password" class="form-control"
+                       @change="onInputChange" placeholder="Password" required/>
+                <span class="input-group-text bi-key" id="basic-addon2"></span>
+            </div>
+            <p class="text-danger mt-1 ps-1" v-if="!password.valid">
+                <small>{{password.errorMessage}}</small>
+            </p>
         </div>
 
-        <div class="text-end mt-4">
+        <div class="text-end mt-3">
             <a type="button" class="btn btn-sm btn-link" href="/registration"
                data-bs-toggle="tooltip" data-bs-placement="bottom" title="Redirection to registration page">
                 Registration
             </a>
             <button class="btn btn-sm btn-primary btn-block" type="submit"
-                    data-bs-toggle="tooltip" data-bs-placement="bottom" title="Submit the login">
+                    data-bs-toggle="tooltip" :disabled="!(email.valid && password.valid)"
+                    data-bs-placement="bottom" title="Submit the login">
                 Login
             </button>
         </div>
-        <div class="text-end mt-3">
+        <div class="text-end mt-2">
             <a class="text-decoration-none sn-icon fs-2 ms-2 bi bi-google" style="color: #4285f4;"
                th:href="@{/oauth2/authorization/google}">
             </a>

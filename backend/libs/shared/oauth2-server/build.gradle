@@ -28,6 +28,7 @@ dependencies {
     implementation 'nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect'
     implementation 'org.webjars:bootstrap:5.0.0'
     implementation 'org.webjars.npm:bootstrap-icons:1.7.0'
+    implementation 'org.webjars:vue:2.6.14'
 
     testImplementation 'org.springframework.security:spring-security-test'
     implementation 'com.fasterxml.jackson.datatype:jackson-datatype-hibernate5:2.12.0'

@@ -8,13 +8,12 @@
     </title>
     <link rel="stylesheet" th:href="@{webjars/bootstrap/5.0.0/css/bootstrap.min.css}"/>
     <link rel="stylesheet" th:href="@{webjars/bootstrap-icons/1.7.0/font/bootstrap-icons.css}"/>
-    <link rel="stylesheet" th:href="@{main.css}"/>
-    <!-- production version, optimized for size and speed -->
-    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <link rel="stylesheet" th:href="@{css.css}"/>
 </head>
 <body>
 <main role="main" class="main container row justify-content-center" layout:fragment="content"></main>
 <script type="text/javascript" th:src="@{webjars/bootstrap/5.0.0/js/bootstrap.min.js}"></script>
-<script type="text/javascript" th:src="@{main.js}"></script>
+<script type="text/javascript" th:src="@{webjars/vue/2.6.14/vue.js}"></script>
+<script type="text/javascript" th:src="@{js.js}"></script>
 </body>
 </html>
