@@ -7,6 +7,7 @@ export const OAUTH2_CODE_FLOW_CONFIG: AuthConfig = {
   // issuer: 'https://vrapalis-oauth2.ddns.net/login',
   useHttpBasicAuth: true,
   dummyClientSecret: 'secret',
+  // loginUrl: 'https://vrapalis-oauth2.ddns.net/login',
 
   // URL of the SPA to redirect the user to after login
   redirectUri: window.location.origin,

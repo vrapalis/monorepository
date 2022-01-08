@@ -21,7 +21,12 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.authService.configure(this.env.getAuthConfig());
-    this.sharedUtilAuthService.onOAuthEvents();
+    this.authService.loadDiscoveryDocumentAndTryLogin().then(() => {
+      if (!this.authService.hasValidIdToken() || !this.authService.hasValidAccessToken()) {
+        this.authService.initImplicitFlow('some-state');
+      }
+    });
+    // this.sharedUtilAuthService.onOAuthEvents();
   }
 
   testRequest() {

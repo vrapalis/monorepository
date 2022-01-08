@@ -20,7 +20,6 @@ export class OAuthGuardService implements CanLoad {
       .pipe(
         take(1),
         map(() => {
-          console.log(this.oauthService)
           if (!this.oauthService.hasValidIdToken() || !this.oauthService.hasValidAccessToken()) {
             this.oauthService.initLoginFlow();
             return false;

@@ -197,8 +197,8 @@ public class OAuth2ServerConfiguration {
     public ProviderSettings providerSettings() {
         var ps = ProviderSettings.builder();
 //        TODO EXTERNALIZE THRU PROPERTY
-//        ps = ps.issuer("http://127.0.0.1:8080");
-        ps = ps.issuer("https://vrapalis-oauth2.ddns.net");
+        ps = ps.issuer("http://127.0.0.1:8080");
+//        ps = ps.issuer("https://vrapalis-oauth2.ddns.net");
         ps = ps.jwkSetEndpoint("/certs");
         return ps.build();
     }
@@ -220,7 +220,7 @@ public class OAuth2ServerConfiguration {
         return new JdbcOAuth2AuthorizationConsentService(jdbcTemplate, registeredClientRepository);
     }
 
-/*    @Bean
+   /* @Bean
     public OAuth2AuthorizationService oAuth2AuthorizationService(JdbcOperations jdbcOperations, RegisteredClientRepository repository) {
         return new JdbcOAuth2AuthorizationService(jdbcOperations, repository);
     }*/
