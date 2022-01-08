@@ -10,15 +10,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
  *
  * @see {https://newbedev.com/spring-boot-with-redirecting-with-single-page-angular2}
  */
-@Controller
+//@Controller
 public class OAuth2ErrorController implements ErrorController {
     private static final String PATH = "/error";
 
     @RequestMapping(value = PATH)
     public String error() {
 //        TODO REPLACE THRU VARIABLE
-//        return "redirect:http://127.0.0.1:4200";
-        return "forward:/index.html";
+        return "redirect:http://127.0.0.1:4200";
+//        return "forward:/index.html";
 //        return "redirect:/index.html";
     }
 }

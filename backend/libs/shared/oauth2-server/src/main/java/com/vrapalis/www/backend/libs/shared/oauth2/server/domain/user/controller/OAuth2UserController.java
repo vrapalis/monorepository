@@ -14,25 +14,25 @@ import java.util.Optional;
 @AllArgsConstructor
 public class OAuth2UserController {
 
-//    @GetMapping("/login")
-//    public String login(Model model, Authentication authentication) {
-//        if (authentication != null) {
-//            if (authentication.isAuthenticated()) {
-//                //            TODO REPLACE THRU VARIABLE
-//                return "redirect:http://127.0.0.1:4200";
-//            }
-//        }
-//        return "login";
-//    }
-//
-//    @GetMapping("/registration")
-//    public String registration(Model model, Authentication authentication) {
-//        if (authentication != null) {
-//            if (authentication.isAuthenticated()) {
-//                //            TODO REPLACE THRU VARIABLE
-//                return "redirect:http://127.0.0.1:4200";
-//            }
-//        }
-//        return "registration";
-//    }
+    @GetMapping("/login")
+    public String login(Model model, Authentication authentication) {
+        if (authentication != null) {
+            if (authentication.isAuthenticated()) {
+                //            TODO REPLACE THRU VARIABLE
+                return "redirect:http://127.0.0.1:4200";
+            }
+        }
+        return "login";
+    }
+
+    @GetMapping("/registration")
+    public String registration(Model model, Authentication authentication) {
+        if (authentication != null) {
+            if (authentication.isAuthenticated()) {
+                //            TODO REPLACE THRU VARIABLE
+                return "redirect:http://127.0.0.1:4200";
+            }
+        }
+        return "registration";
+    }
 }
