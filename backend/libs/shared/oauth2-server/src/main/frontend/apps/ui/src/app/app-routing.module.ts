@@ -9,7 +9,7 @@ const routes: Routes = [
     loadChildren: () => import('@frontend/feature/home').then(mod => mod.FeatureHomeModule),
     // canLoad: [OAuthGuardService]
   },
-  /*{
+  {
     path: 'login', loadChildren: () => import('@frontend/feature/login').then(mod => mod.FeatureLoginModule),
     data: {
       animation: 'LoginPage'
@@ -29,7 +29,7 @@ const routes: Routes = [
   {
     path: 'reset-password',
     loadChildren: () => import('@frontend/feature/reset-password').then(mod => mod.FeatureResetPasswordModule)
-  },*/
+  },
   { path: '**', component: NotFoundComponent }
 ];
 
