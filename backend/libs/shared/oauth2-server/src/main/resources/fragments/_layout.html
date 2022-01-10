@@ -11,7 +11,14 @@
     <link rel="stylesheet" th:href="@{css.css}"/>
 </head>
 <body>
-<main role="main" class="main container row justify-content-center" layout:fragment="content"></main>
+
+<div id="app">
+    <div id="alert" class="alert alert-dismissible fade" role="alert">
+        <strong></strong>
+    </div>
+    <main role="main" class="main container row justify-content-center" layout:fragment="content"></main>
+</div>
+
 <script type="text/javascript" th:src="@{webjars/bootstrap/5.0.0/js/bootstrap.min.js}"></script>
 <script type="text/javascript" th:src="@{webjars/vue/2.6.14/vue.js}"></script>
 <script type="text/javascript" th:src="@{js.js}"></script>

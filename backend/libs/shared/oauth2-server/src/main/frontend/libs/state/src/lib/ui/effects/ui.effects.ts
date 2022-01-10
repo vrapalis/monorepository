@@ -12,8 +12,7 @@ export class UiEffects {
 
 
   loadUis$ = createEffect(() => {
-    return this.actions$.pipe( 
-
+    return this.actions$.pipe(
       ofType(UiActions.loadUis),
       /** An EMPTY observable only emits completion. Replace with your own observable API request */
       concatMap(() => EMPTY as Observable<{ type: string }>)
@@ -21,6 +20,7 @@ export class UiEffects {
   });
 
 
-  constructor(private actions$: Actions) {}
+  constructor(private actions$: Actions) {
+  }
 
 }

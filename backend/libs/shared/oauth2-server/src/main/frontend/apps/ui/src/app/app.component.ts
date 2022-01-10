@@ -25,7 +25,7 @@ export class AppComponent implements OnInit {
       if (!this.authService.hasValidIdToken() || !this.authService.hasValidAccessToken()) {
         this.authService.initImplicitFlow('some-state');
       }
-    });
+    }).catch(err => console.error(err));
     // this.sharedUtilAuthService.onOAuthEvents();
   }
 

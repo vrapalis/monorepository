@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  *
  * @see {https://newbedev.com/spring-boot-with-redirecting-with-single-page-angular2}
  */
-//@Controller
+@Controller
 public class OAuth2ErrorController implements ErrorController {
     private static final String PATH = "/error";
 

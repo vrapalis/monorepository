@@ -35,4 +35,26 @@ public class OAuth2UserController {
         }
         return "registration";
     }
+
+    @GetMapping("/forgot-password")
+    public String forgotPassword(Model model, Authentication authentication) {
+        if (authentication != null) {
+            if (authentication.isAuthenticated()) {
+                //            TODO REPLACE THRU VARIABLE
+                return "redirect:http://127.0.0.1:4200";
+            }
+        }
+        return "forgot-password";
+    }
+
+    @GetMapping("/reset-password")
+    public String resetPassword(Model model, Authentication authentication) {
+        if (authentication != null) {
+            if (authentication.isAuthenticated()) {
+                //            TODO REPLACE THRU VARIABLE
+                return "redirect:http://127.0.0.1:4200";
+            }
+        }
+        return "reset-password";
+    }
 }

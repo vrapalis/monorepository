@@ -6,13 +6,10 @@
 </head>
 <body>
 <div layout:fragment="content">
-    <div th:if="${param.error}" class="col-12 alert alert-danger alert-dismissible fade show" role="alert">
-        <strong>Invalid user or password</strong>
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-    </div>
 
     <form class="col-12 col-md-8 col-lg-6 mt-3" th:action="@{/login}" @submit="onSubmit" method="post" id="loginApp"
           novalidate="true">
+
         <h1 class='fs-1 text-opacity-50 text-primary bi-door-open'>
             <span class='ms-2'>Login</span>
         </h1>
@@ -40,15 +37,21 @@
         </div>
 
         <div class="text-end mt-3">
-            <a type="button" class="btn btn-sm btn-link" href="/registration"
+            <a type="button" class="btn btn-link" href="/registration"
                data-bs-toggle="tooltip" data-bs-placement="bottom" title="Redirection to registration page">
                 Registration
             </a>
-            <button class="btn btn-sm btn-primary btn-block" type="submit"
+            <button class="btn btn-primary btn-block" type="submit"
                     data-bs-toggle="tooltip" :disabled="!(email.valid && password.valid)"
                     data-bs-placement="bottom" title="Submit the login">
                 Login
             </button>
+        </div>
+        <div class="text-end">
+            <a type="button" class="btn btn-link" href="/forgot-password"
+               data-bs-toggle="tooltip" data-bs-placement="bottom" title="Redirection to forgot password page">
+                Forgot Password
+            </a>
         </div>
         <div class="text-end mt-2">
             <a class="text-decoration-none sn-icon fs-2 ms-2 bi bi-google" style="color: #4285f4;"
