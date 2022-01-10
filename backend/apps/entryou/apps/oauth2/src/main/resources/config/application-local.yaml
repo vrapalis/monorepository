@@ -28,13 +28,13 @@ com:
             subject: Reset Password!!!
             text: '<a href=%s>Please click on link to accomplish the reset password process</a>'
             password-path: '/reset-password?code='
-            #            host: https://vrapalis-oauth2.ddns.net
-            host: http://127.0.0.1:8080
+            host: https://vrapalis-oauth2.ddns.net
+#            host: http://127.0.0.1:8080
 
 
           registration:
             subject: Registration Success!!!
             text: '<a href=%s>Please click on link to accomplish the registration process</a>'
             registration-path: '/registration?code='
-            #            host: https://vrapalis-oauth2.ddns.net
-            host: http://127.0.0.1:8080
+            host: https://vrapalis-oauth2.ddns.net
+#            host: http://127.0.0.1:8080
