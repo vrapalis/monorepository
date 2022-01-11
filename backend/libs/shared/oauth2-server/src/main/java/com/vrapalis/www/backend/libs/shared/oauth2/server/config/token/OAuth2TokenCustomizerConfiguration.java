@@ -1,20 +1,15 @@
 package com.vrapalis.www.backend.libs.shared.oauth2.server.config.token;
 
-import com.vrapalis.www.backend.libs.shared.oauth2.server.domain.user.entity.OAuth2UserRoleEntity;
 import com.vrapalis.www.backend.libs.shared.oauth2.server.domain.user.model.OAuth2UserDetailsModel;
 import com.vrapalis.www.backend.libs.shared.oauth2.server.domain.user.model.OAuth2UserModel;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.oauth2.core.OAuth2TokenType;
 import org.springframework.security.oauth2.server.authorization.JwtEncodingContext;
 import org.springframework.security.oauth2.server.authorization.OAuth2TokenCustomizer;
 
 import java.util.Arrays;
-import java.util.List;
-import java.util.Set;
 import java.util.stream.Collectors;
 
 

@@ -1,13 +1,11 @@
 package com.vrapalis.www.backend.libs.shared.oauth2.server.config;
 
-import com.fasterxml.jackson.databind.MapperFeature;
-import com.fasterxml.jackson.databind.SerializationFeature;
 import com.nimbusds.jose.jwk.JWKSet;
 import com.nimbusds.jose.jwk.RSAKey;
 import com.nimbusds.jose.jwk.source.JWKSource;
 import com.nimbusds.jose.proc.SecurityContext;
-import com.vrapalis.www.backend.libs.shared.oauth2.server.config.filter.OAuth2RegistrationCodeFilter;
 import com.vrapalis.www.backend.libs.shared.oauth2.server.config.key.Jwks;
+import com.vrapalis.www.backend.libs.shared.oauth2.server.config.property.OAuth2ProviderSettingsProperties;
 import com.vrapalis.www.backend.libs.shared.oauth2.server.domain.user.service.OAuth2CustomOAuth2UserServiceImp;
 import com.vrapalis.www.backend.libs.shared.oauth2.server.domain.user.service.OAuth2CustomOidcUserServiceImp;
 import com.vrapalis.www.backend.libs.shared.oauth2.server.domain.user.service.OAuth2AuthenticationSuccessHandler;
@@ -25,12 +23,9 @@ import org.springframework.core.annotation.Order;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.jdbc.core.JdbcOperations;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.SqlParameterValue;
-import org.springframework.jdbc.support.lob.DefaultLobHandler;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.OAuth2AuthorizationServerConfiguration;
 import org.springframework.security.config.annotation.web.configurers.ExpressionUrlAuthorizationConfigurer;
-import org.springframework.security.jackson2.CoreJackson2Module;
 import org.springframework.security.oauth2.client.JdbcOAuth2AuthorizedClientService;
 import org.springframework.security.oauth2.client.OAuth2AuthorizedClientService;
 import org.springframework.security.oauth2.client.registration.ClientRegistrationRepository;
@@ -39,7 +34,6 @@ import org.springframework.security.oauth2.core.ClientAuthenticationMethod;
 import org.springframework.security.oauth2.core.oidc.OidcScopes;
 import org.springframework.security.oauth2.jwt.JwtDecoder;
 import org.springframework.security.oauth2.server.authorization.*;
-import org.springframework.security.oauth2.server.authorization.client.InMemoryRegisteredClientRepository;
 import org.springframework.security.oauth2.server.authorization.client.JdbcRegisteredClientRepository;
 import org.springframework.security.oauth2.server.authorization.client.RegisteredClient;
 import org.springframework.security.oauth2.server.authorization.client.RegisteredClientRepository;
@@ -51,37 +45,29 @@ import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
-import java.sql.Timestamp;
-import java.sql.Types;
 import java.time.Duration;
-import java.time.Instant;
-import java.time.LocalDateTime;
-import java.time.ZoneOffset;
-import java.util.List;
-import java.util.function.Function;
-import java.util.stream.Collectors;
 
-import static java.util.stream.Collectors.toList;
 import static org.springframework.security.config.Customizer.withDefaults;
 
 @Configuration
 @AllArgsConstructor
 @EnableJpaRepositories(basePackages = {"com.vrapalis.www.backend.libs.shared.oauth2.server.domain.*"})
 @ComponentScan(basePackages = {"com.vrapalis.www.backend.libs.shared.oauth2.server.domain.*"},
-        basePackageClasses = {OAuth2RegistrationCodeFilter.class},
+        basePackageClasses = {},
         excludeFilters = {
                 @ComponentScan.Filter(
                         type = FilterType.ASSIGNABLE_TYPE,
                         classes = OAuth2UserServiceImpl.class)
         }
 )
-@ConfigurationPropertiesScan(basePackages = {"com.vrapalis.www.backend.libs.shared.oauth2.server.domain.*"})
+@ConfigurationPropertiesScan(basePackages = {"com.vrapalis.www.backend.libs.shared.oauth2.server.domain.*",
+"com.vrapalis.www.backend.libs.shared.oauth2.server.config.property"})
 @EntityScan(basePackages = {"com.vrapalis.www.backend.libs.shared.oauth2.server.domain.*"})
 public class OAuth2ServerConfiguration {
-
     private OAuth2CustomOidcUserServiceImp oidcUserService;
     private OAuth2CustomOAuth2UserServiceImp oauth2UserService;
     private OAuth2AuthenticationSuccessHandler auth2AuthenticationSuccessHandler;
+    private OAuth2ProviderSettingsProperties providerSettingsProperties;
 
     @Bean
     @Order(Ordered.HIGHEST_PRECEDENCE)
@@ -144,6 +130,7 @@ public class OAuth2ServerConfiguration {
         return source;
     }
 
+    // TODO EXTERNALIZE JDBC REPOSITORY
     @Bean
     public RegisteredClientRepository registeredClientRepository(JdbcOperations jdbcOperations) {
         RegisteredClient registeredClient = RegisteredClient.withId("client")
@@ -196,9 +183,7 @@ public class OAuth2ServerConfiguration {
     @Bean
     public ProviderSettings providerSettings() {
         var ps = ProviderSettings.builder();
-//        TODO EXTERNALIZE THRU PROPERTY
-//        ps = ps.issuer("http://127.0.0.1:8080");
-        ps = ps.issuer("https://vrapalis-oauth2.ddns.net");
+        ps = ps.issuer(providerSettingsProperties.getIssuerUri());
         ps = ps.jwkSetEndpoint("/certs");
         return ps.build();
     }

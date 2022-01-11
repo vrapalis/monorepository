@@ -4,10 +4,3 @@ server:
     whitelabel:
       enabled: false
     path: /error
-
-spring:
-  security:
-    oauth2:
-      resourceserver:
-        jwt:
-          issuer-uri: http://127.0.0.1:8080

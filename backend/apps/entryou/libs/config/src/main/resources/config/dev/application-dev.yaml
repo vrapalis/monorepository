@@ -1,0 +1,7 @@
+spring:
+  config:
+    import:
+      - classpath:config/dev/db/db-dev.yaml
+      - classpath:config/dev/db/jpa-dev.yaml
+      - classpath:config/dev/db/liquibase-dev.yaml
+      - classpath:config/dev/logging/logging-dev.yaml

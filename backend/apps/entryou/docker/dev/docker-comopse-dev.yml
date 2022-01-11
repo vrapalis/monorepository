@@ -1,9 +1,9 @@
 version: '3.9'
 
 services:
-  reverse-proxy-local:
+  reverse-proxy-dev:
     image: nginx:alpine
-    container_name: reverse-proxy-local
+    container_name: reverse-proxy-dev
     network_mode: host
     restart: on-failure
     volumes:
@@ -12,7 +12,7 @@ services:
 
   postgres:
     image: postgres:alpine
-    container_name: postgres-local
+    container_name: postgres-dev
     restart: on-failure
     expose:
       - 5432
@@ -23,18 +23,18 @@ services:
     volumes:
       - ./db/scripts:/docker-entrypoint-initdb.d
 
-  oauth2-local:
+  oauth2-dev:
     build:
       context: ../apps/oauth2
       dockerfile: build/docker/Dockerfile
     image: vrapalis/oauth2
-    container_name: oauth2-local
+    container_name: oauth2-dev
     network_mode: host
     expose:
       - 8080
     restart: on-failure
     environment:
-      - SPRING.PROFILES.ACTIVE=local
+      - SPRING.PROFILES.ACTIVE=dev
     depends_on:
       - postgres
 
