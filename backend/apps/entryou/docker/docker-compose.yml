@@ -3,8 +3,10 @@ version: '3.9'
 services:
   postgres:
     image: postgres:alpine
-    container_name: postgres-local
+    container_name: postgres
     restart: on-failure
     environment:
       - POSTGRES_USER=admin
       - POSTGRES_PASSWORD=admin
+    volumes:
+      - ./dev/db/scripts:/docker-entrypoint-initdb.d

@@ -21,7 +21,7 @@ services:
       - POSTGRES_USER=admin
       - POSTGRES_PASSWORD=admin
     volumes:
-      - ./db/scripts:/docker-entrypoint-initdb.d
+      - ./dev/db/scripts:/docker-entrypoint-initdb.d
 
   oauth2-dev:
     build:
