@@ -26,6 +26,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.OAuth2AuthorizationServerConfiguration;
 import org.springframework.security.config.annotation.web.configurers.ExpressionUrlAuthorizationConfigurer;
+import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.oauth2.client.JdbcOAuth2AuthorizedClientService;
 import org.springframework.security.oauth2.client.OAuth2AuthorizedClientService;
 import org.springframework.security.oauth2.client.registration.ClientRegistrationRepository;
@@ -83,12 +84,9 @@ public class OAuth2ServerConfiguration {
         http
                 .csrf().disable() // TODO SHOULD BE OPTIMIZED
                 .cors(httpSecurityCorsConfigurer -> httpSecurityCorsConfigurer.configurationSource(corsConfigurationSource()))
-//                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-//                .and()
                 .authorizeRequests(OAuth2ServerConfiguration::customizeAuthorizeRequest)
                 .formLogin()
                 .loginPage("/login")
-//                .successHandler(auth2AuthenticationSuccessHandler)
                 .usernameParameter("email")
                 .permitAll()
                 .and()
@@ -136,7 +134,6 @@ public class OAuth2ServerConfiguration {
         RegisteredClient registeredClient = RegisteredClient.withId("client")
                 .clientId("client")
                 .clientSecret("secret")
-//                .clientAuthenticationMethod(ClientAuthenticationMethod.BASIC)
                 .clientAuthenticationMethod(ClientAuthenticationMethod.CLIENT_SECRET_BASIC)
                 .authorizationGrantType(AuthorizationGrantType.AUTHORIZATION_CODE)
                 .redirectUri("http://127.0.0.1:4200")
@@ -147,16 +144,7 @@ public class OAuth2ServerConfiguration {
                 .scope(OidcScopes.OPENID)
                 .scope("read")
                 .scope("write")
-//                .clientSettings(clientSettings -> clientSettings.requireUserConsent(true))
                 .clientSettings(ClientSettings.builder().requireAuthorizationConsent(true).build())
-//                .tokenSettings(tokenSettings -> {
-//                    // accessToken  The validity of the
-//                    tokenSettings.accessTokenTimeToLive(Duration.ofHours(1));
-//                    // refreshToken  The validity of the
-//                    tokenSettings.refreshTokenTimeToLive(Duration.ofDays(3));
-//                    //  Whether the refresh token can be reused
-//                    tokenSettings.reuseRefreshTokens(true);
-//                })
                 .tokenSettings(TokenSettings.builder().accessTokenTimeToLive(Duration.ofHours(1))
                         .refreshTokenTimeToLive(Duration.ofHours(1))
                         .reuseRefreshTokens(true)

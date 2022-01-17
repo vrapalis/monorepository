@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: entryou-oauth2
+  labels:
+    app: entryou-oauth2
+spec:
+  replicas: 1
+  template:
+    metadata:
+      name: entryou-oauth2
+      labels:
+        app: entryou-oauth2
+    spec:
+      containers:
+        - name: entryou-oauth2
+          image: vrapalis/entryou-apps-oauth2
+          imagePullPolicy: Always
+          env:
+            - name: SPRING_PROFILES_ACTIVE
+              value: dev
+            - name: SPRING_DATASOURCE_URL
+              value: jdbc:postgresql://postgres-oauth2-db:5432/${db-name}
+            - name: SPRING_LIQUIBASE_URL
+              value: jdbc:postgresql://postgres-oauth2-db:5432/${db-name}
+            - name: SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_ISSUER_URI
+              value: http://entryou.com
+          ports:
+            - containerPort: 8080
+              protocol: TCP
+      restartPolicy: Always
+  selector:
+    matchLabels:
+      app: entryou-oauth2

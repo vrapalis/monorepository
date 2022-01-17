@@ -19,7 +19,7 @@
         <module name="k8s-spring-boot.apps.user.main" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel target="13">
+    <bytecodeTargetLevel target="11">
       <module name="api-gateway" target="11" />
       <module name="api-gateway.main" target="11" />
       <module name="api-gateway.test" target="11" />

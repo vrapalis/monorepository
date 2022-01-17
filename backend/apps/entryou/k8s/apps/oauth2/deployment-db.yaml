@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: postgres-oauth2
+  labels:
+    db: postgres-oauth2
+spec:
+  selector:
+    matchLabels:
+      db: postgres-oauth2
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        db: postgres-oauth2
+    spec:
+      containers:
+        - name: postgres-oauth2
+          image: postgres:alpine
+          ports:
+            - containerPort: 5432
+          env:
+            - name: POSTGRES_DB
+              value: oauth2_dev_db
+            - name: POSTGRES_USER
+              value: admin
+            - name: POSTGRES_PASSWORD
+              value: admin
