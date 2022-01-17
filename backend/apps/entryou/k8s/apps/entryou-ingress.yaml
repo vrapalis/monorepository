@@ -8,8 +8,13 @@ metadata:
     nginx.ingress.kubernetes.io/ssl-redirect: "false"
     nginx.ingress.kubernetes.io/force-ssl-redirect: "false"
 spec:
+  tls:
+    - secretName: vrapalis-oauth2.ddns.net-tls
+      hosts:
+        - vrapalis-oauth2.ddns.net
   rules:
-    - http:
+    - host: vrapalis-oauth2.ddns.net
+      http:
         paths:
           - path: /
             pathType: Prefix
