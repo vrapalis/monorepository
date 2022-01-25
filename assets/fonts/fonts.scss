@@ -1,0 +1,41 @@
+@import "libs/websites/vrapalis/ui/src/lib/style/vars";
+@import "libs/shared/ui/src/lib/style/mixins";
+
+@font-face {
+  font-family: BalsamiqSansRegular;
+  src: url(BalsamiqSans-Regular.ttf);
+}
+
+@font-face {
+  font-family: BalsamiqSansBold;
+  src: url(BalsamiqSans-Bold.ttf);
+}
+
+@font-face {
+  font-family: BalsamiqSansItalic;
+  src: url(BalsamiqSans-Italic.ttf);
+}
+
+@font-face {
+  font-family: BalsamiqSansBoldItalic;
+  src: url(BalsamiqSans-BoldItalic.ttf);
+}
+
+html * {
+  font-family: BalsamiqSansRegular;
+  font-size: 24px;
+  line-height: 1.8;
+  color: #2d3a56;
+}
+
+@include minXSmallMaxTabletScreen {
+  html * {
+    font-size: 24px !important;
+  }
+}
+
+@include maxXSmallScreen {
+  html * {
+    font-size: 21px;
+  }
+}
