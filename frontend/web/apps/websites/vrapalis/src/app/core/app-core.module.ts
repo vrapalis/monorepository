@@ -11,20 +11,18 @@ import {MarkdownModule} from 'ngx-markdown';
 import {VR_ENV_IN_TOKEN} from "@web/websites/vrapalis/utility";
 import {WebShUiPageModule} from "@web/websites/vrapalis/ui";
 import {BrowserModule, BrowserTransferStateModule} from "@angular/platform-browser";
-import { TransferHttpCacheModule } from '@nguniversal/common';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
-  //TODO BASEPATH
+  //TODO BASE PATH
   return new TranslateHttpLoader(http, `${environment.basePath}/assets/i18n/`, '.json');
 }
 
 @NgModule({
   imports: [
     HttpClientModule,
-    BrowserModule.withServerTransition({ appId: 'my-app' }),
+    BrowserModule.withServerTransition({appId: 'my-app'}),
     BrowserTransferStateModule,
-    TransferHttpCacheModule,
     TranslateModule.forRoot({
       defaultLanguage: 'de',
       loader: {

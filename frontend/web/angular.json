@@ -160,6 +160,9 @@
               "outputHashing": "all"
             },
             "development": {
+              "index": {
+                "input": "apps/websites/vrapalis/src/index-dev.html"
+              },
               "buildOptimizer": false,
               "optimization": false,
               "vendorChunk": true,

@@ -4,7 +4,7 @@ import {StrapiService} from "@web/websites/shared/data-access";
 import {IHome} from "@web/websites/vrapalis/model";
 import {VR_ENV_IN_TOKEN} from "@web/websites/vrapalis/utility";
 import {IWebsiteStrapiEnv} from "@web/websites/shared/model";
-import {Observable} from "rxjs";
+import {catchError, Observable, of} from "rxjs";
 import {map} from "rxjs/operators";
 
 @Injectable()
@@ -21,7 +21,8 @@ export class WebsitesVrapalisHomeDataAccessService extends StrapiService<IHome> 
           response.profile.url = this.env.strapiPath + response.profile.url;
           response.projects.projects.forEach(project => project.picture.url = this.env.strapiPath + project.picture.url);
           return response;
-        })
+        }),
+        catchError(()=> of())
       );
   }
 }

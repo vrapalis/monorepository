@@ -5,56 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="03b3ac8c-d50d-4ec2-8eb1-c77b2d0f8738" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../apps/entryou/apps/oauth2/src/main/resources/public/custom.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../apps/entryou/apps/oauth2/src/main/resources/public/custom.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../libs/shared/oauth2-server/src/main/java/com/vrapalis/www/backend/libs/shared/oauth2/server/config/web/OAuth2WebConfiguration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../libs/shared/oauth2-server/src/main/java/com/vrapalis/www/backend/libs/shared/oauth2/server/domain/common/util/OAuth2FileUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../libs/shared/oauth2-server/src/main/resources/fragments/_includes.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../libs/shared/oauth2-server/src/test/java/com/vrapalis/www/backend/libs/shared/oauth2/server/domain/common/util/OAuth2CommonFileUtilsTestGroup.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../libs/shared/oauth2-server/src/test/resources/public/custom.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../libs/shared/oauth2-server/src/test/resources/public/custom.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/design-patterns/src/main/java/com/vrapalis/www/backend/tutorials/designpatterns/RunDesignPatterns.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/design-patterns/src/main/java/com/vrapalis/www/backend/tutorials/designpatterns/behavioral/strategy/Food.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/design-patterns/src/main/java/com/vrapalis/www/backend/tutorials/designpatterns/behavioral/strategy/Furniture.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/design-patterns/src/main/java/com/vrapalis/www/backend/tutorials/designpatterns/behavioral/strategy/Product.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/design-patterns/src/main/java/com/vrapalis/www/backend/tutorials/designpatterns/behavioral/strategy/ProductUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/design-patterns/src/test/java/behavioral/strategy/StrategyPatternTestGroup.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oop/src/main/java/com/example/classesandobjects/Parent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../apps/entryou/.idea/runConfigurations/OAuth2Application_Local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../apps/entryou/.idea/runConfigurations/OAuth2Application_Local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../libs/shared/oauth2-server/src/main/frontend/migrations.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../libs/shared/oauth2-server/src/main/frontend/package-lock.json" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../frontend/web/apps/websites/vrapalis/src/index-dev.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../libs/shared/oauth2-server/src/main/frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../libs/shared/oauth2-server/src/main/frontend/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../libs/shared/oauth2-server/src/main/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../libs/shared/oauth2-server/src/main/frontend/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../libs/shared/oauth2-server/src/main/java/com/vrapalis/www/backend/libs/shared/oauth2/server/config/OAuth2Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/../libs/shared/oauth2-server/src/main/java/com/vrapalis/www/backend/libs/shared/oauth2/server/config/OAuth2Server.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../libs/shared/oauth2-server/src/main/java/com/vrapalis/www/backend/libs/shared/oauth2/server/config/OAuth2ServerConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/../libs/shared/oauth2-server/src/main/java/com/vrapalis/www/backend/libs/shared/oauth2/server/config/OAuth2ServerConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../libs/shared/oauth2-server/src/main/java/com/vrapalis/www/backend/libs/shared/oauth2/server/domain/user/controller/OAuth2UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../libs/shared/oauth2-server/src/main/java/com/vrapalis/www/backend/libs/shared/oauth2/server/domain/user/controller/OAuth2UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../libs/shared/oauth2-server/src/main/resources/fragments/_layout.html" beforeDir="false" afterPath="$PROJECT_DIR$/../libs/shared/oauth2-server/src/main/resources/fragments/_layout.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../libs/shared/oauth2-server/src/main/resources/public/js.js" beforeDir="false" afterPath="$PROJECT_DIR$/../libs/shared/oauth2-server/src/main/resources/public/js.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../libs/shared/oauth2-server/src/main/resources/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/../libs/shared/oauth2-server/src/main/resources/templates/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../libs/shared/oauth2-server/src/test/java/com/vrapalis/www/backend/libs/shared/oauth2/server/domain/common/util/UtilTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries-with-intellij-classes.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/security/tutorials.security.test.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes-and-objects/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/oop/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes-and-objects/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/oop/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes-and-objects/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" afterPath="$PROJECT_DIR$/oop/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes-and-objects/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/oop/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes-and-objects/gradlew" beforeDir="false" afterPath="$PROJECT_DIR$/oop/gradlew" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes-and-objects/gradlew.bat" beforeDir="false" afterPath="$PROJECT_DIR$/oop/gradlew.bat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes-and-objects/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/oop/settings.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes-and-objects/src/main/java/com/example/classesandobjects/Child.java" beforeDir="false" afterPath="$PROJECT_DIR$/oop/src/main/java/com/example/classesandobjects/Child.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes-and-objects/src/main/java/com/example/classesandobjects/ClassesAndObjectsApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/oop/src/main/java/com/example/classesandobjects/ClassesAndObjectsApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes-and-objects/src/main/java/com/example/classesandobjects/Parent.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes-and-objects/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/oop/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes-and-objects/src/test/java/com/example/classesandobjects/ClassesAndObjectsApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/oop/src/test/java/com/example/classesandobjects/ClassesAndObjectsApplicationTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../frontend/web/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../frontend/web/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../frontend/web/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../../frontend/web/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../frontend/web/angular.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../frontend/web/angular.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../frontend/web/apps/websites/vrapalis/src/app/core/app-core.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../frontend/web/apps/websites/vrapalis/src/app/core/app-core.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../frontend/web/apps/websites/vrapalis/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../frontend/web/apps/websites/vrapalis/src/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../frontend/web/libs/websites/vrapalis/data-access/src/lib/home/websites-vrapalis-home-data-access.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../frontend/web/libs/websites/vrapalis/data-access/src/lib/home/websites-vrapalis-home-data-access.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../frontend/web/libs/websites/vrapalis/feature/home/src/lib/components/websites-vrapalis-feature-home.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../frontend/web/libs/websites/vrapalis/feature/home/src/lib/components/websites-vrapalis-feature-home.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../frontend/web/libs/websites/vrapalis/feature/home/src/lib/containers/websites-vrapalis-feature-home-container.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../frontend/web/libs/websites/vrapalis/feature/home/src/lib/containers/websites-vrapalis-feature-home-container.component.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -284,6 +244,7 @@
       <workItem from="1643113393663" duration="159000" />
       <workItem from="1643113562911" duration="1370000" />
       <workItem from="1643114945642" duration="3584000" />
+      <workItem from="1643125194920" duration="605000" />
     </task>
     <servers />
   </component>

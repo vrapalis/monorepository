@@ -1,5 +1,6 @@
 import {Component, Input} from '@angular/core';
 import {IHome} from "@web/websites/vrapalis/model";
+import {Observable} from "rxjs";
 
 @Component({
   selector: 'web-home-component',
@@ -15,7 +16,8 @@ import {IHome} from "@web/websites/vrapalis/model";
       <div class="projects col-12 row justify-content-center" *ngIf="home.projects">
         <h2 markdown>{{home.projects.title}}</h2>
 
-        <a class="col-12 col-md-auto m-3" *ngFor="let project of home.projects.projects" [href]="project.linkUrl" target="_blank">
+        <a class="col-12 col-md-auto m-3" *ngFor="let project of home.projects.projects" [href]="project.linkUrl"
+           target="_blank">
           <img [src]="project.picture.url">
         </a>
       </div>
