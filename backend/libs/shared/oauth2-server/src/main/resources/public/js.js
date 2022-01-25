@@ -11,6 +11,7 @@ const app = new Vue({
     el: '#app',
     data() {
         return {
+            showView: false,
             email: new ModelDataInput('', false, 'Email is required'),
             password: new ModelDataInput('', false, 'Password is required'),
             passwordRepeated: new ModelDataInput('', false, 'Password is required'),
@@ -19,6 +20,7 @@ const app = new Vue({
     },
     created() {
         this.reactToQueryParam(new URLSearchParams(window.location.search));
+        this.showView = true;
     },
     methods: {
         onSubmit(e) {
@@ -107,7 +109,6 @@ const app = new Vue({
         },
         onResponse(msg, alertClass) {
             const path = window.location.pathname.split('/')[1];
-            // if (path.includes('registration')) {
             const alert = document.getElementById('alert');
             alert.classList.add('alert-show', 'show', alertClass);
             alert.firstChild.innerText = msg;
@@ -115,7 +116,6 @@ const app = new Vue({
                 alert.classList.remove('show')
                 window.location.href = '/login';
             }, 8000);
-            // }
         },
         onRegistration() {
             fetch('/api/users/registration', {

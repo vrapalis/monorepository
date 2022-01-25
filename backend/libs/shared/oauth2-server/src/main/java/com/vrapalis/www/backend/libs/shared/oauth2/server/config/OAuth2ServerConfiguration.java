@@ -62,7 +62,7 @@ import static org.springframework.security.config.Customizer.withDefaults;
         }
 )
 @ConfigurationPropertiesScan(basePackages = {"com.vrapalis.www.backend.libs.shared.oauth2.server.domain.*",
-"com.vrapalis.www.backend.libs.shared.oauth2.server.config.property"})
+        "com.vrapalis.www.backend.libs.shared.oauth2.server.config.property"})
 @EntityScan(basePackages = {"com.vrapalis.www.backend.libs.shared.oauth2.server.domain.*"})
 public class OAuth2ServerConfiguration {
     private OAuth2CustomOidcUserServiceImp oidcUserService;
@@ -76,7 +76,8 @@ public class OAuth2ServerConfiguration {
         OAuth2AuthorizationServerConfiguration.applyDefaultSecurity(http);
         return http
                 .cors(httpSecurityCorsConfigurer -> httpSecurityCorsConfigurer.configurationSource(corsConfigurationSource()))
-                .formLogin(withDefaults()).build();
+                .formLogin(withDefaults())
+                .build();
     }
 
     @Bean
@@ -86,11 +87,11 @@ public class OAuth2ServerConfiguration {
                 .cors(httpSecurityCorsConfigurer -> httpSecurityCorsConfigurer.configurationSource(corsConfigurationSource()))
                 .authorizeRequests(OAuth2ServerConfiguration::customizeAuthorizeRequest)
                 .formLogin()
-                .loginPage("/login")
+                .loginPage("/login").permitAll()
                 .usernameParameter("email")
                 .permitAll()
                 .and()
-                .oauth2Login().loginPage("/login")
+                .oauth2Login().loginPage("/login").permitAll()
                 .authorizedClientService(authorizedClientService)
                 .userInfoEndpoint().oidcUserService(oidcUserService).userService(oauth2UserService)
                 .and()
@@ -102,14 +103,15 @@ public class OAuth2ServerConfiguration {
 
     private static void customizeAuthorizeRequest(ExpressionUrlAuthorizationConfigurer<HttpSecurity>
                                                           .ExpressionInterceptUrlRegistry authorizeRequests) {
-        try {
-            authorizeRequests
-                    .mvcMatchers(OAuth2UserApiUrl.USER_BASE_URL + OAuth2UserApiUrl.USER_REGISTRATION_URL).anonymous()
-                    .mvcMatchers(OAuth2UserApiUrl.USER_BASE_URL + "/security-test").hasAuthority("SCOPE_read")
-                    .mvcMatchers("/webjars/**").permitAll()
-                    .anyRequest().permitAll();
-        } catch (Exception ex) {
-        }
+        authorizeRequests
+                .mvcMatchers("/webjars/**", "/files/**", "/public/**", "/static/**",
+                        "/resources/**", "/css.css", "/js.js", "/*.js", "/*.css",OAuth2UserApiUrl.USER_REGISTRATION_URL,
+                        OAuth2UserApiUrl.USER_FORGOT_PASSWORD_URL, OAuth2UserApiUrl.USER_RESET_PASSWORD_URL).permitAll()
+                .mvcMatchers(OAuth2UserApiUrl.USER_BASE_URL + "/security-test").hasAuthority("SCOPE_read")
+                .mvcMatchers(OAuth2UserApiUrl.USER_BASE_URL + OAuth2UserApiUrl.USER_REGISTRATION_URL,
+                        OAuth2UserApiUrl.USER_BASE_URL + OAuth2UserApiUrl.USER_FORGOT_PASSWORD_URL,
+                        OAuth2UserApiUrl.USER_BASE_URL + OAuth2UserApiUrl.USER_RESET_PASSWORD_URL).anonymous()
+                .anyRequest().authenticated();
     }
 
     @Bean

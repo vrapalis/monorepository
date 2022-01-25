@@ -1,0 +1,8 @@
+plugins {
+    id 'application'
+}
+
+application {
+    mainClass = project.hasProperty('javaMainClass') == true ? javaMainClass : 'com.vrapalis.www.backend.tutorials.designpatterns.RunDesignPatterns'
+}
+

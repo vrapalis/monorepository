@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!-- CSS -->
+    <th:block th:fragment="custom_css(file)">
+        <link rel="stylesheet" th:if="${file.getKey().name() == 'CSS'}" th:href="${file.getValue()}"/>
+    </th:block>
+</head>
+<body>
+<!-- SCRIPTS -->
+<th:block th:fragment="custom_scripts(file)">
+    <script type="text/javascript" th:if="${file.getKey().name() == 'JS'}" th:src="${file.getValue()}"></script>
+</th:block>
+</body>
+</html>

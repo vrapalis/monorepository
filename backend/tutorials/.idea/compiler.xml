@@ -2,7 +2,6 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <annotationProcessing>
-      <profile default="true" name="Default" enabled="true" />
       <profile name="Gradle Imported" enabled="true">
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="false">
@@ -10,10 +9,12 @@
         </processorPath>
         <module name="tutorials.data-structure.main" />
         <module name="tutorials.spring.security.test" />
-        <module name="tutorials.classes-and-objects.test" />
         <module name="tutorials.data-structure.test" />
         <module name="tutorials.spring.test" />
-        <module name="tutorials.classes-and-objects.main" />
+        <module name="tutorials.design-patterns.main" />
+        <module name="tutorials.oop.test" />
+        <module name="tutorials.design-patterns.test" />
+        <module name="tutorials.oop.main" />
         <module name="tutorials.spring.main" />
       </profile>
       <profile name="Gradle Imported" enabled="true">
@@ -25,14 +26,6 @@
         <module name="tutorials.spring.security.main" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel target="13">
-      <module name="classes-and-objects.main" target="16" />
-      <module name="classes-and-objects.test" target="16" />
-      <module name="security" target="16" />
-      <module name="security.main" target="16" />
-      <module name="security.test" target="16" />
-      <module name="tutorials.main" target="16" />
-      <module name="tutorials.test" target="16" />
-    </bytecodeTargetLevel>
+    <bytecodeTargetLevel target="13" />
   </component>
 </project>

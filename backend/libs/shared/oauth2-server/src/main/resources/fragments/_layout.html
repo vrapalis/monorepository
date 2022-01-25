@@ -9,6 +9,10 @@
     <link rel="stylesheet" th:href="@{webjars/bootstrap/5.0.0/css/bootstrap.min.css}"/>
     <link rel="stylesheet" th:href="@{webjars/bootstrap-icons/1.7.0/font/bootstrap-icons.css}"/>
     <link rel="stylesheet" th:href="@{css.css}"/>
+
+    <th:block th:each="file: ${files}" layout:fragment="css">
+        <th:block th:replace="../fragments/_includes :: custom_css (${file})"></th:block>
+    </th:block>
 </head>
 <body>
 
@@ -16,11 +20,17 @@
     <div id="alert" class="alert alert-dismissible fade" role="alert">
         <strong></strong>
     </div>
-    <main role="main" class="main container row justify-content-center" layout:fragment="content"></main>
+    <main role="main" v-if="showView" class="main container row justify-content-center"
+          layout:fragment="content"></main>
 </div>
 
 <script type="text/javascript" th:src="@{webjars/bootstrap/5.0.0/js/bootstrap.min.js}"></script>
 <script type="text/javascript" th:src="@{webjars/vue/2.6.14/vue.js}"></script>
 <script type="text/javascript" th:src="@{js.js}"></script>
+
+<th:block th:each="file: ${files}">
+    <th:block th:replace="../fragments/_includes :: custom_scripts (${file})"></th:block>
+</th:block>
+
 </body>
 </html>
