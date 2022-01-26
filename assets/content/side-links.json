@@ -1,0 +1,18 @@
+{
+  "links": [
+    {
+      "id": "1",
+      "className": "bi-github",
+      "ariaLabel": "arialabel",
+      "url": "https://github.com/vrapalis",
+      "color": "black"
+    },
+    {
+      "id": "2",
+      "className": "bi-linkedin",
+      "ariaLabel": "arialabel",
+      "url": "https://www.linkedin.com/in/vitali-rapalis-653691198",
+      "color": "#0a66c2"
+    }
+  ]
+}

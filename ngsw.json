@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1643206571056,
+  "timestamp": 1643210938294,
   "index": "/index.html",
   "assetGroups": [
     {
@@ -11,13 +11,13 @@
         "ignoreVary": true
       },
       "urls": [
-        "/640.7c7e778f0821922b.js",
+        "/640.13da5b832db77378.js",
         "/favicon.ico",
         "/index.html",
-        "/main.eda7e39e1827b27d.js",
+        "/main.197c60061d0ece6c.js",
         "/manifest.webmanifest",
         "/polyfills.79f4727ffb358cab.js",
-        "/runtime.5accffabade3034e.js",
+        "/runtime.981b50fabd2298f7.js",
         "/scripts.97f1fe7f6df35bed.js",
         "/styles.6b63a8952e12eaa9.css"
       ],
@@ -36,6 +36,7 @@
         "/BalsamiqSans-Italic.fd463a86e1e85f9c.ttf",
         "/BalsamiqSans-Regular.2efa8e52311a84bb.ttf",
         "/assets/content/home.json",
+        "/assets/content/side-links.json",
         "/assets/fonts/BalsamiqSans-Bold.ttf",
         "/assets/fonts/BalsamiqSans-BoldItalic.ttf",
         "/assets/fonts/BalsamiqSans-Italic.ttf",
@@ -53,6 +54,8 @@
         "/assets/icons/icon-72x72.png",
         "/assets/icons/icon-96x96.png",
         "/assets/icons/profile-icon.png",
+        "/assets/images/me.png",
+        "/assets/images/project.svg",
         "/background.f2480df24d7f7627.svg",
         "/bootstrap-icons.7e8b70c0ca62bff8.woff2",
         "/bootstrap-icons.e23375a1fdb9d81a.woff"
@@ -62,12 +65,13 @@
   ],
   "dataGroups": [],
   "hashTable": {
-    "/640.7c7e778f0821922b.js": "f0a942eee9de5ed340e37d5ac953e212c51f4558",
+    "/640.13da5b832db77378.js": "0afafb3394c3b607032c1cfc25dfc812b23d9e1e",
     "/BalsamiqSans-Bold.e14005194de14e85.ttf": "845b3feaa86d446f0935e3b9a36be732b656f4c0",
     "/BalsamiqSans-BoldItalic.02b3cb4ddd867dc6.ttf": "273a8cac3628632a6666278f9205b7fbf547e7bb",
     "/BalsamiqSans-Italic.fd463a86e1e85f9c.ttf": "785446fa394fa61e843c00137364524b6cb4602c",
     "/BalsamiqSans-Regular.2efa8e52311a84bb.ttf": "c5003c6efabd6b95ae60330ef3735a63b65d9ab9",
-    "/assets/content/home.json": "c5a396a326a34b9f8275cb6a560ad208824564f2",
+    "/assets/content/home.json": "bb3f55fdbaa2d917545ab5b39efa95a67729f9da",
+    "/assets/content/side-links.json": "f07c9b19c1968f6234bd5d5b692f0138e0a8f119",
     "/assets/fonts/BalsamiqSans-Bold.ttf": "845b3feaa86d446f0935e3b9a36be732b656f4c0",
     "/assets/fonts/BalsamiqSans-BoldItalic.ttf": "273a8cac3628632a6666278f9205b7fbf547e7bb",
     "/assets/fonts/BalsamiqSans-Italic.ttf": "785446fa394fa61e843c00137364524b6cb4602c",
@@ -85,15 +89,17 @@
     "/assets/icons/icon-72x72.png": "c457e56089a36952cd67156f9996bc4ce54a5ed9",
     "/assets/icons/icon-96x96.png": "3914125a4b445bf111c5627875fc190f560daa41",
     "/assets/icons/profile-icon.png": "5977f81617c0f163f644b8ca794417c5c697e03e",
+    "/assets/images/me.png": "da0645d7734973f4228724ff755968b5ceca93e6",
+    "/assets/images/project.svg": "5506a9be506e8e82e19771ef36a6c0e91856c73e",
     "/background.f2480df24d7f7627.svg": "ba2c36cf3b8629103f0d71cde9f8619e2c4314df",
     "/bootstrap-icons.7e8b70c0ca62bff8.woff2": "00150349e6ebdaf2628af9ea4e56d6b02dbda393",
     "/bootstrap-icons.e23375a1fdb9d81a.woff": "d644d61b4bc7925875ad953cc381b4a722b334d2",
     "/favicon.ico": "4e23d0f9b6ddaf3c9ddef90dbaed2342941297b5",
-    "/index.html": "f9e849b1149c0baafd7087d7d0362c83fedbb57c",
-    "/main.eda7e39e1827b27d.js": "e458ccdc6ae940e5246ad097c6859293e91b46dd",
+    "/index.html": "99b0ae49c9d42262500da50c6bcda56d3bdd622b",
+    "/main.197c60061d0ece6c.js": "e53c5affa91109ca2030439eacef54ffce429d6f",
     "/manifest.webmanifest": "3e894e83efb022f4edc75fe1749ee7a8619314d6",
     "/polyfills.79f4727ffb358cab.js": "17a636325990e0e10658dd36d1b8736a78ee85e0",
-    "/runtime.5accffabade3034e.js": "3dd4912b8efd7efb984bd3723fc83ad1d4d2f38a",
+    "/runtime.981b50fabd2298f7.js": "7050b01339b24aca4cea7da5f3f38963df75a5c6",
     "/scripts.97f1fe7f6df35bed.js": "89132a82b6d265412d02b6840737bc15bd06135b",
     "/styles.6b63a8952e12eaa9.css": "71c23b2f602070c77cebe8cd2d9d83e4786fc12e"
   },
