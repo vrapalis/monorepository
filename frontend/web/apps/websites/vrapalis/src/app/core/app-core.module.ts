@@ -15,7 +15,7 @@ import {BrowserModule, BrowserTransferStateModule} from "@angular/platform-brows
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
   //TODO BASE PATH
-  return new TranslateHttpLoader(http, `${environment.basePath}/assets/i18n/`, '.json');
+  return new TranslateHttpLoader(http, `./assets/i18n/`, '.json');
 }
 
 @NgModule({

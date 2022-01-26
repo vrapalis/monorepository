@@ -1,6 +1,5 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-import {WebsitesVrapalisFeatureHomeModule} from '@web/websites/vrapalis/feature/home';
 import {WebsitesVrapalisFeatureBlogModule} from '@web/websites/vrapalis/feature/blog';
 import {WebsitesVrapalisFeatureProjectsModule} from '@web/websites/vrapalis/feature/projects';
 import {WebShUiPageNotFoundContainerComponent} from '@web/websites/shared/ui';

@@ -24,6 +24,6 @@ export class WebShUiPageContainerComponent {
   links: Observable<ISideLink>;
 
   constructor(public sideLinkService: WebsitesVrapalisSideLinkDataAccessService) {
-    this.links = sideLinkService.getSingle('side-links');
+    this.links = sideLinkService.getSingle('assets/content/side-links.json');
   }
 }

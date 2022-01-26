@@ -5,16 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="03b3ac8c-d50d-4ec2-8eb1-c77b2d0f8738" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../../frontend/web/apps/websites/vrapalis/src/index-dev.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../libs/shared/oauth2-server/src/main/frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../libs/shared/oauth2-server/src/main/frontend/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../libs/shared/oauth2-server/src/main/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../libs/shared/oauth2-server/src/main/frontend/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../frontend/web/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../../frontend/web/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../frontend/web/angular.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../frontend/web/angular.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../frontend/web/apps/websites/vrapalis/src/app/core/app-core.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../frontend/web/apps/websites/vrapalis/src/app/core/app-core.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../frontend/web/apps/websites/vrapalis/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../frontend/web/apps/websites/vrapalis/src/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../frontend/web/libs/websites/vrapalis/data-access/src/lib/home/websites-vrapalis-home-data-access.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../frontend/web/libs/websites/vrapalis/data-access/src/lib/home/websites-vrapalis-home-data-access.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../frontend/web/libs/websites/vrapalis/feature/home/src/lib/components/websites-vrapalis-feature-home.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../frontend/web/libs/websites/vrapalis/feature/home/src/lib/components/websites-vrapalis-feature-home.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../frontend/web/libs/websites/vrapalis/feature/home/src/lib/containers/websites-vrapalis-feature-home-container.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../frontend/web/libs/websites/vrapalis/feature/home/src/lib/containers/websites-vrapalis-feature-home-container.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/design-patterns/src/main/java/com/vrapalis/www/backend/tutorials/designpatterns/behavioral/observer/Publisher.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/design-patterns/src/main/java/com/vrapalis/www/backend/tutorials/designpatterns/behavioral/observer/PushPublisher.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/design-patterns/src/main/java/com/vrapalis/www/backend/tutorials/designpatterns/behavioral/observer/PushSubscriber.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/design-patterns/src/main/java/com/vrapalis/www/backend/tutorials/designpatterns/behavioral/observer/Subscriber.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/design-patterns/src/test/java/behavioral/observer/PublisherGroupTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../frontend/web/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../frontend/web/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -111,20 +108,7 @@
       <recent name="$PROJECT_DIR$/design-patterns/src/test/java" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.StrategyPatternTestGroup">
-    <configuration name="ClassesAndObjectsApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.example.classesandobjects.ClassesAndObjectsApplication" />
-      <module name="tutorials.classes-and-objects.main" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.example.classesandobjects.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="Gradle.PublisherGroupTest.name">
     <configuration name="RunDesignPatterns" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.vrapalis.www.backend.tutorials.designpatterns.RunDesignPatterns" />
       <module name="tutorials.design-patterns.main" />
@@ -137,6 +121,29 @@
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
+    </configuration>
+    <configuration name="PublisherGroupTest.name" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":design-patterns:test" />
+            <option value="--tests" />
+            <option value="&quot;behavioral.observer.PublisherGroupTest.name&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
     </configuration>
     <configuration name="StrategyPatternFilterOnlyFoodProductsTest.filterExpiredFoodProducts" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
@@ -216,11 +223,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.PublisherGroupTest.name" />
         <item itemvalue="Gradle.StrategyPatternTestGroup" />
         <item itemvalue="Gradle.StrategyPatternFilterOnlyFoodProductsTest.filterExpiredFoodProducts" />
         <item itemvalue="Gradle.StrategyPatternFilterOnlyFoodProductsTest.name" />
         <item itemvalue="Application.RunDesignPatterns" />
-        <item itemvalue="Application.ClassesAndObjectsApplication" />
       </list>
     </recent_temporary>
   </component>
@@ -245,6 +252,7 @@
       <workItem from="1643113562911" duration="1370000" />
       <workItem from="1643114945642" duration="3584000" />
       <workItem from="1643125194920" duration="605000" />
+      <workItem from="1643202469269" duration="2338000" />
     </task>
     <servers />
   </component>

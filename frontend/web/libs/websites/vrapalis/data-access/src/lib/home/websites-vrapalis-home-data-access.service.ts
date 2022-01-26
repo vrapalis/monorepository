@@ -7,22 +7,10 @@ import {IWebsiteStrapiEnv} from "@web/websites/shared/model";
 import {catchError, Observable, of} from "rxjs";
 import {map} from "rxjs/operators";
 
-@Injectable()
+@Injectable({providedIn: "root"})
 export class WebsitesVrapalisHomeDataAccessService extends StrapiService<IHome> {
 
   constructor(http: HttpClient, @Inject(VR_ENV_IN_TOKEN) private env: IWebsiteStrapiEnv) {
-    super(http, env.strapiPath);
-  }
-
-  getSingle(path?: string): Observable<IHome> {
-    return super.getSingle(path)
-      .pipe(
-        map(response => {
-          response.profile.url = this.env.strapiPath + response.profile.url;
-          response.projects.projects.forEach(project => project.picture.url = this.env.strapiPath + project.picture.url);
-          return response;
-        }),
-        catchError(()=> of())
-      );
+    super(http, ".");
   }
 }
