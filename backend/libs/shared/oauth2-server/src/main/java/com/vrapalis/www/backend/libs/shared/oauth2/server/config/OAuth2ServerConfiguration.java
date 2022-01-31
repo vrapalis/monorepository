@@ -121,6 +121,8 @@ public class OAuth2ServerConfiguration {
         config.addAllowedOrigin("http://127.0.0.1:4200");
         config.addAllowedOrigin("http://vrapalis-oauth2.ddns.net");
         config.addAllowedOrigin("https://vrapalis-oauth2.ddns.net");
+        config.addAllowedOrigin("https://vrapalis.ddns.net");
+        config.addAllowedOrigin("http://vrapalis.ddns.net");
         config.addAllowedHeader("*");
         config.addAllowedMethod("*");
 
@@ -143,6 +145,8 @@ public class OAuth2ServerConfiguration {
                 .redirectUri("http://127.0.0.1:8080")
                 .redirectUri("http://vrapalis-oauth2.ddns.net")
                 .redirectUri("https://vrapalis-oauth2.ddns.net")
+                .redirectUri("http://vrapalis.ddns.net")
+                .redirectUri("https://vrapalis.ddns.net")
                 .scope(OidcScopes.OPENID)
                 .scope("read")
                 .scope("write")

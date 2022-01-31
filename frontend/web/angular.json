@@ -9,7 +9,9 @@
       "architect": {
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/shared/ui"],
+          "outputs": [
+            "coverage/libs/shared/ui"
+          ],
           "options": {
             "jestConfig": "libs/shared/ui/jest.config.js",
             "passWithNoTests": true
@@ -35,7 +37,9 @@
       "architect": {
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/websites/shared/data-access"],
+          "outputs": [
+            "coverage/libs/websites/shared/data-access"
+          ],
           "options": {
             "jestConfig": "libs/websites/shared/data-access/jest.config.js",
             "passWithNoTests": true
@@ -51,7 +55,10 @@
           }
         }
       },
-      "tags": ["scope:websites-shared", "type:data-access"]
+      "tags": [
+        "scope:websites-shared",
+        "type:data-access"
+      ]
     },
     "websites-shared-model": {
       "root": "libs/websites/shared/model",
@@ -60,21 +67,30 @@
       "architect": {
         "lint": {
           "builder": "@nrwl/linter:eslint",
-          "outputs": ["{options.outputFile}"],
+          "outputs": [
+            "{options.outputFile}"
+          ],
           "options": {
-            "lintFilePatterns": ["libs/websites/shared/model/**/*.ts"]
+            "lintFilePatterns": [
+              "libs/websites/shared/model/**/*.ts"
+            ]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/websites/shared/model"],
+          "outputs": [
+            "coverage/libs/websites/shared/model"
+          ],
           "options": {
             "jestConfig": "libs/websites/shared/model/jest.config.js",
             "passWithNoTests": true
           }
         }
       },
-      "tags": ["scope:websites-shared", "type:model"]
+      "tags": [
+        "scope:websites-shared",
+        "type:model"
+      ]
     },
     "websites-shared-ui": {
       "projectType": "library",
@@ -84,7 +100,9 @@
       "architect": {
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/websites/shared/ui"],
+          "outputs": [
+            "coverage/libs/websites/shared/ui"
+          ],
           "options": {
             "jestConfig": "libs/websites/shared/ui/jest.config.js",
             "passWithNoTests": true
@@ -100,7 +118,10 @@
           }
         }
       },
-      "tags": ["scope:websites-shared", "type:ui"]
+      "tags": [
+        "scope:websites-shared",
+        "type:ui"
+      ]
     },
     "websites-vrapalis": {
       "projectType": "application",
@@ -110,7 +131,9 @@
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
-          "outputs": ["{options.outputPath}"],
+          "outputs": [
+            "{options.outputPath}"
+          ],
           "options": {
             "outputPath": "dist/websites-vrapalis/browser",
             "index": "apps/websites/vrapalis/src/index.html",
@@ -202,7 +225,9 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/apps/websites/vrapalis"],
+          "outputs": [
+            "coverage/apps/websites/vrapalis"
+          ],
           "options": {
             "jestConfig": "apps/websites/vrapalis/jest.config.js",
             "passWithNoTests": true
@@ -255,7 +280,9 @@
         "prerender": {
           "builder": "@nguniversal/builders:prerender",
           "options": {
-            "routes": ["/"]
+            "routes": [
+              "/"
+            ]
           },
           "configurations": {
             "production": {
@@ -270,7 +297,10 @@
           "defaultConfiguration": "production"
         }
       },
-      "tags": ["scope:websites-vrapalis", "type:website"]
+      "tags": [
+        "scope:websites-vrapalis",
+        "type:website"
+      ]
     },
     "websites-vrapalis-data-access": {
       "projectType": "library",
@@ -280,7 +310,9 @@
       "architect": {
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/websites/vrapalis/data-access"],
+          "outputs": [
+            "coverage/libs/websites/vrapalis/data-access"
+          ],
           "options": {
             "jestConfig": "libs/websites/vrapalis/data-access/jest.config.js",
             "passWithNoTests": true
@@ -296,7 +328,10 @@
           }
         }
       },
-      "tags": ["scope:websites-vrapalis", "type:data-access"]
+      "tags": [
+        "scope:websites-vrapalis",
+        "type:data-access"
+      ]
     },
     "websites-vrapalis-feature-blog": {
       "projectType": "library",
@@ -306,7 +341,9 @@
       "architect": {
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/websites/vrapalis/feature/blog"],
+          "outputs": [
+            "coverage/libs/websites/vrapalis/feature/blog"
+          ],
           "options": {
             "jestConfig": "libs/websites/vrapalis/feature/blog/jest.config.js",
             "passWithNoTests": true
@@ -322,7 +359,10 @@
           }
         }
       },
-      "tags": ["scope:websites-vrapalis", "type:feature"]
+      "tags": [
+        "scope:websites-vrapalis",
+        "type:feature"
+      ]
     },
     "websites-vrapalis-feature-home": {
       "projectType": "library",
@@ -332,7 +372,9 @@
       "architect": {
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/websites/vrapalis/feature/home"],
+          "outputs": [
+            "coverage/libs/websites/vrapalis/feature/home"
+          ],
           "options": {
             "jestConfig": "libs/websites/vrapalis/feature/home/jest.config.js",
             "passWithNoTests": true
@@ -348,7 +390,10 @@
           }
         }
       },
-      "tags": ["scope:websites-vrapalis", "type:feature"]
+      "tags": [
+        "scope:websites-vrapalis",
+        "type:feature"
+      ]
     },
     "websites-vrapalis-feature-projects": {
       "projectType": "library",
@@ -358,7 +403,9 @@
       "architect": {
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/websites/vrapalis/feature/projects"],
+          "outputs": [
+            "coverage/libs/websites/vrapalis/feature/projects"
+          ],
           "options": {
             "jestConfig": "libs/websites/vrapalis/feature/projects/jest.config.js",
             "passWithNoTests": true
@@ -374,7 +421,10 @@
           }
         }
       },
-      "tags": ["scope:websites-vrapalis", "type:feature"]
+      "tags": [
+        "scope:websites-vrapalis",
+        "type:feature"
+      ]
     },
     "websites-vrapalis-model": {
       "root": "libs/websites/vrapalis/model",
@@ -383,21 +433,30 @@
       "architect": {
         "lint": {
           "builder": "@nrwl/linter:eslint",
-          "outputs": ["{options.outputFile}"],
+          "outputs": [
+            "{options.outputFile}"
+          ],
           "options": {
-            "lintFilePatterns": ["libs/websites/vrapalis/model/**/*.ts"]
+            "lintFilePatterns": [
+              "libs/websites/vrapalis/model/**/*.ts"
+            ]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/websites/vrapalis/model"],
+          "outputs": [
+            "coverage/libs/websites/vrapalis/model"
+          ],
           "options": {
             "jestConfig": "libs/websites/vrapalis/model/jest.config.js",
             "passWithNoTests": true
           }
         }
       },
-      "tags": ["scope:websites-vrapalis", "type:model"]
+      "tags": [
+        "scope:websites-vrapalis",
+        "type:model"
+      ]
     },
     "websites-vrapalis-ui": {
       "projectType": "library",
@@ -407,7 +466,9 @@
       "architect": {
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/websites/vrapalis/ui"],
+          "outputs": [
+            "coverage/libs/websites/vrapalis/ui"
+          ],
           "options": {
             "jestConfig": "libs/websites/vrapalis/ui/jest.config.js",
             "passWithNoTests": true
@@ -423,7 +484,10 @@
           }
         }
       },
-      "tags": ["scope:websites-vrapalis", "type:ui"]
+      "tags": [
+        "scope:websites-vrapalis",
+        "type:ui"
+      ]
     },
     "websites-vrapalis-utility": {
       "projectType": "library",
@@ -433,7 +497,9 @@
       "architect": {
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/websites/vrapalis/utility"],
+          "outputs": [
+            "coverage/libs/websites/vrapalis/utility"
+          ],
           "options": {
             "jestConfig": "libs/websites/vrapalis/utility/jest.config.js",
             "passWithNoTests": true
@@ -449,7 +515,10 @@
           }
         }
       },
-      "tags": ["scope:websites-vrapalis", "type:utility"]
+      "tags": [
+        "scope:websites-vrapalis",
+        "type:utility"
+      ]
     }
   }
 }

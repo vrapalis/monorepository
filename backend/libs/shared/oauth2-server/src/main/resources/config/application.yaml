@@ -1,3 +1,8 @@
+spring:
+  session:
+    store-type: jdbc
+    jdbc:
+      initialize-schema: never
 server:
   # Custom error handling, if no handler is found
   error:

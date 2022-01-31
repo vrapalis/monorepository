@@ -1,4 +1,4 @@
-# kubectl create secret tls test-tls --key="tls.key" --cert="tls.crt"
+# kubectl create secret tls test-tls --key="path-to-key/tls.key" --cert="path-to-crt/tls.crt"
 #  cat tls.crt | base64
 #  cat tls.key | base64
 

@@ -9,7 +9,7 @@ spring:
     oauth2:
       resourceserver:
         jwt:
-          issuer-uri: https://vrapalis-oauth2.ddns.net
+          issuer-uri: https://vrapalis.ddns.net
 
   mail:
     host: smtp.gmail.com

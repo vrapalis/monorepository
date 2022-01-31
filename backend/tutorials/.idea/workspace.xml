@@ -5,12 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="03b3ac8c-d50d-4ec2-8eb1-c77b2d0f8738" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/design-patterns/src/main/java/com/vrapalis/www/backend/tutorials/designpatterns/behavioral/observer/Publisher.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/design-patterns/src/main/java/com/vrapalis/www/backend/tutorials/designpatterns/behavioral/observer/PushPublisher.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/design-patterns/src/main/java/com/vrapalis/www/backend/tutorials/designpatterns/behavioral/observer/PushSubscriber.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/design-patterns/src/main/java/com/vrapalis/www/backend/tutorials/designpatterns/behavioral/observer/Subscriber.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/design-patterns/src/test/java/behavioral/observer/PublisherGroupTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data-structure/src/main/java/com/vrapalis/www/backend/tutorials/datastructure/algorithm/AlgorithmUtility.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data-structure/src/test/java/com/vrapalis/www/backend/tutorials/datastructure/algorithm/AlgorithmGroupTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../frontend/web/angular.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../frontend/web/angular.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../frontend/web/apps/websites/vrapalis/src/assets/content/home.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../frontend/web/apps/websites/vrapalis/src/assets/content/home.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../frontend/web/nx.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../frontend/web/nx.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../frontend/web/package-lock.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../frontend/web/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../frontend/web/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -92,6 +94,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="jdk.selected.JAVA_MODULE" value="16" />
     <property name="jdk.selected.PLUGIN_MODULE" value="IntelliJ IDEA IU-193.5662.53 (2)" />
+    <property name="last_directory_selection" value="$PROJECT_DIR$/data-structure/src/main/java/com/vrapalis/www/backend/tutorials/datastructure" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/design-patterns/src/test/java" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Modules" />
@@ -101,6 +104,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.vrapalis.www.backend.tutorials.datastructure.algorithm" />
       <recent name="com.vrapalis.www.backend.tutorials.datastructure.stack.arraybound" />
       <recent name="com.vrapalis.www.backend.tutorials.datastructure.stack" />
     </key>
@@ -108,20 +112,7 @@
       <recent name="$PROJECT_DIR$/design-patterns/src/test/java" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.PublisherGroupTest.name">
-    <configuration name="RunDesignPatterns" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.vrapalis.www.backend.tutorials.designpatterns.RunDesignPatterns" />
-      <module name="tutorials.design-patterns.main" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.vrapalis.www.backend.tutorials.designpatterns.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="Gradle.SortAlgorithmGroupTest.sortAlgorithmTest">
     <configuration name="PublisherGroupTest.name" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -145,7 +136,7 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="StrategyPatternFilterOnlyFoodProductsTest.filterExpiredFoodProducts" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="SelectionSortAlgorithmTest.sortUnsortedListTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -156,9 +147,9 @@
         </option>
         <option name="taskNames">
           <list>
-            <option value=":design-patterns:test" />
+            <option value=":data-structure:test" />
             <option value="--tests" />
-            <option value="&quot;behavioral.strategy.StrategyPatternTestGroup$StrategyPatternFilterOnlyFoodProductsTest.filterExpiredFoodProducts&quot;" />
+            <option value="&quot;com.vrapalis.www.backend.tutorials.datastructure.algorithm.SelectionSortAlgorithmTest.sortUnsortedListTest&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -168,7 +159,7 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="StrategyPatternFilterOnlyFoodProductsTest.name" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="SortAlgorithmGroupTest.sortAlgorithmTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -179,9 +170,32 @@
         </option>
         <option name="taskNames">
           <list>
-            <option value=":design-patterns:test" />
+            <option value=":data-structure:test" />
             <option value="--tests" />
-            <option value="&quot;behavioral.strategy.StrategyPatternTestGroup$StrategyPatternFilterOnlyFoodProductsTest.name&quot;" />
+            <option value="&quot;com.vrapalis.www.backend.tutorials.datastructure.algorithm.AlgorithmGroupTest$SortAlgorithmGroupTest.sortAlgorithmTest&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="SortUtilityAlgorithmsGroupTest.sortAlgorithmTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":data-structure:test" />
+            <option value="--tests" />
+            <option value="&quot;com.vrapalis.www.backend.tutorials.datastructure.algorithm.SortUtilityAlgorithmsGroupTest.sortAlgorithmTest&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -223,11 +237,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.SortAlgorithmGroupTest.sortAlgorithmTest" />
+        <item itemvalue="Gradle.SortUtilityAlgorithmsGroupTest.sortAlgorithmTest" />
+        <item itemvalue="Gradle.SelectionSortAlgorithmTest.sortUnsortedListTest" />
         <item itemvalue="Gradle.PublisherGroupTest.name" />
         <item itemvalue="Gradle.StrategyPatternTestGroup" />
-        <item itemvalue="Gradle.StrategyPatternFilterOnlyFoodProductsTest.filterExpiredFoodProducts" />
-        <item itemvalue="Gradle.StrategyPatternFilterOnlyFoodProductsTest.name" />
-        <item itemvalue="Application.RunDesignPatterns" />
       </list>
     </recent_temporary>
   </component>
@@ -253,6 +267,11 @@
       <workItem from="1643114945642" duration="3584000" />
       <workItem from="1643125194920" duration="605000" />
       <workItem from="1643202469269" duration="2338000" />
+      <workItem from="1643286516984" duration="8466000" />
+      <workItem from="1643298695863" duration="816000" />
+      <workItem from="1643357192116" duration="2169000" />
+      <workItem from="1643375009276" duration="47000" />
+      <workItem from="1643615168446" duration="46000" />
     </task>
     <servers />
   </component>
