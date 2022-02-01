@@ -3,43 +3,7 @@ import {isPlatformBrowser, isPlatformServer, DOCUMENT} from "@angular/common";
 
 @Component({
   selector: 'web-vr-header-component',
-  template: `
-    <header id="navbar" class="sh-ui-header">
-      <div class="line"></div>
-
-      <aside>
-        <!--        <embed src="assets/images/logo.svg">-->
-        <label>Vitali Rapalis</label>
-      </aside>
-
-      <div class="menu" (click)="toggleNavbar()">
-        <div class="ham-menu"></div>
-      </div>
-
-      <nav>
-        <ul>
-          <li routerLink="home" routerLinkActive="active">
-            <a>Home</a>
-          </li>
-          <li routerLink="projects" routerLinkActive="active">
-            <a>Projects</a>
-          </li>
-          <li routerLink="blog" routerLinkActive="active">
-            <a>Blog</a>
-          </li>
-          <li routerLink="contact" routerLinkActive="active">
-            <a>Contact</a>
-          </li>
-          <li>
-            <a class="bi bi-linkedin"></a>
-          </li>
-          <li>
-            <a class="bi bi-github"></a>
-          </li>
-        </ul>
-      </nav>
-    </header>
-  `,
+  templateUrl: 'websites-vrapalis-header.component.html',
   styleUrls: ['websites-vrapalis-header.component.scss']
 })
 export class WebsitesVrapalisHeaderComponent implements AfterViewInit {

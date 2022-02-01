@@ -7,12 +7,15 @@ import {IHome} from "@web/websites/vrapalis/model";
     <main>
       <img src="assets/images/me.jpg">
       <section>
-        <h1>Are you looking for a full stack senior developer?</h1>
+        <h1>Are you looking for a <strong>full</strong> stack senior <strong>developer </strong>?</h1>
+        <br>
         <p>
           I offer the following services:
           <br>
-          - Frontend development (Angular or Vuejs)
-          - Backend development (Spring Boot)
+          <br>
+          - <strong>Frontend</strong> development (Angular or Vuejs)
+          <br>
+          - <strong>Backend</strong> development (Spring Boot)
         </p>
       </section>
     </main>

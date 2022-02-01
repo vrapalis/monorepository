@@ -29,8 +29,7 @@
     "dev:ssr": "nx run websites-vrapalis:serve-ssr",
     "serve:ssr": "node dist/websites-vrapalis/server/main.js",
     "build:ssr": "nx build && ng run websites-vrapalis:server",
-    "prerender": "nx run websites-vrapalis:prerender",
-    "websites/vrapalis:deploy": "rm -rf dist && nx run websites-vrapalis:prerender --routes /home && ngh --dir dist/websites-vrapalis/browser"
+    "prerender": "nx run websites-vrapalis:prerender"
   },
   "private": true,
   "dependencies": {
@@ -95,3 +94,4 @@
     "typescript": "4.5.5"
   }
 }
+

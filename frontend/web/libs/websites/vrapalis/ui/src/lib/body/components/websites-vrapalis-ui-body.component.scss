@@ -1,7 +1,19 @@
 @import "libs/websites/vrapalis/ui/src/lib/style/vars";
+@import "libs/shared/ui/src/lib/style/mixins";
 
 .wrapper {
   max-width: $max-body-width;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 20px 100px;
+}
+
+@include maxTabletScreen {
+  .wrapper {
+    margin: 10px 20px;
+  }
+}
+
+@include maxMediumScreen {
+  .wrapper {
+    margin: 10px 5px;
+  }
 }

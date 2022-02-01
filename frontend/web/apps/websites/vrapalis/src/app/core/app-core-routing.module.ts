@@ -1,7 +1,5 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-import {WebsitesVrapalisFeatureBlogModule} from '@web/websites/vrapalis/feature/blog';
-import {WebsitesVrapalisFeatureProjectsModule} from '@web/websites/vrapalis/feature/projects';
 import {WebShUiPageNotFoundContainerComponent} from '@web/websites/shared/ui';
 
 const routes: Routes = [
@@ -10,8 +8,18 @@ const routes: Routes = [
     path: 'home',
     loadChildren: () => import('@web/websites/vrapalis/feature/home').then(mod => mod.WebsitesVrapalisFeatureHomeModule)
   },
-  {path: 'blog', loadChildren: () => WebsitesVrapalisFeatureBlogModule},
-  {path: 'projects', loadChildren: () => WebsitesVrapalisFeatureProjectsModule},
+  {
+    path: 'projects',
+    loadChildren: () => import('@web/websites/vrapalis/feature/projects').then(mod => mod.WebsitesVrapalisFeatureProjectsModule)
+  },
+  {
+    path: 'blog',
+    loadChildren: () => import('@web/websites/vrapalis/feature/blog').then(mod => mod.WebsitesVrapalisFeatureBlogModule)
+  },
+  {
+    path: 'contact',
+    loadChildren: () => import('@web/websites/vrapalis/feature/contact').then(mod => mod.WebsitesVrapalisFeatureContactModule)
+  },
   {path: '**', component: WebShUiPageNotFoundContainerComponent}
 ];
 
