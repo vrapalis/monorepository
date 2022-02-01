@@ -5,8 +5,7 @@ import { Component } from '@angular/core';
   template: `
     <web-vr-header-component></web-vr-header-component>
   `,
-  styles: [
-  ]
+  styles: [``]
 })
 export class WebsitesVrapalisHeaderContainerComponent {
 }

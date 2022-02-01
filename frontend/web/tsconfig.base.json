@@ -27,6 +27,9 @@
       "@web/websites/vrapalis/feature/blog": [
         "libs/websites/vrapalis/feature/blog/src/index.ts"
       ],
+      "@web/websites/vrapalis/feature/contact": [
+        "libs/websites/vrapalis/feature/contact/src/index.ts"
+      ],
       "@web/websites/vrapalis/feature/home": [
         "libs/websites/vrapalis/feature/home/src/index.ts"
       ],

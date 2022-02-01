@@ -8,13 +8,10 @@ import {ISideLink} from "@web/websites/shared/model";
   template: `
     <main class="page-container-wrapper">
       <web-vr-header></web-vr-header>
-      <web-sh-ui-contact-side-link [links]="links | async"></web-sh-ui-contact-side-link>
 
       <web-websites-vrapalis-ui-body>
         <ng-content></ng-content>
       </web-websites-vrapalis-ui-body>
-
-      <div class="image"></div>
     </main>
   `,
   styleUrls: ['web-sh-ui-page-container.component.scss'],

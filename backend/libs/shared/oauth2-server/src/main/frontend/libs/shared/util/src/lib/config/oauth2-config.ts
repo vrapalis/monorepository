@@ -3,7 +3,7 @@ import { AuthConfig } from 'angular-oauth2-oidc';
 export const OAUTH2_CODE_FLOW_CONFIG: AuthConfig = {
   // Url of the Identity Provider
   // issuer: 'http://127.0.0.1:8080',
-  issuer: 'https://vrapalis-oauth2.ddns.net',
+  issuer: 'https://vrapalis.ddns.net',
   // issuer: 'https://vrapalis-oauth2.ddns.net/login',
   useHttpBasicAuth: true,
   dummyClientSecret: 'secret',

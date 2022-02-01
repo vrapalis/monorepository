@@ -1,7 +1,6 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {WebShUiPageContainerComponent} from './containers/web-sh-ui-page-container.component';
-import {WebShUiContactSideLinkModule} from "@web/websites/shared/ui";
 import {WebsitesVrapalisHeaderModule} from "../header/websites-vrapalis-header.module";
 import {WebsitesVrapalisUiBodyModule} from "../body/websites-vrapalis-ui-body.module";
 
@@ -13,8 +12,7 @@ import {WebsitesVrapalisUiBodyModule} from "../body/websites-vrapalis-ui-body.mo
   imports: [
     CommonModule,
     WebsitesVrapalisHeaderModule,
-    WebShUiContactSideLinkModule,
-    WebsitesVrapalisUiBodyModule
+    WebsitesVrapalisUiBodyModule,
   ],
   exports: [WebShUiPageContainerComponent]
 })

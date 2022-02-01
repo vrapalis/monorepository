@@ -1,43 +1,267 @@
 @import "libs/websites/vrapalis/ui/src/lib/style/vars";
 @import "libs/shared/ui/src/lib/style/mixins";
 
-.navbar {
-  transition: 0.2s all ease-in;
+.sh-ui-header {
+  padding: 15px 15px;
+  background: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  height: 65px;
+  opacity: 0.9;
 
-  .navbar-brand {
-    opacity: 0.65;
+  .line {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    background: linear-gradient(90deg, #2f53a0c7, #52a49aab 32.58%, #552ca7 77.25%, #2f53a0);
+    height: 5px;
   }
 
-  ::ng-deep .navbar-toggler {
-    padding: 0.10rem 0.30rem !important;
-  }
+  aside {
+    display: flex;
 
-  .nav-wrapper {
-    max-width: $max-body-width;
-
-    .nav-item a {
-      background: black;
-      color: white !important;
-      border-radius: 55px;
-      padding: 5px 20px;
+    embed {
+      cursor: pointer;
+      height: 40px;
+      width: 40px;
     }
 
-    @include maxMediumScreen {
-      .nav-item a {
-        padding: unset;
-        width: 80%;
-        margin: 20px auto 10px auto;
+    label {
+      margin-left: 5px;
+      color: #552ca7;
+    }
+  }
+
+  .menu {
+    display: none;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    position: relative;
+
+    .ham-menu {
+      width: 25px;
+      height: 3px;
+      z-index: 25;
+      left: 0;
+      position: relative;
+      transform: translateY(25px);
+      background: #fff;
+      top: -10px;
+
+      background: #2f53a0;
+    }
+
+    .ham-menu:before {
+      width: 25px;
+      height: 3px;
+      z-index: 25;
+      left: 0;
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 8px;
+
+      background: #2f53a0;
+      transition: bottom .3s cubic-bezier(.23, 1, .32, 1) .3s, transform .3s cubic-bezier(.23, 1, .32, 1);
+
+    }
+
+    .ham-menu:after {
+      width: 25px;
+      height: 3px;
+      z-index: 25;
+      left: 0;
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 8px;
+      background: #2f53a0;
+      transition: top .3s cubic-bezier(.23, 1, .32, 1) .3s, transform .3s cubic-bezier(.23, 1, .32, 1);
+    }
+  }
+
+  nav {
+    width: 70%;
+
+    ul {
+      display: flex;
+      justify-content: flex-end;
+      list-style: none;
+
+      li {
+        cursor: pointer;
+      }
+
+      li:after {
+        content: "";
+        display: block;
+        background: #2d3a56;
+        height: 3px;
+        width: 0%;
+        opacity: 0.5;
+        position: relative;
+        top: -5px;
+        transition: 0.2s width, opacity ease-out;
+      }
+
+      li:hover:after {
+        width: 100%;
+        opacity: 0.8;
+        transition: 0.2s width, opacity ease-in;
+      }
+
+      li:nth-child(1n) {
+        margin-left: 30px;
+      }
+
+      li:nth-last-child(-n+2) {
+        margin-left: 10px !important;
+      }
+
+      li:nth-last-child(2) {
+        margin-left: 50px !important;
+      }
+
+      li:nth-last-child(3):before {
+        content: "It's worth it";
+        display: block;
+        font-size: 13px;
+        position: absolute;
+        top: 5px;
+        color: #3483a4;
       }
     }
   }
 
+  @include maxMediumScreen {
+    transition: height 0.1s ease-out;
+
+    .menu {
+      display: block;
+
+      .ham-menu {
+
+      }
+    }
+
+    nav {
+      position: absolute;
+      top: -300px;
+      opacity: 0;
+    }
+  }
 }
 
-.navbar-scrolled {
-  background: white;
-  padding-top: 0.1rem !important;
-  padding-bottom: 0.1rem !important;
-  transition: 0.2s all ease-in;
-  opacity: 0.96;
+.menu-open {
+  height: 100vh;
+  background: linear-gradient(256.38deg, rgba(82,164,154,.9) -4.13%, rgba(27, 60, 135, .9) 86.92%), linear-gradient(85.34deg, rgba(10, 36, 99, .7) 8.02%, rgba(43, 10, 99, .7) 92.82%) !important;
+  -webkit-backdrop-filter: blur(15px) !important;
+  backdrop-filter: blur(15px) !important;
+  transition: height 0.1s ease-in;
+
+  nav {
+    opacity: 1;
+    top: 80px;
+    transition: top, opacity 0.15s ease-in;
+    width: 100%;
+    margin-left: -15px;
+    width: 85%;
+
+    ul {
+      display: flex;
+      flex-direction: column;
+
+      li:nth-child(1n+2) {
+        margin-top: 45px;
+      }
+
+      li:nth-child(1n) {
+        color: white;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        border-bottom: 1px dashed;
+      }
+
+      li:nth-child(1n):after {
+        content: "" !important;
+        background: url("/assets/images/arrow_right_white.png") no-repeat;
+        display: block !important;
+        height: 45px !important;
+        width: 45px !important;
+        opacity: 1 !important;
+        position: relative !important;
+        right: -25px;
+        top: 8px !important;
+        transition: none;
+      }
+
+      li:nth-last-child(3):before {
+        top: 255px;
+      }
+
+      li:nth-last-child(-n+2) {
+        //color: white !important;
+        display: block;
+        width: unset;
+        justify-content: unset;
+        border-bottom: unset;
+        margin-left: unset;
+        position: absolute;
+        top: 310px;
+        left: 50px;
+
+        a {
+          color: white;
+          font-size: 35px;
+        }
+      }
+
+      li:nth-last-child(-n+2):after {
+        content: none !important;
+        background: none !important;
+        display: block !important;
+        height: 45px !important;
+        width: 45px;
+        position: relative !important;
+        right: -25px;
+        top: 8px !important;
+        transition: none;
+
+        color: white !important;
+        border-bottom: unset !important;
+      }
+
+      li:nth-last-child(2) {
+        margin-left: unset;
+        left: 65px;
+      }
+    }
+  }
 }
 
+.wh-cl {
+  color: white !important;
+}
+
+.ham-menu-cl {
+  top: -10px !important;
+  background: hsla(0, 0%, 100%, 0) !important;
+}
+
+.ham-menu-af:after {
+  background: white !important;
+  top: 0 !important;
+  transform: rotate(45deg);
+  transition: top .3s cubic-bezier(.23, 1, .32, 1), transform .3s cubic-bezier(.23, 1, .32, 1) .3s !important;
+}
+
+.ham-menu-bf:before {
+  background: white !important;
+  bottom: 0 !important;
+  transform: rotate(-45deg);
+  transition: bottom .3s cubic-bezier(.23, 1, .32, 1), transform .3s cubic-bezier(.23, 1, .32, 1) .3s !important;
+}

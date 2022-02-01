@@ -1,0 +1,53 @@
+.sh-ui-header {
+  padding: 15px 15px;
+  background: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  height: 65px;
+  opacity: 0.9;
+
+  nav {
+    width: 70%;
+
+    ul {
+      display: flex;
+      justify-content: flex-end;
+      list-style: none;
+
+      li {
+        cursor: pointer;
+      }
+
+      li:after {
+        content: "";
+        display: block;
+        background: #2d3a56;
+        height: 3px;
+        width: 0%;
+        opacity: 0.5;
+        position: relative;
+        top: -5px;
+        transition: 0.2s width, opacity ease-out;
+      }
+
+      li:hover:after {
+        width: 100%;
+        opacity: 0.8;
+        transition: 0.2s width, opacity ease-in;
+      }
+
+      li:nth-child(1n) {
+        margin-left: 30px;
+      }
+
+      li:nth-child(2):before {
+        content: "It's worth it";
+        display: block;
+        font-size: 13px;
+        position: absolute;
+        top: 3px;
+      }
+    }
+  }
+}

@@ -1,34 +1,7 @@
-//@import "libs/shared/ui/src/lib/style/reset";
 @import "libs/shared/ui/src/lib/style/mixins";
 @import "libs/shared/ui/src/lib/style/vars";
 
-body {
-  background: rgba(128, 177, 166, 1);
-}
-
 .page-container-wrapper {
-  .image {
-    background: url("./assets/background.svg");
-    position: fixed;
-    bottom: 0;
-    right: 0;
-    width: 50%;
-    height: 50%;
-    background-size: cover;
-  }
 
-  @include maxTabletScreen {
-    .image {
-      width: 400px;
-      height: 200px;
-    }
-  }
-
-  @include maxXSmallScreen {
-    .image {
-      width: 300px;
-      height: 100px;
-    }
-  }
 }
 

@@ -1,44 +1,76 @@
 @import "libs/shared/ui/src/lib/style/mixins";
 
-.home-wrapper {
+main {
+  margin: 20px 100px;
+  display: flex;
 
-  .profile {
+  img {
+    flex-shrink: 0;
+    flex-grow: 1;
+    width: 450px;
+    height: 600px;
+    object-fit: contain;
+  }
+
+  section {
+    flex-grow: 2;
+    width: 100%;
+    text-align: left;
+    margin: 30px 50px;
+
+    h1 {
+      margin-top: 50px;
+    }
+
+    p {
+      margin-top: 50px;
+    }
+  }
+}
+
+@include maxTabletScreen {
+  main {
+    margin: 10px 20px;
+
     img {
-      object-fit: contain;
+      width: 250px;
       height: 400px;
-      opacity: 0.75;
     }
-  }
 
-  .projects {
-    margin-top: 80px;
-    z-index: 100;
-  }
+    section {
 
-  @include maxXSmallScreen {
-    .profile {
-      img {
-        height: 280px !important;
+      h1 {
+        margin-top: unset;
       }
-    }
 
-    .projects {
-      margin: 50px 0px;
-    }
-  }
-
-  @include maxMediumScreen {
-    .profile {
-      img {
-        height: 400px;
+      p {
+        margin-top: 20px;
       }
     }
   }
-  @include minXXLargeScreen {
-    .profile {
-      img {
+}
+
+@include maxMediumScreen {
+  main {
+    margin: 20px 5px;
+    flex-direction: column;
+    align-items: center;
+
+    img {
+      width: 80%;
+      height: 400px;
+    }
+
+    section {
+      width: 100%;
+      padding: 10px;
+
+      h1 {
+      }
+
+      p {
+
       }
     }
   }
-
 }

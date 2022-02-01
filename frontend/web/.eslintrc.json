@@ -60,6 +60,7 @@
               {
                 "sourceTag": "scope:websites-vrapalis",
                 "onlyDependOnLibsWithTags": [
+                  "scope:shared",
                   "scope:websites-shared",
                   "scope:websites-vrapalis"
                 ]
