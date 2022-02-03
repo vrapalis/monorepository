@@ -8,7 +8,12 @@
   justify-content: space-between;
   align-items: flex-start;
   height: 65px;
-  opacity: 0.9;
+  opacity: 0.95;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  z-index: 1000;
 
   .line {
     position: absolute;
@@ -98,7 +103,7 @@
       li:after {
         content: "";
         display: block;
-        background: #2d3a56;
+        background: #552ca7;
         height: 3px;
         width: 0%;
         opacity: 0.5;
@@ -122,7 +127,7 @@
       }
 
       li:nth-last-child(2) {
-        margin-left: 50px !important;
+        margin-left: 30px !important;
       }
 
       li:nth-last-child(3):before {
@@ -132,6 +137,12 @@
         position: absolute;
         top: 5px;
         color: #3483a4;
+      }
+
+      li {
+        a {
+          color: #552ca7;
+        }
       }
     }
   }
@@ -215,7 +226,6 @@
         left: 50px;
 
         a {
-          color: white;
           font-size: 35px;
         }
       }
@@ -237,7 +247,13 @@
 
       li:nth-last-child(2) {
         margin-left: unset;
-        left: 65px;
+        left: 85px;
+      }
+
+      li {
+        a {
+          color: white;
+        }
       }
     }
   }

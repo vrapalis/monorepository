@@ -3,12 +3,16 @@
 
 .wrapper {
   max-width: $max-body-width;
-  margin: 20px 100px;
+  position: relative;
+  top: 100px;
+  width: 85%;
+  margin: auto;
 }
 
 @include maxTabletScreen {
   .wrapper {
     margin: 10px 20px;
+    width: 100%;
   }
 }
 

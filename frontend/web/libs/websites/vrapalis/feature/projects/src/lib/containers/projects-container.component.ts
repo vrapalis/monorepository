@@ -5,9 +5,6 @@ import {Component, ViewEncapsulation} from '@angular/core';
   template: `
     <main class="projects-wr">
       <web-projects-component *ngFor="let project of [1,2,3, 4]">
-        <mat-card-footer>
-          <mat-progress-bar [mode]="project % 2 === 0 ? 'indeterminate':'query'"></mat-progress-bar>
-        </mat-card-footer>
       </web-projects-component>
     </main>
   `,

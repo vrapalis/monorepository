@@ -1,5 +1,6 @@
-import {AfterViewInit, Component, ElementRef, HostListener, Inject, PLATFORM_ID, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, HostListener, Inject, PLATFORM_ID} from '@angular/core';
 import {isPlatformBrowser, isPlatformServer, DOCUMENT} from "@angular/common";
+import {BreakpointObserver} from "@angular/cdk/layout";
 
 @Component({
   selector: 'web-vr-header-component',
@@ -9,7 +10,9 @@ import {isPlatformBrowser, isPlatformServer, DOCUMENT} from "@angular/common";
 export class WebsitesVrapalisHeaderComponent implements AfterViewInit {
   private isToggled = false;
 
-  constructor(@Inject(PLATFORM_ID) private platformId: any, @Inject(DOCUMENT) private document: Document) {
+  constructor(@Inject(PLATFORM_ID) private platformId: any,
+              @Inject(DOCUMENT) private document: Document,
+              private breakpointObserver: BreakpointObserver) {
   }
 
   ngAfterViewInit(): void {
@@ -49,6 +52,14 @@ export class WebsitesVrapalisHeaderComponent implements AfterViewInit {
         this.document.body.style.overflow = "hidden";
       } else {
         this.document.body.style.overflow = "auto";
+      }
+    }
+  }
+
+  closeMobileMenu() {
+    if (isPlatformBrowser(this.platformId)) {
+      if (this.breakpointObserver.isMatched('(max-width: 768px)')) {
+        this.toggleNavbar();
       }
     }
   }

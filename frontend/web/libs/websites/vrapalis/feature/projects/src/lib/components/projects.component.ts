@@ -6,7 +6,6 @@ import {Component} from '@angular/core';
     <div class="card">
       <img>
       <div class="card-body">
-        <ng-content></ng-content>
         <h5 class="card-title mt-3">Project title</h5>
         <p class="card-text">
           Some content about project ... <br>

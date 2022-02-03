@@ -13,16 +13,16 @@
 
   <nav>
     <ul>
-      <li routerLink="home" routerLinkActive="active">
+      <li routerLink="home" (click)="closeMobileMenu()" routerLinkActive="active">
         <a>Home</a>
       </li>
-      <li routerLink="projects" routerLinkActive="active">
+      <li routerLink="projects" (click)="closeMobileMenu()"  routerLinkActive="active">
         <a>Projects</a>
       </li>
-      <li routerLink="blog" routerLinkActive="active">
+      <li routerLink="blog" (click)="closeMobileMenu()" routerLinkActive="active">
         <a>Blog</a>
       </li>
-      <li routerLink="contact" routerLinkActive="active">
+      <li routerLink="contact" (click)="closeMobileMenu()" routerLinkActive="active">
         <a>Contact</a>
       </li>
       <li>
