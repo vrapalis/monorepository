@@ -122,15 +122,15 @@
         margin-left: 30px;
       }
 
-      li:nth-last-child(-n+2) {
+      li:nth-last-child(-n+3) {
         margin-left: 10px !important;
       }
 
-      li:nth-last-child(2) {
+      li:nth-last-child(3) {
         margin-left: 30px !important;
       }
 
-      li:nth-last-child(3):before {
+      li:nth-last-child(4):before {
         content: "It's worth it";
         display: block;
         font-size: 13px;
@@ -142,6 +142,36 @@
       li {
         a {
           color: #552ca7;
+        }
+      }
+
+      .translate-wr {
+        display: none;
+        position: absolute;
+        right: 10px;
+        top: 67px;
+        background: white;
+        opacity: 0.95;
+        padding: 10px 20px;
+        cursor: auto;
+
+        a {
+          cursor: pointer;
+
+          i {
+            display: none;
+          }
+
+          i:before {
+            font-size: 30px;
+            position: relative;
+            top: 3px;
+            left: -3px;
+          }
+        }
+
+        a:hover {
+          opacity: 0.7;
         }
       }
     }
@@ -210,11 +240,11 @@
         transition: none;
       }
 
-      li:nth-last-child(3):before {
+      li:nth-last-child(4):before {
         top: 255px;
       }
 
-      li:nth-last-child(-n+2) {
+      li:nth-last-child(-n+3) {
         //color: white !important;
         display: block;
         width: unset;
@@ -222,7 +252,7 @@
         border-bottom: unset;
         margin-left: unset;
         position: absolute;
-        top: 310px;
+        top: 395px;
         left: 50px;
 
         a {
@@ -230,7 +260,7 @@
         }
       }
 
-      li:nth-last-child(-n+2):after {
+      li:nth-last-child(-n+3):after {
         content: none !important;
         background: none !important;
         display: block !important;
@@ -245,14 +275,38 @@
         border-bottom: unset !important;
       }
 
-      li:nth-last-child(2) {
+      li:nth-last-child(3) {
         margin-left: unset;
         left: 85px;
+      }
+
+      li:nth-last-child(1) {
+        left: 162px;
       }
 
       li {
         a {
           color: white;
+        }
+      }
+
+      .translate-wr {
+        right: unset;
+        left: 45px;
+        top: -110px;
+        width: 130px;
+
+        a {
+          color: rgb(67 128 146);
+          display: flex !important;
+          font-size: 25px !important;
+
+          i:before {
+            font-size: 30px;
+            position: relative;
+            top: 5px;
+            left: 5px;
+          }
         }
       }
     }
@@ -280,4 +334,12 @@
   bottom: 0 !important;
   transform: rotate(-45deg);
   transition: bottom .3s cubic-bezier(.23, 1, .32, 1), transform .3s cubic-bezier(.23, 1, .32, 1) .3s !important;
+}
+
+.dsp-block {
+  display: block !important;
+}
+
+.dsp-inline {
+  display: inline-block !important;
 }

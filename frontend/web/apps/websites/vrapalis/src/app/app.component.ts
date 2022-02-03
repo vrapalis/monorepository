@@ -12,11 +12,8 @@ import {TranslateService} from '@ngx-translate/core';
 export class AppComponent {
 
   constructor(private translate: TranslateService) {
+    translate.setDefaultLang('en');
+    translate.use('en');
   }
 
-  eng() {
-    this.translate.use('en').subscribe(value => {
-      this.translate.get('NAVBAR.LINKS.HOME').subscribe(console.log);
-    });
-  }
 }

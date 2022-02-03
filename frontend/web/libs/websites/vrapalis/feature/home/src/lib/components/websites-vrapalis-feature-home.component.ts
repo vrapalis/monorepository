@@ -7,16 +7,8 @@ import {IHome} from "@web/websites/vrapalis/model";
     <main>
       <img src="assets/images/me.jpg">
       <section>
-        <h1>Are you looking for a <strong>full</strong> stack senior <strong>developer </strong>?</h1>
-        <br>
-        <p>
-          I offer the following services:
-          <br>
-          <br>
-          - <strong>Frontend</strong> development (Angular or Vuejs)
-          <br>
-          - <strong>Backend</strong> development (Spring Boot)
-        </p>
+        <h1 innerHTML="{{'pages.home.header' | translate }}"></h1>
+        <p innerHTML="{{'pages.home.text' | translate }}"></p>
       </section>
     </main>
   `,

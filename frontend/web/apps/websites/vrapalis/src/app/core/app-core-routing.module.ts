@@ -9,6 +9,10 @@ const routes: Routes = [
     loadChildren: () => import('@web/websites/vrapalis/feature/home').then(mod => mod.WebsitesVrapalisFeatureHomeModule)
   },
   {
+    path: 'about',
+    loadChildren: () => import('@web/websites/vrapalis/feature/about').then(mod => mod.WebsitesVrapalisFeatureAboutModule)
+  },
+  {
     path: 'projects',
     loadChildren: () => import('@web/websites/vrapalis/feature/projects').then(mod => mod.WebsitesVrapalisFeatureProjectsModule)
   },

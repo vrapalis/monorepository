@@ -24,7 +24,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     BrowserModule.withServerTransition({appId: 'my-app'}),
     BrowserTransferStateModule,
     TranslateModule.forRoot({
-      defaultLanguage: 'de',
+      defaultLanguage: 'en',
       loader: {
         provide: TranslateLoader,
         useFactory: HttpLoaderFactory,

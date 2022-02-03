@@ -3,6 +3,7 @@ import {CommonModule} from '@angular/common';
 import {WebsitesVrapalisHeaderContainerComponent} from './containers/websites-vrapalis-header-container.component';
 import {WebsitesVrapalisHeaderComponent} from './components/websites-vrapalis-header.component';
 import {RouterModule} from "@angular/router";
+import {TranslateModule} from "@ngx-translate/core";
 
 
 @NgModule({
@@ -12,7 +13,8 @@ import {RouterModule} from "@angular/router";
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    TranslateModule
   ],
   exports: [WebsitesVrapalisHeaderContainerComponent]
 })

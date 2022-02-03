@@ -1,10 +1,18 @@
 {
-  "NAVBAR": {
-    "LINKS": {
-      "HOME": "Home",
-      "BLOG": "Blog",
-      "PROJECTS": "Projects",
-      "LANGUAGES": "Languages"
+  "header": {
+    "label": "Vitali Rapalis",
+    "links": {
+      "home": "Home",
+      "about": "About Me",
+      "projects": "Projects",
+      "blog": "Blog",
+      "contact": "Contact"
+    }
+  },
+  "pages": {
+    "home": {
+      "header": "Are you looking for a <strong class='str-bl'>full</strong> stack senior <strong class='str-bl'>developer </strong>?<br>",
+      "text": "I offer the following services:<br><br>- <strong class='str-bl'>Backend</strong> development with <strong class='str-bl'>Java</strong> and <strong class='str-bl'>Relational Databases</strong><br> (Spring Boot Web/Data/Security, Postgres/MySQL)<br><br>- <strong class='str-bl'>Frontend</strong> development with JavaScript/TypeScript<br> (Angular Material/PWA/Universal, Vuejs BootstrapVue, Html5/CSS3/Bootstrap5)<br><br>- <strong class='str-bl'>DevOps</strong><br>(AWS EC2/RDS/VPC/S3, Kubernetes/Minikube, Docker, Jenkins)"
     }
   }
 }

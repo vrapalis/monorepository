@@ -24,6 +24,9 @@
       "@web/websites/vrapalis/data-access": [
         "libs/websites/vrapalis/data-access/src/index.ts"
       ],
+      "@web/websites/vrapalis/feature/about": [
+        "libs/websites/vrapalis/feature/about/src/index.ts"
+      ],
       "@web/websites/vrapalis/feature/blog": [
         "libs/websites/vrapalis/feature/blog/src/index.ts"
       ],

@@ -1,6 +1,7 @@
 import {AfterViewInit, Component, HostListener, Inject, PLATFORM_ID} from '@angular/core';
 import {isPlatformBrowser, isPlatformServer, DOCUMENT} from "@angular/common";
 import {BreakpointObserver} from "@angular/cdk/layout";
+import {TranslateService} from "@ngx-translate/core";
 
 @Component({
   selector: 'web-vr-header-component',
@@ -12,7 +13,8 @@ export class WebsitesVrapalisHeaderComponent implements AfterViewInit {
 
   constructor(@Inject(PLATFORM_ID) private platformId: any,
               @Inject(DOCUMENT) private document: Document,
-              private breakpointObserver: BreakpointObserver) {
+              private breakpointObserver: BreakpointObserver,
+              private translationService: TranslateService) {
   }
 
   ngAfterViewInit(): void {
@@ -62,5 +64,30 @@ export class WebsitesVrapalisHeaderComponent implements AfterViewInit {
         this.toggleNavbar();
       }
     }
+  }
+
+  openTranslationMenu() {
+    const trElement = this.document.getElementById('translation-wr');
+    const isToggle = trElement?.classList.toggle('dsp-block');
+    const currentLang = this.translationService.currentLang;
+
+    if (trElement && isToggle && currentLang) {
+      trElement.childNodes.forEach((child) => {
+        const childNode = child as HTMLElement;
+        const icon = childNode.getElementsByTagName('i')[0];
+        const id = childNode.getAttribute('id');
+        if (id == currentLang && icon) {
+          icon.classList.add('dsp-inline');
+        } else {
+          icon.classList.remove('dsp-inline');
+        }
+      });
+    }
+  }
+
+  changeLanguage(language: string) {
+    this.openTranslationMenu();
+    this.translationService.use(language).subscribe((_) => {
+    });
   }
 }
