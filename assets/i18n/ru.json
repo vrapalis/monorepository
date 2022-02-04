@@ -1,10 +1,18 @@
 {
-  "NAVBAR": {
-    "LINKS": {
-      "HOME": "Хоме",
-      "BLOG": "Блог",
-      "PROJECTS": "Проекты",
-      "LANGUAGE": "Языки"
+  "header": {
+    "label": "Виталий Рапалис",
+    "links": {
+      "home": "Старт",
+      "about": "Про Меня",
+      "projects": "Проекты",
+      "blog": "Блог",
+      "contact": "Контакт"
+    }
+  },
+  "pages": {
+    "home": {
+      "header": "Вы ищите опытного Full-Stack разработчика?",
+      "text": "I offer the following services:<br><br>- <strong class='str-bl'>Frontend</strong> development (Angular or Vuejs)<br>- <strong class='str-bl'>Backend</strong> development (Spring Boot)"
     }
   }
 }

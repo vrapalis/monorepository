@@ -1,10 +1,18 @@
 {
-  "NAVBAR": {
-    "LINKS": {
-      "HOME": "Startseite",
-      "BLOG": "Blog",
-      "PROJECTS": "Projekte",
-      "LANGUAGE": "Sprachen"
+  "header": {
+    "label": "Vitali Rapalis",
+    "links": {
+      "home": "Start",
+      "about": "Über Mich",
+      "projects": "Projekte",
+      "blog": "Blog",
+      "contact": "Kontakt"
+    }
+  },
+  "pages": {
+    "home": {
+      "header": "Bist du auf der <strong class='str-bl'>Suche</strong> nach einem erfahrenen <strong class='str-bl'>Full-Stack Software-Entwickler</strong> ?",
+      "text": "Ich biete folgende Dienste an:<br><br>- <strong class='str-bl'>Frontend</strong> Entwicklung (Angular or Vuejs)<br>- <strong class='str-bl'>Backend</strong> Entwicklung (Spring Boot)"
     }
   }
 }

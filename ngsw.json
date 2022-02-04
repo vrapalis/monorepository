@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1643805138922,
+  "timestamp": 1643966282404,
   "index": "/monorepository/index.html",
   "assetGroups": [
     {
@@ -11,18 +11,19 @@
         "ignoreVary": true
       },
       "urls": [
-        "/monorepository/139.711a6507f2a16252.js",
         "/monorepository/224.b844c0a59722b0e5.js",
-        "/monorepository/407.0b1c16e3d9717313.js",
-        "/monorepository/608.565d890ac9e845a7.js",
-        "/monorepository/828.a080996c1d80410d.js",
+        "/monorepository/293.563af8bf117948de.js",
+        "/monorepository/515.4d271de46559f7fb.js",
+        "/monorepository/601.d591ea72000394e8.js",
+        "/monorepository/640.db7b9048208cedd5.js",
+        "/monorepository/685.b597d42274bff045.js",
         "/monorepository/index.html",
-        "/monorepository/main.8ba380093eef9841.js",
+        "/monorepository/main.d8e24711ee6fad34.js",
         "/monorepository/manifest.webmanifest",
-        "/monorepository/polyfills.9eee0c433f56a7a8.js",
-        "/monorepository/runtime.190004e1697d7bb3.js",
+        "/monorepository/polyfills.0213fea30cb12118.js",
+        "/monorepository/runtime.6ace810b754752f7.js",
         "/monorepository/scripts.97f1fe7f6df35bed.js",
-        "/monorepository/styles.6ff37b15722cc248.css"
+        "/monorepository/styles.6652fa649958bd70.css"
       ],
       "patterns": []
     },
@@ -68,11 +69,12 @@
   ],
   "dataGroups": [],
   "hashTable": {
-    "/monorepository/139.711a6507f2a16252.js": "cf5de0bac51f3756ff9426cb975b9730e8dc3f2e",
     "/monorepository/224.b844c0a59722b0e5.js": "c6c2ac98b196660c705de4c381ee65a5519db191",
-    "/monorepository/407.0b1c16e3d9717313.js": "268b8a7459fbe49647c9b508e7b36c8d21e0d274",
-    "/monorepository/608.565d890ac9e845a7.js": "0c11897d475ebbfd2038b9bdd57af8ec455f68a4",
-    "/monorepository/828.a080996c1d80410d.js": "8d00f1dd61c768ca52e3c020d26df151ddcfd059",
+    "/monorepository/293.563af8bf117948de.js": "0e685bae3d3689b476beacc3087e534880e75ec6",
+    "/monorepository/515.4d271de46559f7fb.js": "1fe70544ba0e1c78d68a8b530d0df61f29c29a65",
+    "/monorepository/601.d591ea72000394e8.js": "a2091532a576262210ecf3d1bb2e00fa2d4db2c8",
+    "/monorepository/640.db7b9048208cedd5.js": "b64d07d1bbb72ee01118d4742db6eef2d67971cf",
+    "/monorepository/685.b597d42274bff045.js": "a77f0bbe9e2cb8ca1e3b6d314a70ad7bebc92979",
     "/monorepository/BalsamiqSans-Bold.e14005194de14e85.ttf": "845b3feaa86d446f0935e3b9a36be732b656f4c0",
     "/monorepository/BalsamiqSans-BoldItalic.02b3cb4ddd867dc6.ttf": "273a8cac3628632a6666278f9205b7fbf547e7bb",
     "/monorepository/BalsamiqSans-Italic.fd463a86e1e85f9c.ttf": "785446fa394fa61e843c00137364524b6cb4602c",
@@ -84,9 +86,9 @@
     "/monorepository/assets/fonts/BalsamiqSans-Italic.ttf": "785446fa394fa61e843c00137364524b6cb4602c",
     "/monorepository/assets/fonts/BalsamiqSans-Regular.ttf": "c5003c6efabd6b95ae60330ef3735a63b65d9ab9",
     "/monorepository/assets/fonts/fonts.scss": "32044d150a619502f7d66c7a03394bf2bafe0074",
-    "/monorepository/assets/i18n/de.json": "ca89ae82484f581b95b583a5aec387f2f168c5ac",
-    "/monorepository/assets/i18n/en.json": "e6a1e59d4a075a4f6f212786d2c86e314078bd3c",
-    "/monorepository/assets/i18n/ru.json": "93b6e80e35371cdc635b2d806c3c8152d9e123db",
+    "/monorepository/assets/i18n/de.json": "116ffd8e21f35d780b485f5d1079ea2c10cfb4f1",
+    "/monorepository/assets/i18n/en.json": "a7411796a1070f41b248d899bcd3e5ee5c08d022",
+    "/monorepository/assets/i18n/ru.json": "965a26ee2d94ab011da05570a0f8b505b8fedfc1",
     "/monorepository/assets/icons/icon-128x128.png": "dae3b6ed49bdaf4327b92531d4b5b4a5d30c7532",
     "/monorepository/assets/icons/icon-144x144.png": "b0bd89982e08f9bd2b642928f5391915b74799a7",
     "/monorepository/assets/icons/icon-152x152.png": "7479a9477815dfd9668d60f8b3b2fba709b91310",
@@ -101,13 +103,13 @@
     "/monorepository/assets/images/me.jpg": "62b8df782d2367c7436108f92a720c22f0f9b39f",
     "/monorepository/bootstrap-icons.31d26c1cd2f3f028.woff": "62f93179048bf00d6902332071bedd37c23b2a21",
     "/monorepository/bootstrap-icons.6900e87e169781d9.woff2": "19d68aa64936c35208e16b7ed1453df07cd31570",
-    "/monorepository/index.html": "33ccaadef233792f207f0c7eaef5d605cdcfe578",
-    "/monorepository/main.8ba380093eef9841.js": "c5b9f399491bc23956970f61396c3c267015d41e",
+    "/monorepository/index.html": "2e49cb4dc9c9ea9281a7cc0965cc761b0e3675d0",
+    "/monorepository/main.d8e24711ee6fad34.js": "0792f9eb293603e162f843491750e451365badd8",
     "/monorepository/manifest.webmanifest": "3e894e83efb022f4edc75fe1749ee7a8619314d6",
-    "/monorepository/polyfills.9eee0c433f56a7a8.js": "c65bc4ed6c6d7ed0c181504a5d98ac8457427a74",
-    "/monorepository/runtime.190004e1697d7bb3.js": "e3f25e1e8bf6d0b1a362ffc0787170de46793b1c",
+    "/monorepository/polyfills.0213fea30cb12118.js": "7a58d9118c9b7ca76a950b6063654756a75dc855",
+    "/monorepository/runtime.6ace810b754752f7.js": "593838aa37457096a90800b183ebfe23f9475ee3",
     "/monorepository/scripts.97f1fe7f6df35bed.js": "23c3dc8853865417b9fef7a8e95a69484d3d5287",
-    "/monorepository/styles.6ff37b15722cc248.css": "d35cf148a63d228e1fc1f58b4fce17045e701495"
+    "/monorepository/styles.6652fa649958bd70.css": "0c0928d19f5447f0aa8af8c1863d152ca946f29a"
   },
   "navigationUrls": [
     {
