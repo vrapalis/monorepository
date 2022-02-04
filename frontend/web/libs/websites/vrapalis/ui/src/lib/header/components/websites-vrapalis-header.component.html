@@ -1,57 +1,59 @@
-<header id="navbar" class="sh-ui-header">
-  <div class="line"></div>
+<header>
+  <div id="navbar" class="sh-ui-header">
+    <div class="line"></div>
 
-  <aside>
-    <!--        <embed src="assets/images/logo.svg">-->
-    <label>{{"header.label" | translate}}</label>
-  </aside>
+    <aside>
+      <!--        <embed src="assets/images/logo.svg">-->
+      <label>{{"header.label" | translate}}</label>
+    </aside>
 
-  <div class="menu" (click)="toggleNavbar()">
-    <div class="ham-menu"></div>
+    <div class="menu" (click)="toggleNavbar()">
+      <div class="ham-menu"></div>
+    </div>
+
+    <nav>
+      <ul>
+        <li routerLink="home" (click)="closeMobileMenu()" routerLinkActive="active">
+          <a>{{"header.links.home" | translate}}</a>
+        </li>
+        <li routerLink="about" (click)="closeMobileMenu()" routerLinkActive="active">
+          <a>{{"header.links.about" | translate}}</a>
+        </li>
+        <li routerLink="projects" (click)="closeMobileMenu()" routerLinkActive="active">
+          <a>{{"header.links.projects" | translate}}</a>
+        </li>
+        <li routerLink="blog" (click)="closeMobileMenu()" routerLinkActive="active">
+          <a>{{"header.links.blog" | translate}}</a>
+        </li>
+        <li routerLink="contact" (click)="closeMobileMenu()" routerLinkActive="active">
+          <a>{{"header.links.contact" | translate}}</a>
+        </li>
+        <li>
+          <a class="bi bi-linkedin"></a>
+        </li>
+        <li>
+          <a class="bi bi-github"></a>
+        </li>
+        <li>
+          <a class="bi bi-translate" (click)="openTranslationMenu()"></a>
+          <div id="translation-wr" class="translate-wr">
+            <a id="en" (click)="changeLanguage('en')">
+              En
+              <i class="bi bi-check"></i>
+              <hr>
+            </a>
+            <a id="de" (click)="changeLanguage('de')">
+              Ger
+              <i class="bi bi-check"></i>
+              <hr>
+            </a>
+            <a id="ru" (click)="changeLanguage('ru')">
+              Rus
+              <i class="bi bi-check"></i>
+            </a>
+          </div>
+        </li>
+      </ul>
+    </nav>
   </div>
-
-  <nav>
-    <ul>
-      <li routerLink="home" (click)="closeMobileMenu()" routerLinkActive="active">
-        <a>{{"header.links.home" | translate}}</a>
-      </li>
-      <li routerLink="about" (click)="closeMobileMenu()" routerLinkActive="active">
-        <a>{{"header.links.about" | translate}}</a>
-      </li>
-      <li routerLink="projects" (click)="closeMobileMenu()" routerLinkActive="active">
-        <a>{{"header.links.projects" | translate}}</a>
-      </li>
-      <li routerLink="blog" (click)="closeMobileMenu()" routerLinkActive="active">
-        <a>{{"header.links.blog" | translate}}</a>
-      </li>
-      <li routerLink="contact" (click)="closeMobileMenu()" routerLinkActive="active">
-        <a>{{"header.links.contact" | translate}}</a>
-      </li>
-      <li>
-        <a class="bi bi-linkedin"></a>
-      </li>
-      <li>
-        <a class="bi bi-github"></a>
-      </li>
-      <li>
-        <a class="bi bi-translate" (click)="openTranslationMenu()"></a>
-        <div id="translation-wr" class="translate-wr">
-          <a id="en" (click)="changeLanguage('en')">
-            En
-            <i class="bi bi-check"></i>
-            <hr>
-          </a>
-          <a id="de" (click)="changeLanguage('de')">
-            Ger
-            <i class="bi bi-check"></i>
-            <hr>
-          </a>
-          <a id="ru" (click)="changeLanguage('ru')">
-            Rus
-            <i class="bi bi-check"></i>
-          </a>
-        </div>
-      </li>
-    </ul>
-  </nav>
 </header>

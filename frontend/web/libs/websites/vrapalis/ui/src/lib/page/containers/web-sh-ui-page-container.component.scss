@@ -2,6 +2,9 @@
 @import "libs/shared/ui/src/lib/style/vars";
 
 .page-container-wrapper {
-
+  overflow-y: auto;
+  height: 93%;
+  position: relative;
+  top: 65px;
 }
 

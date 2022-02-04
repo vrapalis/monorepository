@@ -6,8 +6,8 @@ import {ISideLink} from "@web/websites/shared/model";
 @Component({
   selector: 'web-sh-ui-page-container',
   template: `
+    <web-vr-header></web-vr-header>
     <main class="page-container-wrapper">
-      <web-vr-header></web-vr-header>
 
       <web-websites-vrapalis-ui-body>
         <ng-content></ng-content>
