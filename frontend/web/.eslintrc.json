@@ -32,6 +32,16 @@
                 ]
               },
               {
+                "sourceTag": "type:app",
+                "onlyDependOnLibsWithTags": [
+                  "type:ui",
+                  "type:feature",
+                  "type:model",
+                  "type:utility",
+                  "type:data-access"
+                ]
+              },
+              {
                 "sourceTag": "type:feature",
                 "onlyDependOnLibsWithTags": [
                   "type:ui",

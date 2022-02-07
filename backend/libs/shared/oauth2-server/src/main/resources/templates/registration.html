@@ -16,42 +16,42 @@
         <div style="height: 55px;">
             <div class="input-group mt-4">
                 <input v-model="email.value" type="email" @change="onInputChange" id="email" name="email"
-                       class="form-control" placeholder="Email" required/>
+                       class="form-control fs-5" placeholder="Email" required/>
                 <span class="input-group-text bi-at" id="basic-addon1"></span>
             </div>
             <p class="text-danger mt-1 ps-1" v-if="!email.valid">
-                <small>{{email.errorMessage}}</small>
+                <small class="fs-6">{{email.errorMessage}}</small>
             </p>
         </div>
 
         <div style="height: 55px;">
-            <div class="input-group mt-3">
-                <input type="password" v-model="password.value" id="password" name="password" class="form-control"
+            <div class="input-group mt-4">
+                <input type="password" v-model="password.value" id="password" name="password" class="form-control fs-5"
                        @change="onInputChange" placeholder="Password" required/>
                 <span class="input-group-text bi-key" id="basic-addon2"></span>
             </div>
             <p class="text-danger mt-1 ps-1" v-if="!password.valid">
-                <small>{{password.errorMessage}}</small>
+                <small class="fs-6">{{password.errorMessage}}</small>
             </p>
         </div>
 
         <div style="height: 55px;">
-            <div class="input-group mt-3">
-                <input type="password" v-model="passwordRepeated.value" id="passwordRepeated" name="passwordRepeated" class="form-control"
-                       @change="onInputChange" placeholder="Password Repeat" required/>
+            <div class="input-group mt-4">
+                <input type="password" v-model="passwordRepeated.value" id="passwordRepeated" name="passwordRepeated"
+                       class="form-control fs-5" @change="onInputChange" placeholder="Password Repeat" required/>
                 <span class="input-group-text bi-key" id="basic-addon3"></span>
             </div>
             <p class="text-danger mt-1 ps-1" v-if="!passwordRepeated.valid">
-                <small>{{passwordRepeated.errorMessage}}</small>
+                <small class="fs-6">{{passwordRepeated.errorMessage}}</small>
             </p>
         </div>
 
         <div class="text-end mt-3">
-            <a type="button" class="btn btn-link" href="/login"
+            <a type="button" class="btn btn-link fs-5" href="/login"
                data-bs-toggle="tooltip" data-bs-placement="bottom" title="Redirection to login page">
                 Login
             </a>
-            <button class="btn btn-primary btn-block" type="button" @click="onRegistration"
+            <button class="btn btn-primary btn-block fs-5" type="button" @click="onRegistration"
                     data-bs-toggle="tooltip" :disabled="!(email.valid && password.valid && passwordRepeated.valid)"
                     data-bs-placement="bottom" title="Submit the registration">
                 Registration

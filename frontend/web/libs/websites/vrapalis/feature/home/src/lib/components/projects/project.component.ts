@@ -16,10 +16,6 @@ export class ProjectComponent {
       alt: 'Dzb',
     },
     {
-      thumbImage: 'assets/images/bitfuel.svg',
-      alt: 'Bitfuel',
-    },
-    {
       thumbImage: 'assets/images/msg.svg',
       alt: 'Msg',
     },

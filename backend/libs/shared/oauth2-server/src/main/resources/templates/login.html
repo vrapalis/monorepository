@@ -18,53 +18,53 @@
         <div style="height: 55px;">
             <div class="input-group mt-4">
                 <input v-model="email.value" type="email" @change="onInputChange" id="email" name="email"
-                       class="form-control" placeholder="Email" required/>
+                       class="form-control fs-5" placeholder="Email" required/>
                 <span class="input-group-text bi-at" id="basic-addon1"></span>
             </div>
             <p class="text-danger mt-1 ps-1" v-if="!email.valid">
-                <small>{{email.errorMessage}}</small>
+                <small class="fs-6">{{email.errorMessage}}</small>
             </p>
         </div>
 
         <div style="height: 55px;">
-            <div class="input-group mt-3">
-                <input type="password" v-model="password.value" id="password" name="password" class="form-control"
+            <div class="input-group mt-4">
+                <input type="password" v-model="password.value" id="password" name="password" class="form-control fs-5"
                        @change="onInputChange" placeholder="Password" required/>
                 <span class="input-group-text bi-key" id="basic-addon2"></span>
             </div>
             <p class="text-danger mt-1 ps-1" v-if="!password.valid">
-                <small>{{password.errorMessage}}</small>
+                <small class="fs-6">{{password.errorMessage}}</small>
             </p>
         </div>
 
         <div class="text-end mt-3">
-            <a type="button" class="btn btn-link" href="/registration"
+            <a type="button" class="btn btn-link fs-5" href="/registration"
                data-bs-toggle="tooltip" data-bs-placement="bottom" title="Redirection to registration page">
                 Registration
             </a>
-            <button class="btn btn-primary btn-block" type="submit"
+            <button class="btn btn-primary btn-block fs-5" type="submit"
                     data-bs-toggle="tooltip" :disabled="!(email.valid && password.valid)"
                     data-bs-placement="bottom" title="Submit the login">
                 Login
             </button>
         </div>
-        <div class="text-end">
-            <a type="button" class="btn btn-link" href="/forgot-password"
+        <div class="text-end mt-1">
+            <a type="button" class="btn btn-link fs-5 pe-0" href="/forgot-password"
                data-bs-toggle="tooltip" data-bs-placement="bottom" title="Redirection to forgot password page">
                 Forgot Password
             </a>
         </div>
         <div class="text-end mt-2">
-            <a class="text-decoration-none sn-icon fs-2 ms-2 bi bi-google" style="color: #4285f4;"
+            <a class="text-decoration-none sn-icon fs-1 ms-2 bi bi-google" style="color: #4285f4;"
                th:href="@{/oauth2/authorization/google}">
             </a>
-            <a class="text-decoration-none text-decoration-none sn-icon fs-2 ms-2 bi bi-facebook"
+            <a class="text-decoration-none text-decoration-none sn-icon fs-1 ms-2 bi bi-facebook"
                style="color: #1195f5;" th:href="@{/oauth2/authorization/facebook}">
             </a>
-            <a class="text-decoration-none text-decoration-none sn-icon fs-2 ms-2 bi bi-github"
+            <a class="text-decoration-none text-decoration-none sn-icon fs-1 ms-2 bi bi-github"
                style="color: #24292f;" th:href="@{/oauth2/authorization/github}">
             </a>
-            <a class="text-decoration-none text-decoration-none sn-icon fs-2 ms-2 bi bi-microsoft"
+            <a class="text-decoration-none text-decoration-none sn-icon fs-1 ms-2 bi bi-microsoft"
                style="color: #0f7c0d;" th:href="@{/oauth2/authorization/microsoft}">
             </a>
         </div>

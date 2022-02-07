@@ -13,6 +13,7 @@ import org.springframework.security.oauth2.core.oidc.OidcUserInfo;
 import org.springframework.security.oauth2.core.oidc.user.OidcUser;
 import org.springframework.security.oauth2.core.user.OAuth2User;
 
+import java.io.Serializable;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
@@ -22,7 +23,7 @@ import java.util.Map;
 @NoArgsConstructor
 @AllArgsConstructor
 @JsonIgnoreProperties(value = {},ignoreUnknown = true, allowGetters = true)
-public class OAuth2UserModel implements OidcUser {
+public class OAuth2UserModel implements OidcUser, Serializable {
     private OAuth2User oauth2User;
     private OAuth2UserEntity userEntity;
 
