@@ -68,6 +68,12 @@
                 ]
               },
               {
+                "sourceTag": "type:utility",
+                "onlyDependOnLibsWithTags": [
+                  "type:model"
+                ]
+              },
+              {
                 "sourceTag": "scope:websites-vrapalis",
                 "onlyDependOnLibsWithTags": [
                   "scope:shared",

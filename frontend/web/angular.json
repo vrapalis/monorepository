@@ -1,6 +1,32 @@
 {
   "version": 1,
   "projects": {
+    "oauth2-feature-clients": {
+      "projectType": "library",
+      "root": "libs/oauth2/feature/clients",
+      "sourceRoot": "libs/oauth2/feature/clients/src",
+      "prefix": "web",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/oauth2/feature/clients"],
+          "options": {
+            "jestConfig": "libs/oauth2/feature/clients/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/oauth2/feature/clients/src/**/*.ts",
+              "libs/oauth2/feature/clients/src/**/*.html"
+            ]
+          }
+        }
+      },
+      "tags": ["scope:oauth2", "type:feature"]
+    },
     "oauth2-feature-profile": {
       "projectType": "library",
       "root": "libs/oauth2/feature/profile",
@@ -27,6 +53,58 @@
       },
       "tags": ["scope:oauth2", "type:feature"]
     },
+    "oauth2-feature-users": {
+      "projectType": "library",
+      "root": "libs/oauth2/feature/users",
+      "sourceRoot": "libs/oauth2/feature/users/src",
+      "prefix": "web",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/oauth2/feature/users"],
+          "options": {
+            "jestConfig": "libs/oauth2/feature/users/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/oauth2/feature/users/src/**/*.ts",
+              "libs/oauth2/feature/users/src/**/*.html"
+            ]
+          }
+        }
+      },
+      "tags": ["scope:oauth2", "type:feature"]
+    },
+    "oauth2-shared-model": {
+      "projectType": "library",
+      "root": "libs/oauth2/shared/model",
+      "sourceRoot": "libs/oauth2/shared/model/src",
+      "prefix": "web",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/oauth2/shared/model"],
+          "options": {
+            "jestConfig": "libs/oauth2/shared/model/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/oauth2/shared/model/src/**/*.ts",
+              "libs/oauth2/shared/model/src/**/*.html"
+            ]
+          }
+        }
+      },
+      "tags": ["scope:oauth2", "type:model"]
+    },
     "oauth2-shared-ui": {
       "projectType": "library",
       "root": "libs/oauth2/shared/ui",
@@ -52,6 +130,32 @@
         }
       },
       "tags": ["scope:oauth2", "type:ui"]
+    },
+    "oauth2-shared-utility": {
+      "projectType": "library",
+      "root": "libs/oauth2/shared/utility",
+      "sourceRoot": "libs/oauth2/shared/utility/src",
+      "prefix": "web",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/oauth2/shared/utility"],
+          "options": {
+            "jestConfig": "libs/oauth2/shared/utility/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/oauth2/shared/utility/src/**/*.ts",
+              "libs/oauth2/shared/utility/src/**/*.html"
+            ]
+          }
+        }
+      },
+      "tags": ["scope:oauth2", "type:utility"]
     },
     "oauth2-ui": {
       "projectType": "application",

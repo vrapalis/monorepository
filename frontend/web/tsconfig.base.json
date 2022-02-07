@@ -15,9 +15,15 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@web/oauth2-shared-utility": ["libs/oauth2/shared/utility/src/index.ts"],
+      "@web/oauth2/feature/clients": [
+        "libs/oauth2/feature/clients/src/index.ts"
+      ],
       "@web/oauth2/feature/profile": [
         "libs/oauth2/feature/profile/src/index.ts"
       ],
+      "@web/oauth2/feature/users": ["libs/oauth2/feature/users/src/index.ts"],
+      "@web/oauth2/shared/model": ["libs/oauth2/shared/model/src/index.ts"],
       "@web/oauth2/shared/ui": ["libs/oauth2/shared/ui/src/index.ts"],
       "@web/shared/model": ["libs/shared/model/src/index.ts"],
       "@web/shared/ui": ["libs/shared/ui/src/index.ts"],

@@ -7,6 +7,16 @@ const routes: Routes = [
     path: 'profile',
     pathMatch: 'full',
     loadChildren: () => import('@web/oauth2/feature/profile').then(mod => mod.Oauth2FeatureProfileModule)
+  },
+  {
+    path: 'users',
+    pathMatch: 'full',
+    loadChildren: () => import('@web/oauth2/feature/users').then(mod => mod.Oauth2FeatureUsersModule)
+  },
+  {
+    path: 'clients',
+    pathMatch: 'full',
+    loadChildren: () => import('@web/oauth2/feature/clients').then(mod => mod.Oauth2FeatureClientsModule)
   }
 ];
 
