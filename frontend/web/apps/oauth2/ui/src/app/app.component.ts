@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ILinkModel} from "@web/shared/model";
 import {OAuthService} from "angular-oauth2-oidc";
-import {EnvService} from "@web/oauth2-shared-utility";
+import {AuthService, EnvService} from "@web/oauth2-shared-utility";
 
 @Component({
   selector: 'web-root',
@@ -19,17 +19,10 @@ export class AppComponent implements OnInit {
     {text: 'Clients', routerLink: 'clients'}
   ];
 
-  constructor(private authService: OAuthService, private envService: EnvService) {
+  constructor(private authService: AuthService) {
   }
 
   ngOnInit(): void {
-    this.authService.configure(this.envService.getAuthConfig());
-    this.authService.loadDiscoveryDocumentAndTryLogin().then(() => {
-      if (!this.authService.hasValidIdToken() || !this.authService.hasValidAccessToken()) {
-        this.authService.initImplicitFlow('some-state');
-      } else {
-        console.log(this.authService.getIdentityClaims())
-      }
-    }).catch(err => console.error(err));
+    this.authService.tryToLogin();
   }
 }

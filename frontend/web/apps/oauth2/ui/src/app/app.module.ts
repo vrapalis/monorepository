@@ -8,7 +8,6 @@ import {AppCoreModule} from "./app-core.module";
   declarations: [AppComponent],
   imports: [
     BrowserModule,
-    AppCoreModule,
     AppCoreModule
   ],
   bootstrap: [AppComponent],
