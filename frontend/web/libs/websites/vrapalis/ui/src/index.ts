@@ -11,3 +11,7 @@ export * from './lib/body/websites-vrapalis-ui-body.module';
 // PAGE
 export * from './lib/page/containers/web-sh-ui-page-container.component';
 export * from './lib/page/web-sh-ui-page.module';
+
+// FOOTER
+export * from './lib/footer/components/footer.component';
+export * from './lib/footer/websites-vrapalis-footer.module';

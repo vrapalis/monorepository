@@ -1,9 +1,11 @@
 @import "libs/shared/ui/src/lib/style/mixins";
 @import "libs/shared/ui/src/lib/style/vars";
+@import "libs/websites/vrapalis/ui/src/lib/style/style";
 
 .page-container-wrapper {
   overflow-y: auto;
-  height: 93%;
+  scroll-behavior: smooth;
+  height: 93.25%;
   position: relative;
   top: 65px;
 }

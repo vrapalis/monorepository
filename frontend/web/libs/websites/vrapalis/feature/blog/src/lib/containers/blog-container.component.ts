@@ -3,17 +3,11 @@ import {Component} from '@angular/core';
 @Component({
   selector: 'web-blog',
   template: `
-    <main>
+    <div class="blog-wrapper">
       <web-blog-component *ngFor="let blog of [1,1,1]"></web-blog-component>
-    </main>
+    </div>
   `,
-  styles: [`
-    main {
-      display: flex;
-      justify-content: space-evenly;
-      flex-wrap: wrap;
-    }
-  `]
+  styleUrls: ['blog-container.component.scss']
 })
 export class BlogContainerComponent {
 

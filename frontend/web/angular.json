@@ -710,6 +710,32 @@
       },
       "tags": ["scope:websites-vrapalis", "type:feature"]
     },
+    "websites-vrapalis-feature-masthead": {
+      "projectType": "library",
+      "root": "libs/websites/vrapalis/feature/masthead",
+      "sourceRoot": "libs/websites/vrapalis/feature/masthead/src",
+      "prefix": "web",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/websites/vrapalis/feature/masthead"],
+          "options": {
+            "jestConfig": "libs/websites/vrapalis/feature/masthead/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/websites/vrapalis/feature/masthead/src/**/*.ts",
+              "libs/websites/vrapalis/feature/masthead/src/**/*.html"
+            ]
+          }
+        }
+      },
+      "tags": ["scope:websites-vrapalis", "type:feature"]
+    },
     "websites-vrapalis-feature-projects": {
       "projectType": "library",
       "root": "libs/websites/vrapalis/feature/projects",

@@ -1,0 +1,24 @@
+@import "libs/shared/ui/src/lib/style/mixins";
+
+.more-wrapper {
+  overflow: hidden;
+
+  article:not(:first-child){
+    margin-top: 100px;
+  }
+
+  .more-image {
+    width: 350px;
+    height: 300px;
+    object-fit: contain;
+  }
+
+  .more-section {
+
+  }
+
+  @include maxLgScreen {
+
+  }
+}
+

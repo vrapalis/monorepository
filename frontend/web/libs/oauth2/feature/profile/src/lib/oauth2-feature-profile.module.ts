@@ -1,18 +1,16 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
-import { ProfileComponent } from './components/profile.component';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {RouterModule} from '@angular/router';
+import {ProfileComponent} from './components/profile.component';
 
 @NgModule({
+  declarations: [ProfileComponent],
   imports: [
     CommonModule,
-
     RouterModule.forChild([
-       {path: '', pathMatch: 'full', component: ProfileComponent}
+      {path: '', pathMatch: 'full', component: ProfileComponent}
     ]),
-  ],
-  declarations: [
-    ProfileComponent
-  ],
+  ]
 })
-export class Oauth2FeatureProfileModule {}
+export class Oauth2FeatureProfileModule {
+}

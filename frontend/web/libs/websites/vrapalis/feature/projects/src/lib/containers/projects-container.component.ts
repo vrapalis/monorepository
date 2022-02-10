@@ -3,8 +3,8 @@ import {Component, ViewEncapsulation} from '@angular/core';
 @Component({
   selector: 'web-projects-container',
   template: `
-    <main class="projects-wr">
-      <web-projects-component *ngFor="let project of [1,2,3, 4]">
+    <main class="projects-wrapper">
+      <web-projects-component *ngFor="let project of [1,2,3]">
       </web-projects-component>
     </main>
   `,

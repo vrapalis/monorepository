@@ -1,10 +1,9 @@
 @import "libs/websites/vrapalis/ui/src/lib/style/vars";
 
-.projects-wrapper {
+.blog-wrapper {
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
-  position: relative;
   padding: 100px;
 
   max-width: $max-width-content;

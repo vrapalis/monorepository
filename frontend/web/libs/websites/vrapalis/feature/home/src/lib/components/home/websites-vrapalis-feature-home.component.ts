@@ -10,7 +10,9 @@ import {IHome} from "@web/websites/vrapalis/model";
         <section>
           <h1 innerHTML="{{'pages.home.header' | translate }}"></h1>
           <h3 innerHTML="{{'pages.home.subheader' | translate }}"></h3>
-          <p innerHTML="{{'pages.home.text' | translate }}"></p>
+          <button class="btn-more" (click)="homeMore.scrollIntoView({ behavior: 'smooth'})">
+            {{'pages.home.btn-more' | translate }}
+          </button>
         </section>
       </div>
       <article class="info">
@@ -18,6 +20,10 @@ import {IHome} from "@web/websites/vrapalis/model";
       </article>
       <div class="home-projects">
         <web-vr-project></web-vr-project>
+      </div>
+      <hr>
+      <div class="home-more" #homeMore>
+        <web-vr-more></web-vr-more>
       </div>
     </main>
   `,

@@ -1,0 +1,11 @@
+<div class="more-wrapper">
+  <article class="row justify-content-center align-items-center" *ngFor="let more of mores; let i=index;">
+    <img class="more-image col-12 col-md-6" [class]="(i % 2 === 0 && !isMobile) ? 'order-0':'order-1'" [src]="more.imagePath">
+    <section class="more-section col-12 col-md-6 m-5" [class]="{'order-1': (i % 2 === 0 && !isMobile),
+    'order-0': (i % 2 !== 0 && !isMobile), 'text-start': (i % 2 === 0 && !isMobile), 'text-end': (i % 2 !== 0 && !isMobile)}">
+      <h2>{{more.title}}</h2>
+      <h3>{{more.subTittle}}</h3>
+      <p>{{more.text}}</p>
+    </section>
+  </article>
+</div>

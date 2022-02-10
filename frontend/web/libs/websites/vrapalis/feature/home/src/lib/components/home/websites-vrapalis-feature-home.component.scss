@@ -43,9 +43,11 @@ main {
 
       p {
         margin-top: 50px;
+
         div {
           font-size: 20px;
         }
+
         strong {
           font-size: unset;
         }
@@ -68,7 +70,7 @@ main {
   }
 
   .home-projects {
-    margin-top: 30px;
+    margin-top: 50px;
 
     .ng-image-slider {
       max-width: $max-width-content;
@@ -81,6 +83,17 @@ main {
         box-shadow: none !important;
       }
     }
+  }
+
+  hr {
+    margin: 30px auto;
+    max-width: $max-width-content;
+  }
+
+  .home-more {
+    margin: 50px auto;
+    padding: 70px 0px;
+    max-width: $max-width-content;
   }
 
   @include maxTabletScreen {

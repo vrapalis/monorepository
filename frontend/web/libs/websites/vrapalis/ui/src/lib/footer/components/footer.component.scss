@@ -1,0 +1,16 @@
+@import "libs/websites/vrapalis/ui/src/lib/style/vars";
+
+.footer-wrapper {
+  width: 100%;
+  background-color: rgb(19 120 155 / 84%);
+
+  .footer-content {
+    max-width: $max-width-content;
+    margin: auto;
+    padding: 150px 100px;
+
+    .footer-imp {
+      cursor: pointer;
+    }
+  }
+}

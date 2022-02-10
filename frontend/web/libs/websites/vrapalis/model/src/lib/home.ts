@@ -15,3 +15,10 @@ export interface IHome extends IBase {
   profileDescription: string;
   projects: IProjects;
 }
+
+export interface IMore {
+  readonly title: string;
+  readonly subTittle: string;
+  readonly text: string;
+  readonly imagePath: string;
+}

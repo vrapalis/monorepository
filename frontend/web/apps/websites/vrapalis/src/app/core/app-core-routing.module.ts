@@ -24,6 +24,10 @@ const routes: Routes = [
     path: 'contact',
     loadChildren: () => import('@web/websites/vrapalis/feature/contact').then(mod => mod.WebsitesVrapalisFeatureContactModule)
   },
+  {
+    path: 'masthead',
+    loadChildren: () => import('@web/websites/vrapalis/feature/masthead').then(mod => mod.WebsitesVrapalisFeatureMastheadModule)
+  },
   {path: '**', component: WebShUiPageNotFoundContainerComponent}
 ];
 

@@ -9,6 +9,7 @@ import {MarkdownModule} from 'ngx-markdown';
 import {TranslateModule} from "@ngx-translate/core";
 import {ProjectComponent} from './components/projects/project.component';
 import {NgImageSliderModule} from "ng-image-slider";
+import { MoreComponent } from './components/more/more.component';
 
 export const websitesVrapalisFeatureHomeRoutes: Route[] = [
   {path: '', component: WebsitesVrapalisFeatureHomeContainerComponent}
@@ -25,7 +26,8 @@ export const websitesVrapalisFeatureHomeRoutes: Route[] = [
   declarations: [
     WebsitesVrapalisFeatureHomeContainerComponent,
     HomeComponentComponent,
-    ProjectComponent
+    ProjectComponent,
+    MoreComponent
   ]
 })
 export class WebsitesVrapalisFeatureHomeModule {

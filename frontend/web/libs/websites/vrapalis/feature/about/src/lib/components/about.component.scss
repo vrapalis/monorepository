@@ -1,0 +1,10 @@
+@import "libs/websites/vrapalis/ui/src/lib/style/vars";
+
+.about-wrapper {
+  padding: 100px;
+
+  .about-text {
+    max-width: $max-width-content;
+    margin: auto;
+  }
+}

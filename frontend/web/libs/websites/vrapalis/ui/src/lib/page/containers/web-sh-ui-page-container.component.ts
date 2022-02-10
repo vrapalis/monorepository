@@ -7,11 +7,13 @@ import {ISideLink} from "@web/websites/shared/model";
   selector: 'web-sh-ui-page-container',
   template: `
     <web-vr-header></web-vr-header>
-    <main class="page-container-wrapper">
 
+    <main class="page-container-wrapper">
       <web-websites-vrapalis-ui-body>
         <ng-content></ng-content>
       </web-websites-vrapalis-ui-body>
+
+      <web-vr-footer></web-vr-footer>
     </main>
   `,
   styleUrls: ['web-sh-ui-page-container.component.scss'],
