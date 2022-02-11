@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, HostListener, Inject, PLATFORM_ID} from '@angular/core';
+import {AfterViewInit, Component, HostListener, Inject, PLATFORM_ID, Renderer2} from '@angular/core';
 import {isPlatformBrowser, isPlatformServer, DOCUMENT} from "@angular/common";
 import {BreakpointObserver} from "@angular/cdk/layout";
 import {TranslateService} from "@ngx-translate/core";
@@ -31,10 +31,10 @@ export class WebsitesVrapalisHeaderComponent implements AfterViewInit {
   onScroll(event: Event) {
     if (isPlatformBrowser(this.platformId)) {
       if (this.document.body.scrollTop > 50 || this.document.documentElement.scrollTop > 50) {
-        this.document.getElementById('navbar')?.classList.add('navbar-scrolled');
+        this.document.getElementById('header')?.classList.add('navbar-scrolled');
         this.document.getElementById('navbar')?.classList.add('navbar-scrolled-shrink');
       } else {
-        this.document.getElementById('navbar')?.classList.remove('navbar-scrolled');
+        this.document.getElementById('header')?.classList.remove('navbar-scrolled');
         this.document.getElementById('navbar')?.classList.remove('navbar-scrolled-shrink');
       }
     }
@@ -60,7 +60,7 @@ export class WebsitesVrapalisHeaderComponent implements AfterViewInit {
 
   closeMobileMenu() {
     if (isPlatformBrowser(this.platformId)) {
-      if (this.breakpointObserver.isMatched('(max-width: 768px)')) {
+      if (this.breakpointObserver.isMatched('(max-width: 992px)')) {
         this.toggleNavbar();
       }
     }

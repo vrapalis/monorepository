@@ -2,32 +2,29 @@
 @import "libs/shared/ui/src/lib/style/mixins";
 
 header {
-  background: white;
-  opacity: 0.95;
   position: fixed;
   margin: auto;
   top: 0px;
   left: 0px;
   right: 0px;
   z-index: 1000;
-
+  height: 70px;
 
   .sh-ui-header {
     max-width: $max-width;
     margin: auto;
-    padding: 15px 15px;
+    padding: 18px 15px;
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    height: 65px;
 
     .line {
       position: absolute;
       top: 0px;
       left: 0px;
       right: 0px;
-      background: linear-gradient(90deg, #2f53a0c7, #52a49aab 32.58%, #552ca7 77.25%, #2f53a0);
-      height: 5px;
+      background: linear-gradient(90deg, #837a6e, #52a49aab 32.58%, #302b28 77.25%, #000000);
+      height: 3px;
     }
 
     aside {
@@ -41,7 +38,8 @@ header {
 
       label {
         margin-left: 5px;
-        color: #552ca7;
+        font-size: 26px;
+        font-weight: 700;
       }
     }
 
@@ -62,7 +60,7 @@ header {
         background: #fff;
         top: -10px;
 
-        background: #2f53a0;
+        background: black;
       }
 
       .ham-menu:before {
@@ -75,7 +73,7 @@ header {
         left: 0;
         bottom: 8px;
 
-        background: #2f53a0;
+        background: black;
         transition: bottom .3s cubic-bezier(.23, 1, .32, 1) .3s, transform .3s cubic-bezier(.23, 1, .32, 1);
 
       }
@@ -89,7 +87,7 @@ header {
         position: absolute;
         left: 0;
         top: 8px;
-        background: #2f53a0;
+        background: black;
         transition: top .3s cubic-bezier(.23, 1, .32, 1) .3s, transform .3s cubic-bezier(.23, 1, .32, 1);
       }
     }
@@ -147,7 +145,9 @@ header {
 
         li {
           a {
-            color: #552ca7;
+            color: black;
+            font-weight: 600;
+            font-size: 18px;
           }
         }
 
@@ -183,7 +183,18 @@ header {
       }
     }
 
-    @include maxMediumScreen {
+    @include maxTabletScreen {
+      label {
+        font-size: 21px !important;
+      }
+      nav {
+        a {
+          font-size: 16px !important;
+        }
+      }
+    }
+
+    @include maxLgScreen {
       transition: height 0.1s ease-out;
 
       .menu {
@@ -198,6 +209,10 @@ header {
         position: absolute;
         top: -300px;
         opacity: 0;
+
+        a {
+          font-size: 19px !important;
+        }
       }
     }
   }
@@ -261,11 +276,11 @@ header {
           border-bottom: unset;
           margin-left: unset;
           position: absolute;
-          top: 395px;
-          left: 50px;
+          top: 390px;
+          left: 15px;
 
           a {
-            font-size: 35px;
+            font-size: 36px !important;
           }
         }
 
@@ -286,11 +301,11 @@ header {
 
         li:nth-last-child(3) {
           margin-left: unset;
-          left: 85px;
+          left: 60px;
         }
 
         li:nth-last-child(1) {
-          left: 162px;
+          left: 145px;
         }
 
         li {
@@ -352,4 +367,10 @@ header {
 
 .dsp-inline {
   display: inline-block !important;
+}
+
+.navbar-scrolled {
+  background: white !important;
+  opacity: 0.95;
+  transition: all 0.25s ease-in;
 }

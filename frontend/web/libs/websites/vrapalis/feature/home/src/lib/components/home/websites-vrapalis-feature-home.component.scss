@@ -1,59 +1,67 @@
 @import "libs/shared/ui/src/lib/style/mixins";
 @import "libs/websites/vrapalis/ui/src/lib/style/vars";
 
-main {
+.home-wrapper {
+  overflow-x: hidden;
 
-  div.home {
-    display: flex;
-    max-width: $max-width-content;
-    margin: auto;
+  .home-start {
+    background: url("/assets/images/background.svg");
 
-    img {
-      flex-shrink: 0;
-      flex-grow: 1;
-      width: 450px;
-      height: 600px;
-      object-fit: contain;
-    }
+    .home-start-wrapper {
+      max-width: $max-width-content;
+      margin: 0px auto;
+      height: 765px;
+      display: flex;
+      justify-content: center;
 
-    section {
-      flex-grow: 2;
-      width: 100%;
-      text-align: left;
-      margin: 30px 50px;
-
-      strong {
-        font-weight: 600;
-        font-size: 32px;
-        color: rgba(19, 120, 155, 0.84);
+      img {
+        object-fit: scale-down;
+        opacity: 0.75;
+        object-position: bottom;
       }
 
-      h1 {
-        font-size: 32px;
-        font-weight: 600;
-        margin-top: 40px;
-      }
-
-      h3 {
-        font-size: 28px;
-        font-weight: 600;
-        margin-top: 25px;
-        color: #e49b9ba1;
-      }
-
-      p {
-        margin-top: 50px;
-
-        div {
-          font-size: 20px;
-        }
+      section {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 100%;
+        text-align: left;
+        position: relative;
+        top: -50px;
+        left: 0px;
 
         strong {
-          font-size: unset;
+          font-weight: 900;
+          font-size: 45px;
+          color: rgba(19, 120, 155, 0.84);
+        }
+
+        h1 {
+          font-size: 45px;
+          font-weight: 900;
+          line-height: 60px;
+        }
+
+        h3 {
+          font-size: 28px;
+          font-weight: 600;
+          margin-top: 25px;
+          color: #e49b9ba1;
+        }
+
+        p {
+          margin-top: 50px;
+
+          div {
+            font-size: 20px;
+          }
+
+          strong {
+            font-size: unset;
+          }
         }
       }
     }
-
   }
 
   .info {
@@ -70,11 +78,11 @@ main {
   }
 
   .home-projects {
-    margin-top: 50px;
+    margin-top: 20px;
 
     .ng-image-slider {
       max-width: $max-width-content;
-      margin-top: 50px;
+      margin-top: 35px;
       width: 50%;
       margin-left: auto;
       margin-right: auto;
@@ -86,7 +94,7 @@ main {
   }
 
   hr {
-    margin: 30px auto;
+    margin: 20px auto;
     max-width: $max-width-content;
   }
 
@@ -97,50 +105,97 @@ main {
   }
 
   @include maxTabletScreen {
-    div.home {
-      margin: 10px 20px;
+    .home-start {
 
-      img {
-        width: 250px;
-        height: 400px;
-      }
+      .home-start-wrapper {
+        height: 650px;
 
-      section {
-
-        h1 {
-          margin-top: unset;
+        img {
+          width: 430px;
         }
 
-        p {
-          margin-top: 20px;
+        section {
+          h1, strong {
+            font-size: 35px !important;
+          }
+        }
+      }
+    }
+  }
+
+  @include maxLgScreen {
+    .home-start {
+
+      .home-start-wrapper {
+        height: 500px;
+
+        img {
+          width: 350px;
+        }
+
+        section {
+          top: 0;
+
+          h1, strong {
+            font-size: 28px !important;
+          }
         }
       }
     }
   }
 
   @include maxMediumScreen {
-    div.home {
-      margin: 20px 5px;
-      flex-direction: column;
-      align-items: center;
+    .home-start {
 
-      img {
-        width: 80%;
-        height: 400px;
-      }
+      .home-start-wrapper {
+        height: 100vh;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: center;
 
-      section {
-        width: 100%;
-        padding: 10px;
-
-        h1 {
+        img {
+          order: 3;
+          width: 330px;
         }
 
-        p {
+        section {
+          width: 90%;
+          top: -60px;
 
+          h1, strong {
+            font-size: 22px !important;
+            line-height: 33px;
+          }
+
+          h3 {
+            font-size: 18px;
+            margin-top: 0;
+          }
+
+          .btn-more {
+            margin-top: 0;
+            max-width: unset;
+            padding: 5px 10px;
+            width: 45%;
+            background: none;
+            opacity: 0.9;
+          }
         }
       }
     }
-  }
 
+    .home-projects {
+      margin-top: 10px;
+
+      .ng-image-slider {
+        margin-top: 20px;
+        width: 100%;
+      }
+    }
+
+    hr {
+      width: 90%;
+      margin-top: 10px;
+    }
+  }
 }

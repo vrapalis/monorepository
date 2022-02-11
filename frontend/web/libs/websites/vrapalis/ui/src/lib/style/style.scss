@@ -13,10 +13,10 @@
   }
 
   ::-webkit-scrollbar-thumb {
-    background-color: #0ae;
-    background-image: -webkit-gradient(linear, 0 0, 0 100%,
-      color-stop(.5, rgba(255, 255, 255, .2)),
-      color-stop(.5, transparent), to(transparent));
+    background-color: #9b9796;
+    //background-image: -webkit-gradient(linear, 0 0, 0 100%,
+    //  color-stop(.5, rgba(255, 255, 255, .2)),
+    //  color-stop(.5, transparent), to(transparent));
   }
 
 }
@@ -28,8 +28,17 @@
   background: #000000d1;
   padding: 10px 35px;
   border: 1px solid white;
+  max-width: 300px;
+  font-weight: 600;
 }
 
 .btn-more:hover {
-  opacity: 0.9;
+  background: #ffd400;
+}
+
+@include maxLgScreen {
+  .btn-more {
+    padding: 10px 25px;
+    max-width: 280px;
+  }
 }

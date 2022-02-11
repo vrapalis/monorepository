@@ -339,6 +339,32 @@
       },
       "tags": ["scope:shared", "type:ui"]
     },
+    "shared-utility": {
+      "projectType": "library",
+      "root": "libs/shared/utility",
+      "sourceRoot": "libs/shared/utility/src",
+      "prefix": "web",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/shared/utility"],
+          "options": {
+            "jestConfig": "libs/shared/utility/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/shared/utility/src/**/*.ts",
+              "libs/shared/utility/src/**/*.html"
+            ]
+          }
+        }
+      },
+      "tags": ["scope:shared", "type:utility"]
+    },
     "websites-shared-data-access": {
       "projectType": "library",
       "root": "libs/websites/shared/data-access",

@@ -12,9 +12,9 @@ import {ISideLink} from "@web/websites/shared/model";
       <web-websites-vrapalis-ui-body>
         <ng-content></ng-content>
       </web-websites-vrapalis-ui-body>
-
-      <web-vr-footer></web-vr-footer>
     </main>
+
+    <web-vr-footer></web-vr-footer>
   `,
   styleUrls: ['web-sh-ui-page-container.component.scss'],
   encapsulation: ViewEncapsulation.None

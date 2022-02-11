@@ -2,40 +2,42 @@
 @import "libs/shared/ui/src/lib/style/mixins";
 
 @font-face {
-  font-family: BalsamiqSansRegular;
-  src: url(BalsamiqSans-Regular.ttf);
-}
-
-@font-face {
-  font-family: BalsamiqSansBold;
-  src: url(BalsamiqSans-Bold.ttf);
-}
-
-@font-face {
-  font-family: BalsamiqSansItalic;
-  src: url(BalsamiqSans-Italic.ttf);
-}
-
-@font-face {
-  font-family: BalsamiqSansBoldItalic;
-  src: url(BalsamiqSans-BoldItalic.ttf);
+  font-family: "Sora";
+  src: url(sora/Sora-Regular.ttf);
 }
 
 html * {
-  font-family: BalsamiqSansRegular;
+  font-family: "Sora";
   font-size: 22px;
   line-height: 1.8;
-  color: rgba(0, 0, 0, 0.68);
 }
 
 @include minXSmallMaxTabletScreen {
   html * {
-    font-size: 24px !important;
+    font-size: 24px;
+  }
+}
+
+@include maxTabletScreen {
+  html * {
+    font-size: 22px;
+  }
+}
+
+@include maxLgScreen {
+  html * {
+    font-size: 21px;
+  }
+}
+
+@include maxMediumScreen {
+  html * {
+    font-size: 20px;
   }
 }
 
 @include maxXSmallScreen {
   html * {
-    font-size: 21px;
+    font-size: 18px;
   }
 }
