@@ -1,5 +1,6 @@
 @import "libs/websites/vrapalis/ui/src/lib/style/style";
 
-.contact-wrapper {
-  @extend %margin;
+.blog-card-wrapper {
+  @extend %card;
 }
+

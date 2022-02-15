@@ -1,11 +1,11 @@
 @import "libs/websites/vrapalis/ui/src/lib/style/vars";
+@import "libs/websites/vrapalis/ui/src/lib/style/style";
 
 .blog-wrapper {
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
-  padding: 100px;
-
   max-width: $max-width-content;
-  margin: auto;
+  @extend %margin;
+
 }

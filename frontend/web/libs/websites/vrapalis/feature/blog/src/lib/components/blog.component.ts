@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'web-blog-component',
   template: `
-    <mat-card class="example-card">
+    <mat-card class="blog-card-wrapper">
       <mat-card-header>
         <div mat-card-avatar class="example-header-image"></div>
         <mat-card-title>Shiba Inu</mat-card-title>
@@ -23,20 +23,7 @@ import { Component } from '@angular/core';
       </mat-card-actions>
     </mat-card>
   `,
-  styles: [`
-    mat-card {
-      width: 30rem;
-      margin: 20px;
-    }
-
-    img {
-      height: 250px;
-      width: 100%;
-      background: #cccccc;
-      object-fit: contain;
-    }
-  `]
+  styleUrls: ['blog.component.scss']
 })
 export class BlogComponent {
-
 }

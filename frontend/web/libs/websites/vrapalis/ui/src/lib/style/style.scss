@@ -42,3 +42,33 @@
     max-width: 280px;
   }
 }
+
+%margin {
+  margin: 150px auto;
+  padding: 10px 10px;
+
+  @include maxMediumScreen {
+    margin: 50px auto;
+  }
+}
+
+%card {
+  width: 25rem;
+  margin: 20px;
+
+  img {
+    height: 200px;
+    object-fit: contain;
+    width: 100%;
+    background: #cccccc;
+  }
+
+  @include maxLgScreen {
+    width: 80%;
+    margin: 50px auto;
+  }
+
+  @include maxMediumScreen {
+    width: 95%;
+  }
+}

@@ -1,12 +1,16 @@
 @import "libs/websites/vrapalis/ui/src/lib/style/vars";
+@import "libs/shared/ui/src/lib/style/mixins";
+@import "libs/websites/vrapalis/ui/src/lib/style/style";
 
 .projects-wrapper {
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
   position: relative;
-  padding: 100px;
-
   max-width: $max-width-content;
-  margin: auto;
+
+  @extend %margin;
+
+  @include maxMediumScreen {
+  }
 }

@@ -5,15 +5,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="03b3ac8c-d50d-4ec2-8eb1-c77b2d0f8738" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data-structure/src/main/java/com/vrapalis/www/backend/tutorials/datastructure/algorithm/AlgorithmUtility.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data-structure/src/test/java/com/vrapalis/www/backend/tutorials/datastructure/algorithm/AlgorithmGroupTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../frontend/web/angular.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../frontend/web/angular.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../frontend/web/apps/websites/vrapalis/src/assets/content/home.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../frontend/web/apps/websites/vrapalis/src/assets/content/home.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../frontend/web/nx.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../frontend/web/nx.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../frontend/web/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../frontend/web/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../frontend/web/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../frontend/web/apps/websites/vrapalis/src/assets/images/example-image.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../frontend/web/libs/websites/vrapalis/feature/blog/src/lib/components/blog.component.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../frontend/web/libs/websites/vrapalis/feature/projects/src/lib/components/projects.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../frontend/web/apps/websites/vrapalis/src/assets/i18n/de.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../frontend/web/apps/websites/vrapalis/src/assets/i18n/de.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../frontend/web/libs/websites/vrapalis/feature/about/src/lib/components/about.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/../../frontend/web/libs/websites/vrapalis/feature/about/src/lib/components/about.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../frontend/web/libs/websites/vrapalis/feature/blog/src/lib/components/blog.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../frontend/web/libs/websites/vrapalis/feature/blog/src/lib/components/blog.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../frontend/web/libs/websites/vrapalis/feature/blog/src/lib/containers/blog-container.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/../../frontend/web/libs/websites/vrapalis/feature/blog/src/lib/containers/blog-container.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../frontend/web/libs/websites/vrapalis/feature/contact/src/lib/components/contact.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/../../frontend/web/libs/websites/vrapalis/feature/contact/src/lib/components/contact.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../frontend/web/libs/websites/vrapalis/feature/home/src/lib/components/home/websites-vrapalis-feature-home.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/../../frontend/web/libs/websites/vrapalis/feature/home/src/lib/components/home/websites-vrapalis-feature-home.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../frontend/web/libs/websites/vrapalis/feature/home/src/lib/components/home/websites-vrapalis-feature-home.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../frontend/web/libs/websites/vrapalis/feature/home/src/lib/components/home/websites-vrapalis-feature-home.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../frontend/web/libs/websites/vrapalis/feature/home/src/lib/components/more/more.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/../../frontend/web/libs/websites/vrapalis/feature/home/src/lib/components/more/more.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../frontend/web/libs/websites/vrapalis/feature/home/src/lib/components/projects/project.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../frontend/web/libs/websites/vrapalis/feature/home/src/lib/components/projects/project.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../frontend/web/libs/websites/vrapalis/feature/masthead/src/lib/components/masthead.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/../../frontend/web/libs/websites/vrapalis/feature/masthead/src/lib/components/masthead.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../frontend/web/libs/websites/vrapalis/feature/projects/src/lib/components/projects.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../frontend/web/libs/websites/vrapalis/feature/projects/src/lib/components/projects.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../frontend/web/libs/websites/vrapalis/feature/projects/src/lib/containers/projects-container.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/../../frontend/web/libs/websites/vrapalis/feature/projects/src/lib/containers/projects-container.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../frontend/web/libs/websites/vrapalis/ui/src/lib/footer/components/footer.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/../../frontend/web/libs/websites/vrapalis/ui/src/lib/footer/components/footer.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../frontend/web/libs/websites/vrapalis/ui/src/lib/header/components/websites-vrapalis-header.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../frontend/web/libs/websites/vrapalis/ui/src/lib/header/components/websites-vrapalis-header.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../frontend/web/libs/websites/vrapalis/ui/src/lib/header/components/websites-vrapalis-header.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/../../frontend/web/libs/websites/vrapalis/ui/src/lib/header/components/websites-vrapalis-header.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../frontend/web/libs/websites/vrapalis/ui/src/lib/style/style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/../../frontend/web/libs/websites/vrapalis/ui/src/lib/style/style.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -272,6 +282,7 @@
       <workItem from="1643357192116" duration="2169000" />
       <workItem from="1643375009276" duration="47000" />
       <workItem from="1643615168446" duration="46000" />
+      <workItem from="1644849806880" duration="22000" />
     </task>
     <servers />
   </component>

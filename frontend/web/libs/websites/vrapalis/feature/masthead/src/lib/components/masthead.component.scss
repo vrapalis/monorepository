@@ -1,3 +1,5 @@
+@import "libs/websites/vrapalis/ui/src/lib/style/style";
+
 .masthead-wrapper {
-  padding: 100px 100px;
+  @extend %margin;
 }

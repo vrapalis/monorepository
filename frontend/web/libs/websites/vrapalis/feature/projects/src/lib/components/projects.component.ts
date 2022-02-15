@@ -3,7 +3,7 @@ import {Component} from '@angular/core';
 @Component({
   selector: 'web-projects-component',
   template: `
-    <div class="card">
+    <div class="project-card-wrapper">
       <img>
       <div class="card-body">
         <h5 class="card-title mt-3">Project title</h5>
@@ -15,19 +15,7 @@ import {Component} from '@angular/core';
       </div>
     </div>
   `,
-  styles: [`
-    .card {
-      width: 25rem;
-      margin: 20px;
-    }
-
-    img {
-      height: 200px;
-      object-fit: contain;
-      width: 100%;
-      background: #cccccc;
-    }
-  `]
+  styleUrls: ['projects.component.scss']
 })
 export class ProjectsComponent {
 }

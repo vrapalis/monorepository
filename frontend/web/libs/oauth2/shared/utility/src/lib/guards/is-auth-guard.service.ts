@@ -14,7 +14,7 @@ export class IsAuthGuard implements CanLoad {
   }
 
   canLoad(route: Route, segments: UrlSegment[]): Observable<boolean> {
-    this.authService.configure(this.envService.getAuthConfig());
+    // this.authService.configure(this.envService.getAuthConfig());
     return from(this.authService.loadDiscoveryDocumentAndTryLogin()
       .then(() => {
         if (!this.authService.hasValidIdToken() || !this.authService.hasValidAccessToken()) {

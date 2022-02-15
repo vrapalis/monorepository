@@ -1,7 +1,8 @@
 @import "libs/websites/vrapalis/ui/src/lib/style/vars";
+@import "libs/websites/vrapalis/ui/src/lib/style/style";
 
 .about-wrapper {
-  padding: 100px;
+  @extend %margin;
 
   .about-text {
     max-width: $max-width-content;

@@ -20,5 +20,23 @@
   @include maxLgScreen {
 
   }
+
+  @include maxMediumScreen {
+    padding: 0px 5px;
+
+    article:not(:first-child){
+      margin-top: 50px;
+    }
+
+    .more-image {
+      width: 350px;
+      height: 300px;
+      object-fit: contain;
+    }
+
+    .more-section {
+
+    }
+  }
 }
 

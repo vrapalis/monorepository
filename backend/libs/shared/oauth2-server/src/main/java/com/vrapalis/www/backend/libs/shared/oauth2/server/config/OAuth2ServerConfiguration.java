@@ -151,8 +151,8 @@ public class OAuth2ServerConfiguration {
                 .scope("read")
                 .scope("write")
                 .clientSettings(ClientSettings.builder().requireAuthorizationConsent(true).build())
-                .tokenSettings(TokenSettings.builder().accessTokenTimeToLive(Duration.ofHours(1))
-                        .refreshTokenTimeToLive(Duration.ofHours(1))
+                .tokenSettings(TokenSettings.builder().accessTokenTimeToLive(Duration.ofSeconds(30))
+                        .refreshTokenTimeToLive(Duration.ofHours(6))
                         .reuseRefreshTokens(true)
                         .build())
                 .build();
