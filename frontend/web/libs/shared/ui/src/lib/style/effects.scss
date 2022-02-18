@@ -1,0 +1,31 @@
+/* EFFECTS */
+
+/* RIGHT TO LEFT */
+.heading-effect {
+  position: relative;
+  color: #e0dbd8;
+  -webkit-text-stroke: 2px #329d52;
+}
+
+.heading-effect::before {
+  position: absolute;
+  content: attr(data-text);
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  color: #0ce981;
+  -webkit-text-stroke: 0.1vw #383d52;
+  border-right: 2px solid;
+  overflow: hidden;
+  animation: animate 6s linear infinite;
+}
+
+@keyframes animate {
+  0%,10%,100% {
+    width: 0%;
+  }
+  70%,90% {
+    width: 100%;
+  }
+}

@@ -1,5 +1,6 @@
 @import "libs/websites/vrapalis/ui/src/lib/style/vars";
 @import "libs/shared/ui/src/lib/style/mixins";
+@import "libs/shared/ui/src/lib/style/animations";
 
 header {
   position: fixed;
@@ -9,6 +10,17 @@ header {
   right: 0px;
   z-index: 1000;
   height: 70px;
+  animation: animateHeader  ease 0.3s forwards;
+
+  @keyframes animateHeader {
+    from {
+      top: -200px;
+    }
+
+    to {
+      top: 0px;
+    }
+  }
 
   .sh-ui-header {
     max-width: $max-width;

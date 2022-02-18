@@ -9,10 +9,13 @@
         </processorPath>
         <module name="tutorials.data-structure.main" />
         <module name="tutorials.spring.security.test" />
+        <module name="com.example.tutorials.spring.test.test" />
+        <module name="tutorials.spring.web.test" />
         <module name="tutorials.data-structure.test" />
         <module name="tutorials.spring.test" />
         <module name="tutorials.design-patterns.main" />
         <module name="tutorials.oop.test" />
+        <module name="tutorials.spring.data.test" />
         <module name="tutorials.design-patterns.test" />
         <module name="tutorials.oop.main" />
         <module name="tutorials.spring.main" />
@@ -21,9 +24,12 @@
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="false">
           <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.projectlombok/lombok/1.18.20/18bcea7d5df4d49227b4a0743a536208ce4825bb/lombok-1.18.20.jar" />
-          <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-configuration-processor/2.5.3/dbcb7b9aa82f98f4d079a2d3d7d1dc8a0dd171b1/spring-boot-configuration-processor-2.5.3.jar" />
+          <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-configuration-processor/2.6.3/6c0e21d31af4964436aa81db270b4d00f9c5436f/spring-boot-configuration-processor-2.6.3.jar" />
         </processorPath>
+        <module name="com.example.tutorials.spring.test.main" />
+        <module name="tutorials.spring.web.main" />
         <module name="tutorials.spring.security.main" />
+        <module name="tutorials.spring.data.main" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="13" />

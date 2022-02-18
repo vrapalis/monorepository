@@ -5,25 +5,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="03b3ac8c-d50d-4ec2-8eb1-c77b2d0f8738" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../../frontend/web/apps/websites/vrapalis/src/assets/images/example-image.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../frontend/web/libs/websites/vrapalis/feature/blog/src/lib/components/blog.component.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../frontend/web/libs/websites/vrapalis/feature/projects/src/lib/components/projects.component.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../frontend/web/apps/websites/vrapalis/src/assets/i18n/de.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../frontend/web/apps/websites/vrapalis/src/assets/i18n/de.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../frontend/web/libs/websites/vrapalis/feature/about/src/lib/components/about.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/../../frontend/web/libs/websites/vrapalis/feature/about/src/lib/components/about.component.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../frontend/web/libs/websites/vrapalis/feature/blog/src/lib/components/blog.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../frontend/web/libs/websites/vrapalis/feature/blog/src/lib/components/blog.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../frontend/web/libs/websites/vrapalis/feature/blog/src/lib/containers/blog-container.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/../../frontend/web/libs/websites/vrapalis/feature/blog/src/lib/containers/blog-container.component.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../frontend/web/libs/websites/vrapalis/feature/contact/src/lib/components/contact.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/../../frontend/web/libs/websites/vrapalis/feature/contact/src/lib/components/contact.component.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../frontend/web/libs/websites/vrapalis/feature/home/src/lib/components/home/websites-vrapalis-feature-home.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/../../frontend/web/libs/websites/vrapalis/feature/home/src/lib/components/home/websites-vrapalis-feature-home.component.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../frontend/web/libs/websites/vrapalis/feature/home/src/lib/components/home/websites-vrapalis-feature-home.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../frontend/web/libs/websites/vrapalis/feature/home/src/lib/components/home/websites-vrapalis-feature-home.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../frontend/web/libs/websites/vrapalis/feature/home/src/lib/components/more/more.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/../../frontend/web/libs/websites/vrapalis/feature/home/src/lib/components/more/more.component.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../frontend/web/libs/websites/vrapalis/feature/home/src/lib/components/projects/project.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../frontend/web/libs/websites/vrapalis/feature/home/src/lib/components/projects/project.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../frontend/web/libs/websites/vrapalis/feature/masthead/src/lib/components/masthead.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/../../frontend/web/libs/websites/vrapalis/feature/masthead/src/lib/components/masthead.component.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../frontend/web/libs/websites/vrapalis/feature/projects/src/lib/components/projects.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../frontend/web/libs/websites/vrapalis/feature/projects/src/lib/components/projects.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../frontend/web/libs/websites/vrapalis/feature/projects/src/lib/containers/projects-container.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/../../frontend/web/libs/websites/vrapalis/feature/projects/src/lib/containers/projects-container.component.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../frontend/web/libs/websites/vrapalis/ui/src/lib/footer/components/footer.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/../../frontend/web/libs/websites/vrapalis/ui/src/lib/footer/components/footer.component.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../frontend/web/libs/websites/vrapalis/ui/src/lib/header/components/websites-vrapalis-header.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../frontend/web/libs/websites/vrapalis/ui/src/lib/header/components/websites-vrapalis-header.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../frontend/web/libs/websites/vrapalis/ui/src/lib/header/components/websites-vrapalis-header.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/../../frontend/web/libs/websites/vrapalis/ui/src/lib/header/components/websites-vrapalis-header.component.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../frontend/web/libs/websites/vrapalis/ui/src/lib/style/style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/../../frontend/web/libs/websites/vrapalis/ui/src/lib/style/style.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jpa-buddy.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spring/security/src/main/java/com/example/security/config/SecurityRunner.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spring/security/src/main/java/com/example/security/domain/user/entity/UserEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spring/security/src/main/java/com/example/security/domain/user/repository/UserRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spring/security/src/main/java/com/example/security/domain/user/restcontroller/UserRestController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spring/security/src/main/java/com/example/security/domain/user/service/UserService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spring/security/src/test/java/com/example/security/domain/user/restcontroller/UserRestControllerTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spring/security/src/test/java/com/example/security/domain/user/service/UserServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../apps/entryou/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../apps/entryou/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oop/src/test/java/com/example/classesandobjects/ClassesAndObjectsApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/oop/src/test/java/com/example/classesandobjects/ClassesAndObjectsApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring/security/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/spring/security/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring/security/src/main/java/com/example/security/config/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring/security/src/main/java/com/example/security/config/SecurityWebConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring/security/src/main/java/com/example/security/domain/DemoRestController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring/security/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/spring/security/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring/security/src/test/java/com/example/security/SecurityApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../frontend/web/angular.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../frontend/web/angular.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../frontend/web/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../frontend/web/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../frontend/web/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,6 +36,15 @@
   </component>
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+    <projectState path="$PROJECT_DIR$/spring/data">
+      <ProjectState />
+    </projectState>
+    <projectState path="$PROJECT_DIR$/spring/test">
+      <ProjectState />
+    </projectState>
+    <projectState path="$PROJECT_DIR$/spring/web">
       <ProjectState />
     </projectState>
   </component>
@@ -79,6 +92,22 @@
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
   </component>
+  <component name="JpbToolWindowState">
+    <option name="myId2FirstActivated">
+      <map>
+        <entry key="com.haulmont.jpb.jpaInspector" value="true" />
+        <entry key="com.haulmont.jpb.jpaPalette" value="true" />
+        <entry key="com.haulmont.jpb.jpaStructure" value="true" />
+      </map>
+    </option>
+    <option name="myId2Visible">
+      <map>
+        <entry key="com.haulmont.jpb.jpaInspector" value="false" />
+        <entry key="com.haulmont.jpb.jpaPalette" value="false" />
+        <entry key="com.haulmont.jpb.jpaStructure" value="false" />
+      </map>
+    </option>
+  </component>
   <component name="KubernetesApiPersistence">
     <option name="context" value="minikube" />
   </component>
@@ -102,7 +131,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="jdk.selected.JAVA_MODULE" value="16" />
+    <property name="jdk.selected.JAVA_MODULE" value="sdkman current" />
     <property name="jdk.selected.PLUGIN_MODULE" value="IntelliJ IDEA IU-193.5662.53 (2)" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/data-structure/src/main/java/com/vrapalis/www/backend/tutorials/datastructure" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/design-patterns/src/test/java" />
@@ -111,6 +140,7 @@
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.3448276" />
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+    <property name="show.run.dashboard.notification" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
@@ -122,53 +152,7 @@
       <recent name="$PROJECT_DIR$/design-patterns/src/test/java" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.SortAlgorithmGroupTest.sortAlgorithmTest">
-    <configuration name="PublisherGroupTest.name" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":design-patterns:test" />
-            <option value="--tests" />
-            <option value="&quot;behavioral.observer.PublisherGroupTest.name&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <method v="2" />
-    </configuration>
-    <configuration name="SelectionSortAlgorithmTest.sortUnsortedListTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":data-structure:test" />
-            <option value="--tests" />
-            <option value="&quot;com.vrapalis.www.backend.tutorials.datastructure.algorithm.SelectionSortAlgorithmTest.sortUnsortedListTest&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="Gradle.UserRestControllerTest.getUsers">
     <configuration name="SortAlgorithmGroupTest.sortAlgorithmTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -189,6 +173,18 @@
       </ExternalSystemSettings>
       <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
       <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <EXTENSION ID="com.intellij.execution.ExternalSystemRunConfigurationJavaExtension">
+        <extension name="net.ashald.envfile">
+          <option name="IS_ENABLED" value="false" />
+          <option name="IS_SUBST" value="false" />
+          <option name="IS_PATH_MACRO_SUPPORTED" value="false" />
+          <option name="IS_IGNORE_MISSING_FILES" value="false" />
+          <option name="IS_ENABLE_EXPERIMENTAL_INTEGRATIONS" value="false" />
+          <ENTRIES>
+            <ENTRY IS_ENABLED="true" PARSER="runconfig" />
+          </ENTRIES>
+        </extension>
+      </EXTENSION>
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
@@ -215,7 +211,7 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="StrategyPatternTestGroup" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="UserRestControllerTest.getUsers" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -226,9 +222,79 @@
         </option>
         <option name="taskNames">
           <list>
-            <option value=":design-patterns:test" />
+            <option value=":spring:security:test" />
             <option value="--tests" />
-            <option value="&quot;behavioral.strategy.StrategyPatternTestGroup&quot;" />
+            <option value="&quot;com.example.security.domain.user.restcontroller.UserRestControllerTest.getUsers&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <EXTENSION ID="com.intellij.execution.ExternalSystemRunConfigurationJavaExtension">
+        <extension name="net.ashald.envfile">
+          <option name="IS_ENABLED" value="false" />
+          <option name="IS_SUBST" value="false" />
+          <option name="IS_PATH_MACRO_SUPPORTED" value="false" />
+          <option name="IS_IGNORE_MISSING_FILES" value="false" />
+          <option name="IS_ENABLE_EXPERIMENTAL_INTEGRATIONS" value="false" />
+          <ENTRIES>
+            <ENTRY IS_ENABLED="true" PARSER="runconfig" />
+          </ENTRIES>
+        </extension>
+      </EXTENSION>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="UserServiceTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":spring:security:test" />
+            <option value="--tests" />
+            <option value="&quot;com.example.security.domain.user.service.UserServiceTest&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <EXTENSION ID="com.intellij.execution.ExternalSystemRunConfigurationJavaExtension">
+        <extension name="net.ashald.envfile">
+          <option name="IS_ENABLED" value="false" />
+          <option name="IS_SUBST" value="false" />
+          <option name="IS_PATH_MACRO_SUPPORTED" value="false" />
+          <option name="IS_IGNORE_MISSING_FILES" value="false" />
+          <option name="IS_ENABLE_EXPERIMENTAL_INTEGRATIONS" value="false" />
+          <ENTRIES>
+            <ENTRY IS_ENABLED="true" PARSER="runconfig" />
+          </ENTRIES>
+        </extension>
+      </EXTENSION>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="UserServiceTest.saveTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":spring:security:test" />
+            <option value="--tests" />
+            <option value="&quot;com.example.security.domain.user.service.UserServiceTest.saveTest&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -238,20 +304,87 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="SecurityApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
-      <module name="tutorials.spring.security.main" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.security.SecurityApplication" />
+    <configuration name="DataApplication (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="tutorials.spring.data.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.data.DataApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="DataApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="data.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.data.DataApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SecurityApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="tutorials.spring.security.main" />
+      <extension name="net.ashald.envfile">
+        <option name="IS_ENABLED" value="false" />
+        <option name="IS_SUBST" value="false" />
+        <option name="IS_PATH_MACRO_SUPPORTED" value="false" />
+        <option name="IS_IGNORE_MISSING_FILES" value="false" />
+        <option name="IS_ENABLE_EXPERIMENTAL_INTEGRATIONS" value="false" />
+        <ENTRIES>
+          <ENTRY IS_ENABLED="true" PARSER="runconfig" />
+        </ENTRIES>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.security.SecurityApplication" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestApplication (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="com.example.tutorials.spring.test.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.test.TestApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="test.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.test.TestApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="WebApplication (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="tutorials.spring.web.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.web.WebApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="WebApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="web.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.web.WebApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Gradle.SortAlgorithmGroupTest.sortAlgorithmTest" />
+      <item itemvalue="Gradle.SortUtilityAlgorithmsGroupTest.sortAlgorithmTest" />
+      <item itemvalue="Gradle.UserRestControllerTest.getUsers" />
+      <item itemvalue="Gradle.UserServiceTest" />
+      <item itemvalue="Gradle.UserServiceTest.saveTest" />
+      <item itemvalue="Spring Boot.SecurityApplication" />
+      <item itemvalue="Spring Boot.TestApplication" />
+      <item itemvalue="Spring Boot.DataApplication" />
+      <item itemvalue="Spring Boot.WebApplication" />
+      <item itemvalue="Spring Boot.DataApplication (1)" />
+      <item itemvalue="Spring Boot.TestApplication (1)" />
+      <item itemvalue="Spring Boot.WebApplication (1)" />
+    </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.UserRestControllerTest.getUsers" />
+        <item itemvalue="Gradle.UserServiceTest" />
+        <item itemvalue="Gradle.UserServiceTest.saveTest" />
         <item itemvalue="Gradle.SortAlgorithmGroupTest.sortAlgorithmTest" />
         <item itemvalue="Gradle.SortUtilityAlgorithmsGroupTest.sortAlgorithmTest" />
-        <item itemvalue="Gradle.SelectionSortAlgorithmTest.sortUnsortedListTest" />
-        <item itemvalue="Gradle.PublisherGroupTest.name" />
-        <item itemvalue="Gradle.StrategyPatternTestGroup" />
       </list>
     </recent_temporary>
   </component>
@@ -283,10 +416,20 @@
       <workItem from="1643375009276" duration="47000" />
       <workItem from="1643615168446" duration="46000" />
       <workItem from="1644849806880" duration="22000" />
+      <workItem from="1644931362385" duration="1421000" />
+      <workItem from="1644932801029" duration="3722000" />
+      <workItem from="1644936551078" duration="7200000" />
+      <workItem from="1644998386231" duration="13272000" />
+      <workItem from="1645084866827" duration="2470000" />
+      <workItem from="1645186921062" duration="164000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="dependencySupport" implementationName="java:jakarta.persistence:jakarta.persistence-api" />
+    <option featureType="dependencySupport" implementationName="java:org.hibernate:hibernate-core" />
   </component>
 </project>
