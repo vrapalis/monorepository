@@ -7,7 +7,11 @@ import { Component } from '@angular/core';
       Page not found
     </h3>
   `,
-  styles: []
+  styles: [`
+    h3 {
+        margin: 300px 0px;
+    }
+  `]
 })
 export class WebShUiPageNotFoundContainerComponent {
 
