@@ -1,0 +1,27 @@
+$videoWidth: 100%;
+$videoHeight: 250px;
+
+.qrCoScContainer {
+  margin-top: 10px;
+  position: relative;
+
+  .qrCoScVideo {
+    width: $videoWidth;
+    height: $videoHeight;
+  }
+
+  .qrCoScCanvas {
+
+  }
+
+  .qrCoScInfoBox {
+    position: absolute;
+    left: 0px;
+    top: 0;                         /* 3 */
+    transform: translate(0, 50%)
+  }
+
+  .qrCoScButtonBock {
+    margin-top: 20px;
+  }
+}

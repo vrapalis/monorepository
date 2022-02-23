@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
+import {AuthService} from "@web/oauth2-shared-utility";
 
 @Component({
   selector: 'web-root',
@@ -8,4 +9,7 @@ import { Component } from '@angular/core';
   `],
 })
 export class AppComponent {
+  constructor(private authService: AuthService) {
+    this.authService.tryToLogin();
+  }
 }

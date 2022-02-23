@@ -1,0 +1,13 @@
+<div class='qrCoScContainer'>
+  <video class='qrCoScVideo' #video></video>
+  <canvas class='qrCoScCanvas' hidden #canvas></canvas>
+
+  <div class='qrCoScButtonBock'>
+    <button mat-fab color='accent' aria-label='QR Scanner Button' (click)='cameraClick()'>
+      <mat-icon>{{buttonIcon}}</mat-icon>
+    </button>
+    <p class='mt-2 lightTextFn'>
+      {{buttonText}}
+    </p>
+  </div>
+</div>

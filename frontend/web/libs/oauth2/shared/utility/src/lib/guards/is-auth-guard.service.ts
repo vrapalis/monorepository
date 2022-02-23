@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {CanLoad, Route, Router, UrlSegment} from "@angular/router";
 import {Observable, of} from "rxjs";
 import {OAuthService} from "angular-oauth2-oidc";
-import {EnvService} from "@web/oauth2-shared-utility";
+import {EnvService} from "../services/env.service";
 import {from} from "rxjs";
 
 @Injectable({
@@ -14,7 +14,6 @@ export class IsAuthGuard implements CanLoad {
   }
 
   canLoad(route: Route, segments: UrlSegment[]): Observable<boolean> {
-    // this.authService.configure(this.envService.getAuthConfig());
     return from(this.authService.loadDiscoveryDocumentAndTryLogin()
       .then(() => {
         if (!this.authService.hasValidIdToken() || !this.authService.hasValidAccessToken()) {

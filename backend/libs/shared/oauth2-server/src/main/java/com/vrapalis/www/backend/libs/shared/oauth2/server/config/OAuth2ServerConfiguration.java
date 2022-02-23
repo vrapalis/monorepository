@@ -79,6 +79,7 @@ public class OAuth2ServerConfiguration {
                 .build();
     }
 
+    // TODO LOGOUT CONFIGURATION/CLEAN
     @Bean
     SecurityFilterChain defaultSecurityFilterChain(HttpSecurity http, OAuth2AuthorizedClientService authorizedClientService) throws Exception {
         http

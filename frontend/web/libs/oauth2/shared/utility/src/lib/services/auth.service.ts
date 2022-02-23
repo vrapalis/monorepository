@@ -1,14 +1,13 @@
 import {Injectable} from '@angular/core';
 import {OAuthService} from "angular-oauth2-oidc";
-import {EnvService} from "@web/oauth2-shared-utility";
-import {Router} from "@angular/router";
+import {EnvService} from "../services/env.service";
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  constructor(private oAuthService: OAuthService, private envService: EnvService, private router: Router) {
+  constructor(private oAuthService: OAuthService, private envService: EnvService) {
   }
 
   tryToLogin() {
@@ -20,8 +19,7 @@ export class AuthService {
         console.log(this.oAuthService.getIdentityClaims())
       }
     }).catch(err => {
-      // noinspection JSIgnoredPromiseFromCall
-      this.router.navigate(['/service-unavailable']);
+      this.oAuthService.logOut();
       console.error(err);
     });
   }

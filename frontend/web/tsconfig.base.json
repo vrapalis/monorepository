@@ -15,6 +15,17 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@web/entryou-shared-utility": [
+        "libs/entryou/shared/utility/src/index.ts"
+      ],
+      "@web/entryou/feature/client": [
+        "libs/entryou/feature/client/src/index.ts"
+      ],
+      "@web/entryou/feature/company": [
+        "libs/entryou/feature/company/src/index.ts"
+      ],
+      "@web/entryou/shared/model": ["libs/entryou/shared/model/src/index.ts"],
+      "@web/entryou/shared/ui": ["libs/entryou/shared/ui/src/index.ts"],
       "@web/oauth2-shared-utility": ["libs/oauth2/shared/utility/src/index.ts"],
       "@web/oauth2/feature/clients": [
         "libs/oauth2/feature/clients/src/index.ts"

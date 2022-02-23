@@ -1,3 +1,6 @@
-export const environment = {
+import {IOauth2Env} from "@web/oauth2/shared/model";
+
+export const environment: IOauth2Env = {
   production: true,
+  issuer: ""
 };

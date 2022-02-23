@@ -1,11 +1,141 @@
 {
   "version": 1,
   "projects": {
+    "entryou-feature-client": {
+      "projectType": "library",
+      "root": "libs/entryou/feature/client",
+      "sourceRoot": "libs/entryou/feature/client/src",
+      "prefix": "entryou",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/entryou/feature/client"],
+          "options": {
+            "jestConfig": "libs/entryou/feature/client/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/entryou/feature/client/src/**/*.ts",
+              "libs/entryou/feature/client/src/**/*.html"
+            ]
+          }
+        }
+      },
+      "tags": ["scope:entryou", "type:feature"]
+    },
+    "entryou-feature-company": {
+      "projectType": "library",
+      "root": "libs/entryou/feature/company",
+      "sourceRoot": "libs/entryou/feature/company/src",
+      "prefix": "entryou",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/entryou/feature/company"],
+          "options": {
+            "jestConfig": "libs/entryou/feature/company/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/entryou/feature/company/src/**/*.ts",
+              "libs/entryou/feature/company/src/**/*.html"
+            ]
+          }
+        }
+      },
+      "tags": ["scope:entryou", "type:feature"]
+    },
+    "entryou-shared-model": {
+      "projectType": "library",
+      "root": "libs/entryou/shared/model",
+      "sourceRoot": "libs/entryou/shared/model/src",
+      "prefix": "web",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/entryou/shared/model"],
+          "options": {
+            "jestConfig": "libs/entryou/shared/model/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/entryou/shared/model/src/**/*.ts",
+              "libs/entryou/shared/model/src/**/*.html"
+            ]
+          }
+        }
+      },
+      "tags": ["scope:entryou", "type:model"]
+    },
+    "entryou-shared-ui": {
+      "projectType": "library",
+      "root": "libs/entryou/shared/ui",
+      "sourceRoot": "libs/entryou/shared/ui/src",
+      "prefix": "entryou",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/entryou/shared/ui"],
+          "options": {
+            "jestConfig": "libs/entryou/shared/ui/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/entryou/shared/ui/src/**/*.ts",
+              "libs/entryou/shared/ui/src/**/*.html"
+            ]
+          }
+        }
+      },
+      "tags": ["scope:entryou", "type:ui"]
+    },
+    "entryou-shared-utility": {
+      "projectType": "library",
+      "root": "libs/entryou/shared/utility",
+      "sourceRoot": "libs/entryou/shared/utility/src",
+      "prefix": "web",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/entryou/shared/utility"],
+          "options": {
+            "jestConfig": "libs/entryou/shared/utility/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/entryou/shared/utility/src/**/*.ts",
+              "libs/entryou/shared/utility/src/**/*.html"
+            ]
+          }
+        }
+      },
+      "tags": ["scope:entryou", "type:utility"]
+    },
     "entryou-ui": {
       "projectType": "application",
       "root": "apps/entryou/ui",
       "sourceRoot": "apps/entryou/ui/src",
-      "prefix": "web",
+      "prefix": "entryou",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
