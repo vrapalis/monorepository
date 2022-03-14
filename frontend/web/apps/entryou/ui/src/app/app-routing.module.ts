@@ -1,7 +1,6 @@
 import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
 import {MediaNotSupportedComponent, PageNotFoundComponent, ServiceUnavailableComponent} from "@web/shared/ui";
-import {SharedIsMobileGuard} from "@web/shared/utility";
 
 const routes: Routes = [
   {
@@ -12,6 +11,10 @@ const routes: Routes = [
   {
     path: 'client',
     loadChildren: () => import('@web/entryou/feature/client').then(mod => mod.EntryouFeatureClientModule)
+  },
+  {
+    path: 'company',
+    loadChildren: () => import('@web/entryou/feature/company').then(mod => mod.EntryouFeatureCompanyModule)
   },
   {path: 'media-not-supported', component: MediaNotSupportedComponent},
   {path: 'service-unavailable', component: ServiceUnavailableComponent},

@@ -6,6 +6,7 @@ import {GroupButtonModule} from "@web/entryou/shared/ui";
 import {CodeComponent} from './components/code/code.component';
 import {EntriesComponent} from './components/entries/entries.component';
 import {SharedUiCodeModule, SharedUiScannerModule} from "@web/shared/ui";
+import {EntryComponent} from './components/entry/entry.component';
 
 @NgModule({
   imports: [
@@ -14,8 +15,11 @@ import {SharedUiCodeModule, SharedUiScannerModule} from "@web/shared/ui";
       {
         path: '', component: EntryouFeatureClientContainerComponent,
         children: [
-          {path: '', redirectTo: 'entries'},
-          {path: 'entries', component: EntriesComponent},
+          {path: '', redirectTo: 'entries', pathMatch: 'full'},
+          {
+            path: 'entries', component: EntriesComponent,
+            children: [{path: ':id', component: EntryComponent}]
+          },
           {path: 'code', component: CodeComponent},
         ]
       },
@@ -28,6 +32,7 @@ import {SharedUiCodeModule, SharedUiScannerModule} from "@web/shared/ui";
     EntryouFeatureClientContainerComponent,
     CodeComponent,
     EntriesComponent,
+    EntryComponent,
   ],
 })
 export class EntryouFeatureClientModule {
