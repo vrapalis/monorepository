@@ -6,16 +6,23 @@
   "targets": {
     "build": {
       "executor": "@angular-devkit/build-angular:browser",
-      "outputs": ["{options.outputPath}"],
+      "outputs": [
+        "{options.outputPath}"
+      ],
       "options": {
-        "outputPath": "dist/apps/ngrx",
+        "outputPath": "dist/ngrx/browser",
         "index": "apps/ngrx/src/index.html",
         "main": "apps/ngrx/src/main.ts",
         "polyfills": "apps/ngrx/src/polyfills.ts",
         "tsConfig": "apps/ngrx/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
-        "assets": ["apps/ngrx/src/favicon.ico", "apps/ngrx/src/assets"],
-        "styles": ["apps/ngrx/src/styles.scss"],
+        "assets": [
+          "apps/ngrx/src/favicon.ico",
+          "apps/ngrx/src/assets"
+        ],
+        "styles": [
+          "apps/ngrx/src/styles.scss"
+        ],
         "scripts": []
       },
       "configurations": {
@@ -72,16 +79,80 @@
     "lint": {
       "executor": "@nrwl/linter:eslint",
       "options": {
-        "lintFilePatterns": ["apps/ngrx/src/**/*.ts", "apps/ngrx/src/**/*.html"]
+        "lintFilePatterns": [
+          "apps/ngrx/src/**/*.ts",
+          "apps/ngrx/src/**/*.html"
+        ]
       }
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/apps/ngrx"],
+      "outputs": [
+        "coverage/apps/ngrx"
+      ],
       "options": {
         "jestConfig": "apps/ngrx/jest.config.js",
         "passWithNoTests": true
       }
+    },
+    "server": {
+      "executor": "@angular-devkit/build-angular:server",
+      "options": {
+        "outputPath": "dist/ngrx/server",
+        "main": "apps/ngrx/server.ts",
+        "tsConfig": "apps/ngrx/tsconfig.server.json",
+        "inlineStyleLanguage": "scss"
+      },
+      "configurations": {
+        "production": {
+          "outputHashing": "media",
+          "fileReplacements": [
+            {
+              "replace": "apps/ngrx/src/environments/environment.ts",
+              "with": "apps/ngrx/src/environments/environment.prod.ts"
+            }
+          ]
+        },
+        "development": {
+          "optimization": false,
+          "sourceMap": true,
+          "extractLicenses": false
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve-ssr": {
+      "executor": "@nguniversal/builders:ssr-dev-server",
+      "configurations": {
+        "development": {
+          "browserTarget": "ngrx:build:development",
+          "serverTarget": "ngrx:server:development"
+        },
+        "production": {
+          "browserTarget": "ngrx:build:production",
+          "serverTarget": "ngrx:server:production"
+        }
+      },
+      "defaultConfiguration": "development"
+    },
+    "prerender": {
+      "executor": "@nguniversal/builders:prerender",
+      "options": {
+        "routes": [
+          "/"
+        ]
+      },
+      "configurations": {
+        "production": {
+          "browserTarget": "ngrx:build:production",
+          "serverTarget": "ngrx:server:production"
+        },
+        "development": {
+          "browserTarget": "ngrx:build:development",
+          "serverTarget": "ngrx:server:development"
+        }
+      },
+      "defaultConfiguration": "production"
     }
   },
   "tags": []

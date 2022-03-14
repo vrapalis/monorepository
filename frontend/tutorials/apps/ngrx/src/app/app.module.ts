@@ -6,7 +6,7 @@ import { StoreModule } from '@ngrx/store';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, StoreModule.forRoot({}, {})],
+  imports: [BrowserModule.withServerTransition({ appId: 'serverApp' }), StoreModule.forRoot({}, {})],
   providers: [],
   bootstrap: [AppComponent],
 })
