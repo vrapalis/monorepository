@@ -25,6 +25,7 @@
         "libs/entryou/feature/company/src/index.ts"
       ],
       "@web/entryou/shared/model": ["libs/entryou/shared/model/src/index.ts"],
+      "@web/entryou/shared/state": ["libs/entryou/shared/state/src/index.ts"],
       "@web/entryou/shared/ui": ["libs/entryou/shared/ui/src/index.ts"],
       "@web/oauth2-shared-utility": ["libs/oauth2/shared/utility/src/index.ts"],
       "@web/oauth2/feature/clients": [

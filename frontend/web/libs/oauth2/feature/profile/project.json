@@ -1,0 +1,26 @@
+{
+  "projectType": "library",
+  "root": "libs/oauth2/feature/profile",
+  "sourceRoot": "libs/oauth2/feature/profile/src",
+  "prefix": "web",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/oauth2/feature/profile"],
+      "options": {
+        "jestConfig": "libs/oauth2/feature/profile/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/oauth2/feature/profile/src/**/*.ts",
+          "libs/oauth2/feature/profile/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": ["scope:oauth2", "type:feature"]
+}

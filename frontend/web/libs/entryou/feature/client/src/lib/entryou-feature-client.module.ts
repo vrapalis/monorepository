@@ -16,10 +16,7 @@ import {EntryComponent} from './components/entry/entry.component';
         path: '', component: EntryouFeatureClientContainerComponent,
         children: [
           {path: '', redirectTo: 'entries', pathMatch: 'full'},
-          {
-            path: 'entries', component: EntriesComponent,
-            children: [{path: ':id', component: EntryComponent}]
-          },
+          {path: 'entries', component: EntriesComponent, children: [{path: ':id', component: EntryComponent}]},
           {path: 'code', component: CodeComponent},
         ]
       },

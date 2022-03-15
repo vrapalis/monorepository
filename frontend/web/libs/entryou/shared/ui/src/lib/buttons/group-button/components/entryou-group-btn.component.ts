@@ -7,19 +7,22 @@ import {Subject, takeUntil} from "rxjs";
 @Component({
   selector: 'entryou-group-btn',
   template: `
-    <mat-button-toggle-group class="btn-gr-wrapper" (valueChange)="change($event)"
-                             *ngIf="buttons.length > 0">
-      <mat-button-toggle [value]="button.value" *ngFor="let button of buttons" [routerLink]="button.value"
-                         [checked]="button.value === value">
-        {{button.name}}
-      </mat-button-toggle>
-    </mat-button-toggle-group>
+    <ng-container *ngIf="show">
+      <mat-button-toggle-group class="btn-gr-wrapper" (valueChange)="change($event)"
+                               *ngIf="buttons.length > 0">
+        <mat-button-toggle [value]="button.value" *ngFor="let button of buttons" [routerLink]="button.value"
+                           [checked]="button.value === value">
+          {{button.name}}
+        </mat-button-toggle>
+      </mat-button-toggle-group>
+    </ng-container>
   `,
   styleUrls: ['entryou-group-btn.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
 export class EntryouGroupBtnComponent implements OnDestroy {
   @Input() buttons = new Array<IEntryouButtonsModel>();
+  @Input() show = true;
   @Output() buttonChangeEvent = new EventEmitter<IEntryouButtonsModel>();
   value: undefined | string;
   private unsubscribe$ = new Subject<void>();

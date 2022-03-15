@@ -1,0 +1,26 @@
+{
+  "projectType": "library",
+  "root": "libs/oauth2/shared/ui",
+  "sourceRoot": "libs/oauth2/shared/ui/src",
+  "prefix": "web",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/oauth2/shared/ui"],
+      "options": {
+        "jestConfig": "libs/oauth2/shared/ui/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/oauth2/shared/ui/src/**/*.ts",
+          "libs/oauth2/shared/ui/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": ["scope:oauth2", "type:ui"]
+}

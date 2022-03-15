@@ -1,0 +1,26 @@
+{
+  "projectType": "library",
+  "root": "libs/websites/vrapalis/data-access",
+  "sourceRoot": "libs/websites/vrapalis/data-access/src",
+  "prefix": "web-vr",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/websites/vrapalis/data-access"],
+      "options": {
+        "jestConfig": "libs/websites/vrapalis/data-access/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/websites/vrapalis/data-access/src/**/*.ts",
+          "libs/websites/vrapalis/data-access/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": ["scope:websites-vrapalis", "type:data-access"]
+}

@@ -1,0 +1,26 @@
+{
+  "projectType": "library",
+  "root": "libs/entryou/feature/client",
+  "sourceRoot": "libs/entryou/feature/client/src",
+  "prefix": "entryou",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/entryou/feature/client"],
+      "options": {
+        "jestConfig": "libs/entryou/feature/client/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/entryou/feature/client/src/**/*.ts",
+          "libs/entryou/feature/client/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": ["scope:entryou", "type:feature"]
+}

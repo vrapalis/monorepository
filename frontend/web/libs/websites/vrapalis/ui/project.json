@@ -1,0 +1,26 @@
+{
+  "projectType": "library",
+  "root": "libs/websites/vrapalis/ui",
+  "sourceRoot": "libs/websites/vrapalis/ui/src",
+  "prefix": "web-vr",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/websites/vrapalis/ui"],
+      "options": {
+        "jestConfig": "libs/websites/vrapalis/ui/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/websites/vrapalis/ui/src/**/*.ts",
+          "libs/websites/vrapalis/ui/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": ["scope:websites-vrapalis", "type:ui"]
+}

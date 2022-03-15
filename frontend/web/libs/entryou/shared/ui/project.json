@@ -1,0 +1,26 @@
+{
+  "projectType": "library",
+  "root": "libs/entryou/shared/ui",
+  "sourceRoot": "libs/entryou/shared/ui/src",
+  "prefix": "entryou",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/entryou/shared/ui"],
+      "options": {
+        "jestConfig": "libs/entryou/shared/ui/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/entryou/shared/ui/src/**/*.ts",
+          "libs/entryou/shared/ui/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": ["scope:entryou", "type:ui"]
+}

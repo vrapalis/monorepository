@@ -1,0 +1,28 @@
+{
+  "root": "apps/entryou/ui-e2e",
+  "sourceRoot": "apps/entryou/ui-e2e/src",
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@nrwl/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/entryou/ui-e2e/cypress.json",
+        "devServerTarget": "entryou-ui:serve:development"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "entryou-ui:serve:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/entryou/ui-e2e/**/*.{js,ts}"]
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["entryou-ui"]
+}

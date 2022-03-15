@@ -1,0 +1,26 @@
+{
+  "projectType": "library",
+  "root": "libs/websites/vrapalis/feature/about",
+  "sourceRoot": "libs/websites/vrapalis/feature/about/src",
+  "prefix": "web",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/websites/vrapalis/feature/about"],
+      "options": {
+        "jestConfig": "libs/websites/vrapalis/feature/about/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/websites/vrapalis/feature/about/src/**/*.ts",
+          "libs/websites/vrapalis/feature/about/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": ["scope:websites-vrapalis", "type:feature"]
+}

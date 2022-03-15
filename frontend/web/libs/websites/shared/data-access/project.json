@@ -1,0 +1,26 @@
+{
+  "projectType": "library",
+  "root": "libs/websites/shared/data-access",
+  "sourceRoot": "libs/websites/shared/data-access/src",
+  "prefix": "web-sh",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/websites/shared/data-access"],
+      "options": {
+        "jestConfig": "libs/websites/shared/data-access/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/websites/shared/data-access/src/**/*.ts",
+          "libs/websites/shared/data-access/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": ["scope:websites-shared", "type:data-access"]
+}

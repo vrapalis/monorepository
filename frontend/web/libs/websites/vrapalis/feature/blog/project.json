@@ -1,0 +1,26 @@
+{
+  "projectType": "library",
+  "root": "libs/websites/vrapalis/feature/blog",
+  "sourceRoot": "libs/websites/vrapalis/feature/blog/src",
+  "prefix": "web-vr",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/websites/vrapalis/feature/blog"],
+      "options": {
+        "jestConfig": "libs/websites/vrapalis/feature/blog/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/websites/vrapalis/feature/blog/src/**/*.ts",
+          "libs/websites/vrapalis/feature/blog/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": ["scope:websites-vrapalis", "type:feature"]
+}
