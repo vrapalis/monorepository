@@ -10,6 +10,7 @@ const routes: Routes = [
   },
   {
     path: 'client',
+    // eslint-disable-next-line @nrwl/nx/enforce-module-boundaries
     loadChildren: () => import('@web/entryou/feature/client').then(mod => mod.EntryouFeatureClientModule)
   },
   {

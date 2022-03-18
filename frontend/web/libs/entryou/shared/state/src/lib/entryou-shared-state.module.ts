@@ -6,13 +6,13 @@ import {StoreDevtoolsModule} from '@ngrx/store-devtools';
 import {StoreRouterConnectingModule} from "@ngrx/router-store";
 // eslint-disable-next-line @nrwl/nx/enforce-module-boundaries
 import {environment} from '../../../../../../apps/entryou/ui/src/environments/environment';
-import {index} from "./reducers";
+import {reducers} from "./reducers/reducers";
 
 @NgModule({
   imports: [
     CommonModule,
     StoreModule.forRoot(
-      index,
+      reducers,
       {
         metaReducers: !environment.production ? [] : [],
         runtimeChecks: {

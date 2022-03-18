@@ -15,6 +15,7 @@ import {
   PageWrapperModule,
   ServiceUnavailableModule,
 } from '@web/shared/ui';
+// eslint-disable-next-line @nrwl/nx/enforce-module-boundaries
 import {EntryouSharedStateModule} from "@web/entryou/shared/state";
 
 @NgModule({
@@ -27,14 +28,14 @@ import {EntryouSharedStateModule} from "@web/entryou/shared/state";
     PageWrapperModule,
     ServiceUnavailableModule,
     MediaNotSupportedModule,
+    EntryouSharedStateModule,
     AppRoutingModule,
     HttpClientModule,
     OAuthModule.forRoot({
       resourceServer: {
         sendAccessToken: true,
       },
-    }),
-    EntryouSharedStateModule
+    })
   ],
   providers: [
     {

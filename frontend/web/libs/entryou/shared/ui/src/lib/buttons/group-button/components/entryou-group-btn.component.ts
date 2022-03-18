@@ -1,7 +1,7 @@
 import
 {Component, EventEmitter, Input, OnDestroy, Output, ViewEncapsulation} from '@angular/core';
 import {IEntryouButtonsModel} from "@web/entryou/shared/model";
-import {ActivatedRoute, Router, ActivatedRouteSnapshot, NavigationEnd} from "@angular/router";
+import {ActivatedRoute, Router, NavigationEnd} from "@angular/router";
 import {Subject, takeUntil} from "rxjs";
 
 @Component({

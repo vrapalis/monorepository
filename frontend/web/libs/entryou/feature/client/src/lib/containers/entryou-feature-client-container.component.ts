@@ -1,8 +1,7 @@
 import {Component} from '@angular/core';
 import {IEntryouButtonsModel} from "@web/entryou/shared/model";
-import {Store} from "@ngrx/store";
-import {selectUrl, State} from "@web/entryou/shared/state";
-import {map, tap} from "rxjs";
+// eslint-disable-next-line @nrwl/nx/enforce-module-boundaries
+import {RouterFacade} from "@web/entryou/shared/state";
 
 @Component({
   selector: 'entryou-entryou-feature-client-container',
@@ -21,9 +20,8 @@ export class EntryouFeatureClientContainerComponent {
     {name: 'Entries', value: 'entries'},
     {name: 'Code', value: 'code'}
   ];
-  entryId$ = this.state.select(selectUrl)
-    .pipe(map(url => url.split('/client/entries/')[1]), map(id => id !== undefined ? id : null));
+  entryId$ = this.routerFacade.getClientEntryId$;
 
-  constructor(private state: Store<State>) {
+  constructor(private routerFacade: RouterFacade) {
   }
 }

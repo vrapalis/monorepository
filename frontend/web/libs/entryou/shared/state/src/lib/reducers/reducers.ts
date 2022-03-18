@@ -8,7 +8,7 @@ export interface State {
   router?: RouterReducerState
 }
 
-export const index: ActionReducerMap<State> = {
+export const reducers: ActionReducerMap<State> = {
   router: routerReducer
 };
 

@@ -86,6 +86,13 @@
                 "onlyDependOnLibsWithTags": [
                   "scope:websites-shared"
                 ]
+              },
+              {
+                "sourceTag": "scope:entryou",
+                "onlyDependOnLibsWithTags": [
+                  "scope:entryou",
+                  "scope:shared"
+                ]
               }
             ]
           }

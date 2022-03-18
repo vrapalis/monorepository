@@ -1,4 +1,6 @@
 import {Component} from '@angular/core';
+// eslint-disable-next-line @nrwl/nx/enforce-module-boundaries
+import {RouterFacade} from "@web/entryou/shared/state";
 
 @Component({
   selector: 'entryou-entries',
@@ -6,8 +8,9 @@ import {Component} from '@angular/core';
   styleUrls: ['./entries.component.scss']
 })
 export class EntriesComponent {
+  entryId$ = this.routerFacade.getClientEntryId$;
 
-  constructor() {
+  constructor(private routerFacade: RouterFacade) {
   }
 
 }
