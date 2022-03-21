@@ -1,0 +1,9 @@
+<div class="cl-code-wrapper">
+  <web-sh-ui-code [data]="data" [width]="width"></web-sh-ui-code>
+  <web-sh-ui-scanner
+    (qrCodeCameraReady)="onCameraReady($event)"
+    (qrCodeError)="onCameraError()"
+    (qrCodeText)="qrCodeText($event)"
+  >
+  </web-sh-ui-scanner>
+</div>

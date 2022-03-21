@@ -4,4 +4,4 @@ export * from './lib/header/entryou-header.module';
 
 /* BUTTONS */
 export * from './lib/buttons/group-button/components/entryou-group-btn.component';
-export * from './lib/buttons/group-button/group-button.module';
+export * from './lib/buttons/group-button/entryou-ui-group-button.module';

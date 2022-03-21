@@ -15,11 +15,20 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@web/entryou-feature-client-home": [
+        "libs/entryou/feature/client/home/src/index.ts"
+      ],
       "@web/entryou-shared-utility": [
         "libs/entryou/shared/utility/src/index.ts"
       ],
-      "@web/entryou/feature/client": [
-        "libs/entryou/feature/client/src/index.ts"
+      "@web/entryou/feature/client/code": [
+        "libs/entryou/feature/client/code/src/index.ts"
+      ],
+      "@web/entryou/feature/client/entries": [
+        "libs/entryou/feature/client/entries/src/index.ts"
+      ],
+      "@web/entryou/feature/client/entry": [
+        "libs/entryou/feature/client/entry/src/index.ts"
       ],
       "@web/entryou/feature/company": [
         "libs/entryou/feature/company/src/index.ts"

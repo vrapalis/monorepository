@@ -1,7 +1,10 @@
 {
   "version": 2,
   "projects": {
-    "entryou-feature-client": "libs/entryou/feature/client",
+    "entryou-feature-client-code": "libs/entryou/feature/client/code",
+    "entryou-feature-client-entries": "libs/entryou/feature/client/entries",
+    "entryou-feature-client-entry": "libs/entryou/feature/client/entry",
+    "entryou-feature-client-home": "libs/entryou/feature/client/home",
     "entryou-feature-company": "libs/entryou/feature/company",
     "entryou-shared-model": "libs/entryou/shared/model",
     "entryou-shared-state": "libs/entryou/shared/state",

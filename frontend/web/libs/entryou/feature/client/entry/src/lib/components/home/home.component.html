@@ -1,0 +1,5 @@
+<div class="text-center" *ngIf="id$ | async as id">
+  <entryou-sh-ui-group-btn [value]="value" [buttons]="buttons"></entryou-sh-ui-group-btn>
+  <h4 class="text-center mt-4">The id of the entry is: {{ id }}</h4>
+  <router-outlet></router-outlet>
+</div>

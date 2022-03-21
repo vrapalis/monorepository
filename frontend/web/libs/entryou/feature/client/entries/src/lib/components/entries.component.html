@@ -1,0 +1,13 @@
+<div class="entries-wrapper">
+  <div class="entries-list" *ngIf="(entryId$ | async) === null">
+    <div
+      *ngFor="let i of [1, 2, 3]"
+      class="entries-card"
+      [routerLink]="'./' + i">
+      <p class="m-2">Entry {{ i }}</p>
+    </div>
+  </div>
+  <div class="entries-item">
+    <router-outlet></router-outlet>
+  </div>
+</div>

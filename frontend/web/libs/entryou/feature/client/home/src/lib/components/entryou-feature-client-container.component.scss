@@ -1,0 +1,14 @@
+.cl-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  padding: 20px 10px;
+  width: 100%;
+  overflow-x: hidden;
+
+  .cl-body {
+    width: 100%;
+  }
+}

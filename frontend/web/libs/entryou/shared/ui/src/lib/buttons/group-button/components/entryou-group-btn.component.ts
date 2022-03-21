@@ -5,7 +5,7 @@ import {ActivatedRoute, Router, NavigationEnd} from "@angular/router";
 import {Subject, takeUntil} from "rxjs";
 
 @Component({
-  selector: 'entryou-group-btn',
+  selector: 'entryou-sh-ui-group-btn',
   template: `
     <ng-container *ngIf="show">
       <mat-button-toggle-group class="btn-gr-wrapper" (valueChange)="change($event)"
@@ -23,8 +23,8 @@ import {Subject, takeUntil} from "rxjs";
 export class EntryouGroupBtnComponent implements OnDestroy {
   @Input() buttons = new Array<IEntryouButtonsModel>();
   @Input() show = true;
+  @Input() value = '';
   @Output() buttonChangeEvent = new EventEmitter<IEntryouButtonsModel>();
-  value: undefined | string;
   private unsubscribe$ = new Subject<void>();
 
   constructor(router: Router, aRoute: ActivatedRoute) {
@@ -32,7 +32,7 @@ export class EntryouGroupBtnComponent implements OnDestroy {
       .pipe(takeUntil(this.unsubscribe$))
       .subscribe(event => {
         if (event instanceof NavigationEnd) {
-          this.value = aRoute.firstChild?.routeConfig?.path;
+          this.value = aRoute.firstChild?.routeConfig?.path !== undefined ? aRoute.firstChild?.routeConfig?.path : '';
         }
       });
   }
