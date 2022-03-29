@@ -1,15 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+// eslint-disable-next-line @nrwl/nx/enforce-module-boundaries
+import {ClientFacade} from "@web/entryou/shared/state";
 
 @Component({
-  selector: 'web-entry',
+  selector: 'entryou-entry',
   templateUrl: './entry.component.html',
   styleUrls: ['./entry.component.scss']
 })
-export class EntryComponent implements OnInit {
+export class EntryComponent {
+  client$ = this.clientFacade.client$;
 
-  constructor() { }
-
-  ngOnInit(): void {
+  constructor(private clientFacade: ClientFacade) {
   }
 
 }

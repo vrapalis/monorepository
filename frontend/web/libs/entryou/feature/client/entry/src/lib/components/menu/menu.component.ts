@@ -1,15 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import {Component} from '@angular/core';
+// eslint-disable-next-line @nrwl/nx/enforce-module-boundaries
+import {ClientFacade} from "@web/entryou/shared/state";
 
 @Component({
-  selector: 'web-menu',
+  selector: 'entryou-menu',
   templateUrl: './menu.component.html',
   styleUrls: ['./menu.component.scss']
 })
-export class MenuComponent implements OnInit {
+export class MenuComponent {
+  client$ = this.clientFacade.client$;
 
-  constructor() { }
-
-  ngOnInit(): void {
+  constructor(private clientFacade: ClientFacade) {
   }
 
 }

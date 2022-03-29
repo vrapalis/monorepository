@@ -71,7 +71,8 @@
               {
                 "sourceTag": "type:utility",
                 "onlyDependOnLibsWithTags": [
-                  "type:model"
+                  "type:model",
+                  "type:state"
                 ]
               },
               {
@@ -92,6 +93,7 @@
                 "sourceTag": "scope:entryou",
                 "onlyDependOnLibsWithTags": [
                   "scope:entryou",
+                  "scope:oauth2",
                   "scope:shared"
                 ]
               }

@@ -8,7 +8,7 @@ import {MenuComponent} from './components/menu/menu.component';
 import {EntryComponent} from "./components/entry/entry.component";
 
 @NgModule({
-  declarations: [HomeComponent, ScoreComponent, MenuComponent],
+  declarations: [HomeComponent, ScoreComponent, MenuComponent, EntryComponent],
   imports: [
     CommonModule,
     RouterModule.forChild([

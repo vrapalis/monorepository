@@ -23,33 +23,20 @@ public class OAuth2TokenCustomizerConfiguration {
             if (context.getPrincipal().isAuthenticated()) {
                 if (OAuth2TokenType.ACCESS_TOKEN.equals(context.getTokenType())) {
                     if (principal instanceof OAuth2UserModel) {
-                        final var roleEntities = ((OAuth2UserModel) principal).getUserEntity().getRoles();
-                        if (roleEntities != null) {
-                            final var roles = roleEntities
-                                    .stream()
-                                    .map(role -> role.getName())
-                                    .map(roleName -> new SimpleGrantedAuthority(roleName))
-                                    .collect(Collectors.toList());
-                            context.getClaims().claim("roles", roles);
-                        } else {
-                            context.getClaims().claim("roles", Arrays.asList());
-                        }
+                        createRolesUserModel(context, (OAuth2UserModel) principal);
                     } else if (principal instanceof OAuth2UserDetailsModel) {
-                        final var roles = ((OAuth2UserDetailsModel) principal).getAuthorities().stream().collect(Collectors.toList());
-                        if (roles != null) {
-                            context.getClaims().claim("roles", roles);
-                        } else {
-                            context.getClaims().claim("roles", Arrays.asList());
-                        }
+                        createRolesUserDetailsModel(context, (OAuth2UserDetailsModel) principal);
                     }
                 }
                 if (context.getTokenType().getValue().equals("id_token")) {
                     if (principal instanceof OAuth2UserModel) {
+                        createRolesUserModel(context, (OAuth2UserModel) principal);
                         context.getClaims().claim("email", ((OAuth2UserModel) principal).getEmail());
                         context.getClaims().claim("picture", ((OAuth2UserModel) principal).getPicture());
                         context.getClaims().claim("first_name", ((OAuth2UserModel) principal).getGivenName());
                         context.getClaims().claim("last_name", ((OAuth2UserModel) principal).getFamilyName());
                     } else if (principal instanceof OAuth2UserDetailsModel) {
+                        createRolesUserDetailsModel(context, (OAuth2UserDetailsModel) principal);
                         context.getClaims().claim("email", ((OAuth2UserDetailsModel) principal).getUserEntity().getEmail());
                         context.getClaims().claim("picture", "");
                         context.getClaims().claim("first_name", ((OAuth2UserDetailsModel) principal)
@@ -63,6 +50,29 @@ public class OAuth2TokenCustomizerConfiguration {
             }
         };
         return customizer;
+    }
+
+    private void createRolesUserModel(JwtEncodingContext context, OAuth2UserModel principal) {
+        final var roleEntities = principal.getUserEntity().getRoles();
+        if (roleEntities != null) {
+            final var roles = roleEntities
+                    .stream()
+                    .map(role -> role.getName())
+                    .map(roleName -> new SimpleGrantedAuthority(roleName))
+                    .collect(Collectors.toList());
+            context.getClaims().claim("roles", roles);
+        } else {
+            context.getClaims().claim("roles", Arrays.asList());
+        }
+    }
+
+    private void createRolesUserDetailsModel(JwtEncodingContext context, OAuth2UserDetailsModel principal) {
+        final var roles = principal.getAuthorities().stream().collect(Collectors.toList());
+        if (roles != null) {
+            context.getClaims().claim("roles", roles);
+        } else {
+            context.getClaims().claim("roles", Arrays.asList());
+        }
     }
 
 }

@@ -1,5 +1,5 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import {NgModule} from '@angular/core';
+import {Routes, RouterModule} from '@angular/router';
 import {
   MediaNotSupportedComponent,
   PageNotFoundComponent,
@@ -14,8 +14,8 @@ const routes: Routes = [
   },
   {
     path: 'client',
-    // eslint-disable-next-line @nrwl/nx/enforce-module-boundaries
     loadChildren: () =>
+      // eslint-disable-next-line @nrwl/nx/enforce-module-boundaries
       import('@web/entryou-feature-client-home').then(
         (mod) => mod.EntryouFeatureClientHomeModule
       ),
@@ -27,15 +27,16 @@ const routes: Routes = [
         (mod) => mod.EntryouFeatureCompanyModule
       ),
   },
-  { path: 'media-not-supported', component: MediaNotSupportedComponent },
-  { path: 'service-unavailable', component: ServiceUnavailableComponent },
-  { path: '**', component: PageNotFoundComponent },
+  {path: 'media-not-supported', component: MediaNotSupportedComponent},
+  {path: 'service-unavailable', component: ServiceUnavailableComponent},
+  {path: '**', component: PageNotFoundComponent},
 ];
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes, { initialNavigation: 'enabledBlocking' }),
+    RouterModule.forRoot(routes, {initialNavigation: 'enabledBlocking'}),
   ],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule {
+}

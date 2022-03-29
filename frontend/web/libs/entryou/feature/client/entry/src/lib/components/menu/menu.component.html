@@ -1,1 +1,3 @@
-<p>menu works!</p>
+<ng-container *ngIf="(client$ | async) as client;">
+  <p>menu works! id: {{client.id}}</p>
+</ng-container>

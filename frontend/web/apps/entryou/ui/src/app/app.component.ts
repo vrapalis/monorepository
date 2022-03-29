@@ -1,15 +1,16 @@
 import {Component} from '@angular/core';
-import {AuthService} from "@web/oauth2-shared-utility";
+// eslint-disable-next-line @nrwl/nx/enforce-module-boundaries
+import {UserFacade} from "@web/entryou/shared/state";
 
 @Component({
   selector: 'web-root',
   templateUrl: './app.component.html',
-  styles: [`
-
-  `],
+  styles: [``],
 })
 export class AppComponent {
-  constructor(private authService: AuthService) {
-    this.authService.tryToLogin();
+
+  constructor(private userFacade: UserFacade) {
+    userFacade.userLogin();
   }
+
 }

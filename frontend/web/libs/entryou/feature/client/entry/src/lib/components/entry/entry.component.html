@@ -1,1 +1,3 @@
-<p>entry works!</p>
+<ng-container *ngIf="client$ | async as client;">
+  <p>entry works! id: {{client.id}}</p>
+</ng-container>
