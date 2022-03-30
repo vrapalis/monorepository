@@ -7,7 +7,6 @@ import {IBaseEnv} from "@web/websites/shared/model";
   selector: 'web-home-component',
   template: `
     <div class="home-wrapper">
-
       <div class="home-start" #homeStart>
         <div class="home-start-wrapper">
           <img #homeImage>
@@ -21,10 +20,6 @@ import {IBaseEnv} from "@web/websites/shared/model";
         </div>
       </div>
 
-      <!--      <article class="info">-->
-      <!--        <p innerHTML="{{'pages.home.info' | translate }}"></p>-->
-      <!--      </article>-->
-
       <div class="home-projects">
         <web-vr-project></web-vr-project>
       </div>
@@ -35,6 +30,7 @@ import {IBaseEnv} from "@web/websites/shared/model";
         <web-vr-more></web-vr-more>
       </div>
     </div>
+
   `,
   styleUrls: ['websites-vrapalis-feature-home.component.scss'],
   encapsulation: ViewEncapsulation.None
@@ -55,7 +51,7 @@ export class HomeComponentComponent implements AfterViewInit {
         "url('/monorepository/assets/images/background.svg')" : "url('/assets/images/background.svg')";
     }
 
-    if(this.homeImage) {
+    if (this.homeImage) {
       this.homeImage.nativeElement.src = this.env.production === true ?
         "/monorepository/assets/images/home-start-me.png" : "/assets/images/home-start-me.png";
     }
