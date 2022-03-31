@@ -18,7 +18,7 @@ export interface IHome extends IBase {
 
 export interface IMore {
   readonly title: string;
-  readonly subTittle: string;
+  readonly subTitle: string;
   readonly text: string;
-  readonly imagePath: string;
+  readonly imageUrl: string;
 }

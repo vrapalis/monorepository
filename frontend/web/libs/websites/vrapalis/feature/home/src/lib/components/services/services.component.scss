@@ -1,7 +1,10 @@
 @import "libs/shared/ui/src/lib/style/mixins";
+@import "libs/websites/vrapalis/ui/src/lib/style/vars";
 
 .more-wrapper {
   overflow: hidden;
+  max-width: $max-width-content;
+  margin: auto;
 
   article:not(:first-child){
     margin-top: 100px;

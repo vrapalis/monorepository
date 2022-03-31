@@ -9,7 +9,7 @@ import {MarkdownModule} from 'ngx-markdown';
 import {TranslateLoader, TranslateModule} from "@ngx-translate/core";
 import {ProjectComponent} from './components/projects/project.component';
 import {NgImageSliderModule} from "ng-image-slider";
-import {MoreComponent} from './components/more/more.component';
+import {ServicesComponent} from './components/services/services.component';
 import {HttpClient} from "@angular/common/http";
 import {TranslateHttpLoader} from "@ngx-translate/http-loader";
 
@@ -43,7 +43,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     WebsitesVrapalisFeatureHomeContainerComponent,
     HomeComponentComponent,
     ProjectComponent,
-    MoreComponent
+    ServicesComponent
   ]
 })
 export class WebsitesVrapalisFeatureHomeModule {

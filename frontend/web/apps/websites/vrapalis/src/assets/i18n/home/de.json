@@ -1,10 +1,23 @@
 {
+  "headerText": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum\n        sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.",
   "services": [
     {
-      "title": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.",
-      "subtitle": "Subtitle ...",
-      "text": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.",
-      "imageUrl": ""
+      "title": "Entwicklung des Backends.",
+      "subTitle": "Mehrjährige Erfahrung in der Entwicklung des Enterprise Backends in dem Java Umfeld.",
+      "text": "Erstellung microservice basierten Architektur auf der Grundlage des Spring Boot/Cloud Frameworks. <br>Aufsetzen von OAuth2 Flow in der microservice basierter Architektur, mit der Hilfe von Spring Security/Keycloak. <br>Integration und JUnit Testing der Erstellten Enheiten mit der Hilfe des Spring Boot Testing Module.",
+      "imageUrl": "/assets/images/spring-boot.png"
+    },
+    {
+      "title": "Entwicklung des Frontends.",
+      "subTitle": "Mehrjährige Erfahrung in der Entwicklung des Enterprise Fronteds in dem JavaScript/TypeScript Umfeld.",
+      "text": "Erstellung der Enterprise Monolith/Microfrontends basierten Frontends auf der Grundlage des Angular/Vue Frameworks. <br> Erstellung des Corporate Designs und Einsatzt diesen und verschiedenen Libraries die den Entwicklungs-Prozess beschleunigen wie z.B Angular Material/Bootstrap. <br>E2E oder Junit testing, der Erstellten Oberflächen mit der Hilfe von Cypress/Jest.",
+      "imageUrl": "/assets/images/angular.svg"
+    },
+    {
+      "title": "Entwicklung des CI/CD (DevOps).",
+      "subTitle": "Mehrjährige Erfahrung in der Entwicklung des CI/CD Pipelines unter der Verwendung des Jenkins/Docker/Gradle/Npm/Git Stacks.",
+      "text": "Konfiguration und Einstellung des CI/CD Pipelines, für den Kontinuierlichen Kode Integration und Deployment Prozess. <br>Erstellung der benötigten IT-Infrastruktur unter der Verfendung des AWS Cloud Dienstanbieters.",
+      "imageUrl": "/assets/images/docker.png"
     }
   ]
 }
