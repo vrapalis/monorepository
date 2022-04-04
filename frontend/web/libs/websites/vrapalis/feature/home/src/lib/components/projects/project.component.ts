@@ -6,7 +6,7 @@ import {Subject, takeUntil} from "rxjs";
   selector: 'web-vr-project',
   template: `
     <ng-image-slider [images]="imgCollection" #nav [infinite]="true" [showArrow]="false" [imagePopup]="false"
-                     [autoSlide]="{interval: 5, stopOnHover: false}"
+                     [autoSlide]="{interval: 4, stopOnHover: false}"
                      [imageSize]="{width: imageWidth, height: imageHeight, space: 30}"></ng-image-slider>
   `,
   styleUrls: ['project.component.scss'],
@@ -14,29 +14,33 @@ import {Subject, takeUntil} from "rxjs";
 export class ProjectComponent implements OnDestroy {
   imgCollection: Array<object> = [
     {
-      thumbImage: 'assets/images/dzb.svg',
-      alt: 'Dzb',
+      thumbImage: 'assets/images/schaeffler-icon.svg',
+      alt: 'Schaeffler',
     },
     {
-      thumbImage: 'assets/images/msg.svg',
+      thumbImage: 'assets/images/msg-icon.svg',
       alt: 'Msg',
     },
     {
-      thumbImage: 'assets/images/lidl.svg',
+      thumbImage: 'assets/images/lidl-icon.svg',
       alt: 'Lidl',
     },
     {
-      thumbImage: 'assets/images/smawandi.svg',
-      alt: 'Smawandi',
+      thumbImage: 'assets/images/schwarz-icon.svg',
+      alt: 'Schwarz It',
     },
     {
-      thumbImage: 'assets/images/schaeffler.svg',
-      alt: 'Schaeffler',
+      thumbImage: 'assets/images/dzb-icon.svg',
+      alt: 'Dzb',
+    },
+    {
+      thumbImage: 'assets/images/smawandi-icon.svg',
+      alt: 'Smawandi',
     }
   ];
   private unsubscribe$ = new Subject<void>();
-  imageWidth = 180;
-  imageHeight = 60;
+  imageWidth = 200;
+  imageHeight = 70;
   imageSpace = 30;
 
   constructor(breakpointObserver: BreakpointObserver) {
