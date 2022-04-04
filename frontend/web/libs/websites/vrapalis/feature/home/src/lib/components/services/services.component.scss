@@ -5,9 +5,10 @@
   overflow: hidden;
   max-width: $max-width-content;
   margin: auto;
+  padding-top: 20px;
 
   article:not(:first-child){
-    margin-top: 100px;
+    margin-top: 150px;
   }
 
   .more-image {

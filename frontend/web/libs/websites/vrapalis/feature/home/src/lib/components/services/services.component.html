@@ -1,8 +1,8 @@
 <div class="more-wrapper">
-  <article #service class="row justify-content-center align-items-center" *ngFor="let service of services; let i=index;">
-    <img class="more-image col-12 col-md-6" [class]="(i % 2 === 0 && !isMobile) ? 'order-0':'order-1'"
+  <article class="row justify-content-center align-items-center" *ngFor="let service of services; let i=index;">
+    <img #images class="more-image col-12 col-md-6" [class]="(i % 2 === 0 && !isMobile) ? 'order-0':'order-1'"
          [src]="env.production === true ? '/monorepository'+service.imageUrl: service.imageUrl">
-    <section class="more-section col-12 col-md-6 text-start" [class]="{'order-1': (i % 2 === 0 && !isMobile),
+    <section #sections class="more-section col-12 col-md-6 text-start animate__animated" [class]="{'order-1': (i % 2 === 0 && !isMobile),
     'order-0': (i % 2 !== 0 && !isMobile), 'pl-5': (i % 2 !== 0 && !isMobile)}">
       <h2 class="vr-section-header" [innerHTML]="service.title"></h2>
       <h3 class="vr-section-sub-header" [innerHTML]="service.subTitle"></h3>

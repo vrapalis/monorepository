@@ -1,7 +1,9 @@
-import {AfterViewInit, Component, ElementRef, Inject, Input, ViewChild, ViewEncapsulation} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, Inject, ViewChild, ViewEncapsulation} from '@angular/core';
 import {VR_ENV_IN_TOKEN} from "@web/websites/vrapalis/utility";
 import {IBaseEnv} from "@web/websites/shared/model";
 import {TranslateService} from "@ngx-translate/core";
+import * as gsap from "gsap";
+import {ScrollTrigger} from "gsap/ScrollTrigger";
 
 @Component({
   selector: 'web-home-component',
@@ -25,7 +27,7 @@ import {TranslateService} from "@ngx-translate/core";
       </div>
       <hr #hr>
 
-      <p class="home-header-text vr-main-header" innerHTML="{{'headerText' | translate}}"></p>
+      <p class="home-header-text vr-main-header animate__animated" innerHTML="{{'headerText' | translate}}" #homeText></p>
 
       <div class="home-services">
         <web-vr-more [services]="translate.get('services') | async"></web-vr-more>
@@ -40,8 +42,11 @@ export class HomeComponentComponent implements AfterViewInit {
   private homeStart?: ElementRef<HTMLDivElement>;
   @ViewChild('homeImage')
   private homeImage?: ElementRef<HTMLImageElement>;
+  @ViewChild('homeText')
+  private homeText?: ElementRef<HTMLParagraphElement>;
 
   constructor(@Inject(VR_ENV_IN_TOKEN) private env: IBaseEnv, public translate: TranslateService) {
+    gsap.gsap.registerPlugin(ScrollTrigger);
   }
 
   ngAfterViewInit(): void {
@@ -53,6 +58,23 @@ export class HomeComponentComponent implements AfterViewInit {
     if (this.homeImage) {
       this.homeImage.nativeElement.src = this.env.production === true ?
         "/monorepository/assets/images/home-start-me.png" : "/assets/images/home-start-me.png";
+    }
+
+    if(this.homeText) {
+      gsap.gsap.from(this.homeText?.nativeElement, {
+        duration: 1,
+        opacity: 0,
+        scrollTrigger: {
+          trigger: this.homeText?.nativeElement,
+          toggleClass: 'animate__fadeIn',
+          start: 'top 100%',
+          end: 'bottom 70%',
+          // markers: true,
+          // scrub: true,
+          toggleActions: "play none none restart"
+        }
+      });
+
     }
   }
 }

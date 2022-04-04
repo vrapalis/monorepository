@@ -24,7 +24,8 @@ export class ServicesComponent implements OnDestroy, AfterViewInit {
   @Input() services = new Array<IMore>();
   isMobile = false;
   private destroyed$ = new Subject<void>();
-  @ViewChildren('service') serviceList?: QueryList<ElementRef>;
+  @ViewChildren('sections') sectionList?: QueryList<ElementRef>;
+  @ViewChildren('images') imageList?: QueryList<ElementRef>;
 
   constructor(breakpointObserver: BreakpointObserver, @Inject(VR_ENV_IN_TOKEN) public env: IBaseEnv, @Inject(DOCUMENT) private doc: Document) {
     breakpointObserver.observe('(max-width: 900px)')
@@ -35,28 +36,54 @@ export class ServicesComponent implements OnDestroy, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    this.serviceList?.changes
+    this.imageList?.changes
       .pipe(
         takeUntil(this.destroyed$)
       )
       .subscribe(list => list._results.forEach((el: ElementRef, index: number) => {
         gsap.gsap.from(el.nativeElement, {
-          x: index % 2 === 0 ? -1000 : 1000,
+          x: index % 2 === 0 ? -100 : 100,
+          y: index % 2 === 0 ? -100 : 100,
           duration: 2,
           opacity: 0,
           scrollTrigger: {
             trigger: el.nativeElement,
-            start: 'top 90%',
-            end: () => `+=${(el.nativeElement as HTMLElement).offsetHeight - 230}`,
+            start: 'top 80%',
+            end: () => `+=${(el.nativeElement as HTMLElement).offsetHeight}`,
             scrub: true,
             // toggleActions: "restart reverse restart reverse",
             toggleActions: "play none none reset",
             // play pause resume reverse restart reset complete none
             // onEnter onLeave onEnterBack onLeaveBack
-            markers: true,
+            // markers: true,
           }
         })
       }))
+
+    this.sectionList?.changes
+      .pipe(
+        takeUntil(this.destroyed$)
+      )
+      .subscribe(list => list._results.forEach((el: ElementRef, index: number) => {
+        gsap.gsap.from(el.nativeElement, {
+          // x: index % 2 === 0 ? 100 : -100,
+          // y: index % 2 === 0 ? 100 : -100,
+          duration: 2,
+          opacity: 0,
+          scrollTrigger: {
+            trigger: el.nativeElement,
+            start: 'top 80%',
+            end: () => `+=${(el.nativeElement as HTMLElement).offsetHeight}`,
+            scrub: true,
+            // toggleActions: "restart reverse restart reverse",
+            toggleActions: "play none none reset",
+            // play pause resume reverse restart reset complete none
+            // onEnter onLeave onEnterBack onLeaveBack
+            // markers: true,
+          }
+        })
+      }))
+
   }
 
   ngOnDestroy(): void {
