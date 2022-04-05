@@ -4,6 +4,7 @@ import {IBaseEnv} from "@web/websites/shared/model";
 import {TranslateService} from "@ngx-translate/core";
 import * as gsap from "gsap";
 import {ScrollTrigger} from "gsap/ScrollTrigger";
+import {catchError} from "rxjs";
 
 @Component({
   selector: 'web-home-component',
@@ -30,7 +31,7 @@ import {ScrollTrigger} from "gsap/ScrollTrigger";
       <p class="home-header-text vr-main-header animate__animated" innerHTML="{{'headerText' | translate}}" #homeText></p>
 
       <div class="home-services">
-        <web-vr-more [services]="translate.get('services') | async"></web-vr-more>
+        <web-vr-more [services]="getServices() | async"></web-vr-more>
       </div>
     </div>
   `,
@@ -62,11 +63,11 @@ export class HomeComponentComponent implements AfterViewInit {
 
     if(this.homeText) {
       gsap.gsap.from(this.homeText?.nativeElement, {
-        duration: 1,
-        opacity: 0,
+        // duration: 1,
+        // opacity: 0,
         scrollTrigger: {
           trigger: this.homeText?.nativeElement,
-          toggleClass: 'animate__fadeIn',
+          // toggleClass: 'animate__fadeIn',
           start: 'top 100%',
           end: 'bottom 70%',
           // markers: true,
@@ -76,5 +77,12 @@ export class HomeComponentComponent implements AfterViewInit {
       });
 
     }
+  }
+
+  getServices() {
+    return this.translate.get('services')
+      .pipe(
+        catchError(err => [])
+      );
   }
 }

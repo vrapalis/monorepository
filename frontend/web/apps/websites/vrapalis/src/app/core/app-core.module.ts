@@ -11,6 +11,7 @@ import {MarkdownModule} from 'ngx-markdown';
 import {VR_ENV_IN_TOKEN} from "@web/websites/vrapalis/utility";
 import {WebShUiPageModule} from "@web/websites/vrapalis/ui";
 import {BrowserModule, BrowserTransferStateModule} from "@angular/platform-browser";
+import {NgxSpinnerModule} from "ngx-spinner";
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -31,7 +32,8 @@ export function HttpLoaderFactory(http: HttpClient) {
         deps: [HttpClient]
       }
     }),
-    MarkdownModule.forRoot()
+    MarkdownModule.forRoot(),
+    NgxSpinnerModule
   ],
   exports: [
     AppCoreRoutingModule,

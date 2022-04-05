@@ -43,16 +43,15 @@ export class ServicesComponent implements OnDestroy, AfterViewInit {
       .subscribe(list => list._results.forEach((el: ElementRef, index: number) => {
         gsap.gsap.from(el.nativeElement, {
           x: index % 2 === 0 ? -100 : 100,
-          y: index % 2 === 0 ? -100 : 100,
-          duration: 2,
+          duration: 1.5,
           opacity: 0,
           scrollTrigger: {
             trigger: el.nativeElement,
-            start: 'top 80%',
+            start: 'top 75%',
             end: () => `+=${(el.nativeElement as HTMLElement).offsetHeight}`,
-            scrub: true,
+            // scrub: true,
             // toggleActions: "restart reverse restart reverse",
-            toggleActions: "play none none reset",
+            toggleActions: "play none none none",
             // play pause resume reverse restart reset complete none
             // onEnter onLeave onEnterBack onLeaveBack
             // markers: true,
@@ -66,17 +65,15 @@ export class ServicesComponent implements OnDestroy, AfterViewInit {
       )
       .subscribe(list => list._results.forEach((el: ElementRef, index: number) => {
         gsap.gsap.from(el.nativeElement, {
-          // x: index % 2 === 0 ? 100 : -100,
-          // y: index % 2 === 0 ? 100 : -100,
-          duration: 2,
+          duration: 3,
           opacity: 0,
           scrollTrigger: {
             trigger: el.nativeElement,
-            start: 'top 80%',
+            start: 'top 75%',
             end: () => `+=${(el.nativeElement as HTMLElement).offsetHeight}`,
-            scrub: true,
+            // scrub: true,
             // toggleActions: "restart reverse restart reverse",
-            toggleActions: "play none none reset",
+            toggleActions: "play none none none",
             // play pause resume reverse restart reset complete none
             // onEnter onLeave onEnterBack onLeaveBack
             // markers: true,

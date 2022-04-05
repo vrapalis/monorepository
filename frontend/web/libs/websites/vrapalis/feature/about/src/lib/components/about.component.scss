@@ -4,8 +4,13 @@
 .about-wrapper {
   @extend %margin;
 
+
   .about-text {
     max-width: $max-width-content;
     margin: auto;
+
+    pdf-viewer {
+      height: 100%;
+    }
   }
 }
