@@ -1,23 +1,35 @@
 {
-  "headerText": "Lorem ipsum dolor sit amet, <span class='bold'>consectetuer</span> adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum\n        sociis natoque penatibus et magnis dis <span class='bold'>parturient montes</span>, nascetur ridiculus mus.",
-  "services": [
-    {
-      "title": "Entwicklung des Backends.",
-      "subTitle": "Mehrjährige Erfahrung in der Entwicklung des Enterprise Backends in dem Java Umfeld.",
-      "text": "Erstellung microservice basierten Architektur auf der Grundlage des Spring Boot/Cloud Frameworks. <br>Aufsetzen von OAuth2 Flow in der microservice basierter Architektur, mit der Hilfe von Spring Security/Keycloak. <br>Integration und JUnit Testing der Erstellten Enheiten mit der Hilfe des Spring Boot Testing Module.",
-      "imageUrl": "/assets/images/spring-icon.svg"
-    },
-    {
-      "title": "Entwicklung des Frontends.",
-      "subTitle": "Mehrjährige Erfahrung in der Entwicklung des Enterprise Fronteds in dem JavaScript/TypeScript Umfeld.",
-      "text": "Erstellung der Enterprise Monolith/Microfrontends basierten Frontends auf der Grundlage des Angular/Vue Frameworks. <br> Erstellung des Corporate Designs und Einsatzt diesen und verschiedenen Libraries die den Entwicklungs-Prozess beschleunigen wie z.B Angular Material/Bootstrap. <br>E2E oder Junit testing, der Erstellten Oberflächen mit der Hilfe von Cypress/Jest.",
-      "imageUrl": "/assets/images/angular-icon.svg"
-    },
-    {
-      "title": "Entwicklung des CI/CD (DevOps).",
-      "subTitle": "Mehrjährige Erfahrung in der Entwicklung des CI/CD Pipelines unter der Verwendung des Jenkins/Docker/Gradle/Npm/Git Stacks.",
-      "text": "Konfiguration und Einstellung des CI/CD Pipelines, für den Kontinuierlichen Kode Integration und Deployment Prozess. <br>Erstellung der benötigten IT-Infrastruktur unter der Verfendung des AWS Cloud Dienstanbieters.",
-      "imageUrl": "/assets/images/docker-icon.svg"
-    }
-  ]
+  "header": "Auf der <strong class='str-bl'>Suche</strong> nach einem erfahrenen Full-Stack <strong class='str-bl'>Software-Entwickler</strong> im <strong class='str-bl'>Java/JavaScript</strong> Umfeld?",
+  "subheader": "Ich biete folgende Dienste an:<br>",
+  "text": "- <strong class='str-bl'>Backend</strong> Entwicklung mit <strong class='str-bl'>Java</strong> und <strong class='str-bl'>Relationale Datenbanken</strong><br> (Spring Boot Web/Data/Security, Postgres/MySQL)<div class='mt-3'>- <strong class='str-bl'>Frontend</strong> Entwicklung mit <strong class='str-bl'>JavaScript/TypeScript</strong><br> (Angular Material/PWA/Universal, Vuejs BootstrapVue, Html5/CSS3/Bootstrap5)</div><div class='mt-3'>- <strong class='str-bl'>DevOps</strong> (AWS EC2/RDS/VPC/S3, Kubernetes/Minikube, Docker, Jenkins)</div>",
+  "btn-more": "Mehr Erfahren",
+  "headerText": "Der moderne <span class='bold'>Software-Entwicklungsprozess</span> ist komplex. Dabei sollte man das Wesentliche aus den Augen nicht verlieren. Ich helfe Ihnen den Überblick zu verschaffen, über die verschiedenen <br><span class='bold'>Software-Architekturen</span> und existierende <span class='bold'>Software-Lösungen</span>. Denn, man sollte das Rad nicht nochmal erfinden.",
+  "services": {
+    "header": "Sie wollen Ihre <span class='bold vr-gray'>Geschäftsabläufe digitalisieren</span> und an die Wünsche des Kunden anpassen? <span class='bold vr-gray'>Mit</span> mir holen Sie einen <span class='bold vr-gray'>kompetenten</span> und <span class='bold vr-gray'>erfahrenen Software-Entwickler</span> ans Board.",
+    "subHeader": "Ich biete folgende Dienste an:",
+    "services": [
+      {
+        "title": "Entwicklung des Backends.",
+        "subTitle": "Mehrjährige Erfahrung in der Entwicklung des <span class='fw-bold'>Enterprise Backends</span> in dem <span class='fw-bold'>Java</span> Umfeld.",
+        "text": "Erstellung <span class='fw-bold'>Microservice</span> basierten <span class='fw-bold'>Architektur</span> auf der Grundlage des <span class='fw-bold'>Spring Boot/Cloud</span> Frameworks.\nAufsetzen von <span class='fw-bold'>OAuth2</span> Flow in der Microservice basierter Architektur, mit der Hilfe von <span class='fw-bold'>Spring Security/Keycloak.\nIntegration und JUnit Testing</span> der erstellten Einheiten mit der Hilfe des Spring Boot Testing Module.",
+        "imageUrl": "/assets/images/spring-icon.svg"
+      },
+      {
+        "title": "Entwicklung des Frontends.",
+        "subTitle": "Mehrjährige Erfahrung in der Entwicklung des <span class='fw-bold'>Enterprise Fronteds</span> in dem <span class='fw-bold'>JavaScript/TypeScript</span> Umfeld.",
+        "text": "\nErstellung der Enterprise Monolith/Microfrontends basierten Frontends auf der Grundlage des <span class='fw-bold'>Angular/Vue</span> Frameworks.\nErstellung des <span class='fw-bold'>Corporate Designs</span> und Einsatz diesen und verschiedenen Libraries, die den Entwicklungs-Prozess beschleunigen wie z. B. <span class='fw-bold'>Angular Material/Bootstrap</span>.\n<span class='fw-bold'>E2E oder Junit Testing</span>, der erstellten Oberflächen mit der Hilfe von <span class='fw-bold'>Cypress/Jest.</span>",
+        "imageUrl": "/assets/images/angular-icon.svg"
+      },
+      {
+        "title": "Entwicklung des CI/CD (DevOps).",
+        "subTitle": "Mehrjährige Erfahrung in der Entwicklung des <span class='fw-bold'>CI/CD Pipelines</span> unter der Verwendung des <span class='fw-bold'>Jenkins/Docker/Gradle/Npm/Git</span> Stacks.",
+        "text": "Konfiguration und Einstellung des CI/CD Pipelines, für den kontinuierlichen Kode <span class='fw-bold'>Integration</span> und <span class='fw-bold'>Deployment</span> Prozess.\nErstellung der benötigten IT-Infrastruktur unter der Verwendung des <span class='fw-bold'>AWS Cloud</span> Dienstanbieters.",
+        "imageUrl": "/assets/images/docker-icon.svg"
+      }
+    ]
+  },
+  "info": {
+    "header": "<span class='vr-black fw-bold'>Sie möchten sich mehr über meine Person informieren?</span>",
+    "btnText": "Erfahren sie es hier!"
+  }
 }
