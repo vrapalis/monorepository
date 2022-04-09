@@ -11,7 +11,7 @@ import {Component} from '@angular/core';
           Some content about project ... <br>
           Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
         </p>
-        <a href="#" class="btn btn-primary">Go to project</a>
+        <a href="#" class="btn btn-more">Go to project</a>
       </div>
     </div>
   `,

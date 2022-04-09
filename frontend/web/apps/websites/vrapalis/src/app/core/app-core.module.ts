@@ -25,12 +25,13 @@ export function HttpLoaderFactory(http: HttpClient) {
     BrowserModule.withServerTransition({appId: 'my-app'}),
     BrowserTransferStateModule,
     TranslateModule.forRoot({
-      defaultLanguage: 'en',
       loader: {
         provide: TranslateLoader,
         useFactory: HttpLoaderFactory,
         deps: [HttpClient]
-      }
+      },
+      defaultLanguage: 'en',
+      isolate: true
     }),
     MarkdownModule.forRoot(),
     NgxSpinnerModule

@@ -1,7 +1,17 @@
-import {AfterViewInit, ChangeDetectorRef, Component, OnDestroy, ViewChild, ViewEncapsulation} from '@angular/core';
+import {
+  AfterViewInit,
+  ChangeDetectorRef,
+  Component,
+  Inject,
+  OnDestroy,
+  ViewChild,
+  ViewEncapsulation
+} from '@angular/core';
 import {PdfViewerComponent} from "ng2-pdf-viewer";
 import {fromEvent, Observable, Subscription} from "rxjs";
 import {NgxSpinnerService} from "ngx-spinner";
+import {IBaseEnv} from "@web/websites/shared/model";
+import {VR_ENV_IN_TOKEN} from "@web/websites/vrapalis/utility";
 
 @Component({
   selector: 'web-about',
@@ -19,6 +29,11 @@ import {NgxSpinnerService} from "ngx-spinner";
                       (page-rendered)="pageRendered()"
           ></pdf-viewer>
         </div>
+
+        <a [href]="pdfSrc" class="btn mt-5 btn-more" target="_blank"
+           [download]="pdfName">
+          Download
+        </a>
       </div>
     </section>
   `,
@@ -26,7 +41,9 @@ import {NgxSpinnerService} from "ngx-spinner";
   encapsulation: ViewEncapsulation.None
 })
 export class AboutComponent implements OnDestroy, AfterViewInit {
-  pdfSrc = '/assets/pdf/Vitali_Rapalis_Lebenslauf.pdf';
+  pdfName = "Vitali_Rapalis_CV.pdf";
+  pdfSrc = this.env.production === true ? `https://vrapalis.github.io/monorepository/assets/pdf/${this.pdfName}` :
+    `/assets/pdf/${this.pdfName}`;
   public pdfViewerHeight = 100;
   @ViewChild(PdfViewerComponent, {static: false})
   private pdfComponent?: PdfViewerComponent;
@@ -34,7 +51,7 @@ export class AboutComponent implements OnDestroy, AfterViewInit {
   private resizeSubscription$?: Subscription;
   pdfShow = false;
 
-  constructor(private cd: ChangeDetectorRef, private spinner: NgxSpinnerService) {
+  constructor(@Inject(VR_ENV_IN_TOKEN) private env: IBaseEnv, private cd: ChangeDetectorRef, private spinner: NgxSpinnerService) {
   }
 
   public ngOnDestroy() {

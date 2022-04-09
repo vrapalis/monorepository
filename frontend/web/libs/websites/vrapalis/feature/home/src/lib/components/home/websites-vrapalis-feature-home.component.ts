@@ -1,10 +1,10 @@
-import {AfterViewInit, Component, ElementRef, Inject, ViewChild, ViewEncapsulation} from '@angular/core';
-import {VR_ENV_IN_TOKEN} from "@web/websites/vrapalis/utility";
+import {AfterViewInit, Component, ElementRef, Inject, OnDestroy, ViewChild, ViewEncapsulation} from '@angular/core';
+import {LanguageService, VR_ENV_IN_TOKEN} from "@web/websites/vrapalis/utility";
 import {IBaseEnv} from "@web/websites/shared/model";
-import {TranslateService} from "@ngx-translate/core";
 import * as gsap from "gsap";
 import {ScrollTrigger} from "gsap/ScrollTrigger";
-import {catchError} from "rxjs";
+import {TranslateService} from "@ngx-translate/core";
+import {Subject, takeUntil} from "rxjs";
 
 @Component({
   selector: 'web-home-component',
@@ -14,10 +14,10 @@ import {catchError} from "rxjs";
         <div class="home-start-wrapper">
           <img #homeImage>
           <section>
-            <h1 innerHTML="{{'pages.home.header' | translate }}"></h1>
-            <h3 innerHTML="{{'pages.home.subheader' | translate }}"></h3>
+            <h1 innerHTML="{{'header' | translate }}"></h1>
+            <h3 innerHTML="{{'subheader' | translate }}"></h3>
             <button class="btn-more" (click)="hr.scrollIntoView({ behavior: 'smooth'})">
-              {{'pages.home.btn-more' | translate }}
+              {{'btn-more' | translate }}
             </button>
           </section>
         </div>
@@ -28,25 +28,34 @@ import {catchError} from "rxjs";
       </div>
       <hr #hr>
 
-      <p class="home-header-text vr-main-header animate__animated" innerHTML="{{'headerText' | translate}}" #homeText></p>
+      <p class="home-header-text vr-main-header vr-black" innerHTML="{{'headerText' | translate}}" #homeText>
+      </p>
 
       <div class="home-services">
-        <web-vr-more [services]="getServices() | async"></web-vr-more>
+        <web-vr-more></web-vr-more>
+      </div>
+
+      <div class="home-info" *ngIf="false">
+        <web-vr-info></web-vr-info>
       </div>
     </div>
   `,
   styleUrls: ['websites-vrapalis-feature-home.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class HomeComponentComponent implements AfterViewInit {
+export class HomeComponentComponent implements AfterViewInit, OnDestroy {
   @ViewChild('homeStart')
   private homeStart?: ElementRef<HTMLDivElement>;
   @ViewChild('homeImage')
   private homeImage?: ElementRef<HTMLImageElement>;
   @ViewChild('homeText')
   private homeText?: ElementRef<HTMLParagraphElement>;
+  private unsubscribe$ = new Subject<void>();
 
-  constructor(@Inject(VR_ENV_IN_TOKEN) private env: IBaseEnv, public translate: TranslateService) {
+  constructor(@Inject(VR_ENV_IN_TOKEN) private env: IBaseEnv, private languageService: LanguageService,
+              private translation: TranslateService) {
+    languageService.lang$.pipe(takeUntil(this.unsubscribe$)).subscribe(lang => translation.use(lang));
+    languageService.setDefaultLanguage();
     gsap.gsap.registerPlugin(ScrollTrigger);
   }
 
@@ -61,7 +70,7 @@ export class HomeComponentComponent implements AfterViewInit {
         "/monorepository/assets/images/home-start-me.png" : "/assets/images/home-start-me.png";
     }
 
-    if(this.homeText) {
+    if (this.homeText) {
       gsap.gsap.from(this.homeText?.nativeElement, {
         // duration: 1,
         // opacity: 0,
@@ -79,10 +88,12 @@ export class HomeComponentComponent implements AfterViewInit {
     }
   }
 
-  getServices() {
-    return this.translate.get('services')
-      .pipe(
-        catchError(err => [])
-      );
+  ngOnDestroy(): void {
+    this.unsubscribe$.next();
+    this.unsubscribe$.complete();
+    ScrollTrigger.getAll().forEach(scroll => {
+      scroll.kill();
+    });
   }
+
 }

@@ -1,10 +1,27 @@
 {
-  "services" : [
+  "header": "In <strong class='str-bl'>search </strong> of a senior full-stack <strong class='str-bl'>Java/JavaScript</strong> software <strong class='str-bl'>developer</strong>?<br>",
+  "subheader": "I offer the following services:<br>",
+  "text": "- <strong class='str-bl'>Backend</strong> development with <strong class='str-bl'>Java</strong> and <strong class='str-bl'>Relational Databases</strong><br> (Spring Boot Web/Data/Security, Postgres/MySQL)<br><br>- <strong class='str-bl'>Frontend</strong> development with <strong class='str-bl'>JavaScript/TypeScript</strong><br> (Angular Material/PWA/Universal, Vuejs BootstrapVue, Html5/CSS3/Bootstrap5)<br><br>- <strong class='str-bl'>DevOps</strong> (AWS EC2/RDS/VPC/S3, Kubernetes/Minikube, Docker, Jenkins)",
+  "btn-more" : "More",
+  "headerText": "The modern <span class='bold'>software development</span> process is complex. One should not lose sight of the essentials. I will help you to get an overview of the different <span class='bold'>software architectures</span> and existing <span class='bold'>software solutions.</span> Because you shouldn't reinvent the wheel.",
+  "services": [
     {
-      "title": "",
-      "subtitle": "",
-      "text": "",
-      "imageUrl": ""
+      "title": "Entwicklung des Backends.",
+      "subTitle": "Mehrjährige Erfahrung in der Entwicklung des Enterprise Backends in dem Java Umfeld.",
+      "text": "Erstellung microservice basierten Architektur auf der Grundlage des Spring Boot/Cloud Frameworks. <br>Aufsetzen von OAuth2 Flow in der microservice basierter Architektur, mit der Hilfe von Spring Security/Keycloak. <br>Integration und JUnit Testing der Erstellten Enheiten mit der Hilfe des Spring Boot Testing Module.",
+      "imageUrl": "/assets/images/spring-icon.svg"
+    },
+    {
+      "title": "Entwicklung des Frontends.",
+      "subTitle": "Mehrjährige Erfahrung in der Entwicklung des Enterprise Fronteds in dem JavaScript/TypeScript Umfeld.",
+      "text": "Erstellung der Enterprise Monolith/Microfrontends basierten Frontends auf der Grundlage des Angular/Vue Frameworks. <br> Erstellung des Corporate Designs und Einsatzt diesen und verschiedenen Libraries die den Entwicklungs-Prozess beschleunigen wie z.B Angular Material/Bootstrap. <br>E2E oder Junit testing, der Erstellten Oberflächen mit der Hilfe von Cypress/Jest.",
+      "imageUrl": "/assets/images/angular-icon.svg"
+    },
+    {
+      "title": "Entwicklung des CI/CD (DevOps).",
+      "subTitle": "Mehrjährige Erfahrung in der Entwicklung des CI/CD Pipelines unter der Verwendung des Jenkins/Docker/Gradle/Npm/Git Stacks.",
+      "text": "Konfiguration und Einstellung des CI/CD Pipelines, für den Kontinuierlichen Kode Integration und Deployment Prozess. <br>Erstellung der benötigten IT-Infrastruktur unter der Verfendung des AWS Cloud Dienstanbieters.",
+      "imageUrl": "/assets/images/docker-icon.svg"
     }
   ]
 }

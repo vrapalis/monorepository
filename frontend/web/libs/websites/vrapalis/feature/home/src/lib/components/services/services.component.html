@@ -1,12 +1,24 @@
-<div class="more-wrapper">
-  <article class="row justify-content-center align-items-center" *ngFor="let service of services; let i=index;">
-    <img #images class="more-image col-12 col-md-6" [class]="(i % 2 === 0 && !isMobile) ? 'order-0':'order-1'"
-         [src]="env.production === true ? '/monorepository'+service.imageUrl: service.imageUrl">
-    <section #sections class="more-section col-12 col-md-6 text-start animate__animated" [class]="{'order-1': (i % 2 === 0 && !isMobile),
+<div class="more-wrapper row justify-content-center">
+  <div class="col-8 text-center" #moreHeaders>
+    <h2 innerHTML="{{'services.header' | translate }}" class="vr-block-header vr-black"></h2>
+    <h3 innerHTML="{{'services.subHeader' | translate }}"
+        class="mt-5 mb-5 vr-block-sub-header vr-black fw-bold"></h3>
+  </div>
+  <ng-container *ngIf="services$ | async as services;">
+    <article #services class="row justify-content-center" *ngFor="let service of services; let i=index;">
+      <img class="more-image col-12 col-md-6" [class]="(i % 2 === 0 && !isMobile) ? 'order-0':'order-1'"
+           [src]="env.production === true ? '/monorepository'+service.imageUrl: service.imageUrl">
+      <section class="col-12 col-md-6 text-start" [class]="{'order-1': (i % 2 === 0 && !isMobile),
     'order-0': (i % 2 !== 0 && !isMobile), 'pl-5': (i % 2 !== 0 && !isMobile)}">
-      <h2 class="vr-section-header" [innerHTML]="service.title"></h2>
-      <h3 class="vr-section-sub-header" [innerHTML]="service.subTitle"></h3>
-      <p class="vr-section-text" [innerHTML]="service.text"></p>
-    </section>
-  </article>
+        <h2 class="vr-section-header vr-black" [innerHTML]="service.title"></h2>
+        <h3 class="vr-section-sub-header vr-black" [innerHTML]="service.subTitle"></h3>
+        <p class="vr-section-text" style="color: #000" [innerHTML]="service.text"></p>
+      </section>
+    </article>
+  </ng-container>
+
+  <div class="more-info" #info>
+    <h4 class="vr-block-sub-header" innerHTML="{{'info.header' | translate }}"></h4>
+    <a class="btn btn-more" routerLink="/about" innerHTML="{{'info.btnText' | translate }}"></a>
+  </div>
 </div>

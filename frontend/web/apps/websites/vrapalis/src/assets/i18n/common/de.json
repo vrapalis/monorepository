@@ -9,13 +9,10 @@
       "contact": "Kontakt"
     }
   },
-  "pages": {
-    "home": {
-      "header": "Auf der <strong class='str-bl'>Suche</strong> nach einem erfahrenen <strong class='str-bl'>Full-Stack Software-Entwickler</strong> ?",
-      "subheader": "Ich biete folgende Dienste an:<br>",
-      "text": "- <strong class='str-bl'>Backend</strong> Entwicklung mit <strong class='str-bl'>Java</strong> und <strong class='str-bl'>Relationale Datenbanken</strong><br> (Spring Boot Web/Data/Security, Postgres/MySQL)<div class='mt-3'>- <strong class='str-bl'>Frontend</strong> Entwicklung mit <strong class='str-bl'>JavaScript/TypeScript</strong><br> (Angular Material/PWA/Universal, Vuejs BootstrapVue, Html5/CSS3/Bootstrap5)</div><div class='mt-3'>- <strong class='str-bl'>DevOps</strong> (AWS EC2/RDS/VPC/S3, Kubernetes/Minikube, Docker, Jenkins)</div>",
-      "info": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec.",
-      "btn-more" : "Mehr Erfahren"
-    }
+  "footer": {
+    "title": "Interesse gewekt?",
+    "subTitle": "Vereinbaren sie ein Termin mit mir.",
+    "btnTitle": "Kontakt aufnehmen!",
+    "impressum": "Impressum - Datenschutzerklärung"
   }
 }

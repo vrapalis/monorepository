@@ -1,7 +1,7 @@
 import {AfterViewInit, Component, HostListener, Inject, PLATFORM_ID, Renderer2} from '@angular/core';
 import {isPlatformBrowser, isPlatformServer, DOCUMENT} from "@angular/common";
 import {BreakpointObserver} from "@angular/cdk/layout";
-import {TranslateService} from "@ngx-translate/core";
+import {LanguageService} from "@web/websites/vrapalis/utility";
 
 @Component({
   selector: 'web-vr-header-component',
@@ -14,7 +14,7 @@ export class WebsitesVrapalisHeaderComponent implements AfterViewInit {
   constructor(@Inject(PLATFORM_ID) private platformId: any,
               @Inject(DOCUMENT) private document: Document,
               private breakpointObserver: BreakpointObserver,
-              private translationService: TranslateService) {
+              private languageService: LanguageService) {
   }
 
   ngAfterViewInit(): void {
@@ -69,7 +69,7 @@ export class WebsitesVrapalisHeaderComponent implements AfterViewInit {
   openTranslationMenu() {
     const trElement = this.document.getElementById('translation-wr');
     const isToggle = trElement?.classList.toggle('dsp-block');
-    const currentLang = this.translationService.currentLang;
+    const currentLang = this.languageService.getCurrentLanguage();
 
     if (trElement && isToggle && currentLang) {
       trElement.childNodes.forEach((child) => {
@@ -87,7 +87,6 @@ export class WebsitesVrapalisHeaderComponent implements AfterViewInit {
 
   changeLanguage(language: string) {
     this.openTranslationMenu();
-    this.translationService.use(language).subscribe((_) => {
-    });
+    this.languageService.use(language);
   }
 }

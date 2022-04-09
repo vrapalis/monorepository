@@ -1,12 +1,11 @@
 import {
+  AfterViewChecked,
   AfterViewInit,
   Component, ElementRef,
   Inject,
-  Input,
-  OnDestroy, QueryList,
+  OnDestroy, OnInit, QueryList, ViewChild,
   ViewChildren,
 } from '@angular/core';
-import {IMore} from "@web/websites/vrapalis/model";
 import {BreakpointObserver} from "@angular/cdk/layout";
 import {Subject, takeUntil} from "rxjs";
 import {VR_ENV_IN_TOKEN} from "@web/websites/vrapalis/utility";
@@ -14,6 +13,7 @@ import {IBaseEnv} from "@web/websites/shared/model";
 import * as gsap from "gsap";
 import {ScrollTrigger} from "gsap/ScrollTrigger";
 import {DOCUMENT} from "@angular/common";
+import {TranslateService} from "@ngx-translate/core";
 
 @Component({
   selector: 'web-vr-more',
@@ -21,13 +21,15 @@ import {DOCUMENT} from "@angular/common";
   styleUrls: ['./services.component.scss']
 })
 export class ServicesComponent implements OnDestroy, AfterViewInit {
-  @Input() services = new Array<IMore>();
+  services$ = this.translate.get('services.services');
   isMobile = false;
   private destroyed$ = new Subject<void>();
-  @ViewChildren('sections') sectionList?: QueryList<ElementRef>;
-  @ViewChildren('images') imageList?: QueryList<ElementRef>;
+  @ViewChild('moreHeaders') headers?: ElementRef<HTMLDivElement>;
+  @ViewChild('info') info?: ElementRef<HTMLDivElement>;
+  @ViewChildren('services') servicesList?: QueryList<ElementRef>;
 
-  constructor(breakpointObserver: BreakpointObserver, @Inject(VR_ENV_IN_TOKEN) public env: IBaseEnv, @Inject(DOCUMENT) private doc: Document) {
+  constructor(breakpointObserver: BreakpointObserver, @Inject(VR_ENV_IN_TOKEN) public env: IBaseEnv,
+              @Inject(DOCUMENT) private doc: Document, public translate: TranslateService) {
     breakpointObserver.observe('(max-width: 900px)')
       .pipe(takeUntil(this.destroyed$))
       .subscribe(match => this.isMobile = match.matches);
@@ -36,55 +38,71 @@ export class ServicesComponent implements OnDestroy, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    this.imageList?.changes
+    const headersEl = this.headers?.nativeElement;
+    const infoEl = this.info?.nativeElement;
+    if (headersEl) {
+       gsap.gsap.from(headersEl, {
+        y: 25,
+        // opacity: 0,
+        duration: 1,
+        scrollTrigger: {
+          trigger: headersEl,
+          start: 'top 90%',
+          id: 'headers',
+          end: () => `+=${headersEl.offsetHeight}`,
+          // scrub: true,
+          // toggleActions: "restart reverse restart reverse",
+          toggleActions: "play none none reverse",
+        }
+      }); //.restart() restart
+    }
+
+    if (infoEl) {
+       gsap.gsap.from(infoEl, {
+        y: 25,
+        // opacity: 0,
+        duration: 1,
+        scrollTrigger: {
+          trigger: infoEl,
+          start: 'top 90%',
+          id: 'headers',
+          end: () => `+=${infoEl.offsetHeight}`,
+          // scrub: true,
+          // toggleActions: "restart reverse restart reverse",
+          toggleActions: "play none none reverse",
+        }
+      }); //.restart() restart
+    }
+
+    this.servicesList?.changes
       .pipe(
         takeUntil(this.destroyed$)
       )
       .subscribe(list => list._results.forEach((el: ElementRef, index: number) => {
         gsap.gsap.from(el.nativeElement, {
-          x: index % 2 === 0 ? -100 : 100,
-          duration: 1.5,
+          y: 25,
           opacity: 0,
+          duration: 1,
           scrollTrigger: {
             trigger: el.nativeElement,
-            start: 'top 75%',
+            start: 'top 90%',
             end: () => `+=${(el.nativeElement as HTMLElement).offsetHeight}`,
             // scrub: true,
             // toggleActions: "restart reverse restart reverse",
-            toggleActions: "play none none none",
+            toggleActions: "play none none reverse",
             // play pause resume reverse restart reset complete none
             // onEnter onLeave onEnterBack onLeaveBack
             // markers: true,
           }
         })
-      }))
-
-    this.sectionList?.changes
-      .pipe(
-        takeUntil(this.destroyed$)
-      )
-      .subscribe(list => list._results.forEach((el: ElementRef, index: number) => {
-        gsap.gsap.from(el.nativeElement, {
-          duration: 3,
-          opacity: 0,
-          scrollTrigger: {
-            trigger: el.nativeElement,
-            start: 'top 75%',
-            end: () => `+=${(el.nativeElement as HTMLElement).offsetHeight}`,
-            // scrub: true,
-            // toggleActions: "restart reverse restart reverse",
-            toggleActions: "play none none none",
-            // play pause resume reverse restart reset complete none
-            // onEnter onLeave onEnterBack onLeaveBack
-            // markers: true,
-          }
-        })
-      }))
-
+      }));
   }
 
   ngOnDestroy(): void {
     this.destroyed$.next();
     this.destroyed$.complete();
+    ScrollTrigger.getAll().forEach(scroll => {
+      scroll.kill();
+    });
   }
 }

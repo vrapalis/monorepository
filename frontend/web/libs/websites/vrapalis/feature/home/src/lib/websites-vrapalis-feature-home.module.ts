@@ -12,6 +12,7 @@ import {NgImageSliderModule} from "ng-image-slider";
 import {ServicesComponent} from './components/services/services.component';
 import {HttpClient} from "@angular/common/http";
 import {TranslateHttpLoader} from "@ngx-translate/http-loader";
+import {InfoComponent} from "./components/info/info.component";
 
 export const websitesVrapalisFeatureHomeRoutes: Route[] = [
   {path: '', component: WebsitesVrapalisFeatureHomeContainerComponent}
@@ -35,15 +36,15 @@ export function HttpLoaderFactory(http: HttpClient) {
         useFactory: HttpLoaderFactory,
         deps: [HttpClient]
       },
-      defaultLanguage: 'de',
-      extend: true
+      isolate: true,
     })
   ],
   declarations: [
     WebsitesVrapalisFeatureHomeContainerComponent,
     HomeComponentComponent,
     ProjectComponent,
-    ServicesComponent
+    ServicesComponent,
+    InfoComponent
   ]
 })
 export class WebsitesVrapalisFeatureHomeModule {
