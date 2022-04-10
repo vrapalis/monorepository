@@ -8,10 +8,11 @@ import {
   ViewEncapsulation
 } from '@angular/core';
 import {PdfViewerComponent} from "ng2-pdf-viewer";
-import {fromEvent, Observable, Subscription} from "rxjs";
+import {fromEvent, Observable, Subject, Subscription, takeUntil} from "rxjs";
 import {NgxSpinnerService} from "ngx-spinner";
 import {IBaseEnv} from "@web/websites/shared/model";
-import {VR_ENV_IN_TOKEN} from "@web/websites/vrapalis/utility";
+import {LanguageService, VR_ENV_IN_TOKEN} from "@web/websites/vrapalis/utility";
+import {TranslateService} from "@ngx-translate/core";
 
 @Component({
   selector: 'web-about',
@@ -41,21 +42,31 @@ import {VR_ENV_IN_TOKEN} from "@web/websites/vrapalis/utility";
   encapsulation: ViewEncapsulation.None
 })
 export class AboutComponent implements OnDestroy, AfterViewInit {
-  pdfName = "Vitali_Rapalis_CV.pdf";
-  pdfSrc = this.env.production === true ? `https://vrapalis.github.io/monorepository/assets/pdf/${this.pdfName}` :
-    `/assets/pdf/${this.pdfName}`;
+  pdfName = '';
+  pdfSrc = '';
   public pdfViewerHeight = 100;
   @ViewChild(PdfViewerComponent, {static: false})
   private pdfComponent?: PdfViewerComponent;
   private resizeObservable$?: Observable<Event>;
   private resizeSubscription$?: Subscription;
   pdfShow = false;
+  private unsubscribe$ = new Subject<void>();
 
-  constructor(@Inject(VR_ENV_IN_TOKEN) private env: IBaseEnv, private cd: ChangeDetectorRef, private spinner: NgxSpinnerService) {
+  constructor(@Inject(VR_ENV_IN_TOKEN) private env: IBaseEnv, private cd: ChangeDetectorRef,
+              private spinner: NgxSpinnerService, private languageService: LanguageService, private translate: TranslateService) {
+    languageService.lang$.pipe(takeUntil(this.unsubscribe$)).subscribe(lang => translate.use(lang));
+    languageService.setDefaultLanguage();
+    this.translate.get('pdf').pipe(takeUntil(this.unsubscribe$)).subscribe(pdf => {
+      this.pdfName = pdf;
+      this.pdfSrc = this.env.production === true ? `https://vrapalis.github.io/monorepository/assets/pdf/${this.pdfName}` :
+        `/assets/pdf/${this.pdfName}`;
+    });
   }
 
   public ngOnDestroy() {
     this.resizeSubscription$ && this.resizeSubscription$.unsubscribe();
+    this.unsubscribe$.next();
+    this.unsubscribe$.complete();
   }
 
   public pageRendered() {
