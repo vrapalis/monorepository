@@ -22,3 +22,10 @@ export interface IMore {
   readonly text: string;
   readonly imageUrl: string;
 }
+
+export interface IService {
+  readonly title: string;
+  readonly subTitle: string;
+  readonly text: string;
+  readonly imageUrl: string;
+}

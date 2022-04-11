@@ -32,7 +32,7 @@ import {Subject, takeUntil} from "rxjs";
       </p>
 
       <div class="home-services">
-        <web-vr-more></web-vr-more>
+        <web-vr-more [services$]="translation.get('services.services')"></web-vr-more>
       </div>
 
       <div class="home-info" *ngIf="false">
@@ -53,7 +53,7 @@ export class HomeComponentComponent implements AfterViewInit, OnDestroy {
   private unsubscribe$ = new Subject<void>();
 
   constructor(@Inject(VR_ENV_IN_TOKEN) private env: IBaseEnv, private languageService: LanguageService,
-              private translation: TranslateService) {
+              public translation: TranslateService) {
     languageService.lang$.pipe(takeUntil(this.unsubscribe$)).subscribe(lang => translation.use(lang));
     languageService.setDefaultLanguage();
     gsap.gsap.registerPlugin(ScrollTrigger);

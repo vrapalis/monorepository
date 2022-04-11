@@ -2,18 +2,19 @@ import {
   AfterViewChecked,
   AfterViewInit,
   Component, ElementRef,
-  Inject,
+  Inject, Input,
   OnDestroy, OnInit, QueryList, ViewChild,
   ViewChildren,
 } from '@angular/core';
 import {BreakpointObserver} from "@angular/cdk/layout";
-import {Subject, takeUntil} from "rxjs";
+import {Observable, Subject, takeUntil} from "rxjs";
 import {VR_ENV_IN_TOKEN} from "@web/websites/vrapalis/utility";
 import {IBaseEnv} from "@web/websites/shared/model";
 import * as gsap from "gsap";
 import {ScrollTrigger} from "gsap/ScrollTrigger";
 import {DOCUMENT} from "@angular/common";
 import {TranslateService} from "@ngx-translate/core";
+import {IService} from "@web/websites/vrapalis/model";
 
 @Component({
   selector: 'web-vr-more',
@@ -21,7 +22,7 @@ import {TranslateService} from "@ngx-translate/core";
   styleUrls: ['./services.component.scss']
 })
 export class ServicesComponent implements OnDestroy, AfterViewInit {
-  services$ = this.translate.get('services.services');
+  @Input() services$?: Observable<Array<IService>>;
   isMobile = false;
   private destroyed$ = new Subject<void>();
   @ViewChild('moreHeaders') headers?: ElementRef<HTMLDivElement>;
@@ -30,7 +31,7 @@ export class ServicesComponent implements OnDestroy, AfterViewInit {
 
   constructor(breakpointObserver: BreakpointObserver, @Inject(VR_ENV_IN_TOKEN) public env: IBaseEnv,
               @Inject(DOCUMENT) private doc: Document, public translate: TranslateService) {
-    breakpointObserver.observe('(max-width: 900px)')
+    breakpointObserver.observe('(max-width: 1200px)')
       .pipe(takeUntil(this.destroyed$))
       .subscribe(match => this.isMobile = match.matches);
 

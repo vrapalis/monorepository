@@ -235,8 +235,8 @@ header {
 
   .menu-open {
     height: 100vh;
-    background: linear-gradient(256.38deg, rgba(82,164,154,.9) -4.13%, rgba(27, 60, 135, .9) 86.92%), linear-gradient(85.34deg, rgba(10, 36, 99, .7) 8.02%, rgba(43, 10, 99, .7) 92.82%) !important;
     -webkit-backdrop-filter: blur(15px) !important;
+    background: linear-gradient(256.38deg, rgba(82, 164, 154, 0.9) -4.13%, rgb(61 67 80 / 90%) 86.92%), linear-gradient(85.34deg, rgba(10, 36, 99, 0.7) 8.02%, rgba(43, 10, 99, 0.7) 92.82%) !important;
     backdrop-filter: blur(15px) !important;
     transition: height 0.1s ease-in;
 

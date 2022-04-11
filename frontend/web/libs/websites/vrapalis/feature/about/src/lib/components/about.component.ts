@@ -31,7 +31,7 @@ import {TranslateService} from "@ngx-translate/core";
           ></pdf-viewer>
         </div>
 
-        <a [href]="pdfSrc" class="btn mt-5 btn-more" target="_blank"
+        <a [href]="pdfSrc" class="btn mt-xl-5 btn-more" target="_blank" style="float: right;"
            [download]="pdfName">
           Download
         </a>

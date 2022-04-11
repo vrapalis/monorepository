@@ -14,15 +14,15 @@ import {HttpClient} from "@angular/common/http";
 import {TranslateHttpLoader} from "@ngx-translate/http-loader";
 import {InfoComponent} from "./components/info/info.component";
 
-export const websitesVrapalisFeatureHomeRoutes: Route[] = [
-  {path: '', component: WebsitesVrapalisFeatureHomeContainerComponent}
-];
-
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
   //TODO BASE PATH
   return new TranslateHttpLoader(http, `./assets/i18n/home/`, '.json');
 }
+
+export const websitesVrapalisFeatureHomeRoutes: Route[] = [
+  {path: '', component: WebsitesVrapalisFeatureHomeContainerComponent}
+];
 
 @NgModule({
   imports: [

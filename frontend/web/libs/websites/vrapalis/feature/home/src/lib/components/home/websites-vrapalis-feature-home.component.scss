@@ -106,7 +106,7 @@
 
   .home-services {
     margin: 50px auto 0px auto;
-    padding: 100px 0px 130px 0px;
+    padding: 70px 0px 150px 0px;
     background: #e0dbd829;
   }
 
@@ -133,7 +133,8 @@
     }
 
     .home-header-text {
-      width: 100%;
+      width: 95%;
+      margin: 30px auto 20px auto;
     }
   }
 
@@ -152,6 +153,7 @@
 
           h1, strong {
             font-size: 28px !important;
+            line-height: 40px;
           }
         }
       }
@@ -178,7 +180,7 @@
 
           h1, strong {
             font-size: 22px !important;
-            line-height: 33px;
+            line-height: 35px;
           }
 
           h3 {
@@ -191,8 +193,6 @@
             max-width: unset;
             padding: 5px 10px;
             width: 60%;
-            background: none;
-            opacity: 0.9;
           }
         }
       }
@@ -220,6 +220,21 @@
 
         .more-section {
         }
+      }
+    }
+  }
+
+  @include maxLgScreen {
+    .home-header-text {
+      margin: 40px auto 50px auto;
+    }
+
+    .home-services {
+      padding: 50px 0px 100px 0px;
+      margin: 0px 0px 0px 0px;
+
+      .more-wrapper {
+
       }
     }
   }

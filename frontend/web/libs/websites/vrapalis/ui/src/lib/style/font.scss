@@ -1,8 +1,5 @@
 @import "vars";
-
-.bold {
-  font-weight: bolder;
-}
+@import "libs/shared/ui/src/lib/style/mixins";
 
 .vr-main-header {
   font-size: 26px;
@@ -27,12 +24,77 @@
 
 .vr-block-header {
   font-size: 30px !important;
-  line-height: 48px !important;
+  line-height: 46px !important;
 }
 
 .vr-block-sub-header {
   font-size: 24px !important;
   line-height: 36px !important;
+}
+
+@include maxTabletScreen {
+  .vr-main-header {
+    font-size: 22px;
+    line-height: 36px;
+  }
+
+  .vr-section-header {
+    font-size: 26px !important;
+    line-height: 28px !important;
+  }
+
+  .vr-section-sub-header {
+    font-size: 20px !important;
+    line-height: 30px !important;
+  }
+
+  .vr-section-text {
+    font-size: 18px !important;
+    line-height: 32px !important;
+  }
+
+  .vr-block-header {
+    font-size: 24px !important;
+    line-height: 38px !important;
+  }
+
+  .vr-block-sub-header {
+    font-size: 23px !important;
+    line-height: 36px !important;
+  }
+}
+
+
+@include maxXSmallScreen {
+  .vr-main-header {
+    font-size: 20px;
+    line-height: 32px;
+  }
+
+  .vr-section-header {
+    font-size: 21px !important;
+    line-height: 24px !important;
+  }
+
+  .vr-section-sub-header {
+    font-size: 19px !important;
+    line-height: 26px !important;
+  }
+
+  .vr-section-text {
+    font-size: 16px !important;
+    line-height: 26px !important;
+  }
+
+  .vr-block-header {
+    font-size: 22px !important;
+    line-height: 36px !important;
+  }
+
+  .vr-block-sub-header {
+    font-size: 19px !important;
+    line-height: 28px !important;
+  }
 }
 
 .vr-black {
@@ -41,4 +103,8 @@
 
 .vr-gray {
   color: $vr-gray !important;
+}
+
+.bold {
+  font-weight: bolder;
 }

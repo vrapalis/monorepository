@@ -3,13 +3,20 @@
 @import "libs/websites/vrapalis/ui/src/lib/style/style";
 
 .projects-wrapper {
-  display: flex;
-  justify-content: space-evenly;
-  flex-wrap: wrap;
-  position: relative;
-  max-width: $max-width-content;
-
   @extend %margin;
+  max-width: $max-width-content;
+  position: relative;
+
+  .projects-area {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+
+  }
+
+  .projects-frontend {
+    margin-top: 80px;
+  }
 
   @include maxMediumScreen {
   }
