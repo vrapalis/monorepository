@@ -1,0 +1,63 @@
+{
+  "projects": {
+    "title": "",
+    "backend": {
+      "title": "Backend Projekte",
+      "projects": [
+        {
+          "title": "Title 1",
+          "subTitle": "",
+          "text": "Text ...",
+          "btnTxt": "Go to project",
+          "link": "",
+          "img": ""
+        },
+        {
+          "title": "Title 2",
+          "subTitle": "",
+          "text": "Text ...",
+          "btnTxt": "Go to project",
+          "link": "",
+          "img": ""
+        },
+        {
+          "title": "Title 3",
+          "subTitle": "",
+          "text": "Text ...",
+          "btnTxt": "Go to project",
+          "link": "",
+          "img": ""
+        }
+      ]
+    },
+    "frontend": {
+      "title": "Frontend Projekte",
+      "projects": [
+        {
+          "title": "Title 1",
+          "subTitle": "",
+          "text": "Text ...",
+          "btnTxt": "Go to project",
+          "link": "",
+          "img": ""
+        },
+        {
+          "title": "Title 2",
+          "subTitle": "",
+          "text": "Text ...",
+          "btnTxt": "Go to project",
+          "link": "",
+          "img": ""
+        },
+        {
+          "title": "Title 3",
+          "subTitle": "",
+          "text": "Text ...",
+          "btnTxt": "Go to project",
+          "link": "",
+          "img": ""
+        }
+      ]
+    }
+  }
+}

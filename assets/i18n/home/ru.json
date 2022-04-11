@@ -4,24 +4,32 @@
   "text": "- <strong class='str-bl'>Backend</strong> разработку с <strong class='str-bl'>Java</strong> и <strong class='str-bl'>реляционные базы данных</strong><br> (Spring Boot Web/Data/Security, Postgres/MySQL)<br><br>- <strong class='str-bl'>Frontend</strong> разработку с <strong class='str-bl'>JavaScript/TypeScript</strong><br> (Angular Material/PWA/Universal, Vuejs BootstrapVue, Html5/CSS3/Bootstrap5)<br><br>- <strong class='str-bl'>DevOps</strong> (AWS EC2/RDS/VPC/S3, Kubernetes/Minikube, Docker, Jenkins)",
   "btn-more" : "Узнать больше",
   "headerText": "Современный процесс <span class='bold'>разработки программного обеспечения</span> сложен. При этом не следует упускать из виду самое существенное. Я помогу вам получить представление о различных <span class='bold'>архитектурах</span> программного обеспечения и существующих <span class='bold'>программных решениях</span>. Потому что, не стоит изобретать колесо снова.",
-  "services": [
-    {
-      "title": "Entwicklung des Backends.",
-      "subTitle": "Mehrjährige Erfahrung in der Entwicklung des Enterprise Backends in dem Java Umfeld.",
-      "text": "Erstellung microservice basierten Architektur auf der Grundlage des Spring Boot/Cloud Frameworks. <br>Aufsetzen von OAuth2 Flow in der microservice basierter Architektur, mit der Hilfe von Spring Security/Keycloak. <br>Integration und JUnit Testing der Erstellten Enheiten mit der Hilfe des Spring Boot Testing Module.",
-      "imageUrl": "/assets/images/spring-icon.svg"
-    },
-    {
-      "title": "Entwicklung des Frontends.",
-      "subTitle": "Mehrjährige Erfahrung in der Entwicklung des Enterprise Fronteds in dem JavaScript/TypeScript Umfeld.",
-      "text": "Erstellung der Enterprise Monolith/Microfrontends basierten Frontends auf der Grundlage des Angular/Vue Frameworks. <br> Erstellung des Corporate Designs und Einsatzt diesen und verschiedenen Libraries die den Entwicklungs-Prozess beschleunigen wie z.B Angular Material/Bootstrap. <br>E2E oder Junit testing, der Erstellten Oberflächen mit der Hilfe von Cypress/Jest.",
-      "imageUrl": "/assets/images/angular-icon.svg"
-    },
-    {
-      "title": "Entwicklung des CI/CD (DevOps).",
-      "subTitle": "Mehrjährige Erfahrung in der Entwicklung des CI/CD Pipelines unter der Verwendung des Jenkins/Docker/Gradle/Npm/Git Stacks.",
-      "text": "Konfiguration und Einstellung des CI/CD Pipelines, für den Kontinuierlichen Kode Integration und Deployment Prozess. <br>Erstellung der benötigten IT-Infrastruktur unter der Verfendung des AWS Cloud Dienstanbieters.",
-      "imageUrl": "/assets/images/docker-icon.svg"
-    }
-  ]
+  "services": {
+    "header": "Хотите <span class='bold vr-gray'>оцифровать</span> свои <span class='bold vr-gray'>бизнес-процессы</span> и адаптировать их под пожелания клиентов? <span class='bold vr-gray'>Со мной</span> вы получите компетентного и опытного разработчика программного обеспечения.",
+    "subHeader": "Я предоставляю следующие услуги:",
+    "services": [
+      {
+        "title": "Разработка бакенда.",
+        "subTitle": "Многолетний опыт разработки <span class='bold'>корпоративных бэкендов</span> в среде <span class='bold'>Java</span>.",
+        "text": "Создание <span class='bold'>микросервисной архитектуры</span> на базе <span class='bold'>Spring Boot/Cloud Framework</span>. Настройка аутентификации и авторизации <span class='bold'>OAuth2</span> в архитектуре на основе микросервисов с помощью <span class='bold'>Spring Security/Keycloak</span>. <span class='bold'>Интеграция</span> и <span class='bold'>JUnit-тестирование</span> созданных юнитов с помощью <span class='bold'>Spring Boot Testing</span> Module.",
+        "imageUrl": "/assets/images/spring-icon.svg"
+      },
+      {
+        "title": "Разработка фронтенда.",
+        "subTitle": "Многолетний опыт разработки <span class='bold'>Enterprise Fronteds</span> в среде <span class='bold'>JavaScript/TypeScript</span>.",
+        "text": "Создание фронтендов <span class='bold'>корпоративных</span> монолитов/микрофронтендов на базе <span class='bold'>Angular/Vue</span> Framework. Создание фирменного дизайна и использование этой и различных библиотек, ускоряющих процесс разработки, например Angular Material/Bootstrap.<span class='bold'>E2E</span> или <span class='bold'>Junit</span> Тестирование интерфейсов, с помощью <span class='bold'>Cypress/Jest</span>.",
+        "imageUrl": "/assets/images/angular-icon.svg"
+      },
+      {
+        "title": "Разработка CI/CD (DevOps).",
+        "subTitle": "Многолетний опыт разработки <span class='bold'>pipelines CI/CD</span> с использованием стека <span class='bold'>Jenkins/Docker/Gradle/Npm/Git</span>.",
+        "text": "<span class='bold'>Конфигурация</span> и <span class='bold'>настройка</span> конвейера <span class='bold'>CI/CD</span> для процесса непрерывной интеграции и развертывания кода. Создание необходимой ИТ-инфраструктуры с использованием поставщика облачных сервисов <span class='bold'>AWS</span>.",
+        "imageUrl": "/assets/images/docker-icon.svg"
+      }
+    ]
+  },
+  "info": {
+    "header": "<span class='vr-black fw-bold'>Хотите узнать больше обо мне?</span>",
+    "btnText": "Узнать здесь!"
+  }
 }

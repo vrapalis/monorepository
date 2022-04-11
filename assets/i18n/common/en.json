@@ -8,5 +8,11 @@
       "blog": "Blog",
       "contact": "Contact"
     }
+  },
+  "footer": {
+    "title": "Interest aroused?",
+    "subTitle": "Make an appointment with me.",
+    "btnTitle": "Make contact!",
+    "impressum": "Imprint - privacy policy"
   }
 }
