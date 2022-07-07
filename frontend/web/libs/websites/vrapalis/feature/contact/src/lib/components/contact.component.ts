@@ -8,7 +8,7 @@ import {Component} from '@angular/core';
 
       <p>
         Vitali Rapalis <br>
-        <strong>Email:</strong> vitali.rapalis@gmail.com <br>
+        <strong>Email:</strong> vitali.rapalis@googlemail.com <br>
         <strong>Mobile:</strong> +49 174 5215204 <br>
       </p>
     </section>
